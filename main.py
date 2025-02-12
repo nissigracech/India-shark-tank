@@ -15,45 +15,7 @@ df.head()
 #----------------------------------------------------------------------------------------------------
 
 #Title
-st.markdown("""
-    <style>
-        /* Sidebar background with sea blue gradient */
-        [data-testid="stSidebar"] {
-            background: linear-gradient(135deg, #003366, #005F73, #0A9396, #94D2BD) !important;
-            color: white;
-        }
-
-        /* Sidebar text styling */
-        [data-testid="stSidebar"] * {
-            color: white !important;
-            font-weight: bold;
-        }
-
-        /* Style input fields, dropdowns, sliders */
-        select, input, .stSlider, .stMultiSelect {
-            background-color: rgba(255, 255, 255) !important;
-            color: white !important;
-            border-radius: 8px;
-            padding: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        /* Primary button with a yellow accent */
-        button {
-            background-color: #F4A261 !important;  /* Warm yellow-orange */
-            color: white !important;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-
-        /* Hover effect for buttons */
-        button:hover {
-            background-color: #E76F51 !important; /* Slightly deeper shade */
-        }
-
-    </style>
-""", unsafe_allow_html=True)
-
+ 
 
 names = ['ashneer_deal', 'anupam_deal', 'aman_deal', 'namita_deal', 'vineeta_deal', 'peyush_deal', 'ghazal_deal']
 #----------------------------------------------------------------------------------------------------
