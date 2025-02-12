@@ -13,22 +13,34 @@ df.head()
 
 #----------------------------------------------------------------------------------------------------
 
-#Title
+import streamlit as st
+
 st.markdown("""
     <style>
-        /* Sidebar background with sea blue gradient */
-        [data-testid="stSidebar"] {
+        /* Full page background with a sea blue gradient */
+        body {
             background: linear-gradient(135deg, #003366, #005F73, #0A9396, #94D2BD) !important;
+            color: white !important;
+        }
+
+        /* Sidebar background */
+        [data-testid="stSidebar"] {
+            background: linear-gradient(135deg, #002244, #003366, #005F73) !important;
             color: white;
         }
 
-        /* Sidebar text styling */
+        /* Sidebar text */
         [data-testid="stSidebar"] * {
             color: white !important;
             font-weight: bold;
         }
 
-        /* Style input fields, dropdowns, sliders */
+        /* Main content text */
+        .stApp {
+            color: white !important;
+        }
+
+        /* Input fields, dropdowns, sliders */
         select, input, .stSlider, .stMultiSelect {
             background-color: rgba(255, 255, 255, 0.15) !important;
             color: white !important;
@@ -37,9 +49,9 @@ st.markdown("""
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Primary button with a yellow accent */
+        /* Buttons with a yellow accent */
         button {
-            background-color: #F4A261 !important;  /* Warm yellow-orange */
+            background-color: #F4A261 !important; /* Warm yellow */
             color: white !important;
             border-radius: 8px;
             font-weight: bold;
@@ -47,11 +59,25 @@ st.markdown("""
 
         /* Hover effect for buttons */
         button:hover {
-            background-color: #E76F51 !important; /* Slightly deeper shade */
+            background-color: #E76F51 !important;
+        }
+
+        /* Titles and headings */
+        h1, h2, h3, h4 {
+            color: #FFD166 !important; /* Soft yellow for contrast */
+            font-weight: bold;
+        }
+
+        /* Customize radio buttons and checkboxes */
+        [role="radiogroup"], [role="checkbox"] {
+            color: #FFD166 !important;
         }
 
     </style>
 """, unsafe_allow_html=True)
+
+st.title("🌊 Sea Blue & Yellow Themed Streamlit App")
+st.write("Enjoy a fresh blue-themed UI with yellow accents! 🚀")
 
 
 names = ['ashneer_deal', 'anupam_deal', 'aman_deal', 'namita_deal', 'vineeta_deal', 'peyush_deal', 'ghazal_deal']
