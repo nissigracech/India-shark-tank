@@ -17,15 +17,16 @@ import streamlit as st
 
 st.markdown("""
     <style>
-        /* Full page background with a sea blue gradient */
+        /* Set full-page background image */
         body {
-            background: linear-gradient(135deg, #003366, #005F73, #0A9396, #94D2BD) !important;
+            background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fecell.iitm.ac.in%2Fblog%2Fpost%2Fabove-the-fold-failing-forward-on-the-shark-tank-stage&psig=AOvVaw1zYBBTrcFMz4Bxpp2SmjXM&ust=1739459006623000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCOCVquq3vosDFQAAAAAdAAAAABAE') no-repeat center center fixed; 
+            background-size: cover;
             color: white !important;
         }
 
-        /* Sidebar background */
+        /* Sidebar styling */
         [data-testid="stSidebar"] {
-            background: linear-gradient(135deg, #002244, #003366, #005F73) !important;
+            background: rgba(0, 51, 102, 0.8) !important; /* Dark blue transparent */
             color: white;
         }
 
@@ -38,18 +39,19 @@ st.markdown("""
         /* Main content text */
         .stApp {
             color: white !important;
+            font-weight: bold;
         }
 
         /* Input fields, dropdowns, sliders */
         select, input, .stSlider, .stMultiSelect {
-            background-color: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.2) !important;
             color: white !important;
             border-radius: 8px;
             padding: 8px;
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Buttons with a yellow accent */
+        /* Buttons */
         button {
             background-color: #F4A261 !important; /* Warm yellow */
             color: white !important;
@@ -57,27 +59,22 @@ st.markdown("""
             font-weight: bold;
         }
 
-        /* Hover effect for buttons */
+        /* Hover effect */
         button:hover {
             background-color: #E76F51 !important;
         }
 
-        /* Titles and headings */
+        /* Headings in yellow */
         h1, h2, h3, h4 {
-            color: #FFD166 !important; /* Soft yellow for contrast */
-            font-weight: bold;
-        }
-
-        /* Customize radio buttons and checkboxes */
-        [role="radiogroup"], [role="checkbox"] {
             color: #FFD166 !important;
+            font-weight: bold;
         }
 
     </style>
 """, unsafe_allow_html=True)
 
-st.title("🌊 Sea Blue & Yellow Themed Streamlit App")
-st.write("Enjoy a fresh blue-themed UI with yellow accents! 🚀")
+st.title("🌊 Sea-Themed Streamlit App with Background Image")
+st.write("This app has a **stable background image** with an ocean theme! 🚀")
 
 
 names = ['ashneer_deal', 'anupam_deal', 'aman_deal', 'namita_deal', 'vineeta_deal', 'peyush_deal', 'ghazal_deal']
