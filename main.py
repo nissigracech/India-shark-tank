@@ -25,6 +25,12 @@ names = ['ashneer_deal', 'anupam_deal', 'aman_deal', 'namita_deal', 'vineeta_dea
 shark_names = ['ALL'] + [name.replace('_deal', '') for name in names]
 selected_shark = st.sidebar.selectbox("Select a shark for Scorecard", shark_names)
 
+shark_selection = st.sidebar.selectbox(
+    "Select a Shark for individual Visualization", 
+    ["Ashneer", "Anupam", "Aman", "Namita", "Vineeta", "Peyush", "Ghazal"], 
+    index=0  # Default to Ashneer
+)
+
 # Calculate total investment for the selected shark or all sharks
 if selected_shark == 'ALL':
     total_inv = (df[names].multiply(df['deal_amount'], axis=0)).sum(axis=0)
@@ -248,25 +254,15 @@ with col6[0]:
     st.plotly_chart(fig)
 
 #----------------------------------------------------------------------------------------------------
-# Shark names and mappings
-# Sidebar for shark selection
-# def top_brands_per_shark(shark_column, amount_column):
-#     shark_investments = df[df[shark_column] > 0][['brand_name', amount_column]]
-#     top_brands = shark_investments.sort_values(by=amount_column, ascending=False).head(5)
-#     return top_brands
+
 
 df['metric'] = (df['deal_amount'] * df['deal_equity']) / (df['total_sharks_invested']*100)
 def top_brands_per_shark(shark_column, amount_column): 
     shark_investments = df[df[shark_column] > 0][['brand_name', 'metric']] 
     top_brands = shark_investments.sort_values(by='metric', ascending=False).head(5)
     return top_brands 
+ 
 
-# st.sidebar.header("Select Shark for Visualization")
-shark_selection = st.sidebar.selectbox(
-    "Select a Shark for individual Visualization", 
-    ["Ashneer", "Anupam", "Aman", "Namita", "Vineeta", "Peyush", "Ghazal"], 
-    index=0  # Default to Ashneer
-)
 
 # Shark-deal mapping
 sharks = {
