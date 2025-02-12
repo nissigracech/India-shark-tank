@@ -256,7 +256,7 @@ with col6[0]:
     st.plotly_chart(fig)
 
 #----------------------------------------------------------------------------------------------------
-
+st.markdown("---")
 
 df['metric'] = (df['deal_amount'] * df['deal_equity']) / (df['total_sharks_invested']*100)
 def top_brands_per_shark(shark_column, amount_column): 
