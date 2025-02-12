@@ -4,7 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
-import plotly.graph_objects as go
+import plotly.graph_objects as go 
+import base64
 
 st.set_page_config(layout="wide")
 
@@ -12,69 +13,81 @@ df = pd.read_csv("Shark Tank India Dataset.csv")
 df.head()
 
 #----------------------------------------------------------------------------------------------------
+ 
 
-import streamlit as st
+# Function to load and encode the image
+def get_base64_of_image(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
 
-st.markdown("""
+# Set your image file path (Ensure the image is in the same directory or provide the full path)
+image_path = "background.jpg"  # Replace with your actual image file name
+
+# Convert the image to base64
+base64_image = get_base64_of_image(image_path)
+
+# Inject CSS for background
+st.markdown(f"""
     <style>
         /* Set full-page background image */
-        body {
-            background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fecell.iitm.ac.in%2Fblog%2Fpost%2Fabove-the-fold-failing-forward-on-the-shark-tank-stage&psig=AOvVaw1zYBBTrcFMz4Bxpp2SmjXM&ust=1739459006623000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCOCVquq3vosDFQAAAAAdAAAAABAE') no-repeat center center fixed; 
+        body {{
+            background: url("data:image/jpg;base64,{base64_image}") no-repeat center center fixed;
             background-size: cover;
             color: white !important;
-        }
+        }}
 
         /* Sidebar styling */
-        [data-testid="stSidebar"] {
-            background: rgba(0, 51, 102, 0.8) !important; /* Dark blue transparent */
+        [data-testid="stSidebar"] {{
+            background: rgba(0, 51, 102, 0.8) !important;
             color: white;
-        }
+        }}
 
         /* Sidebar text */
-        [data-testid="stSidebar"] * {
+        [data-testid="stSidebar"] * {{
             color: white !important;
             font-weight: bold;
-        }
+        }}
 
         /* Main content text */
-        .stApp {
+        .stApp {{
             color: white !important;
             font-weight: bold;
-        }
+        }}
 
         /* Input fields, dropdowns, sliders */
-        select, input, .stSlider, .stMultiSelect {
+        select, input, .stSlider, .stMultiSelect {{
             background-color: rgba(255, 255, 255, 0.2) !important;
             color: white !important;
             border-radius: 8px;
             padding: 8px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-        }
+        }}
 
         /* Buttons */
-        button {
+        button {{
             background-color: #F4A261 !important; /* Warm yellow */
             color: white !important;
             border-radius: 8px;
             font-weight: bold;
-        }
+        }}
 
         /* Hover effect */
-        button:hover {
+        button:hover {{
             background-color: #E76F51 !important;
-        }
+        }}
 
         /* Headings in yellow */
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4 {{
             color: #FFD166 !important;
             font-weight: bold;
-        }
+        }}
 
     </style>
 """, unsafe_allow_html=True)
 
-st.title("🌊 Sea-Themed Streamlit App with Background Image")
-st.write("This app has a **stable background image** with an ocean theme! 🚀")
+st.title("🌊 Streamlit App with Local Background Image")
+st.write("This app uses a **local image** as the background. 🚀")
+
 
 
 names = ['ashneer_deal', 'anupam_deal', 'aman_deal', 'namita_deal', 'vineeta_deal', 'peyush_deal', 'ghazal_deal']
