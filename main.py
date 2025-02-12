@@ -14,79 +14,38 @@ df.head()
 
 #----------------------------------------------------------------------------------------------------
  
+import os
 
-# Function to load and encode the image
-def get_base64_of_image(image_path):
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode()
+# Define the image file name (update path if needed)
+image_path = "background.jpg"  # Ensure this exists in your working directory
 
-# Set your image file path (Ensure the image is in the same directory or provide the full path)
-image_path = "background.jpg"  # Replace with your actual image file name
+# Check if the image exists
+if not os.path.exists(image_path):
+    st.error(f"❌ Background image '{image_path}' not found! Please check the file path.")
+else:
+    # Function to encode the image to base64
+    def get_base64_of_image(image_path):
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
 
-# Convert the image to base64
-base64_image = get_base64_of_image(image_path)
+    # Encode the image
+    base64_image = get_base64_of_image(image_path)
 
-# Inject CSS for background
-st.markdown(f"""
-    <style>
-        /* Set full-page background image */
-        body {{
-            background: url("data:image/jpg;base64,{base64_image}") no-repeat center center fixed;
-            background-size: cover;
-            color: white !important;
-        }}
+    # Apply the image as a full-page background
+    st.markdown(f"""
+        <style>
+            body {{
+                background: url("data:image/jpg;base64,{base64_image}") no-repeat center center fixed;
+                background-size: cover;
+            }}
+        </style>
+    """, unsafe_allow_html=True)
 
-        /* Sidebar styling */
-        [data-testid="stSidebar"] {{
-            background: rgba(0, 51, 102, 0.8) !important;
-            color: white;
-        }}
+    st.success("✅ Background image applied successfully!")
 
-        /* Sidebar text */
-        [data-testid="stSidebar"] * {{
-            color: white !important;
-            font-weight: bold;
-        }}
-
-        /* Main content text */
-        .stApp {{
-            color: white !important;
-            font-weight: bold;
-        }}
-
-        /* Input fields, dropdowns, sliders */
-        select, input, .stSlider, .stMultiSelect {{
-            background-color: rgba(255, 255, 255, 0.2) !important;
-            color: white !important;
-            border-radius: 8px;
-            padding: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }}
-
-        /* Buttons */
-        button {{
-            background-color: #F4A261 !important; /* Warm yellow */
-            color: white !important;
-            border-radius: 8px;
-            font-weight: bold;
-        }}
-
-        /* Hover effect */
-        button:hover {{
-            background-color: #E76F51 !important;
-        }}
-
-        /* Headings in yellow */
-        h1, h2, h3, h4 {{
-            color: #FFD166 !important;
-            font-weight: bold;
-        }}
-
-    </style>
-""", unsafe_allow_html=True)
-
+# Streamlit App Content
 st.title("🌊 Streamlit App with Local Background Image")
-st.write("This app uses a **local image** as the background. 🚀")
+st.write("This app applies a **local image** as the background. 🚀")
 
 
 
