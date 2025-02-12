@@ -413,51 +413,7 @@ with col2:
     # Display the table with background color gradient for better readability
     st.subheader("Shark Participation and Deal Summary")
     st.dataframe(sharks_summary.style.background_gradient(cmap='Blues', axis=0), use_container_width=True)# Neetu Kumari:
-# Episode wise deal amount and count of deal # Line plot
+
 
 #-----------------------------------------------------------------------------------------------------
-
-# List of shark columns (each representing a shark's deal)
-st.markdown(
-    "<h3 style='text-align: center; color: #4CAF50;'>Average Equity Per Shark</h3>",
-    unsafe_allow_html=True
-)
-
-shark_columns = ['ashneer_deal', 'anupam_deal', 'aman_deal', 'namita_deal', 'vineeta_deal', 'peyush_deal', 'ghazal_deal']
-equity_column = 'equity_per_shark'
-
-# Calculate Total and Average Equity per Shark
-equity_data = {}
-for shark in shark_columns:
-    # Get the equity for the shark where their deal is 1 (participated in the deal)
-    shark_equity = df[df[shark] == 1][equity_column]
-    
-    # Store the total and average equity for the shark
-    equity_data[shark.split('_')[0].capitalize()] = {
-        'Total Equity': shark_equity.sum(),
-        'Average Equity': shark_equity.mean()
-    }
-
-# Convert dictionary to DataFrame for easy table and plotting
-equity_df = pd.DataFrame(equity_data).T.reset_index()
-equity_df.columns = ['Shark', 'Total Equity', 'Average Equity']
-
  
-# Plot an interactive bar chart for Average Equity with a different single color
-fig_average_equity = px.bar(
-    equity_df,
-    x='Shark',
-    y='Average Equity',
-    #title="Average Equity per Shark",
-    labels={'Average Equity': 'Average Equity (%)'},
-    hover_data={'Average Equity': ':.2f'},
-    color_discrete_sequence=['Orange'] 
-)
-
-# Display the total equity chart
-# st.plotly_chart(fig_total_equity)
-
-# Display the average equity chart
-st.plotly_chart(fig_average_equity)
-
-
