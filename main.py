@@ -161,8 +161,10 @@ with col4:
 with col5:
     st.markdown(scorecard_hhht, unsafe_allow_html=True)
 
-#----------------------------------------------------------------------------------------------------
+#score card end
 
+#----------------------------------------------------------------------------------------------------
+st.markdown("---")
 # How much each shark's invested with the count of deal
 
 shark_investment = {}
