@@ -13,40 +13,46 @@ df = pd.read_csv("Shark Tank India Dataset.csv")
 df.head()
 
 #----------------------------------------------------------------------------------------------------
- 
-import os
 
-# Define the image file name (update path if needed)
-image_path = "background.jpg"  # Ensure this exists in your working directory
+#Title
+st.markdown("""
+    <style>
+        /* Sidebar background with sea blue gradient */
+        [data-testid="stSidebar"] {
+            background: linear-gradient(135deg, #003366, #005F73, #0A9396, #94D2BD) !important;
+            color: white;
+        }
 
-# Check if the image exists
-if not os.path.exists(image_path):
-    st.error(f"❌ Background image '{image_path}' not found! Please check the file path.")
-else:
-    # Function to encode the image to base64
-    def get_base64_of_image(image_path):
-        with open(image_path, "rb") as img_file:
-            return base64.b64encode(img_file.read()).decode()
+        /* Sidebar text styling */
+        [data-testid="stSidebar"] * {
+            color: white !important;
+            font-weight: bold;
+        }
 
-    # Encode the image
-    base64_image = get_base64_of_image(image_path)
+        /* Style input fields, dropdowns, sliders */
+        select, input, .stSlider, .stMultiSelect {
+            background-color: rgba(255, 255, 255) !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
 
-    # Apply the image as a full-page background
-    st.markdown(f"""
-        <style>
-            body {{
-                background: url("data:image/jpg;base64,{base64_image}") no-repeat center center fixed;
-                background-size: cover;
-            }}
-        </style>
-    """, unsafe_allow_html=True)
+        /* Primary button with a yellow accent */
+        button {
+            background-color: #F4A261 !important;  /* Warm yellow-orange */
+            color: white !important;
+            border-radius: 8px;
+            font-weight: bold;
+        }
 
-    st.success("✅ Background image applied successfully!")
+        /* Hover effect for buttons */
+        button:hover {
+            background-color: #E76F51 !important; /* Slightly deeper shade */
+        }
 
-# Streamlit App Content
-st.title("🌊 Streamlit App with Local Background Image")
-st.write("This app applies a **local image** as the background. 🚀")
-
+    </style>
+""", unsafe_allow_html=True)
 
 
 names = ['ashneer_deal', 'anupam_deal', 'aman_deal', 'namita_deal', 'vineeta_deal', 'peyush_deal', 'ghazal_deal']
