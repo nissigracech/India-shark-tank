@@ -13,6 +13,35 @@ st.markdown("""
         }
     </style>
     <h1 class="title">Shark Tank India EDA Dashboard</h1>
+        /* Apply a darker blue gradient background to the sidebar */
+        [data-testid="stSidebar"] {
+        background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
+color: white;
+        }
+
+        /* Ensure sidebar text remains visible */
+        [data-testid="stSidebar"] * {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        /* Style dropdowns, sliders, and input boxes */
+        select, input, .stSlider, .stMultiSelect {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Style buttons */
+        button {
+            background-color: #00509E !important;
+            color: white !important;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
 """, unsafe_allow_html=True)
 
 
