@@ -27,37 +27,42 @@ st.markdown("""
             font-weight: bold;
         }
 
-        /* Button styling */
+        /* Centered button container */
         .button-container {
             display: flex;
-            justify-content: center; /* Center the buttons */
+            justify-content: center;
             gap: 15px;  /* Reduce space between buttons */
             margin-top: 10px;
         }
 
-        .button-container button {
+        /* Styled buttons */
+        .custom-button {
             font-weight: bold;
             font-size: 16px;
             padding: 10px 20px;
             border-radius: 8px;
             border: 2px solid #FFD700;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
         }
 
         /* Season 1 Button - Filled Yellow */
-        .button-container button:nth-child(1) {
+        .season1 {
             background-color: #FFD700 !important;
             color: black !important;
         }
 
         /* Season 2 Button - Blue Outline */
-        .button-container button:nth-child(2) {
+        .season2 {
             background-color: transparent !important;
             color: #00A8E8 !important;
             border: 2px solid #00A8E8 !important;
         }
 
         /* Season 3 Button - White Outline */
-        .button-container button:nth-child(3) {
+        .season3 {
             background-color: transparent !important;
             color: white !important;
             border: 2px solid white !important;
@@ -68,26 +73,18 @@ st.markdown("""
 # Title
 st.markdown('<h1 class="title">Season Stats</h1>', unsafe_allow_html=True)
 
-# Create buttons using markdown for alignment
-st.markdown(
-    """
+# Creating a horizontal button layout using markdown
+st.markdown("""
     <div class="button-container">
-        <form action="" method="get">
-            <input type="submit" name="season" value="Season 1">
-            <input type="submit" name="season" value="Season 2">
-            <input type="submit" name="season" value="Season 3">
-        </form>
+        <a href="?season=1" class="custom-button season1">Season 1</a>
+        <a href="?season=2" class="custom-button season2">Season 2</a>
+        <a href="?season=3" class="custom-button season3">Season 3</a>
     </div>
-    """, unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
-# Handle button clicks using the updated method
+# Handling button clicks
 query_params = st.query_params
-season_selected = query_params.get("season", None)
+selected_season = query_params.get("season", None)
 
-if season_selected == "Season 1":
-    st.write("Season 1 Analysis!")
-elif season_selected == "Season 2":
-    st.write("Season 2 Analysis!")
-elif season_selected == "Season 3":
-    st.write("Season 3 Analysis!")
+if selected_season:
+    st.write(f"### Season {selected_season} Analysis!")
