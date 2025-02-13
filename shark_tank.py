@@ -27,16 +27,9 @@ st.markdown("""
             font-weight: bold;
         }
 
-        /* Centered button container */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;  /* Reduced space between buttons */
-            margin-top: 10px;
-        }
-
-        /* Styled buttons */
+        /* Button styling */
         .custom-button {
+            width: 200px;
             font-weight: bold;
             font-size: 16px;
             padding: 10px 20px;
@@ -44,7 +37,8 @@ st.markdown("""
             border: 2px solid transparent;
             cursor: pointer;
             text-align: center;
-            display: inline-block;
+            display: block;
+            margin: 10px auto; /* Centers buttons inside column */
         }
 
         /* Season 1 Button - Filled Yellow */
@@ -73,21 +67,17 @@ st.markdown("""
 # Title
 st.markdown('<h1 class="title">Season Stats</h1>', unsafe_allow_html=True)
 
-# Creating a horizontal button layout
-st.markdown('<div class="button-container">', unsafe_allow_html=True)
+# Create 3 columns (Left empty, Center with buttons, Right empty)
+col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
 
-col1, col2, col3 = st.columns([1, 1, 1])
-
-with col1:
-    season1 = st.button("Season 1", key="s1")
 with col2:
-    season2 = st.button("Season 2", key="s2")
+    st.markdown('<div style="text-align: center;">', unsafe_allow_html=True)
+
     season1 = st.button("Season 1", key="s1")
-    season3 = st.button("Season 3", key="s3")
-with col3:
+    season2 = st.button("Season 2", key="s2")
     season3 = st.button("Season 3", key="s3")
 
-st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # Handling button clicks
 if season1:
