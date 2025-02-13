@@ -14,10 +14,6 @@ df = load_data()
 # Streamlit Page Config
 st.set_page_config(page_title="Shark Tank India Dashboard", layout="wide")
 
-
-season = st.sidebar.selectbox('Select season', ['Season 2', 'Season 1'])
-
-
 # Custom Sidebar Styling
 st.markdown(
     """
@@ -41,6 +37,20 @@ col1, col2, col3 = st.columns(3)
 col1.metric("Total Pitches", len(df))
 col2.metric("Total Deals", df['deal'].sum())
 col3.metric("Success Rate", f"{(df['deal'].sum() / len(df) * 100):.2f}%")
+
+# Buttons to Show Different Texts
+if "message" not in st.session_state:
+    st.session_state.message = "Click a button to see a change!"
+
+col1, col2, col3 = st.columns(3)
+if col1.button("Show Investment Insights"):
+    st.session_state.message = "Investment Insights: Most deals are in the 0-50 lakh range!"
+if col2.button("Show Top Investors"):
+    st.session_state.message = "Top Investors: Aman and Peyush have invested in the most deals!"
+if col3.button("Show Success Rate"):
+    st.session_state.message = f"Success Rate: {(df['deal'].sum() / len(df) * 100):.2f}% of pitches received funding!"
+
+st.subheader(st.session_state.message)
 
 # Funding Amount Distribution
 st.subheader("💰 Investment Distribution")
