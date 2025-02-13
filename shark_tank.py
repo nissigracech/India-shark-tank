@@ -27,65 +27,65 @@ st.markdown("""
             font-weight: bold;
         }
 
-        /* Style buttons */
-        .stButton>button {
-            border-radius: 8px;
+        /* Button styling */
+        .button-container {
+            display: flex;
+            justify-content: center; /* Center the buttons */
+            gap: 15px;  /* Reduce space between buttons */
+            margin-top: 10px;
+        }
+
+        .button-container button {
             font-weight: bold;
             font-size: 16px;
-            padding: 8px 16px;
+            padding: 10px 20px;
+            border-radius: 8px;
             border: 2px solid #FFD700;
         }
 
         /* Season 1 Button - Filled Yellow */
-        .stButton>button:first-child {
+        .button-container button:nth-child(1) {
             background-color: #FFD700 !important;
             color: black !important;
         }
 
         /* Season 2 Button - Blue Outline */
-        .stButton>button:nth-child(2) {
+        .button-container button:nth-child(2) {
             background-color: transparent !important;
             color: #00A8E8 !important;
             border: 2px solid #00A8E8 !important;
         }
 
         /* Season 3 Button - White Outline */
-        .stButton>button:last-child {
+        .button-container button:nth-child(3) {
             background-color: transparent !important;
             color: white !important;
             border: 2px solid white !important;
         }
-
-        /* Center buttons closely together */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;  /* Reduce space between buttons */
-            margin-top: 10px;
-        }
-
     </style>
 """, unsafe_allow_html=True)
 
 # Title
 st.markdown('<h1 class="title">Season Stats</h1>', unsafe_allow_html=True)
 
-# Button Container - Using Streamlit for interactivity but styling via CSS
-st.markdown('<div class="button-container">', unsafe_allow_html=True)
+# Create buttons using markdown for alignment
+st.markdown(
+    """
+    <div class="button-container">
+        <form action="" method="get">
+            <input type="submit" name="season1" value="Season 1">
+            <input type="submit" name="season2" value="Season 2">
+            <input type="submit" name="season3" value="Season 3">
+        </form>
+    </div>
+    """, unsafe_allow_html=True
+)
 
-col1, col2, col3 = st.columns([1,1,1])  # Equal spacing for buttons
-
-with col1:
-    if st.button("Season 1", key="s1"):
-        st.write("Season 1 Analysis!")
-
-with col2:
-    if st.button("Season 2", key="s2"):
-        st.write("Season 2 Analysis!")
-
-with col3:
-    if st.button("Season 3", key="s3"):
-        st.write("Season 3 Analysis!")
-
-st.markdown('</div>', unsafe_allow_html=True)
+# Handle button clicks
+query_params = st.experimental_get_query_params()
+if "season1" in query_params:
+    st.write("Season 1 Analysis!")
+elif "season2" in query_params:
+    st.write("Season 2 Analysis!")
+elif "season3" in query_params:
+    st.write("Season 3 Analysis!")
