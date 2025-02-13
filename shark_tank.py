@@ -3,7 +3,7 @@ import streamlit as st
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 
-# Centered bold title
+# Apply custom CSS styles
 st.markdown("""
     <style>
         /* Centered bold title */
@@ -41,32 +41,39 @@ st.markdown("""
             border-radius: 8px;
             font-weight: bold;
             padding: 10px 20px;
-            margin: 10px;
+            margin: 5px; /* Reduced margin */
         }
 
-        /* Center the buttons */
+        /* Center the buttons in a row with minimal spacing */
         .button-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            align-items: center;
+            gap: 10px; /* Reduced gap for minimal spacing */
             margin-top: 20px;
         }
 
     </style>
 """, unsafe_allow_html=True)
 
+# Title
+st.markdown('<h1 class="title">Shark Tank India EDA Dashboard</h1>', unsafe_allow_html=True)
 
-# Create three buttons below the title
-col1, col2, col3 = st.columns(3)
+# Button container
+st.markdown('<div class="button-container">', unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns([0.2, 0.2, 0.2])  # Smaller column width to bring buttons closer
 
 with col1:
-    if st.button("Season 1"):
-        st.write("season 1 analysis!")
+    if st.button("Season 1", key="season1"):
+        st.write("Season 1 analysis!")
 
 with col2:
-    if st.button("Season 2"):
-        st.write("season 2 analysis Analysis!")
+    if st.button("Season 2", key="season2"):
+        st.write("Season 2 analysis!")
 
 with col3:
-    if st.button("Season 3"):
-        st.write("season 3 analysis")
+    if st.button("Season 3", key="season3"):
+        st.write("Season 3 analysis!")
+
+st.markdown('</div>', unsafe_allow_html=True)
