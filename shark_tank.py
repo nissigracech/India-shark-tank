@@ -50,7 +50,7 @@ st.markdown("""
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;  /* REDUCE SPACE BETWEEN BUTTONS */
+            gap: 0px;  /* REDUCE SPACE BETWEEN BUTTONS */
             margin-top: 20px;
         }
 
