@@ -6,21 +6,20 @@ st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 # Centered bold title
 st.markdown("""
     <style>
+        /* Centered bold title */
         .title {
             text-align: center;
             font-weight: bold;
             font-size: 2em;
         }
-    
-    <h1 class="title">Shark Tank India EDA Dashboard</h1>
-
-        /* Apply a darker blue gradient background to the sidebar */
+        
+        /* Sidebar background gradient */
         [data-testid="stSidebar"] {
-        background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
-color: white;
+            background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
+            color: white;
         }
 
-        /* Ensure sidebar text remains visible */
+        /* Sidebar text styling */
         [data-testid="stSidebar"] * {
             color: white !important;
             font-weight: bold;
@@ -36,13 +35,24 @@ color: white;
         }
 
         /* Style buttons */
-        button {
+        .stButton>button {
             background-color: #00509E !important;
             color: white !important;
             border-radius: 8px;
             font-weight: bold;
+            padding: 10px 20px;
+            margin: 10px;
         }
-</style>
+
+        /* Center the buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+    </style>
 """, unsafe_allow_html=True)
 
 
