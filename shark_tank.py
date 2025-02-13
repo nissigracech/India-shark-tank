@@ -82,6 +82,8 @@ with col1:
     season1 = st.button("Season 1", key="s1")
 with col2:
     season2 = st.button("Season 2", key="s2")
+    season1 = st.button("Season 1", key="s1")
+    season3 = st.button("Season 3", key="s3")
 with col3:
     season3 = st.button("Season 3", key="s3")
 
