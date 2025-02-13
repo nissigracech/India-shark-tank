@@ -73,19 +73,21 @@ st.markdown(
     """
     <div class="button-container">
         <form action="" method="get">
-            <input type="submit" name="season1" value="Season 1">
-            <input type="submit" name="season2" value="Season 2">
-            <input type="submit" name="season3" value="Season 3">
+            <input type="submit" name="season" value="Season 1">
+            <input type="submit" name="season" value="Season 2">
+            <input type="submit" name="season" value="Season 3">
         </form>
     </div>
     """, unsafe_allow_html=True
 )
 
-# Handle button clicks
-query_params = st.experimental_get_query_params()
-if "season1" in query_params:
+# Handle button clicks using the updated method
+query_params = st.query_params
+season_selected = query_params.get("season", None)
+
+if season_selected == "Season 1":
     st.write("Season 1 Analysis!")
-elif "season2" in query_params:
+elif season_selected == "Season 2":
     st.write("Season 2 Analysis!")
-elif "season3" in query_params:
+elif season_selected == "Season 3":
     st.write("Season 3 Analysis!")
