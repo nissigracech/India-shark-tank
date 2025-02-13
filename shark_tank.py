@@ -11,8 +11,9 @@ st.markdown("""
             font-weight: bold;
             font-size: 2em;
         }
-    </style>
+    
     <h1 class="title">Shark Tank India EDA Dashboard</h1>
+
         /* Apply a darker blue gradient background to the sidebar */
         [data-testid="stSidebar"] {
         background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
@@ -41,7 +42,7 @@ color: white;
             border-radius: 8px;
             font-weight: bold;
         }
-
+</style>
 """, unsafe_allow_html=True)
 
 
