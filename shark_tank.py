@@ -1,4 +1,9 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import plotly
+
 
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
@@ -10,7 +15,7 @@ st.markdown("""
         .title {
             text-align: center;
             font-weight: 900;
-            font-size: 3em;
+            font-size: 5em;
             color: #FFD700; /* Gold Yellow */
             text-transform: uppercase;
         }
