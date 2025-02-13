@@ -15,19 +15,7 @@ df = load_data()
 st.set_page_config(page_title="Shark Tank India Dashboard", layout="wide")
 
 # Custom Sidebar Styling
-st.markdown(
-    """
-    <style>
-        [data-testid="stSidebar"] {
-            background-color: #0A1931;
-        }
-        [data-testid="stAppViewContainer"] {
-            background-color: #F0F2F6;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+
 
 # Dashboard Title
 st.title("📊 Shark Tank India Analytics Dashboard")
