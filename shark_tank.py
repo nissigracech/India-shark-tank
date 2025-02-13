@@ -44,12 +44,12 @@ st.markdown("""
             margin: 5px; /* Reduced margin */
         }
 
-        /* Center the buttons in a row with minimal spacing */
+        /* Center buttons in a row with minimal spacing */
         .button-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px; /* Reduced gap for minimal spacing */
+            gap: 15px; /* Reduced gap between buttons */
             margin-top: 20px;
         }
 
@@ -62,7 +62,8 @@ st.markdown('<h1 class="title">Shark Tank India EDA Dashboard</h1>', unsafe_allo
 # Button container
 st.markdown('<div class="button-container">', unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([0.2, 0.2, 0.2])  # Smaller column width to bring buttons closer
+# Display buttons side by side with reduced spacing
+col1, col2, col3 = st.columns([0.1, 0.1, 0.1])  # Reduced column width
 
 with col1:
     if st.button("Season 1", key="season1"):
