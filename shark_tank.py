@@ -6,11 +6,13 @@ st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 # Custom CSS for styling
 st.markdown("""
     <style>
-        /* Centered bold title */
+        /* Centered bold uppercase yellow title */
         .title {
             text-align: center;
-            font-weight: bold;
-            font-size: 2em;
+            font-weight: 900;
+            font-size: 3em;
+            color: #FFD700; /* Gold Yellow */
+            text-transform: uppercase;
         }
 
         /* Sidebar background gradient */
@@ -25,46 +27,54 @@ st.markdown("""
             font-weight: bold;
         }
 
-        /* Style dropdowns, sliders, and input boxes */
-        select, input, .stSlider, .stMultiSelect {
-            background-color: rgba(255, 255, 255, 0.15) !important;
-            color: white !important;
-            border-radius: 8px;
-            padding: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
         /* Style buttons */
         .stButton>button {
-            background-color: #00509E !important;
-            color: white !important;
             border-radius: 8px;
             font-weight: bold;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
+            font-size: 16px;
+            padding: 8px 16px;
+            border: 2px solid #FFD700;
+        }
+
+        /* Season 1 Button - Filled Yellow */
+        .stButton>button:first-child {
+            background-color: #FFD700 !important;
+            color: black !important;
+        }
+
+        /* Season 2 Button - Blue Outline */
+        .stButton>button:nth-child(2) {
+            background-color: transparent !important;
+            color: #00A8E8 !important;
+            border: 2px solid #00A8E8 !important;
+        }
+
+        /* Season 3 Button - White Outline */
+        .stButton>button:last-child {
+            background-color: transparent !important;
+            color: white !important;
+            border: 2px solid white !important;
         }
 
         /* Center buttons closely together */
         .button-container {
             display: flex;
-            padding: 10px 20px;
             justify-content: center;
             align-items: center;
-            gap: 0px;  /* REDUCE SPACE BETWEEN BUTTONS */
-            margin-top: 20px;
+            gap: 10px;  /* Reduce space between buttons */
+            margin-top: 10px;
         }
 
     </style>
 """, unsafe_allow_html=True)
 
 # Title
-st.markdown('<h1 class="title">Shark Tank India EDA Dashboard</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="title">Season Stats</h1>', unsafe_allow_html=True)
 
-# Button Container - Using HTML for precise positioning
+# Button Container - Using Streamlit for interactivity but styling via CSS
 st.markdown('<div class="button-container">', unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3, gap="small")  # Reduce column spacing
+col1, col2, col3 = st.columns([1,1,1])  # Equal spacing for buttons
 
 with col1:
     if st.button("Season 1", key="s1"):
