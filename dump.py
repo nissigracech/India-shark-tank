@@ -14,6 +14,10 @@ df = load_data()
 # Streamlit Page Config
 st.set_page_config(page_title="Shark Tank India Dashboard", layout="wide")
 
+
+season = st.sidebar.selectbox('Select season', ['Season 2', 'Season 1'])
+
+
 # Custom Sidebar Styling
 st.markdown(
     """
