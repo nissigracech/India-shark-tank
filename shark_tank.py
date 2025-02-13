@@ -3,7 +3,7 @@ import streamlit as st
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 
-# Apply custom CSS styles
+# Custom CSS for styling
 st.markdown("""
     <style>
         /* Centered bold title */
@@ -12,7 +12,7 @@ st.markdown("""
             font-weight: bold;
             font-size: 2em;
         }
-        
+
         /* Sidebar background gradient */
         [data-testid="stSidebar"] {
             background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
@@ -41,15 +41,16 @@ st.markdown("""
             border-radius: 8px;
             font-weight: bold;
             padding: 10px 20px;
-            margin: 5px; /* Reduced margin */
+            border: none;
+            cursor: pointer;
         }
 
-        /* Center buttons in a row with minimal spacing */
+        /* Center buttons closely together */
         .button-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px; /* Reduced gap between buttons */
+            gap: 10px;  /* REDUCE SPACE BETWEEN BUTTONS */
             margin-top: 20px;
         }
 
@@ -59,22 +60,21 @@ st.markdown("""
 # Title
 st.markdown('<h1 class="title">Shark Tank India EDA Dashboard</h1>', unsafe_allow_html=True)
 
-# Button container
+# Button Container - Using HTML for precise positioning
 st.markdown('<div class="button-container">', unsafe_allow_html=True)
 
-# Display buttons side by side with reduced spacing
-col1, col2, col3 = st.columns([0.1, 0.1, 0.1])  # Reduced column width
+col1, col2, col3 = st.columns(3, gap="small")  # Reduce column spacing
 
 with col1:
-    if st.button("Season 1", key="season1"):
-        st.write("Season 1 analysis!")
+    if st.button("Season 1", key="s1"):
+        st.write("Season 1 Analysis!")
 
 with col2:
-    if st.button("Season 2", key="season2"):
-        st.write("Season 2 analysis!")
+    if st.button("Season 2", key="s2"):
+        st.write("Season 2 Analysis!")
 
 with col3:
-    if st.button("Season 3", key="season3"):
-        st.write("Season 3 analysis!")
+    if st.button("Season 3", key="s3"):
+        st.write("Season 3 Analysis!")
 
 st.markdown('</div>', unsafe_allow_html=True)
