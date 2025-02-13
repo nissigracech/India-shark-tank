@@ -20,13 +20,13 @@ st.markdown("""
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    if st.button("Overview"):
-        st.write("You clicked Overview!")
+    if st.button("Season 1"):
+        st.write("season 1 analysis!")
 
 with col2:
-    if st.button("Investment Analysis"):
-        st.write("You clicked Investment Analysis!")
+    if st.button("Season 2"):
+        st.write("season 2 analysis Analysis!")
 
 with col3:
-    if st.button("Startup Insights"):
-        st.write("You clicked Startup Insights!")
+    if st.button("Season 3"):
+        st.write("season 3 analysis")
