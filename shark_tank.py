@@ -48,6 +48,7 @@ st.markdown("""
         /* Center buttons closely together */
         .button-container {
             display: flex;
+            padding: 10px 20px;
             justify-content: center;
             align-items: center;
             gap: 0px;  /* REDUCE SPACE BETWEEN BUTTONS */
