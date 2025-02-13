@@ -3,7 +3,7 @@ import streamlit as st
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 
-# Custom CSS for styling
+# Custom CSS for styling (Sidebar styles removed)
 st.markdown("""
     <style>
         /* Centered bold uppercase yellow title */
@@ -13,18 +13,6 @@ st.markdown("""
             font-size: 3em;
             color: #FFD700; /* Gold Yellow */
             text-transform: uppercase;
-        }
-
-        /* Sidebar background gradient */
-        [data-testid="stSidebar"] {
-            background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
-            color: white;
-        }
-
-        /* Sidebar text styling */
-        [data-testid="stSidebar"] * {
-            color: white !important;
-            font-weight: bold;
         }
 
         /* Button styling */
@@ -63,7 +51,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title
-st.markdown('<h1 class="title">Season Stats</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="title">SHARK TANK INDIA</h1>', unsafe_allow_html=True)
 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
