@@ -31,7 +31,7 @@ st.markdown("""
         .button-container {
             display: flex;
             justify-content: center;
-            gap: 15px;  /* Reduce space between buttons */
+            gap: 20px;  /* Reduced space between buttons */
             margin-top: 10px;
         }
 
@@ -41,17 +41,17 @@ st.markdown("""
             font-size: 16px;
             padding: 10px 20px;
             border-radius: 8px;
-            border: 2px solid #FFD700;
+            border: 2px solid transparent;
             cursor: pointer;
-            display: inline-block;
             text-align: center;
-            text-decoration: none;
+            display: inline-block;
         }
 
         /* Season 1 Button - Filled Yellow */
         .season1 {
             background-color: #FFD700 !important;
             color: black !important;
+            border-color: #FFD700 !important;
         }
 
         /* Season 2 Button - Blue Outline */
@@ -73,18 +73,26 @@ st.markdown("""
 # Title
 st.markdown('<h1 class="title">Season Stats</h1>', unsafe_allow_html=True)
 
-# Creating a horizontal button layout using markdown
-st.markdown("""
-    <div class="button-container">
-        <a href="?season=1" class="custom-button season1">Season 1</a>
-        <a href="?season=2" class="custom-button season2">Season 2</a>
-        <a href="?season=3" class="custom-button season3">Season 3</a>
-    </div>
-""", unsafe_allow_html=True)
+# Creating a horizontal button layout
+st.markdown('<div class="button-container">', unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns([1, 1, 1])
+
+with col1:
+    season1 = st.button("Season 1", key="s1")
+with col2:
+    season2 = st.button("Season 2", key="s2")
+with col3:
+    season3 = st.button("Season 3", key="s3")
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Handling button clicks
-query_params = st.query_params
-selected_season = query_params.get("season", None)
+if season1:
+    st.write("### 📊 Season 1 Analysis!")
 
-if selected_season:
-    st.write(f"### Season {selected_season} Analysis!")
+if season2:
+    st.write("### 📊 Season 2 Analysis!")
+
+if season3:
+    st.write("### 📊 Season 3 Analysis!")
