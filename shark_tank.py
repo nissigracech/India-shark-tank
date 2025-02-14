@@ -76,6 +76,25 @@ guest_related=['All Guest Names',]
 removing_col=brand_renvue_details+pitchers_business_details+sharks_ivestment_equity_details+Debt_details+more_into_pitching_brands
 filtered_df=df.drop(columns=removing_col)
 
+
+# data handling
+# missing values
+filtered_df['Accepted Offer']=filtered_df['Accepted Offer'].fillna(-1)
+filtered_df['Accepted Offer']=filtered_df['Accepted Offer'].astype('int64')
+filtered_df['Number of Sharks in Deal']=filtered_df['Number of Sharks in Deal'].fillna(0)
+filtered_df['Number of Sharks in Deal']=filtered_df['Number of Sharks in Deal'].astype('int64')
+for i in sharks_presence:
+    filtered_df[i]=filtered_df[i].fillna(0)
+    filtered_df[i]=filtered_df[i].astype('int64')
+    
+
+filtered_df['Total Deal Amount']=filtered_df['Total Deal Amount'].fillna(0)
+filtered_df['Total Deal Equity']=filtered_df['Total Deal Equity'].fillna(0)
+filtered_df['Deal Valuation']=filtered_df['Deal Valuation'].fillna(0)
+filtered_df['deal_amount_per_shark']=filtered_df['deal_amount_per_shark'].fillna(0)
+filtered_df['equity_per_shark']=filtered_df['equity_per_shark'].fillna(0)
+
+
 def classes(argument):
         st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
 
