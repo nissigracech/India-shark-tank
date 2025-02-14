@@ -72,10 +72,10 @@ with col2:  # Center the content
 col1, col2 = st.columns([1, 4])  
 
 with col1:
-    st.image("stilogo.png", caption="Shark Tank India - Image 1", width=150)  # Smaller Image
+    st.image("stilogo.png", caption="Shark Tank India - Image 1" )  # Smaller Image
 
 with col2:
-    st.image("st.png", caption="Shark Tank India - Image 2", width=600)  # Larger Image
+    st.image("st.png", caption="Shark Tank India - Image 2")  # Larger Image
 
 # Handling Sidebar Selectio
 
