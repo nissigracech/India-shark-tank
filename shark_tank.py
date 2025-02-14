@@ -58,6 +58,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 #st.set_page_config(layout='wide')
 # Title
+st.sidebar.title("Navigation")
+st.sidebar.markdown("Use the options below to explore:")
+season = st.sidebar.radio("Select Season", ["Season 1", "Season 2", "Season 3"])
 st.markdown('<h1 class="title">SHARK TANK INDIA</h1>', unsafe_allow_html=True)
 image = Image.open('st.png')
 
