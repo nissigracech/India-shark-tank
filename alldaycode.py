@@ -213,7 +213,8 @@ filtered_df['equity_per_shark']=filtered_df['equity_per_shark'].fillna(0)
 
 def classes(argument,season_df):
         st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
-        st.write(season_df.info())
+        st.write(season_df.columns)
+        
 
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
