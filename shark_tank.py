@@ -60,7 +60,7 @@ st.markdown("""
 # Title
 st.markdown('<h1 class="title">SHARK TANK INDIA</h1>', unsafe_allow_html=True)
 image = Image.open('st.png')
-st.image('stilogo.png', caption='Shark Tank India S1',width=1400)
+st.image('stilogo.png', caption='Shark Tank India S1' )
 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
