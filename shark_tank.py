@@ -48,6 +48,13 @@ st.markdown("""
             color: black !important;
             border-color: #1e6899 !important;
         }
+        /* Hover effect for Season 1 */
+        .stButton>button:first-of-type:hover {
+            background-color: #1e6899 !important;
+            color: white !important;
+            border-color: #1e6899 !important;
+        }
+
         /* Season 2 Button - Blue Outline */
         .season2 {
             background-color: transparent !important;
