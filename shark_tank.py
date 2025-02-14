@@ -7,8 +7,10 @@ from PIL import Image
 import streamlit.components.v1 as components  
 
 def classes(argument):
-    st.write(argument)
-    st.subheader("hello the function is working")
+    col1, col2, col3 =st.columns([1,1,1])
+    with col2:
+        st.write(argument)
+        st.subheader("hello the function is working")
 
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
