@@ -56,18 +56,6 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-#st.set_page_config(layout='wide')
-# Title 
-image = Image.open('st.png')
-
- # Create three main columns (col2 is the center column)
-col1, col2, col3 = st.columns([1, 5, 1])  
-
-with col2:  # Center the content
-    sub_col1, sub_col2, sub_col3 = st.columns([1, 1, 1])  # Nested columns inside col2
-
-    with sub_col2:  # Image inside the middle sub-column
-        st.image("stilogo.png", caption="Shark Tank India S1", width=300)
 
 col1, col2 = st.columns([1, 4])  
 
@@ -77,7 +65,7 @@ with col1:
 with col2:
     st.image("st.png", caption="Shark Tank India - Image 2", width=1000)  # Larger Image
 
-# Handling Sidebar Selectio
+ 
 
 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
