@@ -60,89 +60,14 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-col1, col2, col3 = st.columns([4,1, 15])  
-
-with col1:
-    st.image("stilogo.png", caption=" " , width=400)  # Smaller Image
-
-with col3:
-    st.image("st.png", caption=" ", width=1000)  # Larger Image
-
-'''
+#----------------------------------------------------------------------------------------
+#creating season stats buttons
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
 
 with col2:
     # Create another row of columns inside col2 for buttons
-    sub_col1, sub_col2, sub_col3 = st.columns(3)
-
-    with sub_col1:
-        season1 = st.button("Season 1", key="s1")
-
-    with sub_col2:
-        season2 = st.button("Season 2", key="s2")
-
-    with sub_col3:
-        season3 = st.button("Season 3", key="s3")
-
-# Handling button clicks
-if season1:
-    argument="### 📊 Season 1 Analysis!"
-    classes(argument)
-    #st.write("### 📊 Season 1 Analysis!")
-
-if season2:
-    argument="### 📊 Season 2 Analysis!"
-    classes(argument)
-    #st.write("### 📊 Season 2 Analysis!")
-
-if season3:
-    argument="### 📊 Season 3 Analysis!"
-    classes(argument)
-    #st.write("### 📊 Season 3 Analysis!")
-
-'''
- 
-
-# Create three columns with different widths
-col1, col2, col3 = st.columns([1, 2, 1])  
-
-# Add a full-width box in each column
-with col1:
-    st.markdown("<div style='background-color: red; padding: 20px; text-align: center;'>Column 1</div>", unsafe_allow_html=True)
-
-with col2:
-    st.markdown("<div style='background-color: blue; padding: 20px; text-align: center;'>Column 2</div>", unsafe_allow_html=True)
-
-with col3:
-    st.markdown("<div style='background-color: green; padding: 20px; text-align: center;'>Column 3</div>", unsafe_allow_html=True)
-
- 
-
-# Create three main columns (col2 is wider)
-col1, col2, col3 = st.columns([1, 2, 1])  
-
-with col2:
-    # Create three equal sub-columns inside col2
-    sub_col1, sub_col2, sub_col3 = st.columns(3)
-
-    # Centering buttons using Markdown & CSS
-    with sub_col1:
-        st.markdown("<div style='text-align: center;'><button class='stButton'>Button 1</button></div>", unsafe_allow_html=True)
-
-    with sub_col2:
-        st.markdown("<div style='text-align: center;'><button class='stButton'>Button 2</button></div>", unsafe_allow_html=True)
-
-    with sub_col3:
-        st.markdown("<div style='text-align: center;'><button class='stButton'>Button 3</button></div>", unsafe_allow_html=True)
-
-# Create 3 main columns (Left empty, Center with buttons, Right empty)
-col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
-
-with col2:
-    # Create another row of columns inside col2 for buttons
-    sub_col1, sub_col2, sub_col3,sub_col4,sub_col5,sub_col6,sub_col7 = st.columns([4, 10,3,10,3,10,2])  # Equal width columns
+    sub_col1, sub_col2, sub_col3,sub_col4,sub_col5,sub_col6,sub_col7 = st.columns([4, 10, 3, 10, 3, 10, 2])  # Equal width columns
 
     with sub_col2:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
