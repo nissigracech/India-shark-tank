@@ -89,7 +89,7 @@ with col2:
         st.markdown("</div>", unsafe_allow_html=True)
 
     with sub_col4:
-        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        st.markdown("<div style='display: flex; justify-content: center;font-size: 24px;'>", unsafe_allow_html=True)
         season2 = st.button("Season 2", key="s2")
         st.markdown("</div>", unsafe_allow_html=True)
 
