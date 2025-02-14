@@ -15,7 +15,7 @@ st.markdown("""
     <style>
         /* Full page background color */
         body, .stApp {
-            background-color: #2d5f80 !important;
+            background-color: #292b32 !important;
             color: white !important;
         }
 
