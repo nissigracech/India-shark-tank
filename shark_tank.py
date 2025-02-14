@@ -41,22 +41,22 @@ st.markdown("""
             transition: all 0.3s ease-in-out;
         }
 
-        /* Season 1 Button - Filled Yellow */
-        .stButton>button:first-of-type {
+        /* Season 1 Button - Default Yellow */
+        .stButton>button[data-selected="s1"] {
             background-color: #FFD700 !important;
             color: black !important;
             border-color: #FFD700 !important;
         }
 
-        /* Season 2 Button - Blue Outline */
-        .stButton>button:nth-of-type(2) {
+        /* Season 2 Button - Default Blue Outline */
+        .stButton>button[data-selected="s2"] {
             background-color: transparent !important;
             color: #00A8E8 !important;
             border: 2px solid #00A8E8 !important;
         }
 
-        /* Season 3 Button - White Outline */
-        .stButton>button:nth-of-type(3) {
+        /* Season 3 Button - Default White Outline */
+        .stButton>button[data-selected="s3"] {
             background-color: transparent !important;
             color: white !important;
             border: 2px solid white !important;
@@ -69,9 +69,8 @@ st.markdown("""
             border-color: #1e6899 !important;
         }
 
-        /* Clicked (active) effect */
-        .stButton>button:active, 
-        .stButton>button.selected {
+        /* Active Button (After Clicking) */
+        .stButton>button.active {
             background-color: #1e6899 !important;
             color: white !important;
             border-color: #1e6899 !important;
@@ -96,7 +95,7 @@ with col2:
     sub_col1, sub_col2, sub_col3 = st.columns(3)
 
     # Initialize session state for button selection
-    if 'selected_button' not in st.session_state:
+    if "selected_button" not in st.session_state:
         st.session_state.selected_button = None
 
     # Define button actions
@@ -112,10 +111,25 @@ with col2:
         if st.button("Season 3", key="s3"):
             st.session_state.selected_button = "s3"
 
-# Handling button clicks
-if st.session_state.selected_button == "s1":
+# Handling button clicks - Only one stays active
+selected_button = st.session_state.selected_button
+if selected_button:
+    st.markdown(f"""
+        <script>
+            let buttons = document.querySelectorAll(".stButton>button");
+            buttons.forEach(btn => {{
+                btn.classList.remove("active");
+                if (btn.getAttribute("data-selected") === "{selected_button}") {{
+                    btn.classList.add("active");
+                }}
+            }});
+        </script>
+    """, unsafe_allow_html=True)
+
+# Display selected season analysis
+if selected_button == "s1":
     st.write("### 📊 Season 1 Analysis!")
-elif st.session_state.selected_button == "s2":
+elif selected_button == "s2":
     st.write("### 📊 Season 2 Analysis!")
-elif st.session_state.selected_button == "s3":
+elif selected_button == "s3":
     st.write("### 📊 Season 3 Analysis!")
