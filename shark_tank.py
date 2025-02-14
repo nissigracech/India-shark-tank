@@ -92,9 +92,12 @@ if season1:
     #st.write("### 📊 Season 1 Analysis!")
 
 if season2:
-    
-    st.write("### 📊 Season 2 Analysis!")
+    argument="### 📊 Season 2 Analysis!"
+    classes(argument)
+    #st.write("### 📊 Season 2 Analysis!")
 
 if season3:
-    st.write("### 📊 Season 3 Analysis!")
+    argument="### 📊 Season 3 Analysis!"
+    classes(argument)
+    #st.write("### 📊 Season 3 Analysis!")
 
