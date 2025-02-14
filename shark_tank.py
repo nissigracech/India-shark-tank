@@ -7,7 +7,7 @@ from PIL import Image
 import streamlit.components.v1 as components  
 
 def classes(argument):
-    col1, col2, col3 =st.columns([1,1,1])
+    col1, col2, col3 =st.columns([2,1,2])
     with col2:
         st.write(argument)
         st.subheader("hello the function is working")
