@@ -6,6 +6,9 @@ import plotly
 from PIL import Image
 import streamlit.components.v1 as components  
 
+def classes(argu):
+    st.write(agru)
+    st.subheader("hello the function is working")
 
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
@@ -65,7 +68,6 @@ with col1:
 with col3:
     st.image("st.png", caption=" ", width=1000)  # Larger Image
 
- 
 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
@@ -85,9 +87,12 @@ with col2:
 
 # Handling button clicks
 if season1:
-    st.write("### 📊 Season 1 Analysis!")
+    argu="### 📊 Season 1 Analysis!"
+    classes(argu)
+    #st.write("### 📊 Season 1 Analysis!")
 
 if season2:
+    
     st.write("### 📊 Season 2 Analysis!")
 
 if season3:
