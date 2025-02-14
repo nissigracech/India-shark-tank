@@ -61,10 +61,22 @@ st.markdown("""
 st.markdown('<h1 class="title">SHARK TANK INDIA</h1>', unsafe_allow_html=True)
 image = Image.open('st.png')
 
-col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths
+st.markdown(
+    """
+    <style>
+        .centered-image {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-with col2:  # Center image in middle column
-    st.image("stilogo.png", caption="Shark Tank India S1", width=400)
+# Center the image using a div
+st.markdown('<div class="centered-image">', unsafe_allow_html=True)
+st.image("stilogo.png", caption="Shark Tank India S1", width=400)
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
