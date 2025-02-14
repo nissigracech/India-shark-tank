@@ -69,7 +69,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-image = Image.open('st.png')
+#image = Image.open('st.png')
 st.image('stilogo.png', caption='Shark Tank India S1' )
 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
