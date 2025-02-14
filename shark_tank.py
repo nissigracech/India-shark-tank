@@ -35,24 +35,23 @@ st.markdown("""
             font-size: 16px;
             padding: 10px;
             border-radius: 8px;
-            border: 2px solid transparent;
+            border: 2px solid #0a91bd !important; /* Blue Border */
             cursor: pointer;
             text-align: center;
-            background-color: #0a91bd !important; /* Default Blue */
-            color: white !important; /* White Text */
-            border-color: #0a91bd !important;
+            background-color: transparent !important;
+            color: white !important;
         }
 
         /* Hover effect */
         .stButton>button:hover {
-            background-color: #1e6899 !important;
-            border-color: #1e6899 !important;
+            background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
         }
 
-        /* Active effect (Clicked button remains highlighted) */
+        /* Active effect (Clicked button remains yellow) */
         .stButton>button:active {
-            background-color: #1e6899 !important;
-            border-color: #1e6899 !important;
+            background-color: #FFD700 !important; /* Yellow */
+            color: black !important;
+            border-color: #FFD700 !important;
         }
     </style>
 """, unsafe_allow_html=True)
