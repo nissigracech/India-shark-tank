@@ -34,10 +34,10 @@ st.markdown("""
 
         /* Button styling */
         .stButton>button {
-            width: 100px;
+            width: 150px;
             font-weight: bold;
-            font-size: 16px;
-            padding: 10px;
+            font-size: 18px;
+            padding: 15px;
             border-radius: 8px;
             border: 2px solid #0a91bd !important; /* Blue Border */
             cursor: pointer;
