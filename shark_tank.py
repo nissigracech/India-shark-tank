@@ -57,7 +57,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-col1, col2 = st.columns([1, 4])  
+col1, col2 = st.columns([3, 7])  
 
 with col1:
     st.image("stilogo.png", caption="Shark Tank India - Image 1" , width=400)  # Smaller Image
