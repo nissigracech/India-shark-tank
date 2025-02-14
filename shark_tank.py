@@ -58,7 +58,17 @@ st.markdown("""
 """, unsafe_allow_html=True)
 #st.set_page_config(layout='wide')
 # Title
+
 st.markdown('<h1 class="title">SHARK TANK INDIA</h1>', unsafe_allow_html=True)
+st.markdown(
+    """
+    <div style="text-align: center;">
+        <img src="stilogo.png" width="400">
+        <p><strong>Shark Tank India S1</strong></p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 image = Image.open('st.png')
 st.image('stilogo.png', caption='Shark Tank India S1' )
 
