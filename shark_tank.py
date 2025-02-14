@@ -15,8 +15,9 @@ st.markdown("""
     <style>
         /* Full page background color */
         body, .stApp {
-            background: linear-gradient(135deg, #002147, #0096FF) !important;
+            background-color: ##2d5f80 !important;
             color: white !important;
+        }
 
         /* Centered bold uppercase yellow title */
         .title {
