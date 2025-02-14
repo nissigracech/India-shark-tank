@@ -9,8 +9,8 @@ import streamlit.components.v1 as components
 def classes(argument):
     col1, col2, col3 =st.columns([1,1,1])
     with col2:
-        st.markdown("<h1 style='text-align: center;'>Your Title Here</h1>", unsafe_allow_html=True)
-        st.write(argument)
+        st.markdown("<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
+        #st.write(argument)
         st.subheader("hello the function is working")
 
 # Set page config
