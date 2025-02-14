@@ -102,3 +102,18 @@ if season3:
     classes(argument)
     #st.write("### 📊 Season 3 Analysis!")
 
+
+ 
+
+# Create three columns with different widths
+col1, col2, col3 = st.columns([1, 2, 1])  
+
+# Add a full-width box in each column
+with col1:
+    st.markdown("<div style='background-color: red; padding: 20px; text-align: center;'>Column 1</div>", unsafe_allow_html=True)
+
+with col2:
+    st.markdown("<div style='background-color: blue; padding: 20px; text-align: center;'>Column 2</div>", unsafe_allow_html=True)
+
+with col3:
+    st.markdown("<div style='background-color: green; padding: 20px; text-align: center;'>Column 3</div>", unsafe_allow_html=True)
