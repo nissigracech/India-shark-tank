@@ -40,13 +40,14 @@ st.markdown("""
             text-align: center;
         }
 
+        
+        }
         /* Season 1 Button - Filled Yellow */
-        .season1 {
+        .stButton>button:first-of-type {
             background-color: #FFD700 !important;
             color: black !important;
-            border-color: #FFD700 !important;
+            border-color: #1e6899 !important;
         }
-
         /* Season 2 Button - Blue Outline */
         .season2 {
             background-color: transparent !important;
