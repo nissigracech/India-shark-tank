@@ -62,10 +62,10 @@ st.markdown('<h1 class="title">SHARK TANK INDIA</h1>', unsafe_allow_html=True)
 image = Image.open('st.png')
 
  # Create three main columns (col2 is the center column)
-col1, col2, col3 = st.columns([1, 3, 1])  
+col1, col2, col3 = st.columns([1, 2, 1])  
 
 with col2:  # Center the content
-    sub_col1, sub_col2, sub_col3 = st.columns([1, 1, 1])  # Nested columns inside col2
+    sub_col1, sub_col2, sub_col3 = st.columns([1, 2, 1])  # Nested columns inside col2
 
     with sub_col2:  # Image inside the middle sub-column
         st.image("stilogo.png", caption="Shark Tank India S1", width=400)
