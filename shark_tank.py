@@ -60,8 +60,21 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-#----------------------------------------------------------------------------------------
-#creating season stats buttons
+#-------------------------------------------------------------------------------
+# creating logo and image 
+col1, col2, col3 = st.columns([4,1, 15])  
+
+with col1:
+    st.image("stilogo.png", caption=" " , width=400)  # Smaller Image
+
+with col3:
+    st.image("st.png", caption=" ", width=1000)  # Larger Image
+
+#--------------------------------------------------------------------------------------------------
+    
+
+#-------------------------------------------------------------------------------------------------
+# creating buttons for seasons 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
 
