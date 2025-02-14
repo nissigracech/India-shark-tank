@@ -36,10 +36,10 @@ st.markdown("""
         .stButton>button {
             width: 180px;
             font-weight: bold;
-            font-size: 32px;
+            font-size: 50px;
             padding: 18px;
             border-radius: 8px;
-            border: 2px solid #0a91bd !important; /* Blue Border */
+            border: 4px solid #0a91bd !important; /* Blue Border */
             cursor: pointer;
             text-align: center;
             background-color: transparent !important;
