@@ -7,6 +7,7 @@ from PIL import Image
 import streamlit.components.v1 as components  
 
 df=pd.read_csv(r"Shark Tank India.csv")
+st.write(df.columns)
 
 def classes(argument):
         st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
