@@ -98,7 +98,7 @@ filtered_df['equity_per_shark']=filtered_df['equity_per_shark'].fillna(0)
 def classes(argument,season_df):
         st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
         st.write(season_df.columns)
-        
+
     
 
 # Set page config
@@ -192,7 +192,7 @@ with col2:
 if season1:
     argument = "### 📊 Season 1 Analysis!"
     season1_df=filtered_df[filtered_df['Season Number']==1]
-    season1_df.drop(columns=['Ritesh Present', 'Amit Present'],inplace=True)
+    season1_df.drop(columns=['Ritesh Present', 'Amit Present','Ritesh_deal','Amit_deal'],inplace=True)
     classes(argument,season1_df)
     
 
