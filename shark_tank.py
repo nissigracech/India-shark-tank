@@ -117,3 +117,23 @@ with col2:
 
 with col3:
     st.markdown("<div style='background-color: green; padding: 20px; text-align: center;'>Column 3</div>", unsafe_allow_html=True)
+
+
+import streamlit as st
+
+# Create three main columns (col2 is wider)
+col1, col2, col3 = st.columns([1, 2, 1])  
+
+with col2:
+    # Create three equal sub-columns inside col2
+    sub_col1, sub_col2, sub_col3 = st.columns(3)
+
+    # Centering buttons using Markdown & CSS
+    with sub_col1:
+        st.markdown("<div style='text-align: center;'><button class='stButton'>Button 1</button></div>", unsafe_allow_html=True)
+
+    with sub_col2:
+        st.markdown("<div style='text-align: center;'><button class='stButton'>Button 2</button></div>", unsafe_allow_html=True)
+
+    with sub_col3:
+        st.markdown("<div style='text-align: center;'><button class='stButton'>Button 3</button></div>", unsafe_allow_html=True)
