@@ -142,19 +142,19 @@ col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
 
 with col2:
     # Create another row of columns inside col2 for buttons
-    sub_col1, sub_col2, sub_col3,sub_col4,sub_col5,sub_col6,sub_col7 = st.columns([1, 1,1,1,1,1,1])  # Equal width columns
+    sub_col1, sub_col2, sub_col3,sub_col4,sub_col5,sub_col6,sub_col7 = st.columns([1, 5,2,5,2,5,1])  # Equal width columns
 
-    with sub_col1:
+    with sub_col2:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         season1 = st.button("Season 1", key="s1")
         st.markdown("</div>", unsafe_allow_html=True)
 
-    with sub_col2:
+    with sub_col4:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         season2 = st.button("Season 2", key="s2")
         st.markdown("</div>", unsafe_allow_html=True)
 
-    with sub_col3:
+    with sub_col6:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         season3 = st.button("Season 3", key="s3")
         st.markdown("</div>", unsafe_allow_html=True)
