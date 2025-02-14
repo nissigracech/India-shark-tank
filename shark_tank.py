@@ -95,7 +95,7 @@ filtered_df['deal_amount_per_shark']=filtered_df['deal_amount_per_shark'].fillna
 filtered_df['equity_per_shark']=filtered_df['equity_per_shark'].fillna(0)
 
 
-def classes(argument):
+def classes(argument,season_df):
         st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
 
 # Set page config
@@ -188,13 +188,17 @@ with col2:
 # Handling button clicks
 if season1:
     argument = "### 📊 Season 1 Analysis!"
-    classes(argument)
+    season1_df=filtered_df[filtered_df['Season Number']==1]
+    classes(argument,season1_df)
+    
 
 if season2:
-    argument = "### 📊 Season 2 Analysis!"
-    classes(argument)
+    argument = "📊 Season 2 Analysis!"
+    season2_df=filtered_df[filtered_df['Season Number']==1]
+    classes(argument,season2_df)
 
 if season3:
-    argument = "### 📊 Season 3 Analysis!"
-    classes(argument)
+    argument = " 📊 Season 3 Analysis!"
+    season3_df=filtered_df[filtered_df['Season Number']==1]
+    classes(argument,season3_df)
 
