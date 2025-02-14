@@ -56,7 +56,7 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-st.set_page_config(layout='wide')
+#st.set_page_config(layout='wide')
 # Title
 st.markdown('<h1 class="title">SHARK TANK INDIA</h1>', unsafe_allow_html=True)
 image = Image.open('st.png')
