@@ -34,7 +34,7 @@ st.markdown("""
 
         /* Button styling */
         .stButton>button {
-            width: 15px;
+            width: 100px;
             font-weight: bold;
             font-size: 16px;
             padding: 10px;
