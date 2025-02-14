@@ -36,10 +36,10 @@ st.markdown("""
         .stButton>button {
             width: 180px;
             font-weight: bold;
-            font-size: 50px;
+            font-size: 32px;
             padding: 18px;
             border-radius: 8px;
-            border: 4px solid #0a91bd !important; /* Blue Border */
+            border: 2px solid #0a91bd !important; /* Blue Border */
             cursor: pointer;
             text-align: center;
             background-color: transparent !important;
@@ -84,12 +84,12 @@ with col2:
     sub_col1, sub_col2, sub_col3,sub_col4,sub_col5,sub_col6,sub_col7 = st.columns([4, 10, 3, 10, 3, 10, 2])  # Equal width columns
 
     with sub_col2:
-        st.markdown("<div style='display: flex; justify-content: center;font-weight: bold;font-size: 50px;'>", unsafe_allow_html=True)
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         season1 = st.button("Season 1", key="s1")
         st.markdown("</div>", unsafe_allow_html=True)
 
     with sub_col4:
-        st.markdown("<div style='display: flex; justify-content: center;font-size: 24px;'>", unsafe_allow_html=True)
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         season2 = st.button("Season 2", key="s2")
         st.markdown("</div>", unsafe_allow_html=True)
 
