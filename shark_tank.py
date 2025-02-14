@@ -69,6 +69,17 @@ with col2:  # Center the content
     with sub_col2:  # Image inside the middle sub-column
         st.image("stilogo.png", caption="Shark Tank India S1", width=300)
 
+col1, col2 = st.columns([1, 4])  
+
+with col1:
+    st.image("stilogo1.png", caption="Shark Tank India - Image 1", width=150)  # Smaller Image
+
+with col2:
+    st.image("st.png", caption="Shark Tank India - Image 2", width=600)  # Larger Image
+
+# Handling Sidebar Selectio
+
+
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
 
