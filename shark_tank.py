@@ -199,6 +199,7 @@ if season1:
 if season2:
     argument = "📊 Season 2 Analysis!"
     season2_df=filtered_df[filtered_df['Season Number']==1]
+    season2_df.drop(columns=['Ritesh Present' ,'Ritesh_deal' ],inplace=True)
     classes(argument,season2_df)
 
 if season3:
