@@ -98,6 +98,20 @@ filtered_df['equity_per_shark']=filtered_df['equity_per_shark'].fillna(0)
 def classes(argument,season_df):
         st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
         st.write(season_df.columns)
+        total_pitches = season_df["Pitch Number"].nunique()
+        total_episodes = season_df["Episode Number"].nunique()
+
+# Streamlit UI
+        st.title("Shark Tank India - Key Metrics")
+
+# Display key cards
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.metric(label="Total Pitches", value=total_pitches)
+        with col2:
+            st.metric(label="Total Episodes", value=total_episodes)
+
 
     
 
