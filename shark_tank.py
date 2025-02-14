@@ -13,6 +13,11 @@ st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 # Custom CSS for styling (Sidebar styles removed)
 st.markdown("""
     <style>
+        /* Full page background color */
+        body, .stApp {
+            background: linear-gradient(135deg, #002147, #0096FF) !important;
+            color: white !important;
+
         /* Centered bold uppercase yellow title */
         .title {
             text-align: center;
@@ -66,7 +71,6 @@ with col3:
     st.image("st.png", caption=" ", width=1000)  # Larger Image
 
  
-
 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
