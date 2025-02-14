@@ -6,8 +6,8 @@ import plotly
 from PIL import Image
 import streamlit.components.v1 as components  
 
-def classes(argu):
-    st.write(agru)
+def classes(argument):
+    st.write(argument)
     st.subheader("hello the function is working")
 
 # Set page config
@@ -87,8 +87,8 @@ with col2:
 
 # Handling button clicks
 if season1:
-    argu="### 📊 Season 1 Analysis!"
-    classes(argu)
+    argument="### 📊 Season 1 Analysis!"
+    classes(argument)
     #st.write("### 📊 Season 1 Analysis!")
 
 if season2:
