@@ -36,7 +36,7 @@ st.markdown("""
         .stButton>button {
             width: 180px;
             font-weight: bold;
-            font-size: 22px;
+            font-size: 32px;
             padding: 18px;
             border-radius: 8px;
             border: 2px solid #0a91bd !important; /* Blue Border */
