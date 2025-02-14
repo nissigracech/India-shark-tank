@@ -38,27 +38,21 @@ st.markdown("""
             border: 2px solid transparent;
             cursor: pointer;
             text-align: center;
+            background-color: #0a91bd !important; /* Default Blue */
+            color: white !important; /* White Text */
+            border-color: #0a91bd !important;
         }
 
-        /* Season 1 Button - Filled Yellow */
-        .season1 {
-            background-color: #FFD700 !important;
-            color: black !important;
-            border-color: #FFD700 !important;
+        /* Hover effect */
+        .stButton>button:hover {
+            background-color: #1e6899 !important;
+            border-color: #1e6899 !important;
         }
 
-        /* Season 2 Button - Blue Outline */
-        .season2 {
-            background-color: transparent !important;
-            color: #00A8E8 !important;
-            border: 2px solid #00A8E8 !important;
-        }
-
-        /* Season 3 Button - White Outline */
-        .season3 {
-            background-color: transparent !important;
-            color: white !important;
-            border: 2px solid white !important;
+        /* Active effect (Clicked button remains highlighted) */
+        .stButton>button:active {
+            background-color: #1e6899 !important;
+            border-color: #1e6899 !important;
         }
     </style>
 """, unsafe_allow_html=True)
