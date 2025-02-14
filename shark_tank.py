@@ -6,7 +6,7 @@ import plotly
 from PIL import Image
 import streamlit.components.v1 as components  
 
-df=pd.read_csv("Shark Tank Inida.csv")
+df=pd.read_csv(r"Shark Tank Inida.csv")
 
 def classes(argument):
         st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
