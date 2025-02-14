@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import plotly
+from PIL import Image
+import streamlit.components.v1 as components  
 
 
 # Set page config
@@ -54,9 +56,11 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-
+st.set_page_config(layout='wide')
 # Title
 st.markdown('<h1 class="title">SHARK TANK INDIA</h1>', unsafe_allow_html=True)
+image = Image.open('st.png')
+st.image(image, caption='Shark Tank India S1',width=1400)
 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
