@@ -69,7 +69,7 @@ with col1:
 with col3:
     st.image("st.png", caption=" ", width=1000)  # Larger Image
 
-
+'''
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
 
@@ -102,7 +102,7 @@ if season3:
     classes(argument)
     #st.write("### 📊 Season 3 Analysis!")
 
-
+'''
  
 
 # Create three columns with different widths
@@ -118,8 +118,7 @@ with col2:
 with col3:
     st.markdown("<div style='background-color: green; padding: 20px; text-align: center;'>Column 3</div>", unsafe_allow_html=True)
 
-
-import streamlit as st
+ 
 
 # Create three main columns (col2 is wider)
 col1, col2, col3 = st.columns([1, 2, 1])  
@@ -137,3 +136,38 @@ with col2:
 
     with sub_col3:
         st.markdown("<div style='text-align: center;'><button class='stButton'>Button 3</button></div>", unsafe_allow_html=True)
+
+# Create 3 main columns (Left empty, Center with buttons, Right empty)
+col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
+
+with col2:
+    # Create another row of columns inside col2 for buttons
+    sub_col1, sub_col2, sub_col3 = st.columns([1, 1, 1])  # Equal width columns
+
+    with sub_col1:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        season1 = st.button("Season 1", key="s1")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with sub_col2:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        season2 = st.button("Season 2", key="s2")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with sub_col3:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        season3 = st.button("Season 3", key="s3")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+# Handling button clicks
+if season1:
+    argument = "### 📊 Season 1 Analysis!"
+    classes(argument)
+
+if season2:
+    argument = "### 📊 Season 2 Analysis!"
+    classes(argument)
+
+if season3:
+    argument = "### 📊 Season 3 Analysis!"
+    classes(argument)
