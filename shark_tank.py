@@ -6,8 +6,75 @@ import plotly
 from PIL import Image
 import streamlit.components.v1 as components  
 
-df=pd.read_csv(r"Shark Tank India.csv")
+df=pd.read_csv("Shark Tank India.csv")
 
+df = df[df['Episode Title'] != 'Unseen']
+
+df['Aman_deal'] = df['Aman Investment Amount'].map(lambda x: 1 if isinstance(x, (int, float)) and not pd.isna(x) else 0)
+df['Namita_deal'] = df['Namita Investment Amount'].map(lambda x: 1 if isinstance(x, (int, float)) and not pd.isna(x) else 0)
+df['Vineeta_deal'] = df['Vineeta Investment Amount'].map(lambda x: 1 if isinstance(x, (int, float)) and not pd.isna(x) else 0)
+df['Anupam_deal'] = df['Anupam Investment Amount'].map(lambda x: 1 if isinstance(x, (int, float)) and not pd.isna(x) else 0)
+df['peyush_deal'] = df['Peyush Investment Amount'].map(lambda x: 1 if isinstance(x, (int, float)) and not pd.isna(x) else 0)
+df['Ritesh_deal'] = df['Ritesh Investment Amount'].map(lambda x: 1 if isinstance(x, (int, float)) and not pd.isna(x) else 0)
+df['Amit_deal'] = df['Amit Investment Amount'].map(lambda x: 1 if isinstance(x, (int, float)) and not pd.isna(x) else 0)
+
+
+df['deal_amount_per_shark']=df['Total Deal Amount']/df['Number of Sharks in Deal']
+df['equity_per_shark']=df['Total Deal Equity']/df['Number of Sharks in Deal']
+
+
+df['Boot Strapped']=df['Bootstrapped'].map(lambda x: 1 if x in ['yes', 'funded'] else 0)
+df.drop('Bootstrapped' , axis=1, inplace=True)
+df['Pitchers State']=df['Pitchers State'].fillna(df['Pitchers State'].mode()[0])
+
+general_info=['Season Number', 'Startup Name',
+              'Episode Number', 'Pitch Number',
+              'Episode Title','Anchor', 'Industry',
+              'Number of Presenters','Pitchers Average Age',
+              'Original Ask Amount', 'Original Offered Equity',
+              'Valuation Requested', 'Received Offer', 'Accepted Offer',
+              'Total Deal Amount', 'Total Deal Equity',  'Deal Valuation', 
+              'Number of Sharks in Deal','Pitchers State',
+              'Boot Strapped']
+
+
+time_details=['Season Start', 'Season End', 'Original Air Date']
+
+pitchers_business_details=['Business Description','Company Website',
+                           'Started in', 'Male Presenters',
+                           'Female Presenters', 'Transgender Presenters', 
+                           'Couple Presenters','Pitchers City']
+
+brand_renvue_details=['Yearly Revenue', 'Monthly Sales', 
+                      'Gross Margin', 'Net Margin',
+                      'EBITDA', 'Cash Burn',
+                      'SKUs', 'Has Patents','Part of Match off']
+
+more_into_pitching_brands=['Deal Has Conditions', 'Royalty Percentage', 
+                           'Royalty Recouped Amount','Advisory Shares Equity']
+
+sharks_presence=['Namita Present', 
+                 'Vineeta Present', 'Anupam Present',
+                 'Aman Present','Peyush Present',
+                 'Ritesh Present', 'Amit Present', 'Guest Present']
+
+Debt_details=['Total Deal Debt','Debt Interest','Namita Debt Amount', 'Vineeta Debt Amount','Anupam Debt Amount','Aman Debt Amount', 'Peyush Debt Amount',
+               'Ritesh Debt Amount', 'Amit Debt Amount','Guest Debt Amount']
+
+sharks_ivestment_equity_details=['Namita Investment Amount','Namita Investment Equity',  
+                                 'Vineeta Investment Amount', 'Vineeta Investment Equity', 
+                                 'Anupam Investment Amount','Anupam Investment Equity',  
+                                 'Aman Investment Amount', 'Aman Investment Equity',  
+                                 'Peyush Investment Amount', 'Peyush Investment Equity', 
+                                 'Ritesh Investment Amount', 'Ritesh Investment Equity',  
+                                 'Amit Investment Amount', 'Amit Investment Equity',  
+                                 'Guest Investment Amount', 'Guest Investment Equity']
+
+guest_related=['All Guest Names',]
+
+
+removing_col=brand_renvue_details+pitchers_business_details+sharks_ivestment_equity_details+Debt_details+more_into_pitching_brands
+filtered_df=df.drop(columns=removing_col)
 
 def classes(argument):
         st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
@@ -112,4 +179,3 @@ if season3:
     argument = "### 📊 Season 3 Analysis!"
     classes(argument)
 
-st.write(df.columns)
