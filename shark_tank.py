@@ -72,7 +72,7 @@ with col2:  # Center the content
 col1, col2 = st.columns([1, 4])  
 
 with col1:
-    st.image("stilogo.png", caption="Shark Tank India - Image 1" )  # Smaller Image
+    st.image("stilogo.png", caption="Shark Tank India - Image 1" , width=300)  # Smaller Image
 
 with col2:
     st.image("st.png", caption="Shark Tank India - Image 2")  # Larger Image
@@ -82,81 +82,6 @@ with col2:
 
 # Create 3 main columns (Left empty, Center with buttons, Right empty)
 col1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
-
-with col2:
-    # Create another row of columns inside col2 for buttons
-    sub_col1, sub_col2, sub_col3 = st.columns(3)
-
-    with sub_col1:
-        season1 = st.button("Season 1", key="s1")
-
-    with sub_col2:
-        season2 = st.button("Season 2", key="s2")
-
-    with sub_col3:
-        season3 = st.button("Season 3", key="s3")
-
-# Handling button clicks
-if season1:
-    st.write("### 📊 Season 1 Analysis!")
-
-if season2:
-    st.write("### 📊 Season 2 Analysis!")
-
-if season3:
-    st.write("### 📊 Season 3 Analysis!")
-
-ol1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
-
-with col2:
-    # Create another row of columns inside col2 for buttons
-    sub_col1, sub_col2, sub_col3 = st.columns(3)
-
-    with sub_col1:
-        season1 = st.button("Season 1", key="s1")
-
-    with sub_col2:
-        season2 = st.button("Season 2", key="s2")
-
-    with sub_col3:
-        season3 = st.button("Season 3", key="s3")
-
-# Handling button clicks
-if season1:
-    st.write("### 📊 Season 1 Analysis!")
-
-if season2:
-    st.write("### 📊 Season 2 Analysis!")
-
-if season3:
-    st.write("### 📊 Season 3 Analysis!")
-
-ol1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
-
-with col2:
-    # Create another row of columns inside col2 for buttons
-    sub_col1, sub_col2, sub_col3 = st.columns(3)
-
-    with sub_col1:
-        season1 = st.button("Season 1", key="s1")
-
-    with sub_col2:
-        season2 = st.button("Season 2", key="s2")
-
-    with sub_col3:
-        season3 = st.button("Season 3", key="s3")
-
-# Handling button clicks
-if season1:
-    st.write("### 📊 Season 1 Analysis!")
-
-if season2:
-    st.write("### 📊 Season 2 Analysis!")
-
-if season3:
-    st.write("### 📊 Season 3 Analysis!")
-
-ol1, col2, col3 = st.columns([1, 2, 1])  # Adjust width to center buttons
 
 with col2:
     # Create another row of columns inside col2 for buttons
