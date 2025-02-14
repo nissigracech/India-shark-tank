@@ -15,7 +15,7 @@ st.markdown("""
     <style>
     /* Full page background color */
         body, .stApp {
-            background-color: #2C527A !important;
+            background-color: #292b32 !important;
             color: white !important;
         }
 
@@ -35,33 +35,27 @@ st.markdown("""
             font-size: 16px;
             padding: 10px;
             border-radius: 8px;
-            border: 2px solid transparent;
+            border: 2px solid #0a91bd !important; /* Blue Border */
             cursor: pointer;
             text-align: center;
+            background-color: transparent !important;
+            color: white !important;
         }
 
-        /* Season 1 Button - Filled Yellow */
-        .season1 {
-            background-color: #FFD700 !important;
+        /* Hover effect */
+        .stButton>button:hover {
+            background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
+        }
+
+        /* Active effect (Clicked button remains yellow) */
+        .stButton>button:active {
+            background-color: #FFD700 !important; /* Yellow */
             color: black !important;
             border-color: #FFD700 !important;
         }
-
-        /* Season 2 Button - Blue Outline */
-        .season2 {
-            background-color: transparent !important;
-            color: #00A8E8 !important;
-            border: 2px solid #00A8E8 !important;
-        }
-
-        /* Season 3 Button - White Outline */
-        .season3 {
-            background-color: transparent !important;
-            color: white !important;
-            border: 2px solid white !important;
-        }
     </style>
 """, unsafe_allow_html=True)
+
 
 col1, col2, col3 = st.columns([4,1, 15])  
 
