@@ -180,7 +180,7 @@ def classes(argument,season_df):
     with col2:
         metric_card("First Aired", season_df['Season Start'].max())
     with col3:
-        metric_card("Last Aired", season_df['Season Start'].min())
+        metric_card("Last Aired", season_df['Season End'].min())
     with col4:
         metric_card("Host", season_df['Anchor'].mode()[0])
             
