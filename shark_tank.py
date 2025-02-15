@@ -169,12 +169,14 @@ def classes(argument,season_df):
         """,
         unsafe_allow_html=True
         )
-
-
+    
     # Creating a layout with columns
     col1, col2, col3, col4 = st.columns(4)
+    
+    st.write(season_df['Episode Number'])
     with col1:
-        metric_card("Number of Episodes",  season_df['Episode Number'].nunique())
+        
+        metric_card("Number of Episodes",total_episodes)
     with col2:
         metric_card("First Aired", "20 Dec 2021")
     with col3:
@@ -182,7 +184,7 @@ def classes(argument,season_df):
     with col4:
         metric_card("Host", "Rannvijay Singha")
             
-    col6, col7, col8, col9 = st.columns(4)
+    col6, col7, col8, col9 = st.columns()
     with col6:
         metric_card("Number of Pitches", "117")
     with col7:
