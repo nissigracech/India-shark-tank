@@ -171,9 +171,7 @@ def classes(argument,season_df):
         )
     
     # Creating a layout with columns
-    col1, col2, col3, col4 = st.columns(4)
-    
-    st.write(season_df['Episode Number'])
+    col1, col2, col3, col4 = st.columns(4) 
     with col1:
         
         metric_card("Number of Episodes",season_df['Episode Number'].nunique())
