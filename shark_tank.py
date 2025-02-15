@@ -188,7 +188,7 @@ def classes(argument,season_df):
     with col6:
         metric_card("Number of Pitches\n\n", season_df['Pitch Number'].nunique())
     with col7:
-        metric_card("Total Amount of Money Spent(in lakhs )",f"₹{season_df['Total Deal Amount'].sum() / 100:.2f} crores"  )
+        metric_card("Total Investment(in crores )",f"₹{season_df['Total Deal Amount'].sum() / 100:.2f} crores"  )
     with col8:
         metric_card("Invested", "₹ 38.32 Crores")
     with col9:
