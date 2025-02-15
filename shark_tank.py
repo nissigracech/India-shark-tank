@@ -180,7 +180,7 @@ def classes(argument,season_df):
         )
     
     # Creating a layout with columns
-    col1, col2, col3, col4 = st.columns(4) 
+    col1, col2, col3, col4 = st.columns([1, 1, 1, 1]) 
     with col1:
         metric_card("Number of Episodes",season_df['Episode Number'].nunique())
     with col2:
@@ -190,7 +190,7 @@ def classes(argument,season_df):
     with col4:
         metric_card("Host", season_df['Anchor'].mode()[0])
             
-    col6, col7, col8, col9 = st.columns(4)
+    col6, col7, col8, col9 = st.columns([1, 1, 1, 1])
     with col6:
         metric_card("Number of Pitches\n\n", season_df['Pitch Number'].nunique())
     with col7:
