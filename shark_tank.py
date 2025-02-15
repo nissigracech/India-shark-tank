@@ -6,6 +6,10 @@ import plotly
 from PIL import Image
 import streamlit.components.v1 as components  
 
+
+# Set page config
+st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
+
 df=pd.read_csv("Shark Tank India.csv")
 
 df = df[df['Episode Title'] != 'Unseen']
@@ -202,9 +206,6 @@ def classes(argument,season_df):
 
 
     
-
-# Set page config
-st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 
 # Custom CSS for styling (Sidebar styles removed)
 st.markdown("""
