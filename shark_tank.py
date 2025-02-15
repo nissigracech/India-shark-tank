@@ -141,17 +141,11 @@ def classes(argument,season_df):
     <style>
     .metric-card {
         background-color: #161616;
-        padding: 20px;
+        padding: 50px;
         border-radius: 10px;
         text-align: center;
         box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
         margin-bottom: 20px;
-        width: 200px; /* Set a fixed width */
-        height: 120px; /* Set a fixed height */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
     .metric-title {
         font-size: 16px;
@@ -180,7 +174,7 @@ def classes(argument,season_df):
         )
     
     # Creating a layout with columns
-    col1, col2, col3, col4 = st.columns([1, 1, 1, 1]) 
+    col1, col2, col3, col4 = st.columns(4) 
     with col1:
         metric_card("Number of Episodes",season_df['Episode Number'].nunique())
     with col2:
@@ -190,11 +184,11 @@ def classes(argument,season_df):
     with col4:
         metric_card("Host", season_df['Anchor'].mode()[0])
             
-    col6, col7, col8, col9 = st.columns([1, 1, 1, 1])
+    col6, col7, col8, col9 = st.columns(4)
     with col6:
         metric_card("Number of Pitches\n\n", season_df['Pitch Number'].nunique())
     with col7:
-        metric_card("Total Amount of Money Spent(in lakhs )",f"₹{season_df['Total Deal Amount'].sum() / 100:.2f} crores"  )
+        metric_card("Total Amount of Money Spent(in lakhs )",f"₹{season3_df['Total Deal Amount'].sum() / 100:.2f} crores"  )
     with col8:
         metric_card("Invested", "₹ 38.32 Crores")
     with col9:
