@@ -141,11 +141,17 @@ def classes(argument,season_df):
     <style>
     .metric-card {
         background-color: #161616;
-        padding: 40px;
+        padding: 20px;
         border-radius: 10px;
         text-align: center;
         box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
         margin-bottom: 20px;
+        width: 200px; /* Set a fixed width */
+        height: 120px; /* Set a fixed height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .metric-title {
         font-size: 16px;
