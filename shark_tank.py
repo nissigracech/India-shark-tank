@@ -141,7 +141,7 @@ def classes(argument,season_df):
     <style>
     .metric-card {
         background-color: #161616;
-        padding: 20px;
+        padding: 40px;
         border-radius: 10px;
         text-align: center;
         box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
