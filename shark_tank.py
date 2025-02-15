@@ -70,11 +70,40 @@ sharks_ivestment_equity_details=['Namita Investment Amount','Namita Investment E
                                  'Amit Investment Amount', 'Amit Investment Equity',  
                                  'Guest Investment Amount', 'Guest Investment Equity']
 
-guest_related=['All Guest Names',]
+guest_related=['All Guest Names','Invested Guest Name','']
 
 
 removing_col=brand_renvue_details+pitchers_business_details+sharks_ivestment_equity_details+Debt_details+more_into_pitching_brands
 filtered_df=df.drop(columns=removing_col)
+
+#guest details 
+Guest_list=['Ashneer Grover','Azhar Iqubal','Ghazal Alagh',
+            'Deepinder Goyal','Radhika Gupta','Vikas D Nahar',
+            'Ronnie Screwvala','Varun Dua']
+guest_list_short_cut=['Ashneer','Azhar','Ghazal',
+            'Deepinder','Radhika','Vikas',
+            'Ronnie','Varun']
+
+#creating new columns for guest present and deals
+j=0
+k=0
+for i in Guest_list:
+    new_col=guest_list_short_cut[j]+'_present'
+    filtered_df[new_col]=filtered_df['All Guest Names'].apply(lambda x: 1 if pd.notna(x) and i in x else 0)
+    filtered_df[new_col] = filtered_df['All Guest Names'].apply(lambda x: 1 if pd.notna(x) and i in x else 0)
+    filtered_df['All Guest Names'] = filtered_df['All Guest Names'].apply(lambda x: x.replace(i, '').strip() if pd.notna(x) else x)
+    filtered_df['All Guest Names'] = filtered_df['All Guest Names'].apply(lambda x: x.replace(i, '').strip() if pd.notna(x) else x)
+    j+=1
+
+
+for i in Guest_list:
+    new_col=guest_list_short_cut[k]+'_deal'
+    filtered_df[new_col]=filtered_df['Invested Guest Name'].apply(lambda x: 1 if pd.notna(x) and i in x else 0)
+    filtered_df[new_col] = filtered_df['Invested Guest Name'].apply(lambda x: 1 if pd.notna(x) and i in x else 0)
+    filtered_df['All Guest Names'] = filtered_df['All Guest Names'].apply(lambda x: x.replace(i, '').strip() if pd.notna(x) else x)
+    filtered_df['All Guest Names'] = filtered_df['All Guest Names'].apply(lambda x: x.replace(i, '').strip() if pd.notna(x) else x)
+    k+=1
+
 
 
 # data handling
@@ -203,20 +232,20 @@ with col2:
 
 # Handling button clicks
 if season1:
-    argument = "### 📊 Season 1 Analysis!"
+    argument = "  📊 Season 1 Analysis!"
     season1_df=filtered_df[filtered_df['Season Number']==1]
     season1_df.drop(columns=['Ritesh Present', 'Amit Present','Ritesh_deal','Amit_deal'],inplace=True)
     classes(argument,season1_df)
     
 
 if season2:
-    argument = "📊 Season 2 Analysis!"
+    argument = "  📊 Season 2 Analysis!"
     season2_df=filtered_df[filtered_df['Season Number']==1]
     season2_df.drop(columns=['Ritesh Present' ,'Ritesh_deal' ],inplace=True)
     classes(argument,season2_df)
 
 if season3:
-    argument = " 📊 Season 3 Analysis!"
+    argument = "  📊 Season 3 Analysis!"
     season3_df=filtered_df[filtered_df['Season Number']==1]
     classes(argument,season3_df)
 
