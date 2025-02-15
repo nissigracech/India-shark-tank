@@ -126,6 +126,9 @@ filtered_df['Deal Valuation']=filtered_df['Deal Valuation'].fillna(0)
 filtered_df['deal_amount_per_shark']=filtered_df['deal_amount_per_shark'].fillna(0)
 filtered_df['equity_per_shark']=filtered_df['equity_per_shark'].fillna(0)
 
+for i in time_details:
+    filtered_df[i] = pd.to_datetime(filtered_df[i], errors='coerce')
+    filtered_df[i]=filtered_df[i].dt.strftime('%d %b %Y')
 
 
 
@@ -173,14 +176,13 @@ def classes(argument,season_df):
     # Creating a layout with columns
     col1, col2, col3, col4 = st.columns(4) 
     with col1:
-        
         metric_card("Number of Episodes",season_df['Episode Number'].nunique())
     with col2:
-        metric_card("First Aired", "20 Dec 2021")
+        metric_card("First Aired", season_df['Season Start'].max())
     with col3:
-        metric_card("Last Aired", "4 Feb 2022")
+        metric_card("Last Aired", season_df['Season Start'].min())
     with col4:
-        metric_card("Host", "Rannvijay Singha")
+        metric_card("Host", season_df['Anchor'].mode()[0])
             
     col6, col7, col8, col9 = st.columns(4)
     with col6:
