@@ -133,67 +133,7 @@ def classes(argument,season_df):
     st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
     total_pitches = season_df["Pitch Number"].nunique()
     total_episodes = season_df["Episode Number"].nunique()
-    st.markdown(
-    """
-    <style>
-    .metric-card {
-        background-color: #161616;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-        margin-bottom: 20px;
-    }
-    .metric-title {
-        font-size: 16px;
-        color: #bbb;
-    }
-    .metric-value {
-        font-size: 28px;
-        font-weight: bold;
-        color: #FFD700; /* Gold color */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-    )
-
-    # Function to create metric cards
-    def metric_card(title, value):
-        st.markdown(
-        f"""
-        <div class="metric-card">
-            <div class="metric-title">{title}</div>
-            <div class="metric-value">{value}</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-        )
-    
-    # Creating a layout with columns
-    col1, col2, col3, col4 = st.columns(4)
-    
-    st.write(season_df['Episode Number'])
-    with col1:
-        
-        metric_card("Number of Episodes",total_episodes)
-    with col2:
-        metric_card("First Aired", "20 Dec 2021")
-    with col3:
-        metric_card("Last Aired", "4 Feb 2022")
-    with col4:
-        metric_card("Host", "Rannvijay Singha")
-            
-    col6, col7, col8, col9 = st.columns(4)
-    with col6:
-        metric_card("Number of Pitches", "117")
-    with col7:
-        metric_card("Total Amount of Money Spent", "₹ 41.33 Crores")
-    with col8:
-        metric_card("Invested", "₹ 38.32 Crores")
-    with col9:
-        metric_card("Debt", "₹ 3.01 Crores")
- 
+    st.write(total_episodes)
 
 
 
