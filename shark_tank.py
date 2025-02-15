@@ -184,7 +184,7 @@ def classes(argument,season_df):
     with col4:
         metric_card("Host", "Rannvijay Singha")
             
-    col6, col7, col8, col9 = st.columns()
+    col6, col7, col8, col9 = st.columns(4)
     with col6:
         metric_card("Number of Pitches", "117")
     with col7:
