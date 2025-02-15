@@ -105,7 +105,6 @@ for i in Guest_list:
     k+=1
 
 
-
 # data handling
 # missing values
 filtered_df['Accepted Offer']=filtered_df['Accepted Offer'].fillna(-1)
@@ -249,3 +248,77 @@ if season3:
     season3_df=filtered_df[filtered_df['Season Number']==1]
     classes(argument,season3_df)
 
+
+
+
+st.markdown(
+    """
+    <style>
+    .metric-card {
+        background-color: #161616;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+    }
+    .metric-title {
+        font-size: 16px;
+        color: #bbb;
+    }
+    .metric-value {
+        font-size: 28px;
+        font-weight: bold;
+        color: #FFD700; /* Gold color */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Function to create metric cards
+def metric_card(title, value):
+    st.markdown(
+        f"""
+        <div class="metric-card">
+            <div class="metric-title">{title}</div>
+            <div class="metric-value">{value}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+# Creating a layout with columns
+col1, col2, col3, col4, col5 = st.columns(5)
+
+with col1:
+    metric_card("Number of Episodes", "35")
+
+with col2:
+    metric_card("First Aired", "20 Dec 2021")
+
+with col3:
+    metric_card("Last Aired", "4 Feb 2022")
+
+with col4:
+    metric_card("Host", "Rannvijay Singha")
+
+with col5:
+    metric_card("Number of Sharks", "7")
+
+col6, col7, col8, col9, col10 = st.columns(5)
+
+with col6:
+    metric_card("Number of Pitches", "117")
+
+with col7:
+    metric_card("Total Amount of Money Spent", "₹ 41.33 Crores")
+
+with col8:
+    metric_card("Invested", "₹ 38.32 Crores")
+
+with col9:
+    metric_card("Debt", "₹ 3.01 Crores")
+
+with col10:
+    metric_card("Total Number of Deals", "65")
