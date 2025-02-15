@@ -134,6 +134,7 @@ def classes(argument,season_df):
     total_pitches = season_df["Pitch Number"].nunique()
     total_episodes = season_df["Episode Number"].nunique()
     st.write(total_episodes)
+    st.write(season_df.columns)
 
 
 
