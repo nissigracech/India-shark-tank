@@ -97,7 +97,6 @@ filtered_df['equity_per_shark']=filtered_df['equity_per_shark'].fillna(0)
 
 def classes(argument,season_df):
         st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
-    
         total_pitches = season_df["Pitch Number"].nunique()
         total_episodes = season_df["Episode Number"].nunique()
 
@@ -119,51 +118,51 @@ def classes(argument,season_df):
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 
 # Custom CSS for styling (Sidebar styles removed)
-st.markdown("""
+st.markdown(
+    """
     <style>
-    /* Full page background color */
-        body, .stApp {
-            background-color: #292b32 !important;
-            color: white !important;
+        .fixed-buttons {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #292b32;
+            padding: 10px;
+            border-radius: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 20px;
         }
 
-        /* Centered bold uppercase yellow title */
-        .title {
-            text-align: center;
-            font-weight: 900;
-            font-size: 5em;
-            color: #FFD700; /* Gold Yellow */
-            text-transform: uppercase;
-        }
-
-        /* Button styling */
-        .stButton>button {
-            width: 180px;
+        .fixed-buttons button {
             font-weight: bold;
-            font-size: 32px;
-            padding: 18px;
-            border-radius: 8px;
-            border: 2px solid #0a91bd !important; /* Blue Border */
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #0a91bd;
             cursor: pointer;
-            text-align: center;
-            background-color: transparent !important;
-            color: white !important;
+            background-color: transparent;
+            color: white;
         }
 
-        /* Hover effect */
-        .stButton>button:hover {
-            background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
+        .fixed-buttons button:hover {
+            background-color: rgba(10, 145, 189, 0.2);
         }
 
-        /* Active effect (Clicked button remains yellow) */
-        .stButton>button:active {
-            background-color: #FFD700 !important; /* Yellow */
-            color: black !important;
-            border-color: #FFD700 !important;
+        .fixed-buttons button:active {
+            background-color: #FFD700;
+            color: black;
+            border-color: #FFD700;
         }
     </style>
-""", unsafe_allow_html=True)
-
+    <div class="fixed-buttons">
+        <button onclick="window.location.href='/?season=1'">Season 1</button>
+        <button onclick="window.location.href='/?season=2'">Season 2</button>
+        <button onclick="window.location.href='/?season=3'">Season 3</button>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 #-------------------------------------------------------------------------------
 # creating logo and image 
 col1, col2, col3 = st.columns([4,1, 15])  
