@@ -289,7 +289,7 @@ def metric_card(title, value):
     )
 
 # Creating a layout with columns
-col1, col2, col3, col4, col5 = st.columns(5)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     metric_card("Number of Episodes", "35")
@@ -302,11 +302,9 @@ with col3:
 
 with col4:
     metric_card("Host", "Rannvijay Singha")
+ 
 
-with col5:
-    metric_card("Number of Sharks", "7")
-
-col6, col7, col8, col9, col10 = st.columns(5)
+col6, col7, col8, col9 = st.columns(4)
 
 with col6:
     metric_card("Number of Pitches", "117")
@@ -319,6 +317,4 @@ with col8:
 
 with col9:
     metric_card("Debt", "₹ 3.01 Crores")
-
-with col10:
-    metric_card("Total Number of Deals", "65")
+ 
