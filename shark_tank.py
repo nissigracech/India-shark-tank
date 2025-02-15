@@ -133,7 +133,7 @@ def classes(argument,season_df):
     st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
     total_pitches = season_df["Pitch Number"].nunique()
     total_episodes = season_df["Episode Number"].nunique()
-    st.write(total_episodes)
+    st.write(season_df["Episode Number"].nunique())
     st.write(season_df.columns)
 
 
