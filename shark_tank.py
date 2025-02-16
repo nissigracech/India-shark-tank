@@ -156,18 +156,24 @@ def classes(argument,season_df):
         font-weight: bold;
         color: #FFD700; /* Gold color */
     }
+    .metric-subtitle {
+        font-size: 14px;
+        color: #888;
+        margin-top: 5px;
+    }
     </style>
     """,
     unsafe_allow_html=True
-    )
+)
 
     # Function to create metric cards
-    def metric_card(title, value):
+    def metric_card(title, value, subtitle=""):
         st.markdown(
         f"""
         <div class="metric-card">
             <div class="metric-title">{title}</div>
             <div class="metric-value">{value}</div>
+            {f'<div class="metric-subtitle">{subtitle}</div>' if subtitle else ''}
         </div>
         """,
         unsafe_allow_html=True
