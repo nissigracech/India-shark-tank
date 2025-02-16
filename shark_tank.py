@@ -148,16 +148,16 @@ def classes(argument,season_df):
         margin-bottom: 20px;
     }
     .metric-title {
-        font-size: 16px;
+        font-size: 30px;
         color: #bbb;
     }
     .metric-value {
-        font-size: 28px;
+        font-size: 58px;
         font-weight: bold;
         color: #FFD700; /* Gold color */
     }
     .metric-subtitle {
-        font-size: 14px;
+        font-size: 20px;
         color: #888;
         margin-top: 5px;
     }
@@ -184,7 +184,7 @@ def classes(argument,season_df):
     with col1:
         metric_card("Number of Episodes",season_df['Episode Number'].nunique())
     with col2:
-        metric_card("Season start Date", season_df['Season Start'].max(),"hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
+        metric_card("Season start Date", season_df['Season Start'].max())
     with col3:
         metric_card("Season Last date", season_df['Season End'].min())
     with col4:
