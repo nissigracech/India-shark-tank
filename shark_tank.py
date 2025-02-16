@@ -198,7 +198,7 @@ def classes(argument,season_df):
     with col8:
         metric_card("Startups That Received Offers", season_df['Received Offer'].eq(1).sum())
     with col9:
-        metric_card("Startups That Accepted Offers", season_df['Accepted Offer'].eq(1).sum())
+        metric_card("Startups That Accepted Offers", season_df['Accepted Offer'].eq(1).sum(),"hi")
         
 
 
