@@ -148,16 +148,16 @@ def classes(argument,season_df):
         margin-bottom: 20px;
     }
     .metric-title {
-        font-size: 30px;
+        font-size: 18px;
         color: #bbb;
     }
     .metric-value {
-        font-size: 58px;
+        font-size: 32px;
         font-weight: bold;
         color: #FFD700; /* Gold color */
     }
     .metric-subtitle {
-        font-size: 20px;
+        font-size: 16px;
         color: #888;
         margin-top: 5px;
     }
