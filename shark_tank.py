@@ -192,9 +192,9 @@ def classes(argument,season_df):
             
     col6, col7, col8, col9 = st.columns(4)
     with col6:
-        metric_card("Total Pitches\n\n", season_df['Pitch Number'].nunique())
+        metric_card("Total Pitches", season_df['Pitch Number'].nunique())
     with col7:
-        metric_card("Total Investment(in crores )",f"₹{season_df['Total Deal Amount'].sum() / 100:.2f} crores"  )
+        metric_card("Total Investment(in crores )",f"₹{season_df['Total Deal Amount'].sum() / 100:.2f} crores")
     with col8:
         metric_card("Startups That Received Offers", season_df['Received Offer'].eq(1).sum())
     with col9:
