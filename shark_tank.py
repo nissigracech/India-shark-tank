@@ -144,7 +144,7 @@ def classes(argument,season_df):
         padding: 50px;
         border-radius: 10px;
         text-align: center;
-        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
         margin-bottom: 20px;
     }
     .metric-title {
@@ -193,7 +193,7 @@ def classes(argument,season_df):
         metric_card("Invested", "₹ 38.32 Crores")
     with col9:
         metric_card("Debt", "₹ 3.01 Crores")
- 
+        
 
 
 
