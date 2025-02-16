@@ -178,21 +178,21 @@ def classes(argument,season_df):
     with col1:
         metric_card("Number of Episodes",season_df['Episode Number'].nunique())
     with col2:
-        metric_card("First Aired", season_df['Season Start'].max())
+        metric_card("Season start Date", season_df['Season Start'].max())
     with col3:
-        metric_card("Last Aired", season_df['Season End'].min())
+        metric_card("Season Last date", season_df['Season End'].min())
     with col4:
-        metric_card("Host", season_df['Anchor'].mode()[0])
+        metric_card("Show Host", season_df['Anchor'].mode()[0])
             
     col6, col7, col8, col9 = st.columns(4)
     with col6:
-        metric_card("Number of Pitches\n\n", season_df['Pitch Number'].nunique())
+        metric_card("Total Pitches\n\n", season_df['Pitch Number'].nunique())
     with col7:
         metric_card("Total Investment(in crores )",f"₹{season_df['Total Deal Amount'].sum() / 100:.2f} crores"  )
     with col8:
-        metric_card("Invested", season_df['Received Offer'].eq(1).sum())
+        metric_card("Startups That Received Offers", season_df['Received Offer'].eq(1).sum())
     with col9:
-        metric_card("Debt", season_df['Accepted Offer'].eq(1).sum())
+        metric_card("Startups That Accepted Offers", season_df['Accepted Offer'].eq(1).sum())
         
 
 
