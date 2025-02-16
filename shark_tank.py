@@ -190,9 +190,9 @@ def classes(argument,season_df):
     with col7:
         metric_card("Total Investment(in crores )",f"₹{season_df['Total Deal Amount'].sum() / 100:.2f} crores"  )
     with col8:
-        metric_card("Invested", "₹ 38.32 Crores")
+        metric_card("Invested", season_df['Received Offer'].eq(1).sum())
     with col9:
-        metric_card("Debt", "₹ 3.01 Crores")
+        metric_card("Debt", season_df['Accepted Offer'].eq(1).sum())
         
 
 
