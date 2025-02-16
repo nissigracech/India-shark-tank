@@ -184,7 +184,7 @@ def classes(argument,season_df):
     with col1:
         metric_card("Number of Episodes",season_df['Episode Number'].nunique())
     with col2:
-        metric_card("Season start Date", season_df['Season Start'].max())
+        metric_card("Season start Date", season_df['Season Start'].max(),"hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
     with col3:
         metric_card("Season Last date", season_df['Season End'].min())
     with col4:
