@@ -216,13 +216,16 @@ def classes(argument,season_df):
     with col20:
         st.subheader("Industry-wise Pitch Count")
         industry_counts = season_df['Industry'].value_counts()
-        fig, ax = plt.subplots(figsize=(10, 5))
-        sns.barplot(x=industry_counts.index, y=industry_counts.values, palette="viridis", ax=ax)
-        ax.set_xlabel("Industry")
-        ax.set_ylabel("Count")
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha="right")
-        st.pyplot(fig)
-
+        fig = px.bar(
+            x=industry_counts.index, 
+            y=industry_counts.values, 
+            labels={'x': 'Industry', 'y': 'Count'}, 
+            title="Industry-wise Pitch Count",
+            color=industry_counts.values,
+            color_continuous_scale="viridis"
+            )
+        fig.update_layout(xaxis_tickangle=-45)
+        st.plotly_chart(fig, use_container_width=True)
 
 
     
