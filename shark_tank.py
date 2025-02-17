@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matlplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 import plotly
@@ -214,7 +215,7 @@ def classes(argument,season_df):
     col20,col22=st.columns(2)
     with col20:
         st.subheader("Industry-wise Pitch Count")
-        industry_counts = df['Industry'].value_counts()
+        industry_counts = season_df['Industry'].value_counts()
         fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x=industry_counts.index, y=industry_counts.values, palette="viridis", ax=ax)
         ax.set_xlabel("Industry")
