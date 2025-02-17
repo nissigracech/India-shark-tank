@@ -226,6 +226,46 @@ def classes(argument,season_df):
             )
         fig.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
+    with col22: 
+        # Scoped CSS for dropdown width
+        st.markdown(
+            """
+            <style>
+            /* Target only the select box */
+            div[data-baseweb="select"] > div {
+            width: 200px !important;  /* Adjust width as needed */
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+
+        # Dropdown selection
+        option = st.selectbox(
+            "Select Pitch Perspective",
+            ["All Pitches", "Pitches that Received an Offer", "Pitches that Accepted an Offer"]
+            )
+
+        # Filtering data based on selection
+        if option == "All Pitches":
+            industry_counts = filtered_df['Industry'].value_counts()
+        elif option == "Pitches that Received an Offer":
+            industry_counts = filtered_df[filtered_df['Received Offer'] == 1]['Industry'].value_counts()
+        elif option == "Pitches that Accepted an Offer":
+            industry_counts = filtered_df[filtered_df['Accepted Offer'] == 1]['Industry'].value_counts()
+
+        # Create interactive bar chart
+        fig = px.bar(
+            x=industry_counts.index, 
+            y=industry_counts.values, 
+            labels={'x': 'Industry', 'y': 'Count'}, 
+            title=f"Industry-wise Pitch Count ({option})",
+            color=industry_counts.values,
+            color_continuous_scale="viridis"
+        )
+
+        fig.update_layout(xaxis_tickangle=-45)
+        st.plotly_chart(fig, use_container_width=True)
 
 
     
