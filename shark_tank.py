@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-import plotly
+import plotly as px
 from PIL import Image
 import streamlit.components.v1 as components  
 
