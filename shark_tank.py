@@ -333,7 +333,18 @@ if season3:
     season3_df=filtered_df[filtered_df['Season Number']==3]
     classes(argument,season3_df)
 
- 
+
+# Custom CSS for dropdown size
+st.markdown(
+    """
+    <style>
+    div[data-baseweb="select"] {
+        width: 250px !important;  /* Adjust the width as needed */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Dropdown selection
 option = st.selectbox(
