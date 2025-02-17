@@ -182,13 +182,14 @@ def classes(argument,season_df):
     # Creating a layout with columns
     col1, col2, col3, col4 = st.columns(4) 
     with col1:
-        metric_card("Number of Episodes",season_df['Episode Number'].nunique()," ")
+        metric_card("Show Host", season_df['Anchor'].mode()[0]," ")
     with col2:
         metric_card("Season start Date", season_df['Season Start'].max()," ")
     with col3:
         metric_card("Season Last date", season_df['Season End'].min()," ")
     with col4:
-        metric_card("Show Host", season_df['Anchor'].mode()[0]," ")
+        metric_card("Number of Episodes",season_df['Episode Number'].nunique()," ")
+        
             
     col5, col6, col7, col8 = st.columns(4)
     with col5:
@@ -210,6 +211,16 @@ def classes(argument,season_df):
     with col12:
         metric_card("Startups That Accepted Offers", season_df['Accepted Offer'].eq(1).sum()," ")
         
+    col20,col22=st.columns(2)
+    with col20:
+        st.subheader("Industry-wise Pitch Count")
+        industry_counts = df['Industry'].value_counts()
+        fig, ax = plt.subplots(figsize=(10, 5))
+        sns.barplot(x=industry_counts.index, y=industry_counts.values, palette="viridis", ax=ax)
+        ax.set_xlabel("Industry")
+        ax.set_ylabel("Count")
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha="right")
+        st.pyplot(fig)
 
 
 
