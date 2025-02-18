@@ -53,7 +53,7 @@ def classes(argument, season_df):
             "Select Pitch Perspective",
             ["All Pitches", "Pitches that Received an Offer", "Pitches that Accepted an Offer"],
             key="filter_selectbox",
-            on_change=update_filter
+            on_change=update_filter()
         )
         st.session_state.selected_filter = option
 
