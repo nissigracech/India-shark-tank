@@ -282,8 +282,8 @@ st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allo
 
 length=len(season1_guests)
 col_list=['col1','col2','col3','col4','col5','col6','col7','col8','col9','col10']
-cols = st.columns(len(col_list))  # Creates dynamic columns
+cols = st.columns(len(season1_guests))  # Creates dynamic columns
 
 for i, col in enumerate(cols):
     with col:
-        st.write(f"Column {i+1}: {col_list[i]}")
+        season2 = st.button(season1_guests[i], key="s2")
