@@ -49,7 +49,7 @@ def classes(argument, season_df):
     </style>
     """,
     unsafe_allow_html=True
-)
+    )
 
     # Function to create metric cards
     def metric_card(title, value, subtitle=""):
@@ -100,18 +100,6 @@ def classes(argument, season_df):
     # ...
 
     col20, col22 = st.columns(2)
-    with col20:
-        st.subheader("Industry-wise Pitch Count")
-        industry_counts = season_df['Industry'].value_counts()
-        fig = px.bar(
-            x=industry_counts.index,
-            y=industry_counts.values,
-            labels={'x': 'Industry', 'y': 'Count'},
-            title="Industry-wise Pitch Count"
-        )
-        fig.update_layout(xaxis_tickangle=-45)
-        st.plotly_chart(fig, use_container_width=True)
-
     with col22:
         # Scoped CSS for dropdown width
         st.markdown(
@@ -159,18 +147,7 @@ def classes(argument, season_df):
         st.plotly_chart(fig, use_container_width=True)
 
 
-# Custom CSS for styling (Your existing code)
-st.markdown(
-    """
-    <style>
-    /* ... (Your CSS) ... */
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-# Logo and Image display (Your existing code)
-# ...
+  
 # Custom CSS for styling (Sidebar styles removed)
 st.markdown("""
     <style>
