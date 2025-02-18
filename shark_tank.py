@@ -286,4 +286,4 @@ cols = st.columns(len(season1_guests))  # Creates dynamic columns
 
 for i, col in enumerate(cols):
     with col:
-        season2 = st.button(season1_guests[i], key="s2")
+        abc= st.button(season1_guests[i], key="s2")
