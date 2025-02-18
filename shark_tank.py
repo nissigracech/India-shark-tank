@@ -255,4 +255,35 @@ elif st.session_state.selected_season == 3:
     classes(argument, season_df)
 
 st.markdown("---")
-#sharks details
+#sharks det
+All_sharks=['Namita','Vineeta','Anupam',
+                'Aman','Peyush','Ritesh','Amit',
+                'Ashneer','Azhar','Ghazal','Deepinder',
+                'Radhika','Vikas','Ronnie','Varun']
+All_guests=['Ashneer','Azhar','Ghazal','Deepinder',
+                'Radhika','Vikas','Ronnie','Varun']
+season1_sharks=['Namita','Vineeta','Anupam',
+                'Aman','Peyush','Ashneer',
+                'Ghazal']
+season1_guests=[ 'Ashneer','Ghazal' ]
+season2_sharks=['Namita','Vineeta','Anupam',
+                'Aman','Peyush','Amit','Vikas']
+season2_guests=['Ashneer','Azhar','Ghazal','Deepinder',
+                'Radhika','Vikas','Ronnie','Varun']
+season3_sharks=['Namita','Vineeta','Anupam',
+                'Aman','Peyush','Ritesh','Amit',
+                'Azhar','Deepinder','Radhika',
+                'Ronnie','Varun']
+season3_guests=['Azhar','Ghazal','Deepinder',
+                'Radhika','Ronnie','Varun']
+
+st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
+
+
+length=len(season1_guests)
+col_list=['col1','col2','col3','col4']
+cols = st.columns(len(col_list))  # Creates dynamic columns
+
+for i, col in enumerate(cols):
+    with col:
+        st.write(f"Column {i+1}: {col_list[i]}")
