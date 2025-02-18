@@ -1,20 +1,3 @@
-
-''''
-
-You said:
-I want to create a bar chart in streamlit 
-in such a way that when i clicked on the bar it should show some details
-ChatGPT said:
-You can achieve this in Streamlit using Plotly. Plotly allows you to create interactive bar charts where clicking on a bar can display additional details.
-
-Steps to Achieve This:
-Create a bar chart using plotly.express.
-Use Plotly’s event handling (plotly_click).
-Display details based on the clicked bar in Streamlit.
-Example Code:
-python
-Copy
-Edit'''
 import streamlit as st
 import plotly.express as px
 import pandas as pd
@@ -23,7 +6,13 @@ import pandas as pd
 data = pd.DataFrame({
     'Category': ['A', 'B', 'C', 'D', 'E'],
     'Value': [100, 200, 150, 250, 180],
-    'Details': ['Info about A', 'Info about B', 'Info about C', 'Info about D', 'Info about E']
+    'Details': [
+        "🔹 **Category A:** This represents the first category with insights.",
+        "🔹 **Category B:** This has the highest value among all categories.",
+        "🔹 **Category C:** This is an average category in the dataset.",
+        "🔹 **Category D:** This is the second-highest category.",
+        "🔹 **Category E:** This is a moderate category with steady growth."
+    ]
 })
 
 # Create a bar chart using Plotly
@@ -43,8 +32,19 @@ fig.data[0].on_click(on_click)
 # Display the chart
 st.plotly_chart(fig)
 
-# Show details when a bar is clicked
+# Show styled details when a bar is clicked
 if selected_category:
     details = data[data['Category'] == selected_category]['Details'].values[0]
-    st.write(f"### Details for {selected_category}:")
-    st.write(details)
+    
+    # Styling with Markdown
+    st.markdown(f"""
+        <div style="
+            background-color: #f4f4f4; 
+            padding: 15px; 
+            border-radius: 10px; 
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            font-size: 16px;">
+            <b style="color: #333;">Details for {selected_category}:</b> <br>
+            {details}
+        </div>
+    """, unsafe_allow_html=True)
