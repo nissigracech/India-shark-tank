@@ -294,48 +294,31 @@ for i, col in enumerate(cols):
 
 
 st.markdown("---")
-data = pd.DataFrame({
-    'Category': ['A', 'B', 'C', 'D', 'E'],
-    'Value': [100, 200, 150, 250, 180],
-    'Details': [
-        "🔹 **Category A:** This represents the first category with insights.",
-        "🔹 **Category B:** This has the highest value among all categories.",
-        "🔹 **Category C:** This is an average category in the dataset.",
-        "🔹 **Category D:** This is the second-highest category.",
-        "🔹 **Category E:** This is a moderate category with steady growth."
-    ]
-})
+data = {
+    "Category": ["A", "B", "C", "D"],
+    "Values": [10, 20, 30, 40],
+    "Details": [
+        "Details for A: This is category A.",
+        "Details for B: This is category B.",
+        "Details for C: This is category C.",
+        "Details for D: This is category D.",
+    ],
+}
+df = pd.DataFrame(data)
 
-# Create a bar chart using Plotly
-fig = px.bar(data, x='Category', y='Value', text='Value')
+# Create a Plotly bar chart
+fig = px.bar(df, x="Category", y="Values", text="Values", title="Click on a Bar to See Details")
 
-# Enable click interaction
-selected_category = st.session_state.get("selected_category", None)
+# Display the chart using Streamlit
+st.plotly_chart(fig, use_container_width=True)
 
-def on_click(trace, points, state):
-    if points.points:
-        selected_category = points.points[0]['x']
-        st.session_state["selected_category"] = selected_category
+# Add a click event using Plotly's `clickData`
+if st.session_state.get("click_data"):
+    clicked_bar = st.session_state.click_data["points"][0]["x"]
+    details = df[df["Category"] == clicked_bar]["Details"].values[0]
+    st.write(f"**Details for {clicked_bar}:** {details}")
 
-fig.update_traces(marker_color='blue', textposition='outside')
-fig.data[0].on_click(on_click)
-
-# Display the chart
-st.plotly_chart(fig)
-
-# Show styled details when a bar is clicked
-if selected_category:
-    details = data[data['Category'] == selected_category]['Details'].values[0]
-    
-    # Styling with Markdown
-    st.markdown(f"""
-        <div style="
-            background-color: #f4f4f4; 
-            padding: 15px; 
-            border-radius: 10px; 
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-            font-size: 16px;">
-            <b style="color: #333;">Details for {selected_category}:</b> <br>
-            {details}
-        </div>
-    """, unsafe_allow_html=True)
+# Store the click data in session state
+if st.plotly_chart(fig, use_container_width=True, key="bar_chart"):
+    if st.session_state.get("bar_chart"):
+        st.session_state.click_data = st.session_state.bar_chart["clickData"]
