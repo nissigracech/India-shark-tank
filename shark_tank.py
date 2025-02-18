@@ -330,7 +330,7 @@ st.pyplot(fig)
 def show_details(selected_shark):
     st.subheader(f"Deals by {selected_shark}:")
     deal_column = f"{selected_shark}_deal"
-    invested_pitches = df[df[deal_column] == 1]  # Filter where the deal column is 1
+    invested_pitches = filtered_df[filtered_df[deal_column] == 1]  # Filter where the deal column is 1
 
     if not invested_pitches.empty:
         st.dataframe(invested_pitches[[
