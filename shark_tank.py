@@ -13,6 +13,27 @@ st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 # Load the pre-processed data
 filtered_df = pd.read_csv("filtered_df.csv")
 
+All_sharks=['Namita','Vineeta','Anupam',
+                'Aman','Peyush','Ritesh','Amit',
+                'Ashneer','Azhar','Ghazal','Deepinder',
+                'Radhika','Vikas','Ronnie','Varun']
+All_guests=['Ashneer','Azhar','Ghazal','Deepinder',
+                'Radhika','Vikas','Ronnie','Varun']
+season1_sharks=['Namita','Vineeta','Anupam',
+                'Aman','Peyush','Ashneer',
+                'Ghazal']
+season1_guests=[ 'Ashneer','Ghazal' ]
+season2_sharks=['Namita','Vineeta','Anupam',
+                'Aman','Peyush','Amit','Vikas']
+season2_guests=['Ashneer','Azhar','Ghazal','Deepinder',
+                'Radhika','Vikas','Ronnie','Varun']
+season3_sharks=['Namita','Vineeta','Anupam',
+                'Aman','Peyush','Ritesh','Amit',
+                'Azhar','Deepinder','Radhika',
+                'Ronnie','Varun']
+season3_guests=['Azhar','Ghazal','Deepinder',
+                'Radhika','Ronnie','Varun']
+
 # Initialize session state variables
 if "selected_season" not in st.session_state:
     st.session_state.selected_season = 1
@@ -258,26 +279,7 @@ elif st.session_state.selected_season == 3:
 
 st.markdown("---")
 #sharks det
-All_sharks=['Namita','Vineeta','Anupam',
-                'Aman','Peyush','Ritesh','Amit',
-                'Ashneer','Azhar','Ghazal','Deepinder',
-                'Radhika','Vikas','Ronnie','Varun']
-All_guests=['Ashneer','Azhar','Ghazal','Deepinder',
-                'Radhika','Vikas','Ronnie','Varun']
-season1_sharks=['Namita','Vineeta','Anupam',
-                'Aman','Peyush','Ashneer',
-                'Ghazal']
-season1_guests=[ 'Ashneer','Ghazal' ]
-season2_sharks=['Namita','Vineeta','Anupam',
-                'Aman','Peyush','Amit','Vikas']
-season2_guests=['Ashneer','Azhar','Ghazal','Deepinder',
-                'Radhika','Vikas','Ronnie','Varun']
-season3_sharks=['Namita','Vineeta','Anupam',
-                'Aman','Peyush','Ritesh','Amit',
-                'Azhar','Deepinder','Radhika',
-                'Ronnie','Varun']
-season3_guests=['Azhar','Ghazal','Deepinder',
-                'Radhika','Ronnie','Varun']
+
 
 st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
 
