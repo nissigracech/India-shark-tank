@@ -133,8 +133,8 @@ def classes(argument, season_df):
             industry_counts = season_df[season_df['Received Offer'] == 1]['Industry'].value_counts()
         elif st.session_state.selected_filter == "Pitches that Accepted an Offer":
             industry_counts = season_df[season_df['Accepted Offer'] == 1]['Industry'].value_counts()
-        elif st.session_state.selected_filter == "Pitches that not Received an Offer":
-            industry_counts = season_df[season_df['Received Offer'] == 0]['Industry'].value_counts()
+        elif st.session_state.selected_filter == "Pitches that not Recieved an offer":
+            industry_counts = season_df[season_df['Received Offer'] != 0]['Industry'].value_counts()
 
 
         fig = px.bar(
