@@ -116,7 +116,7 @@ def classes(argument, season_df):
 
         option = st.selectbox(
             "Select Pitch Perspective",
-            ["All Pitches", "Pitches that Received an Offer", "Pitches that Accepted an Offer"],
+            ["All Pitches", "Pitches that Received an Offer","Pitches that not Recieved an offer", "Pitches that Accepted an Offer"],
             key="filter_selectbox" 
         )
         st.session_state.selected_filter = option
@@ -133,6 +133,8 @@ def classes(argument, season_df):
             industry_counts = season_df[season_df['Received Offer'] == 1]['Industry'].value_counts()
         elif st.session_state.selected_filter == "Pitches that Accepted an Offer":
             industry_counts = season_df[season_df['Accepted Offer'] == 1]['Industry'].value_counts()
+        elif st.session_state.selected_filter == "Pitches that not Received an Offer":
+            industry_counts = season_df[season_df['Received Offer'] == 0]['Industry'].value_counts()
 
 
         fig = px.bar(
