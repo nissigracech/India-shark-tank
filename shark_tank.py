@@ -299,7 +299,6 @@ st.markdown("---")
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from plotly_events import plotly_events  # Library to capture Plotly events
 
 # Sample data
 data = {
@@ -315,13 +314,15 @@ data = {
 df = pd.DataFrame(data)
 
 # Create a Plotly bar chart
-fig = px.bar(df, x="Category", y="Values", text="Values", title="Click on a Bar to See Details")
+fig = px.bar(df, x="Category", y="Values", text="Values", title="Select a Bar to See Details")
 
-# Use plotly_events to capture click events
-selected_points = plotly_events(fig, click_event=True)
+# Display the chart using Streamlit
+st.plotly_chart(fig, use_container_width=True)
 
-# Display details if a bar is clicked
-if selected_points:
-    clicked_bar = selected_points[0]["x"]  # Get the category of the clicked bar
-    details = df[df["Category"] == clicked_bar]["Details"].values[0]
-    st.write(f"**Details for {clicked_bar}:** {details}")
+# Add a dropdown to select a bar
+selected_category = st.selectbox("Select a Category", df["Category"])
+
+# Display details for the selected category
+if selected_category:
+    details = df[df["Category"] == selected_category]["Details"].values[0]
+    st.write(f"**Details for {selected_category}:** {details}")
