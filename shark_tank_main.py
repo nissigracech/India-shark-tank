@@ -6,7 +6,7 @@ import seaborn as sns
 import plotly.express as px
 from PIL import Image
 import streamlit.components.v1 as components  
-
+,'col5','col6','col7','col8','col9','col10'
 
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
@@ -376,3 +376,55 @@ else:
     season1_df=filtered_df[filtered_df['Season Number']==1]
     season1_df.drop(columns=['Ritesh Present', 'Amit Present','Ritesh_deal','Amit_deal'],inplace=True)
     classes(argument,season1_df)
+    
+    
+    
+st.markdown("---")
+
+ 
+
+# Load your data (replace 'your_data.csv' with the actual file path)
+ 
+
+# Data Preparation
+shark_columns = [
+    "Namita", "Vineeta", "Anupam", "Aman", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"
+]
+
+shark_investments = {}
+for shark in shark_columns:
+    shark_investments[shark] = season1_df[f"{shark}_deal"].sum()
+
+shark_data = pd.DataFrame(list(shark_investments.items()), columns=['Shark', 'Investments'])
+
+# Create the Bar Chart with Matplotlib
+fig, ax = plt.subplots(figsize=(10, 6))  # Adjust figure size as needed
+shark_data = shark_data.sort_values('Investments', ascending=False) #Sort
+ax.bar(shark_data['Shark'], shark_data['Investments'])
+ax.set_xlabel("Shark")
+ax.set_ylabel("Number of Investments")
+ax.set_title("Number of Pitches Invested in per Shark")
+plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels for better readability
+plt.tight_layout() # Adjust layout to prevent labels from overlapping
+
+# Display the chart in Streamlit
+st.pyplot(fig)
+
+# --- Detailed Information on Click (using st.session_state and a callback) ---
+
+def show_details(selected_shark):
+    st.subheader(f"Pitches Invested in by {selected_shark}:")
+    invested_pitches = df[df[f"{selected_shark}_deal"] == 1]
+    if not invested_pitches.empty:
+        st.dataframe(invested_pitches[[
+            "Startup Name", "Industry", "Original Ask Amount", "Total Deal Amount", "Deal Valuation"
+        ]])
+    else:
+        st.write(f"{selected_shark} did not invest in any pitches.")
+
+# Create a selectbox for the sharks
+selected_shark = st.selectbox("Select a Shark", shark_data['Shark'].tolist())
+
+# Display the details when a shark is selected
+if selected_shark:
+  show_details(selected_shark)
