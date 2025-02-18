@@ -280,10 +280,10 @@ season3_guests=['Azhar','Ghazal','Deepinder',
 st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
 
 
-length=len(season1_guests)
+length=len(season1_sharks)
 col_list=['col1','col2','col3','col4','col5','col6','col7','col8','col9','col10']
-cols = st.columns(len(season1_guests))  # Creates dynamic columns
+cols = st.columns(len(season1_sharks))  # Creates dynamic columns
 
 for i, col in enumerate(cols):
     with col:
-        abc= st.button(season1_guests[i])
+        abc= st.button(season1_sharks[i])
