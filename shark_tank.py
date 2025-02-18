@@ -362,14 +362,19 @@ if season1:
     classes(argument,season1_df)
     
 
-if season2:
+elif season2:
     argument = "  📊 Season 2 Analysis!"
     season2_df=filtered_df[filtered_df['Season Number']==2]
     season2_df.drop(columns=['Ritesh Present' ,'Ritesh_deal' ],inplace=True)
     classes(argument,season2_df)
 
-if season3:
+elif season3:
     argument = "  📊 Season 3 Analysis!"
     season3_df=filtered_df[filtered_df['Season Number']==3]
     classes(argument,season3_df)
 
+else:
+    argument = "  📊 Season 1 Analysis!"
+    season1_df=filtered_df[filtered_df['Season Number']==1]
+    season1_df.drop(columns=['Ritesh Present', 'Amit Present','Ritesh_deal','Amit_deal'],inplace=True)
+    classes(argument,season1_df)
