@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
 import plotly.express as px
-from PIL import Image  # If you're still using images
-import streamlit.components.v1 as components  # If needed
-import base64
+from PIL import Image
+import streamlit.components.v1 as components 
 
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
@@ -145,72 +147,112 @@ def classes(argument, season_df):
 def sharks():
     pass
 
-import streamlit as st
-import base64
-
-# Function to encode a local image to Base64
-def get_base64_image(image_path):
-    with open(image_path, "rb") as img_file:
-        base64_str = base64.b64encode(img_file.read()).decode()
-    return f"data:image/png;base64,{base64_str}"
-
-# Paths to your local images
-image_path = "background.jpg"  # Change this to your image filename
-
-# Get base64 encoded image
-encoded_image = get_base64_image(image_path)
-
-# Custom CSS for top and bottom background
-st.markdown(
-    f"""
-    <style>
-    .top-bg {{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 20%; /* Adjust height */
-        background-image: url("{encoded_image}");
-        background-size: cover;
-        background-position: center;
-        z-index: -1;
-    }}
-
-    .bottom-bg {{
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 20%; /* Adjust height */
-        background-image: url("{encoded_image}");
-        background-size: cover;
-        background-position: center;
-        z-index: -1;
-    }}
-
-    .middle-section {{
-        background-color: #f5f5f5; /* Light grey middle */
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-    }}
-    </style>
-    <div class="top-bg"></div>
-    <div class="bottom-bg"></div>
-    """,
-    unsafe_allow_html=True
-)
-
-# Streamlit layout
-st.title("Shark Tank India Dashboard")
-
-st.markdown('<div class="middle-section">', unsafe_allow_html=True)
-st.subheader("Main Content in the Middle")
-st.write("This section has a different background color, separating it from the top and bottom images.")
-st.markdown('</div>', unsafe_allow_html=True)
-
   
- 
+# Custom CSS for styling (Sidebar styles removed)
+st.markdown("""
+    <style>
+    /* Full page background color */
+        body, .stApp {
+            background-color: #292b32 !important;
+            color: white !important;
+        }
+
+        /* Centered bold uppercase yellow title */
+        .title {
+            text-align: center;
+            font-weight: 900;
+            font-size: 5em;
+            color: #FFD700; /* Gold Yellow */
+            text-transform: uppercase;
+        }
+
+        /* Button styling */
+        .stButton>button {
+            width: 180px;
+            font-weight: bold;
+            font-size: 32px;
+            padding: 18px;
+            border-radius: 8px;
+            border: 2px solid #0a91bd !important; /* Blue Border */
+            cursor: pointer;
+            text-align: center;
+            background-color: transparent !important;
+            color: white !important;
+        }
+
+        /* Hover effect */
+        .stButton>button:hover {
+            background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
+        }
+
+        /* Active effect (Clicked button remains yellow) */
+        .stButton>button:active {
+            background-color: #FFD700 !important; /* Yellow */
+            color: black !important;
+            border-color: #FFD700 !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 #-------------------------------------------------------------------------------
- 
+# creating logo and image 
+col1, col2, col3 = st.columns([4,1, 15])  
+
+with col1:
+    st.image("stilogo.png", caption=" " , width=400)  # Smaller Image
+
+with col3:
+    st.image("st.png", caption=" ", width=1000)  # Larger Image
+
+st.markdown("---")
+
+# Season selection buttons
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    sub_col1, sub_col2, sub_col3, sub_col4, sub_col5, sub_col6, sub_col7 = st.columns(
+        [4, 10, 3, 10, 3, 10, 2]
+    )
+
+    with sub_col2:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        season1 = st.button("Season 1", key="s1")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with sub_col4:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        season2 = st.button("Season 2", key="s2")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with sub_col6:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        season3 = st.button("Season 3", key="s3")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+
+# Handling button clicks (using session state)
+if season1:
+    st.session_state.selected_season = 1
+elif season2:
+    st.session_state.selected_season = 2
+elif season3:
+    st.session_state.selected_season = 3
+
+# Displaying the correct season (using session state)
+if st.session_state.selected_season == 1:
+    argument = "  📊 Season 1 Analysis!"
+    season_df = filtered_df[filtered_df['Season Number'] == 1]
+    season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh_deal', 'Amit_deal'], inplace=True)
+    classes(argument, season_df)
+elif st.session_state.selected_season == 2:
+    argument = "  📊 Season 2 Analysis!"
+    season_df = filtered_df[filtered_df['Season Number'] == 2]
+    season_df.drop(columns=['Ritesh Present', 'Ritesh_deal'], inplace=True)
+    classes(argument, season_df)
+elif st.session_state.selected_season == 3:
+    argument = "  📊 Season 3 Analysis!"
+    season_df = filtered_df[filtered_df['Season Number'] == 3]
+    classes(argument, season_df)
+
+st.markdown("---")
+#sharks details
