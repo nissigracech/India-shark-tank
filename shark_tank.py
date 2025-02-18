@@ -292,7 +292,7 @@ for i, col in enumerate(cols):
 
 
 
-
+import altair as alt
 st.markdown("---")
 data = {
     'Category': ['A', 'B', 'C', 'D', 'E'],
