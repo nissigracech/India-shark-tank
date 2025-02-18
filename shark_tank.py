@@ -292,55 +292,38 @@ for i, col in enumerate(cols):
 
 
 
-import altair as alt
-st.markdown("---")
-data = {
-    'Category': ['A', 'B', 'C', 'D', 'E'],
-    'Value': [25, 15, 30, 10, 20],
-    'Details': [
-        {'info': 'Details about category A', 'more': 'Even more info about A'},
-        {'info': 'Details about category B', 'more': 'Even more info about B'},
-        {'info': 'Details about category C', 'more': 'Even more info about C'},
-        {'info': 'Details about category D', 'more': 'Even more info about D'},
-        {'info': 'Details about category E', 'more': 'Even more info about E'}
-    ]
-}
 
+st.markdown("---") 
+
+# Sample data
+data = {
+    "Category": ["A", "B", "C", "D"],
+    "Values": [10, 20, 30, 40],
+    "Details": [
+        "Details for A: This is category A.",
+        "Details for B: This is category B.",
+        "Details for C: This is category C.",
+        "Details for D: This is category D.",
+    ],
+}
 df = pd.DataFrame(data)
 
-# Create the bar chart with Altair
-chart = alt.Chart(df).mark_bar().encode(
-    x='Category',
-    y='Value',
-    tooltip=['Category', 'Value']  # Optional: Show tooltip on hover
-).interactive() # Make the chart interactive so we can select
+# Create a Plotly bar chart
+fig = px.bar(df, x="Category", y="Values", text="Values", title="Click on a Bar to See Details")
 
-# Selection for the bar click
-selection = alt.selection_single(
-    fields=['Category'],  # Select based on Category
-    bind='click',  # Select on click
-    nearest=True # Select the nearest bar
-)
+# Display the chart using Streamlit
+selected_bar = st.plotly_chart(fig, use_container_width=True, key="bar_chart")
 
+# Check for click events
+if "click_data" not in st.session_state:
+    st.session_state.click_data = None
 
-chart = chart.add_selection(selection)
+# Update session state with click data
+if selected_bar and hasattr(selected_bar, "selectable"):
+    st.session_state.click_data = selected_bar.selectable
 
-# Display the chart
-st.altair_chart(chart, use_container_width=True)
-
-# Display details based on click
-selected_category = st.session_state.get('Category', None) # Access the selected category
-
-if selected_category:
-    selected_data = df[df['Category'] == selected_category]
-    details = selected_data['Details'].iloc[0] # Access the details dictionary
-
-    st.subheader(f"Details for {selected_category}:")
-    st.write(details['info'])
-    st.write(details['more'])
-
-elif selected_category is None and 'Category' in st.session_state: #Handles the case where the chart has been interacted with but no category is currently selected.
-    st.subheader("Click on a bar to see details.")
-else:
-    st.subheader("Click on a bar to see details.")
-
+# Display details if a bar is clicked
+if st.session_state.click_data:
+    clicked_bar = st.session_state.click_data["points"][0]["x"]
+    details = df[df["Category"] == clicked_bar]["Details"].values[0]
+    st.write(f"**Details for {clicked_bar}:** {details}")
