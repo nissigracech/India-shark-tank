@@ -306,8 +306,8 @@ shark_deal_counts = {}
 
 for shark in shark_columns:
     deal_column = f"{shark}_deal"  # The binary deal column (0 or 1)
-    if deal_column in filtered_df.columns:
-        shark_deal_counts[shark] = filtered_df[deal_column].sum()  # Sum directly (1s and 0s)
+    if deal_column in season1_df.columns:
+        shark_deal_counts[shark] = season1_df[deal_column].sum()  # Sum directly (1s and 0s)
     else:
         print(f"Warning: Column '{deal_column}' not found. Skipping.")
         shark_deal_counts[shark] = 0
@@ -330,7 +330,7 @@ st.pyplot(fig)
 def show_details(selected_shark):
     st.subheader(f"Deals by {selected_shark}:")
     deal_column = f"{selected_shark}_deal"
-    invested_pitches = filtered_df[filtered_df[deal_column] == 1]  # Filter where the deal column is 1
+    invested_pitches = season1_df[season1_df[deal_column] == 1]  # Filter where the deal column is 1
 
     if not invested_pitches.empty:
         st.dataframe(invested_pitches[[
