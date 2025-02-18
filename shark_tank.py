@@ -291,50 +291,55 @@ for i, col in enumerate(cols):
         abc= st.button(season1_sharks[i])
 
 
-season1_df=filtered_df[filtered_df['Season Number'] == 2]
+season1_df=filtered_df[filtered_df['Season Number'] == 1]
 
 st.markdown("---")
  
  
-# Data Preparation
+ 
+
 shark_columns = [
-    "Namita", "Vineeta", "Anupam", "Aman", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"
+    "Namita", "Vineeta", "Anupam", "Aman", "Peyush", "Ritesh", "Amit"  # ... other sharks
 ]
 
-shark_investments = {}
+shark_deal_counts = {}
+
 for shark in shark_columns:
-    shark_investments[shark] = season1_df[f"{shark}_deal"].sum()
+    deal_column = f"{shark}_deal"  # The binary deal column (0 or 1)
+    if deal_column in filtered_df.columns:
+        shark_deal_counts[shark] = filtered_df[deal_column].sum()  # Sum directly (1s and 0s)
+    else:
+        print(f"Warning: Column '{deal_column}' not found. Skipping.")
+        shark_deal_counts[shark] = 0
 
-shark_data = pd.DataFrame(list(shark_investments.items()), columns=['Shark', 'Investments'])
+shark_data = pd.DataFrame(list(shark_deal_counts.items()), columns=['Shark', 'Deal Count'])
 
-# Create the Bar Chart with Matplotlib
-fig, ax = plt.subplots(figsize=(10, 6))  # Adjust figure size as needed
-shark_data = shark_data.sort_values('Investments', ascending=False) #Sort
-ax.bar(shark_data['Shark'], shark_data['Investments'])
+# --- Plotting with Matplotlib (only Deal Count) ---
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.bar(shark_data['Shark'], shark_data['Deal Count'], color='skyblue')
 ax.set_xlabel("Shark")
-ax.set_ylabel("Number of Investments")
-ax.set_title("Number of Pitches Invested in per Shark")
-plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels for better readability
-plt.tight_layout() # Adjust layout to prevent labels from overlapping
-
-# Display the chart in Streamlit
+ax.set_ylabel("Deal Count")
+ax.set_title("Number of Deals per Shark")
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
 st.pyplot(fig)
 
-# --- Detailed Information on Click (using st.session_state and a callback) ---
+
+# --- Detailed Information on Click ---
 
 def show_details(selected_shark):
-    st.subheader(f"Pitches Invested in by {selected_shark}:")
-    invested_pitches = df[df[f"{selected_shark}_deal"] == 1]
+    st.subheader(f"Deals by {selected_shark}:")
+    deal_column = f"{selected_shark}_deal"
+    invested_pitches = df[df[deal_column] == 1]  # Filter where the deal column is 1
+
     if not invested_pitches.empty:
         st.dataframe(invested_pitches[[
-            "Startup Name", "Industry", "Original Ask Amount", "Total Deal Amount", "Deal Valuation"
+            "Startup Name", "Industry", "Original Ask Amount", "Total Deal Amount", "Deal Valuation" #Add more columns as needed
         ]])
     else:
-        st.write(f"{selected_shark} did not invest in any pitches.")
+        st.write(f"{selected_shark} did not participate in any deals.")
 
-# Create a selectbox for the sharks
 selected_shark = st.selectbox("Select a Shark", shark_data['Shark'].tolist())
 
-# Display the details when a shark is selected
 if selected_shark:
-  show_details(selected_shark)
+    show_details(selected_shark)
