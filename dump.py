@@ -1,5 +1,5 @@
 
-
+''''
 
 You said:
 I want to create a bar chart in streamlit 
@@ -14,7 +14,7 @@ Display details based on the clicked bar in Streamlit.
 Example Code:
 python
 Copy
-Edit
+Edit'''
 import streamlit as st
 import plotly.express as px
 import pandas as pd
