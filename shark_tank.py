@@ -96,8 +96,6 @@ def classes(argument, season_df):
     with col12:
         metric_card("Startups That Accepted Offers", season_df['Accepted Offer'].eq(1).sum()," ")
         
-    # Metric Cards (Your existing code)
-    # ...
 
     col20, col22 = st.columns(2)
     with col22:
@@ -138,9 +136,7 @@ def classes(argument, season_df):
             x=industry_counts.index,
             y=industry_counts.values,
             labels={'x': 'Industry', 'y': 'Count'},
-            title=f"Industry-wise Pitch Count ({option})",
-            color=industry_counts.values,
-            color_continuous_scale="viridis"
+            title=f"Industry-wise Pitch Count ({option})" 
         )
 
         fig.update_layout(xaxis_tickangle=-45)
