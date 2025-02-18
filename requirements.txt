@@ -4,4 +4,4 @@ matplotlib
 seaborn
 plotly
 numpy
-altair
+plotly_events
