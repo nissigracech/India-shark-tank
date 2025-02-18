@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 from PIL import Image  # If you're still using images
 import streamlit.components.v1 as components  # If needed
+import base64
 
 # Set page config
 st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
@@ -141,54 +142,75 @@ def classes(argument, season_df):
 
         fig.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
+def sharks():
+    pass
 
+import streamlit as st
+import base64
+
+# Function to encode a local image to Base64
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        base64_str = base64.b64encode(img_file.read()).decode()
+    return f"data:image/png;base64,{base64_str}"
+
+# Paths to your local images
+image_path = "background.jpg"  # Change this to your image filename
+
+# Get base64 encoded image
+encoded_image = get_base64_image(image_path)
+
+# Custom CSS for top and bottom background
+st.markdown(
+    f"""
+    <style>
+    .top-bg {{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20%; /* Adjust height */
+        background-image: url("{encoded_image}");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }}
+
+    .bottom-bg {{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 20%; /* Adjust height */
+        background-image: url("{encoded_image}");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }}
+
+    .middle-section {{
+        background-color: #f5f5f5; /* Light grey middle */
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }}
+    </style>
+    <div class="top-bg"></div>
+    <div class="bottom-bg"></div>
+    """,
+    unsafe_allow_html=True
+)
+
+# Streamlit layout
+st.title("Shark Tank India Dashboard")
+
+st.markdown('<div class="middle-section">', unsafe_allow_html=True)
+st.subheader("Main Content in the Middle")
+st.write("This section has a different background color, separating it from the top and bottom images.")
+st.markdown('</div>', unsafe_allow_html=True)
 
   
-# Custom CSS for styling (Sidebar styles removed)
-st.markdown("""
-    <style>
-    /* Full page background color */
-        body, .stApp {
-            background-color: #292b32 !important;
-            color: white !important;
-        }
-
-        /* Centered bold uppercase yellow title */
-        .title {
-            text-align: center;
-            font-weight: 900;
-            font-size: 5em;
-            color: #FFD700; /* Gold Yellow */
-            text-transform: uppercase;
-        }
-
-        /* Button styling */
-        .stButton>button {
-            width: 180px;
-            font-weight: bold;
-            font-size: 32px;
-            padding: 18px;
-            border-radius: 8px;
-            border: 2px solid #0a91bd !important; /* Blue Border */
-            cursor: pointer;
-            text-align: center;
-            background-color: transparent !important;
-            color: white !important;
-        }
-
-        /* Hover effect */
-        .stButton>button:hover {
-            background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
-        }
-
-        /* Active effect (Clicked button remains yellow) */
-        .stButton>button:active {
-            background-color: #FFD700 !important; /* Yellow */
-            color: black !important;
-            border-color: #FFD700 !important;
-        }
-    </style>
-""", unsafe_allow_html=True)
+ 
 
 #-------------------------------------------------------------------------------
 # creating logo and image 
@@ -250,11 +272,5 @@ elif st.session_state.selected_season == 3:
     season_df = filtered_df[filtered_df['Season Number'] == 3]
     classes(argument, season_df)
 
-
-# Default display (if no button clicked initially) - Not strictly needed now
-# but kept for completeness
-# if "selected_season" not in st.session_state: # No longer really needed
-#     argument = "  📊 Season 1 Analysis!"
-#     season_df = filtered_df[filtered_df['Season Number'] == 1]
-#     season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh_deal', 'Amit_deal'], inplace=True)
-#     classes(argument, season_df)
+st.markdown("---")
+#sharks details
