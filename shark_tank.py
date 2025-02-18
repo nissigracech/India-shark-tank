@@ -294,7 +294,7 @@ for i, col in enumerate(cols):
 
 
 st.markdown("---")
-ata = pd.DataFrame({
+data = pd.DataFrame({
     'Category': ['A', 'B', 'C', 'D', 'E'],
     'Value': [100, 200, 150, 250, 180],
     'Details': [
