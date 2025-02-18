@@ -291,38 +291,50 @@ for i, col in enumerate(cols):
         abc= st.button(season1_sharks[i])
 
 
+season1_df=filtered_df[filtered_df['Season Number'] == 2]
 
+st.markdown("---")
+ 
+ 
+# Data Preparation
+shark_columns = [
+    "Namita", "Vineeta", "Anupam", "Aman", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"
+]
 
-st.markdown("---") 
+shark_investments = {}
+for shark in shark_columns:
+    shark_investments[shark] = season1_df[f"{shark}_deal"].sum()
 
-# Sample data
-import streamlit as st
-import pandas as pd
-import plotly.express as px
+shark_data = pd.DataFrame(list(shark_investments.items()), columns=['Shark', 'Investments'])
 
-# Sample data
-data = {
-    "Category": ["A", "B", "C", "D"],
-    "Values": [10, 20, 30, 40],
-    "Details": [
-        "Details for A: This is category A.",
-        "Details for B: This is category B.",
-        "Details for C: This is category C.",
-        "Details for D: This is category D.",
-    ],
-}
-df = pd.DataFrame(data)
+# Create the Bar Chart with Matplotlib
+fig, ax = plt.subplots(figsize=(10, 6))  # Adjust figure size as needed
+shark_data = shark_data.sort_values('Investments', ascending=False) #Sort
+ax.bar(shark_data['Shark'], shark_data['Investments'])
+ax.set_xlabel("Shark")
+ax.set_ylabel("Number of Investments")
+ax.set_title("Number of Pitches Invested in per Shark")
+plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels for better readability
+plt.tight_layout() # Adjust layout to prevent labels from overlapping
 
-# Create a Plotly bar chart
-fig = px.bar(df, x="Category", y="Values", text="Values", title="Select a Bar to See Details")
+# Display the chart in Streamlit
+st.pyplot(fig)
 
-# Display the chart using Streamlit
-st.plotly_chart(fig, use_container_width=True)
+# --- Detailed Information on Click (using st.session_state and a callback) ---
 
-# Add a dropdown to select a bar
-selected_category = st.selectbox("Select a Category", df["Category"])
+def show_details(selected_shark):
+    st.subheader(f"Pitches Invested in by {selected_shark}:")
+    invested_pitches = df[df[f"{selected_shark}_deal"] == 1]
+    if not invested_pitches.empty:
+        st.dataframe(invested_pitches[[
+            "Startup Name", "Industry", "Original Ask Amount", "Total Deal Amount", "Deal Valuation"
+        ]])
+    else:
+        st.write(f"{selected_shark} did not invest in any pitches.")
 
-# Display details for the selected category
-if selected_category:
-    details = df[df["Category"] == selected_category]["Details"].values[0]
-    st.write(f"**Details for {selected_category}:** {details}")
+# Create a selectbox for the sharks
+selected_shark = st.selectbox("Select a Shark", shark_data['Shark'].tolist())
+
+# Display the details when a shark is selected
+if selected_shark:
+  show_details(selected_shark)
