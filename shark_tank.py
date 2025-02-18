@@ -220,9 +220,7 @@ def classes(argument,season_df):
             x=industry_counts.index, 
             y=industry_counts.values, 
             labels={'x': 'Industry', 'y': 'Count'}, 
-            title="Industry-wise Pitch Count",
-            color=industry_counts.values,
-            color_continuous_scale="viridis"
+            title="Industry-wise Pitch Count" 
             )
         fig.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
