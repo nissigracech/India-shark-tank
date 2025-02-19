@@ -1,5 +1,5 @@
 #code for only shark tank image
-
+'''
 # Create three main columns (col2 is the center column)
 col1, col2, col3 = st.columns([1, 5, 1])  
 
@@ -24,3 +24,24 @@ with col3:
     with st.container():
         st.write("Column 3")
         st.markdown("<div style='height: 100px; background-color: green;'></div>", unsafe_allow_html=True)
+'''
+
+from PIL import Image, ImageDraw, ImageFont
+
+# Load the background image
+background = Image.open("bc.ipg")
+
+# Create a new image with the same size as the background
+img = background.copy()
+draw = ImageDraw.Draw(img)
+
+# Add text (optional)
+text = "Shark Tank India Dashboard"
+font = ImageFont.load_default()  # You can use a custom font
+text_position = (50, 50)  # Adjust as needed
+text_color = (255, 255, 255)  # White color
+draw.text(text_position, text, fill=text_color, font=font)
+
+# Save the new image
+img.save("final_image.png")
+print("Image saved successfully!")
