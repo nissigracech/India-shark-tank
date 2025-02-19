@@ -172,6 +172,20 @@ def sharks():
 
   
 # Custom CSS for styling (Sidebar styles removed)
+
+page_bg_img = """
+<style>
+    body {
+        background-image: url("abc.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+"""
+
+# Apply the CSS
+st.markdown(page_bg_img, unsafe_allow_html=True)
 st.markdown("""
     <style>
     /* Full page background color */
