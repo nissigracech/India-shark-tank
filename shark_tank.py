@@ -177,7 +177,7 @@ st.markdown("""
     <style>
     /* Full page gradient background */
     body, .stApp {
-        background: linear-gradient(to bottom, #022950, #44a9f1) !important;
+        background: #585757!important;
         color: white !important;
     }
 
