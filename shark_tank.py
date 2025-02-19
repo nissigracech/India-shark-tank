@@ -191,9 +191,7 @@ def set_bg(local_img):
     st.markdown(bg_img, unsafe_allow_html=True)
 
 # Call function with your image filename
-set_bg("background.jpg")
-# Apply the CSS
-st.markdown(page_bg_img, unsafe_allow_html=True)
+set_bg("background.jpg") 
  
 
 #-------------------------------------------------------------------------------
