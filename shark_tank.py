@@ -230,7 +230,7 @@ with col3:
 
 
  
-st.image("dabc.png")  # Smaller Image
+st.image("abc.png")  # Smaller Image
 
  
 
