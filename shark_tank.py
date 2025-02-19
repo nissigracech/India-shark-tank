@@ -176,7 +176,7 @@ def sharks():
 page_bg_img = """
 <style>
     body {
-        background-image: url("abc.png");
+        background-image: url("https://akm-img-a-in.tosshub.com/indiatoday/images/story/202306/sti_s2_set6_5may_landscape_thumb-sixteen_nine.jpg?VersionId=EsJBa.ZdxKh7xswTC5uIYEcolicKMYW2&size=690:388.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
