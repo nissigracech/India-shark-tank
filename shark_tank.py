@@ -172,18 +172,26 @@ def sharks():
 
   
 # Custom CSS for styling (Sidebar styles removed)
+import base64
 
-page_bg_img = """
-<style>
-    body {
-        background-image: url("https://akm-img-a-in.tosshub.com/indiatoday/images/story/202306/sti_s2_set6_5may_landscape_thumb-sixteen_nine.jpg?VersionId=EsJBa.ZdxKh7xswTC5uIYEcolicKMYW2&size=690:388.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-</style>
-"""
+def set_bg(local_img):
+    with open(local_img, "rb") as img_file:
+        encoded_string = base64.b64encode(img_file.read()).decode()
 
+    bg_img = f"""
+    <style>
+        body {{
+            background-image: url("data:image/jpg;base64,{encoded_string}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+    </style>
+    """
+    st.markdown(bg_img, unsafe_allow_html=True)
+
+# Call function with your image filename
+set_bg("background.jpg")
 # Apply the CSS
 st.markdown(page_bg_img, unsafe_allow_html=True)
  
