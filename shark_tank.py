@@ -219,7 +219,7 @@ st.markdown("""
 
 #-------------------------------------------------------------------------------
 # creating logo and image 
-#st.image("abc.png")  # Smaller Image
+st.image("abc.png")  # Smaller Image
  
 
 st.markdown("---")
