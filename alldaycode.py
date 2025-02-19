@@ -464,61 +464,64 @@ def classes(argument,season_df):
     
     
 
-# Custom CSS for styling (Sidebar styles removed)
+import streamlit as st
+
+# Custom CSS for Gradient Background
 st.markdown("""
     <style>
-    /* Full page background color */
-        body, .stApp {
-            background-color: #292b32 !important;
-            color: white !important;
-        }
+    /* Full page gradient background */
+    body, .stApp {
+        background: linear-gradient(to bottom, #022950, #44a9f1) !important;
+        color: white !important;
+    }
 
-        /* Centered bold uppercase yellow title */
-        .title {
-            text-align: center;
-            font-weight: 900;
-            font-size: 5em;
-            color: #FFD700; /* Gold Yellow */
-            text-transform: uppercase;
-        }
+    /* Centered bold uppercase yellow title */
+    .title {
+        text-align: center;
+        font-weight: 900;
+        font-size: 5em;
+        color: #FFD700; /* Gold Yellow */
+        text-transform: uppercase;
+    }
 
-        /* Button styling */
-        .stButton>button {
-            width: 180px;
-            font-weight: bold;
-            font-size: 32px;
-            padding: 18px;
-            border-radius: 8px;
-            border: 2px solid #0a91bd !important; /* Blue Border */
-            cursor: pointer;
-            text-align: center;
-            background-color: transparent !important;
-            color: white !important;
-        }
+    /* Button styling */
+    .stButton>button {
+        width: 180px;
+        font-weight: bold;
+        font-size: 32px;
+        padding: 18px;
+        border-radius: 8px;
+        border: 2px solid #0a91bd !important; /* Blue Border */
+        cursor: pointer;
+        text-align: center;
+        background-color: transparent !important;
+        color: white !important;
+    }
 
-        /* Hover effect */
-        .stButton>button:hover {
-            background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
-        }
+    /* Hover effect */
+    .stButton>button:hover {
+        background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
+    }
 
-        /* Active effect (Clicked button remains yellow) */
-        .stButton>button:active {
-            background-color: #FFD700 !important; /* Yellow */
-            color: black !important;
-            border-color: #FFD700 !important;
-        }
+    /* Active effect (Clicked button remains yellow) */
+    .stButton>button:active {
+        background-color: #FFD700 !important; /* Yellow */
+        color: black !important;
+        border-color: #FFD700 !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
 #-------------------------------------------------------------------------------
-# creating logo and image 
+# Creating logo and images
 col1, col2, col3 = st.columns([4,1, 15])  
 
 with col1:
-    st.image("stilogo.png", caption=" " , width=400)  # Smaller Image
+    st.image("stilogo.png", caption=" ", width=400)  # Smaller Image
 
 with col3:
     st.image("st.png", caption=" ", width=1000)  # Larger Image
+
 
 #--------------------------------------------------------------------------------------------------
 
