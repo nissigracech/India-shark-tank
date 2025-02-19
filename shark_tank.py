@@ -176,7 +176,7 @@ def sharks():
 page_bg_img = """
 <style>
     body {
-        background-image: url("abc.jpg");
+        background-image: url("abc.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
