@@ -29,7 +29,7 @@ with col3:
 from PIL import Image, ImageDraw, ImageFont
 
 # Load the background image
-background = Image.open("bc.ipg")
+background = Image.open("bc.jpg")
 
 # Create a new image with the same size as the background
 img = background.copy()

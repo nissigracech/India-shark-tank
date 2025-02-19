@@ -172,37 +172,27 @@ def sharks():
 
   
 # Custom CSS for styling (Sidebar styles removed)
-import base64
 
-def set_bg(local_img):
-    with open(local_img, "rb") as img_file:
-        encoded_string = base64.b64encode(img_file.read()).decode()
+page_bg_img = """
+<style>
+    body {
+        background-image: url("https://your-image-url.com/image.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+"""
 
-    bg_img = f"""
-    <style>
-        body {{
-            background-image: url("data:image/jpg;base64,{encoded_string}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-    </style>
-    """
-    st.markdown(bg_img, unsafe_allow_html=True)
-
-# Call function with your image filename
-set_bg("background.jpg") 
+# Apply the CSS
+st.markdown(page_bg_img, unsafe_allow_html=True)
  
 
-#-------------------------------------------------------------------------------
-# creating logo and image 
-col1, col2, col3 = st.columns([4,1, 15])  
+ 
+ 
+st.image("def.png")  # Smaller Image
 
-with col1:
-    st.image("stilogo.png", caption=" " , width=400)  # Smaller Image
-
-with col3:
-    st.image("st.png", caption=" ", width=1000)  # Larger Image
+ 
 
 st.markdown("---")
 
