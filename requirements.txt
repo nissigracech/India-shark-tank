@@ -3,7 +3,4 @@ pandas
 matplotlib
 seaborn
 plotly
-numpy  
-Image
-ImageDraw
-ImageFont
+numpy   
