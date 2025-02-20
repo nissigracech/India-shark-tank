@@ -431,12 +431,10 @@ st.markdown("---")
 
 
 if st.session_state.selected_season == 1: 
-    season_df = filtered_df[filtered_df['Season Number'] == 1] 
-    classes(argument, season_df)
+    season_df = filtered_df[filtered_df['Season Number'] == 1]  
     pitches_metrics(season_df)
 elif st.session_state.selected_season == 2: 
-    season_df = filtered_df[filtered_df['Season Number'] == 2] 
-    classes(argument, season_df)
+    season_df = filtered_df[filtered_df['Season Number'] == 2]  
     pitches_metrics(season_df)
 elif st.session_state.selected_season == 3: 
     season_df = filtered_df[filtered_df['Season Number'] == 3]
