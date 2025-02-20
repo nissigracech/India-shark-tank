@@ -412,3 +412,6 @@ elif st.session_state.selected_season == 3:
     pitches_metrics(season3_df)
 else:
     pitches_metrics(season1_df)
+    
+val=count_shark_presence(season1_df,All_sharks)
+st.write(val)
