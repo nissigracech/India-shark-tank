@@ -13,8 +13,11 @@ st.set_page_config(page_title="Shark Tank India", layout="wide")
 # Load the pre-processed data
 filtered_df = pd.read_csv("filtered_df.csv")
 season1_df=filtered_df[filtered_df['Season Number'] == 1]
+season1_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh Deal', 'Amit Deal'], inplace=True)
 season2_df=filtered_df[filtered_df['Season Number'] == 2]
+season2_df.drop(columns=['Ritesh Present', 'Ritesh Deal'], inplace=True)
 season3_df=filtered_df[filtered_df['Season Number'] == 3]
+season3_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh Deal', 'Amit Deal'], inplace=True)
 
 #metric box style
 st.markdown(
@@ -348,33 +351,26 @@ elif season3:
 # Displaying the correct season (using session state)
 if st.session_state.selected_season == 1:
     argument = "  📊 Season 1 Analysis!"
-    season_df = filtered_df[filtered_df['Season Number'] == 1]
-    season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh Deal', 'Amit Deal'], inplace=True)
     season_sharks=season1_sharks+season1_guests
-    seasons_data(argument, season_df,season_sharks)
+    seasons_data(argument, season1_df,season_sharks)
     st.markdown("---")
     #pitches_metrics(season_df)
 elif st.session_state.selected_season == 2:
-    argument = "  📊 Season 2 Analysis!"
-    season_df = filtered_df[filtered_df['Season Number'] == 2]
-    season_df.drop(columns=['Ritesh Present', 'Ritesh Deal'], inplace=True)
+    argument = "  📊 Season 2 Analysis!" 
     season_sharks=season2_sharks+season2_guests
-    seasons_data(argument, season_df,season_sharks)
+    seasons_data(argument, season2_df,season_sharks)
     st.markdown("---")
     #pitches_metrics(season_df)
 elif st.session_state.selected_season == 3:
-    argument = "  📊 Season 3 Analysis!"
-    season_df = filtered_df[filtered_df['Season Number'] == 3]
+    argument = "  📊 Season 3 Analysis!" 
     season_sharks=season3_sharks+season3_guests
-    seasons_data(argument, season_df,season_sharks)
+    seasons_data(argument, season3_df,season_sharks)
     st.markdown("---")
     #pitches_metrics(season_df)
 else:
-    argument = "  📊 Season 1 Analysis!"
-    season_df = filtered_df[filtered_df['Season Number'] == 1]
-    season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh_deal', 'Amit_deal'], inplace=True)
+    argument = "  📊 Season 1 Analysis!" 
     season_sharks=season1_sharks+season1_guests
-    seasons_data(argument, season_df,season_sharks)
+    seasons_data(argument, season1_df,season_sharks)
     st.markdown("---")
     #pitches_metrics(season_df)
     
@@ -419,17 +415,4 @@ else:
     pitches_metrics(season1_df)
     
  
-
-data = {
-    "Category": ["A", "A", "B", "B", "C", "C"],
-    "Subcategory": ["X", "Y", "X", "Y", "X", "Y"],
-    "Value": [10, 20, 15, 25, 30, 10]
-}
-
-df = pd.DataFrame(data)
-
-# Create Stacked Bar Chart
-fig = px.bar(df, x="Category", y="Value", color="Subcategory", barmode="stack")
-st.write("!")
-# Show Plot
-fig.show()
+ 
