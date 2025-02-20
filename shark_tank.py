@@ -396,21 +396,11 @@ import streamlit as st
 import pandas as pd
 
 # Sample Data (Replace with your dataset)
-data = {'Shark': ['Aman', 'Namita', 'Anupam', 'Peyush', 'Amit', 'Vineeta']}
-df = pd.DataFrame(data)
+sharks = ["Aman", "Namita", "Anupam", "Peyush", "Amit", "Vineeta", "Ashneer", "Ritesh", "Ronnie"]
 
-# Search input
-#search_query = st.text_input("Search Shark")
+# Create a selectbox with built-in search
+selected_shark = st.selectbox("Select a Shark", options=sharks, index=None, placeholder="Search and select")
 
-# Get unique values from column
-sharks = df['Shark'].unique()
-
-# Apply search filter
-#if search_query:
- #   sharks = [shark for shark in sharks if search_query.lower() in shark.lower()]
-
-# Single select dropdown (not multi-select)
-selected_shark = st.selectbox("Select a Shark", sharks)
-
-# Display selected value
-st.write(f"Selected Shark: {selected_shark}")
+# Display the selected value
+if selected_shark:
+    st.write(f"Selected Shark: {selected_shark}")
