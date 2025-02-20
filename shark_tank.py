@@ -195,9 +195,9 @@ def seasons_data(argument, season_df,season_sharks):
 
          
 
-        fig = go.Figure(data=[go.Bar(x=deals_labels, y=deals_values)])
+        fig = px.Figure(data=[px.Bar(x=deals_labels, y=deals_values)])
 
-        fig.update_layout(title=title, xaxis_title="Labels", yaxis_title="Values")
+        fig.update_layout(title="hi", xaxis_title="Labels", yaxis_title="Values")
 
         st.plotly_chart(fig)
 
