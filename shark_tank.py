@@ -352,3 +352,23 @@ selected_shark = st.selectbox("Select a Shark", shark_data['Shark'].tolist())
 
 if selected_shark:
     show_details(selected_shark)
+    
+    
+    
+    
+
+
+fig, ax = plt.subplots(figsize=(10, 5))
+
+# Set background color
+fig.patch.set_facecolor('#f4f4f4')  # Light gray
+ax.set_facecolor('#f4f4f4')
+
+# Sample Data
+sharks = ["Aman", "Namita", "Vineeta", "Anupam", "Peyush"]
+pitches = [10, 15, 20, 8, 12]
+
+sns.barplot(x=sharks, y=pitches, palette="coolwarm", ax=ax)
+ax.set_title("Number of Pitches Invested Per Shark")
+
+st.pyplot(fig)
