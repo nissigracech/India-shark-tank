@@ -412,59 +412,61 @@ if selected_startup:
     st.write(f"Selected Startup: {selected_startup}")
     selected_startup_data = filtered_df[filtered_df["Startup Name"] == selected_startup].iloc[0]
 
-    # Display KPI Cards (3 metrics per section, 5 sections)
+    # Display KPI Cards (using the function)
 
     # Section 1
-    st.subheader("Pitch & Startup Info")  # Add a subheader for grouping
+    st.subheader("Pitch & Startup Info")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric(label="Air Date", value=selected_startup_data["Original Air Date"])
+        metric_card("Air Date", selected_startup_data["Original Air Date"])
     with col2:
-        st.metric(label="Industry", value=selected_startup_data["Industry"])
+        metric_card("Industry", selected_startup_data["Industry"])
     with col3:
-        st.metric(label="No. of Presenters", value=selected_startup_data["Number of Presenters"])
+        metric_card("No. of Presenters", str(selected_startup_data["Number of Presenters"])) # Convert to string
+
+    # ... (Rest of the sections - similar pattern)
 
     # Section 2
     st.subheader("Pitcher Details")
     col4, col5, col6 = st.columns(3)
     with col4:
-        st.metric(label="Pitchers Avg. Age", value=selected_startup_data["Pitchers Average Age"])
+        metric_card("Pitchers Avg. Age", selected_startup_data["Pitchers Average Age"])
     with col5:
-        st.metric(label="Pitchers State", value=selected_startup_data["Pitchers State"])
+        metric_card("Pitchers State", selected_startup_data["Pitchers State"])
     with col6:
-        st.metric(label="Original Ask Amount", value=f"${selected_startup_data['Original Ask Amount']:.2f}K")
+        metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']:.2f}K")
 
     # Section 3
     st.subheader("Offer Details")
     col7, col8, col9 = st.columns(3)
     with col7:
-        st.metric(label="Original Offered Equity", value=f"{selected_startup_data['Original Offered Equity']:.2f}%")
+        metric_card("Original Offered Equity", f"{selected_startup_data['Original Offered Equity']:.2f}%")
     with col8:
-        st.metric(label="Valuation Requested", value=f"${selected_startup_data['Valuation Requested']:.2f}Cr")
+        metric_card("Valuation Requested", f"${selected_startup_data['Valuation Requested']:.2f}Cr")
     with col9:
-        st.metric(label="Received Offer", value="Yes" if selected_startup_data["Received Offer"] == 1 else "No")
+        metric_card("Received Offer", "Yes" if selected_startup_data["Received Offer"] == 1 else "No")
 
     # Section 4
     st.subheader("Deal Outcome")
     col10, col11, col12 = st.columns(3)
     with col10:
-        st.metric(label="Accepted Offer", value="Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
+        metric_card("Accepted Offer", "Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
     with col11:
-        st.metric(label="Total Deal Amount", value=f"${selected_startup_data['Total Deal Amount']:.2f}K")
+        metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
     with col12:
-        st.metric(label="Total Deal Equity", value=f"{selected_startup_data['Total Deal Equity']:.2f}%")
+        metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
 
     # Section 5
     st.subheader("Deal Valuation & Sharks")
     col13, col14, col15 = st.columns(3)
     with col13:
-        st.metric(label="Deal Valuation", value=f"${selected_startup_data['Deal Valuation']:.2f}Cr")
+        metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
     with col14:
-        st.metric(label="No. of Sharks in Deal", value=selected_startup_data["Number of Sharks in Deal"])
+        metric_card("No. of Sharks in Deal", str(selected_startup_data["Number of Sharks in Deal"])) # Convert to string
     with col15:
         # Get sharks who invested
         sharks_in_deal = []
         for shark in ["Aman", "Namita", "Vineeta", "Anupam", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"]:
             if selected_startup_data.get(f"{shark.lower()}_deal", 0) == 1:
                 sharks_in_deal.append(shark)
-        st.metric(label="Sharks in Deal", value=", ".join(sharks_in_deal) if sharks_in_deal else "None")
+        metric_card("Sharks in Deal", ", ".join(sharks_in_deal) if sharks_in_deal else "None")
