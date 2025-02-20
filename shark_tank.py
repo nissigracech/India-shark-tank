@@ -123,7 +123,7 @@ def seasons_data(argument, season_df,season_sharks):
     with col9:
         metric_card("Highest Valuation Given ( in ₹ )", f"₹{season_df['Deal Valuation'].max()/ 100:.2f} crores",season_df.loc[season_df['Deal Valuation'] == season_df['Deal Valuation'].max(), 'Startup Name'].values[0])
     with col10:
-        metric_card("Lowest Valuation Given ( in ₹ )", sharks_witnesed.max(),season_df.loc[season_df['Deal Valuation'] == season_df[season_df['Deal Valuation'] > 0]['Deal Valuation'].min(), 'Startup Name'].values[0])
+        metric_card("Lowest Valuation Given ( in ₹ )", f"{sharks_witnesed.max()}",season_df.loc[season_df['Deal Valuation'] == season_df[season_df['Deal Valuation'] > 0]['Deal Valuation'].min(), 'Startup Name'].values[0])
     with col11:
         metric_card("Highest Equity Given ( in ₹ )", f"₹{season_df['Total Deal Equity'].max()} %",season_df.loc[season_df['Total Deal Equity'] == season_df['Total Deal Equity'].max(), 'Startup Name'].values[0])
     with col12:
