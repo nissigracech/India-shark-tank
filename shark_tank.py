@@ -413,8 +413,7 @@ elif st.session_state.selected_season == 3:
 else:
     pitches_metrics(season1_df)
     
-val=count_shark_presence(season1_df,All_sharks)
-st.write(val)
+ 
 
 data = {
     "Category": ["A", "A", "B", "B", "C", "C"],
@@ -426,6 +425,6 @@ df = pd.DataFrame(data)
 
 # Create Stacked Bar Chart
 fig = px.bar(df, x="Category", y="Value", color="Subcategory", barmode="stack")
-
+st.write("!")
 # Show Plot
 fig.show()
