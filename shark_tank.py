@@ -137,7 +137,7 @@ def seasons_data(argument, season_df,season_sharks):
             max(sharks_count, key=sharks_count.get))
     with col12:
         metric_card("Highest deals done", 
-            sharks_deal_count[max(sharks_deal_count, key=sharks_deal_count.get)], 
+            f"{sharks_deal_count[max(sharks_deal_count, key=sharks_deal_count.get)]}", 
             max(sharks_deal_count, key=sharks_deal_count.get))
 
     col20, col22 = st.columns(2)
