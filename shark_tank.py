@@ -196,7 +196,7 @@ def seasons_data(argument, season_df,season_sharks):
         # Create the DataFrame HERE:
         deals_df = pd.DataFrame({'Labels': deals_labels, 'Values': deals_values})  # Correct way to create df
 
-        fig = px.bar(deals_df, x='Labels', y='Values', title=title)  # Use deals_df
+        fig = px.bar(deals_df, x='Labels', y='Values' )  # Use deals_df
 
         st.plotly_chart(fig)
 
