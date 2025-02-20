@@ -358,17 +358,33 @@ if selected_shark:
     
 
 
-fig, ax = plt.subplots(figsize=(10, 5))
-
-# Set background color
-fig.patch.set_facecolor('#93b9bd')  # Light gray
-ax.set_facecolor('#f4f4f4')
+import matplotlib.pyplot as plt
+import seaborn as sns
+import streamlit as st
 
 # Sample Data
 sharks = ["Aman", "Namita", "Vineeta", "Anupam", "Peyush"]
 pitches = [10, 15, 20, 8, 12]
 
-sns.barplot(x=sharks, y=pitches, palette="coolwarm", ax=ax)
-ax.set_title("Number of Pitches Invested Per Shark")
+# Create figure
+fig, ax = plt.subplots(figsize=(10, 5))
 
+# Set background color
+fig.patch.set_facecolor('#2C3E50')  # Dark blue-gray background
+ax.set_facecolor('#D6EAF8')  # Light blue background inside plot
+
+# Create bar plot
+sns.barplot(x=sharks, y=pitches, palette="coolwarm", ax=ax)
+
+# Change title color
+ax.set_title("Number of Pitches Invested Per Shark", fontsize=14, color='black')
+
+# Customize tick labels color
+ax.tick_params(colors='black')
+
+# Remove border lines to blend with background
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+# Show plot in Streamlit
 st.pyplot(fig)
