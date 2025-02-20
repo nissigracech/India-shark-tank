@@ -403,7 +403,7 @@ st.markdown("""
             width: 100% !important;
         }
 
-        /* Apply the gradient background to the select box */
+        /* Apply the gradient background */
         div[data-baseweb="select"] > div {
             background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
             color: white !important;
@@ -412,8 +412,8 @@ st.markdown("""
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Change text color inside the dropdown */
-        div[data-testid="stSelectbox"] * {
+        /* Ensure selected text is visible */
+        div[data-testid="stSelectbox"] span {
             color: white !important;
             font-weight: bold;
         }
