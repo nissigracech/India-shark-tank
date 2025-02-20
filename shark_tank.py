@@ -16,12 +16,6 @@ season1_df=filtered_df[filtered_df['Season Number'] == 1]
 season2_df=filtered_df[filtered_df['Season Number'] == 2]
 season3_df=filtered_df[filtered_df['Season Number'] == 3]
 
-st.sidebar.header("Filter by Industry")
-if 'industry' in filtered_df.columns:
-    industries = filtered_df['industry'].dropna().unique()
-    selected_industry = st.sidebar.multiselect("Select Industry:", industries, default=industries[:3])
-    df = filtered_df[filtered_df['industry'].isin(selected_industry)]
-
 #metric box style
 st.markdown(
     """
@@ -52,9 +46,20 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+# Function to create metric cards
+def metric_card(title, value, subtitle=""):
+    st.markdown(
+    f"""
+        <div class="metric-card">
+            <div class="metric-title">{title}</div>
+            <div class="metric-value">{value}</div>
+            {f'<div class="metric-subtitle">{subtitle}</div>' if subtitle else ''}
+        </div>
+        """,
+    unsafe_allow_html=True
+    )
 
-
-        
+main_sharks=['']      
 All_sharks=['Namita','Vineeta','Anupam',
                 'Aman','Peyush','Ritesh','Amit',
                 'Ashneer','Azhar','Ghazal','Deepinder',
@@ -77,18 +82,7 @@ season3_guests=['Azhar','Ghazal','Deepinder',
                 'Radhika','Ronnie','Varun']
 
 
-# Function to create metric cards
-def metric_card(title, value, subtitle=""):
-    st.markdown(
-    f"""
-        <div class="metric-card">
-            <div class="metric-title">{title}</div>
-            <div class="metric-value">{value}</div>
-            {f'<div class="metric-subtitle">{subtitle}</div>' if subtitle else ''}
-        </div>
-        """,
-    unsafe_allow_html=True
-    )
+
         
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df):
@@ -121,7 +115,7 @@ def seasons_data(argument, season_df):
         
     col9, col10, col11, col12 = st.columns(4)
     with col9:
-        metric_card("Total Pitches", season_df['Pitch Number'].nunique()," ")
+        metric_card("Highest Valuation Given ( in ₹ )", season_df['Deal Valuation'].max()," ")
     with col10:
         metric_card("Total Investment(in crores )",f"₹{season_df['Total Deal Amount'].sum() / 100:.2f} crores"," ")
     with col11:
