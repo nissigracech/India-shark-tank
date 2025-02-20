@@ -395,7 +395,7 @@ st.markdown("---")
 startup_names = filtered_df["Startup Name"].dropna().unique().tolist()
 col31, col32, col33=st.columns([1,2,1])
 
-with col33:
+with col32:
     # Searchable Single-Select Dropdown
     selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
 
