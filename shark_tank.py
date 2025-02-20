@@ -378,46 +378,7 @@ shark_columns = [
 ]
 
 shark_deal_counts = {}
-
-for shark in shark_columns:
-    deal_column = f"{shark}_deal"  # The binary deal column (0 or 1)
-    if deal_column in season1_df.columns:
-        shark_deal_counts[shark] = season1_df[deal_column].sum()  # Sum directly (1s and 0s)
-    else:
-        print(f"Warning: Column '{deal_column}' not found. Skipping.")
-        shark_deal_counts[shark] = 0
-
-shark_data = pd.DataFrame(list(shark_deal_counts.items()), columns=['Shark', 'Deal Count'])
-
-# --- Plotting with Matplotlib (only Deal Count) ---
-fig, ax = plt.subplots(figsize=(10, 6))
-ax.bar(shark_data['Shark'], shark_data['Deal Count'], color='skyblue')
-ax.set_xlabel("Shark")
-ax.set_ylabel("Deal Count")
-ax.set_title("Number of Deals per Shark")
-plt.xticks(rotation=45, ha='right')
-plt.tight_layout()
-st.pyplot(fig)
-
-
-# --- Detailed Information on Click ---
-
-def show_details(selected_shark):
-    st.subheader(f"Deals by {selected_shark}:")
-    deal_column = f"{selected_shark}_deal"
-    invested_pitches = season1_df[season1_df[deal_column] == 1]  # Filter where the deal column is 1
-
-    if not invested_pitches.empty:
-        st.dataframe(invested_pitches[[
-            "Startup Name", "Industry", "Original Ask Amount", "Total Deal Amount", "Deal Valuation" #Add more columns as needed
-        ]])
-    else:
-        st.write(f"{selected_shark} did not participate in any deals.")
-
-selected_shark = st.selectbox("Select a Shark", shark_data['Shark'].tolist())
-
-if selected_shark:
-    show_details(selected_shark)
+ 
     
     
 
