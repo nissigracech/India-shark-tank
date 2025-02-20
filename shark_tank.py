@@ -93,6 +93,17 @@ def count_shark_presence(data, shark_names):
 
     return presence_counts
 
+def count_shark_deal(data, shark_names):
+    deal_counts = {}
+    for shark_name in shark_names:
+        deal_column = f"{shark_name} Deal"
+        if deal_column in data.columns:
+             deal_counts[shark_name]=data[deal_column].sum()
+        else:
+            print(f"Warning: Column for {shark_name} not found in the data.")
+            
+
+    return deal_counts
         
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
@@ -100,7 +111,8 @@ def seasons_data(argument, season_df,season_sharks):
     total_pitches = season_df["Pitch Number"].nunique()
     total_episodes = season_df["Episode Number"].nunique()
     sharks_count=count_shark_presence(season_df,season_sharks)
-   
+    sharks_deal_count=count_shark_deal(season_df,season_sharks)
+    
     
     # Creating a layout with columns
     col1, col2, col3, col4 = st.columns(4) 
@@ -129,11 +141,10 @@ def seasons_data(argument, season_df,season_sharks):
         metric_card("Highest Valuation Given ( in ₹ )", f"₹{season_df['Deal Valuation'].max()/ 100:.2f} crores",season_df.loc[season_df['Deal Valuation'] == season_df['Deal Valuation'].max(), 'Startup Name'].values[0])
     with col10:
         metric_card("Highest Equity Given ( in ₹ )", f"₹{season_df['Total Deal Equity'].max()} %",season_df.loc[season_df['Total Deal Equity'] == season_df['Total Deal Equity'].max(), 'Startup Name'].values[0])
-    with col11:
-        max_key = max(sharks_count, key=sharks_count.get)
-        metric_card("Highest Pitches witnessed", f" {sharks_count[max_key]}",max_key)
+    with col11: 
+        metric_card("Highest Pitches witnessed", f" {sharks_count[max(sharks_count, key=sharks_count.get)]}",max(sharks_count, key=sharks_count.get))
     with col12:
-        metric_card("Lowest Equity Given ( in ₹ )", f"₹{season_df['Total Deal Equity'].min()/ 100:.2f} crores",season_df.loc[season_df['Deal Valuation'] == season_df['Total Deal Equity'].min(), 'Startup Name'].values[0])
+        metric_card("Highest Pitches witnessed", f" {sharks_deal_count[max(sharks_deal_count, key=sharks_deal_count.get)]}",max(sharks_deal_count, key=sharks_deal_count.get))
         
 
     col20, col22 = st.columns(2)
