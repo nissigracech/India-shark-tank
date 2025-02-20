@@ -81,7 +81,17 @@ season3_sharks=['Namita','Vineeta','Anupam',
 season3_guests=['Azhar','Ghazal','Deepinder',
                 'Radhika','Ronnie','Varun']
 
+def count_shark_presence(data, shark_names):
+    presence_counts = []
+    for shark_name in shark_names:
+        present_column = f"{shark_name}_present"
+        if present_column in data.columns:
+            presence_counts.append(data[present_column].sum())
+        else:
+            print(f"Warning: Column for {shark_name} not found in the data.")
+            
 
+    return presence_counts
 
         
 # seasons data function part1 of the dashboard 
@@ -89,13 +99,8 @@ def seasons_data(argument, season_df,season_sharks):
     st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True) 
     total_pitches = season_df["Pitch Number"].nunique()
     total_episodes = season_df["Episode Number"].nunique()
-    sharks_witnesed=[]
-    key="_present"
-    for i in season_sharks:
-        shark=i+key
-        if shark in season_df.columns:
-            sharks_witnesed.append(len(season_df[season_df[shark]==1]))
-        
+    sharks_count=count_shark_presence(season_df,season_sharks)
+   
     
     # Creating a layout with columns
     col1, col2, col3, col4 = st.columns(4) 
@@ -123,7 +128,7 @@ def seasons_data(argument, season_df,season_sharks):
     with col9:
         metric_card("Highest Valuation Given ( in ₹ )", f"₹{season_df['Deal Valuation'].max()/ 100:.2f} crores",season_df.loc[season_df['Deal Valuation'] == season_df['Deal Valuation'].max(), 'Startup Name'].values[0])
     with col10:
-        metric_card("Lowest Valuation Given ( in ₹ )", f"{max(sharks_witnesed)}",season_df.loc[season_df['Deal Valuation'] == season_df[season_df['Deal Valuation'] > 0]['Deal Valuation'].min(), 'Startup Name'].values[0])
+        metric_card("Lowest Valuation Given ( in ₹ )", f"{max(sharks_count)}",season_df.loc[season_df['Deal Valuation'] == season_df[season_df['Deal Valuation'] > 0]['Deal Valuation'].min(), 'Startup Name'].values[0])
     with col11:
         metric_card("Highest Equity Given ( in ₹ )", f"₹{season_df['Total Deal Equity'].max()} %",season_df.loc[season_df['Total Deal Equity'] == season_df['Total Deal Equity'].max(), 'Startup Name'].values[0])
     with col12:
