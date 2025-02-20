@@ -367,11 +367,9 @@ else:
     st.markdown("---")
     #pitches_metrics(season_df)
     
-st.markdown("---")
-#sharks det
-
+ 
 #-----------------------------------------------------------------------------------------------
-st.markdown("---")
+ 
 
  
  
