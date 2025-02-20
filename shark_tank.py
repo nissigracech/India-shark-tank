@@ -203,8 +203,6 @@ def seasons_data(argument, season_df,season_sharks):
         fig.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
         
-        
-
 #sharks data function part2 of the function
 def sharks():
     pass
@@ -222,7 +220,7 @@ def pitches_metrics(ses_df ):
 
         # Section 1
         st.subheader("Pitch & Startup Info")
-        col1, col2, col3 = st.columns(3)
+        col24,col1, col2, col3 ,col36= st.columns([1,3,3,3,1])
         with col1:
             metric_card("Air Date", selected_startup_data["Original Air Date"])
         with col2:
