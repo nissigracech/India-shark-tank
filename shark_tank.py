@@ -388,3 +388,32 @@ for spine in ax.spines.values():
 
 # Show plot in Streamlit
 st.pyplot(fig)
+
+
+st.markdown("---")
+# indivual pitches
+import streamlit as st
+import pandas as pd
+
+# Sample Data (Replace with your dataset)
+data = {'Shark': ['Aman', 'Namita', 'Anupam', 'Peyush', 'Amit', 'Vineeta']}
+df = pd.DataFrame(data)
+
+# Sidebar filter
+st.sidebar.header("Filter Options")
+
+# Search input
+search_query = st.sidebar.text_input("Search Shark")
+
+# Filter options from column (all unique values)
+sharks = df['Shark'].unique()
+
+# Apply search query filter
+if search_query:
+    sharks = [shark for shark in sharks if search_query.lower() in shark.lower()]
+
+# Multi-select filter
+selected_shark = st.sidebar.multiselect("Select Shark(s)", sharks, default=sharks)
+
+# Display the selection
+st.write(f"Showing results for: {selected_shark}")
