@@ -385,10 +385,10 @@ shark_deal_counts = {}
  
  
 if st.session_state.selected_season == 1: 
-    pitches_metrics(season_df)
+    pitches_metrics(season1_df)
 elif st.session_state.selected_season == 2: 
-    pitches_metrics(season_df)
+    pitches_metrics(season2_df)
 elif st.session_state.selected_season == 3: 
-    pitches_metrics(season_df)
+    pitches_metrics(season3_df)
 else:
-    pitches_metrics(season_df)
+    pitches_metrics(season1_df)
