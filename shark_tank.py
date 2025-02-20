@@ -391,33 +391,16 @@ st.pyplot(fig)
 
 
 st.markdown("---")
-# indivual pitches
-import streamlit as st
-import pandas as pd
-
-# Sample Data (Replace with your dataset)
-sharks = ["Aman", "Namita", "Anupam", "Peyush", "Amit", "Vineeta", "Ashneer", "Ritesh", "Ronnie"]
-
-# Create a selectbox with built-in search
-selected_shark = st.selectbox("Select a Shark", options=sharks, index=None, placeholder="Search and select")
-
-# Display the selected value
-if selected_shark:
-    st.write(f"Selected Shark: {selected_shark}")
-    
-import streamlit as st
-import pandas as pd
-
-# Load your dataset
- # Use the correct file path
-
 # Extract unique Startup Names
 startup_names = filtered_df["Startup Name"].dropna().unique().tolist()
+col31, col32, col33=st.colunms([1,2,1])
 
-# Searchable Single-Select Dropdown
-selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
+with col33:
+    # Searchable Single-Select Dropdown
+    selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
 
 # Display selected startup
 if selected_startup:
     st.write(f"Selected Startup: {selected_startup}")
+    
 
