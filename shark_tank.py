@@ -399,21 +399,18 @@ import pandas as pd
 data = {'Shark': ['Aman', 'Namita', 'Anupam', 'Peyush', 'Amit', 'Vineeta']}
 df = pd.DataFrame(data)
 
-# Sidebar filter
-st.sidebar.header("Filter Options")
-
 # Search input
-search_query = st.sidebar.text_input("Search Shark")
+search_query = st.text_input("Search Shark")
 
-# Filter options from column (all unique values)
+# Get unique values from column
 sharks = df['Shark'].unique()
 
-# Apply search query filter
+# Apply search filter
 if search_query:
     sharks = [shark for shark in sharks if search_query.lower() in shark.lower()]
 
-# Multi-select filter
-selected_shark = st.sidebar.multiselect("Select Shark(s)", sharks, default=sharks)
+# Single select dropdown (not multi-select)
+selected_shark = st.selectbox("Select a Shark", sharks)
 
-# Display the selection
-st.write(f"Showing results for: {selected_shark}")
+# Display selected value
+st.write(f"Selected Shark: {selected_shark}")
