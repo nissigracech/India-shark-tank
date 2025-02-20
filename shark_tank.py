@@ -94,7 +94,7 @@ def seasons_data(argument, season_df,season_sharks):
     for i in season_sharks:
         shark=i+key
         if shark in season_df.columns:
-            sharks_witnesed.append(len(season_df[season_df['shark']==1]))
+            sharks_witnesed.append(len(season_df[season_df[shark]==1]))
         
     
     # Creating a layout with columns
