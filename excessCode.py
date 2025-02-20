@@ -45,3 +45,98 @@ draw.text(text_position, text, fill=text_color, font=font)
 # Save the new image
 img.save("final_image.png")
 print("Image saved successfully!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+import streamlit as st
+
+# Sample Data
+sharks = ["Aman", "Namita", "Vineeta", "Anupam", "Peyush"]
+pitches = [10, 15, 20, 8, 12]
+
+# Create figure
+fig, ax = plt.subplots(figsize=(10, 5))
+
+# Set background color
+fig.patch.set_facecolor('#2C3E50')  # Dark blue-gray background
+ax.set_facecolor('#D6EAF8')  # Light blue background inside plot
+
+# Create bar plot
+sns.barplot(x=sharks, y=pitches, palette="coolwarm", ax=ax)
+
+# Change title color
+ax.set_title("Number of Pitches Invested Per Shark", fontsize=14, color='black')
+
+# Customize tick labels color
+ax.tick_params(colors='black')
+
+# Remove border lines to blend with background
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+# Show plot in Streamlit
+st.pyplot(fig)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+st.markdown("""
+    <style>
+        /* Center the select box */
+        div[data-testid="stSelectbox"] {
+            width: 100% !important;
+        }
+
+        /* Apply the gradient background */
+        div[data-baseweb="select"] > div {
+            background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Ensure selected text is visible */
+        div[data-testid="stSelectbox"] span {
+            color: white !important;
+            font-weight: bold;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+
+
+
+
+
+col1, col2, col3 = st.columns([4,1, 15])  
+with col1:
+    st.image("stilogo.png", caption=" ", width=400)  # Smaller Image
+
+with col3:
+    st.image("st.png", caption=" ", width=1000)  # Larger Image
+
