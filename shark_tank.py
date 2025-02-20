@@ -89,6 +89,69 @@ if "selected_filter" not in st.session_state:
     st.session_state.selected_filter = "All Pitches"
 
 
+ 
+def pitches_metrics(filtered_df, selected_startup):
+    startup_names = filtered_df["Startup Name"].dropna().unique().tolist()
+    col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
+    with col34:
+        selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
+    if selected_startup:
+        selected_startup_data = filtered_df[filtered_df["Startup Name"] == selected_startup].iloc[0]
+
+        # Section 1
+        st.subheader("Pitch & Startup Info")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            metric_card("Air Date", selected_startup_data["Original Air Date"])
+        with col2:
+            metric_card("Industry", selected_startup_data["Industry"])
+        with col3:
+            metric_card("No. of Presenters", str(selected_startup_data["Number of Presenters"]))
+
+        # Section 2
+        st.subheader("Pitcher Details")
+        col4, col5, col6 = st.columns(3)
+        with col4:
+            metric_card("Pitchers Avg. Age", selected_startup_data["Pitchers Average Age"])
+        with col5:
+            metric_card("Pitchers State", selected_startup_data["Pitchers State"])
+        with col6:
+            metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']:.2f}K")
+
+        # Section 3
+        st.subheader("Offer Details")
+        col7, col8, col9 = st.columns(3)
+        with col7:
+            metric_card("Original Offered Equity", f"{selected_startup_data['Original Offered Equity']:.2f}%")
+        with col8:
+            metric_card("Valuation Requested", f"${selected_startup_data['Valuation Requested']:.2f}Cr")
+        with col9:
+            metric_card("Received Offer", "Yes" if selected_startup_data["Received Offer"] == 1 else "No")
+
+        # Section 4
+        st.subheader("Deal Outcome")
+        col10, col11, col12 = st.columns(3)
+        with col10:
+            metric_card("Accepted Offer", "Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
+        with col11:
+            metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
+        with col12:
+            metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
+
+        # Section 5
+        st.subheader("Deal Valuation & Sharks")
+        col13, col14, col15 = st.columns(3)
+        with col13:
+            metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
+        with col14:
+            metric_card("No. of Sharks in Deal", str(selected_startup_data["Number of Sharks in Deal"]))
+        with col15:
+            sharks_in_deal = []
+            for shark in ["Aman", "Namita", "Vineeta", "Anupam", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"]:
+                if selected_startup_data.get(f"{shark.lower()}_deal", 0) == 1:
+                    sharks_in_deal.append(shark)
+            metric_card("Sharks in Deal", ", ".join(sharks_in_deal) if sharks_in_deal else "None")
+
 def classes(argument, season_df):
     st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True) 
     total_pitches = season_df["Pitch Number"].nunique()
@@ -361,112 +424,21 @@ if selected_shark:
     show_details(selected_shark)
     
     
-    
-    
 
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-import streamlit as st
-
-# Sample Data
-sharks = ["Aman", "Namita", "Vineeta", "Anupam", "Peyush"]
-pitches = [10, 15, 20, 8, 12]
-
-# Create figure
-fig, ax = plt.subplots(figsize=(10, 5))
-
-# Set background color
-fig.patch.set_facecolor('#2C3E50')  # Dark blue-gray background
-ax.set_facecolor('#D6EAF8')  # Light blue background inside plot
-
-# Create bar plot
-sns.barplot(x=sharks, y=pitches, palette="coolwarm", ax=ax)
-
-# Change title color
-ax.set_title("Number of Pitches Invested Per Shark", fontsize=14, color='black')
-
-# Customize tick labels color
-ax.tick_params(colors='black')
-
-# Remove border lines to blend with background
-for spine in ax.spines.values():
-    spine.set_visible(False)
-
-# Show plot in Streamlit
-st.pyplot(fig)
-
-
+ 
+#-----------------------------------------------------------------------------------------------
 st.markdown("---")
-# Extract unique Startup Names
-startup_names = filtered_df["Startup Name"].dropna().unique().tolist()
 
-col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
 
-with col34:
-    # Searchable Single-Select Dropdown
-    selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
-
-# Display selected startup
-if selected_startup:
-    st.write(f"Selected Startup: {selected_startup}")
-    selected_startup_data = filtered_df[filtered_df["Startup Name"] == selected_startup].iloc[0]
-
-    # Display KPI Cards (using the function)
-
-    # Section 1
-    st.subheader("Pitch & Startup Info")
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        metric_card("Air Date", selected_startup_data["Original Air Date"])
-    with col2:
-        metric_card("Industry", selected_startup_data["Industry"])
-    with col3:
-        metric_card("No. of Presenters", str(selected_startup_data["Number of Presenters"])) # Convert to string
-
-    # ... (Rest of the sections - similar pattern)
-
-    # Section 2
-    st.subheader("Pitcher Details")
-    col4, col5, col6 = st.columns(3)
-    with col4:
-        metric_card("Pitchers Avg. Age", selected_startup_data["Pitchers Average Age"])
-    with col5:
-        metric_card("Pitchers State", selected_startup_data["Pitchers State"])
-    with col6:
-        metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']:.2f}K")
-
-    # Section 3
-    st.subheader("Offer Details")
-    col7, col8, col9 = st.columns(3)
-    with col7:
-        metric_card("Original Offered Equity", f"{selected_startup_data['Original Offered Equity']:.2f}%")
-    with col8:
-        metric_card("Valuation Requested", f"${selected_startup_data['Valuation Requested']:.2f}Cr")
-    with col9:
-        metric_card("Received Offer", "Yes" if selected_startup_data["Received Offer"] == 1 else "No")
-
-    # Section 4
-    st.subheader("Deal Outcome")
-    col10, col11, col12 = st.columns(3)
-    with col10:
-        metric_card("Accepted Offer", "Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
-    with col11:
-        metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
-    with col12:
-        metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
-
-    # Section 5
-    st.subheader("Deal Valuation & Sharks")
-    col13, col14, col15 = st.columns(3)
-    with col13:
-        metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
-    with col14:
-        metric_card("No. of Sharks in Deal", str(selected_startup_data["Number of Sharks in Deal"])) # Convert to string
-    with col15:
-        # Get sharks who invested
-        sharks_in_deal = []
-        for shark in ["Aman", "Namita", "Vineeta", "Anupam", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"]:
-            if selected_startup_data.get(f"{shark.lower()}_deal", 0) == 1:
-                sharks_in_deal.append(shark)
-        metric_card("Sharks in Deal", ", ".join(sharks_in_deal) if sharks_in_deal else "None")
+if st.session_state.selected_season == 1: 
+    season_df = filtered_df[filtered_df['Season Number'] == 1] 
+    classes(argument, season_df)
+    pitches_metrics(season_df)
+elif st.session_state.selected_season == 2: 
+    season_df = filtered_df[filtered_df['Season Number'] == 2] 
+    classes(argument, season_df)
+    pitches_metrics(season_df)
+elif st.session_state.selected_season == 3: 
+    season_df = filtered_df[filtered_df['Season Number'] == 3]
+    pitches_metrics(season_df)
+ 
