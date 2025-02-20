@@ -400,14 +400,14 @@ data = {'Shark': ['Aman', 'Namita', 'Anupam', 'Peyush', 'Amit', 'Vineeta']}
 df = pd.DataFrame(data)
 
 # Search input
-search_query = st.text_input("Search Shark")
+#search_query = st.text_input("Search Shark")
 
 # Get unique values from column
 sharks = df['Shark'].unique()
 
 # Apply search filter
-if search_query:
-    sharks = [shark for shark in sharks if search_query.lower() in shark.lower()]
+#if search_query:
+ #   sharks = [shark for shark in sharks if search_query.lower() in shark.lower()]
 
 # Single select dropdown (not multi-select)
 selected_shark = st.selectbox("Select a Shark", sharks)
