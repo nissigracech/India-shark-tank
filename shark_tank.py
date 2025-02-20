@@ -393,9 +393,9 @@ st.pyplot(fig)
 st.markdown("---")
 # Extract unique Startup Names
 startup_names = filtered_df["Startup Name"].dropna().unique().tolist()
-col31, col32, col33=st.columns([1,2,1])
+col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
 
-with col32:
+with col35:
     # Searchable Single-Select Dropdown
     selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
 
