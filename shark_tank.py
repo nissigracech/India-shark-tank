@@ -189,6 +189,16 @@ def seasons_data(argument, season_df,season_sharks):
 
         fig.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
+        
+        deals_labels = list(count_shark_deal.keys())
+        deals_values = list(count_shark_deal.values())
+
+        # Create the DataFrame HERE:
+        deals_df = pd.DataFrame({'Labels': deals_labels, 'Values': deals_values})  # Correct way to create df
+
+        fig = px.bar(deals_df, x='Labels', y='Values', title=title)  # Use deals_df
+
+        st.plotly_chart(fig)
 
 #sharks data function part2 of the function
 def sharks():
