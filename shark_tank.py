@@ -192,12 +192,7 @@ def seasons_data(argument, season_df,season_sharks):
         
         deals_labels = list(sharks_deal_count.keys())
         deals_values = list(sharks_deal_count.values())
-
-         
-
-        fig = px.Figure(data=[px.Bar(x=deals_labels, y=deals_values)])
-
-        fig.update_layout(title="hi", xaxis_title="Labels", yaxis_title="Values")
+        fig = px.bar(x=deals_labels, y=deals_values, title="hi", labels={"x": "Labels", "y": "Values"}) # Correct px usage
 
         st.plotly_chart(fig)
 
