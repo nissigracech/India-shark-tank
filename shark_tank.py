@@ -292,6 +292,14 @@ st.markdown("""
 
 #-------------------------------------------------------------------------------
 # Creating logo and images
+
+col1, col2, col3 = st.columns([4,1, 15])  
+with col1:
+    st.image("stilogo.png", caption=" ", width=400)  # Smaller Image
+
+with col3:
+    st.image("st.png", caption=" ", width=1000)  # Larger Image
+    
 st.image("logo_image.png")  # Smaller Image
 st.markdown("---")
 
