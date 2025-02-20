@@ -361,7 +361,7 @@ if selected_shark:
 fig, ax = plt.subplots(figsize=(10, 5))
 
 # Set background color
-fig.patch.set_facecolor('#f4f4f4')  # Light gray
+fig.patch.set_facecolor('#93b9bd')  # Light gray
 ax.set_facecolor('#f4f4f4')
 
 # Sample Data
