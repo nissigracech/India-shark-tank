@@ -388,11 +388,14 @@ else:
     no_sharks=All_sharks-season1_sharks-season1_guests
     deal=" Deal"
     presence=" Presence"
-    i=0,j=0
+    i=0
+    j=0
     for i in no_sharks:
         col=no_sharks[i]+presence
-        
+        coll=no_sharks[i]+deal
         season1_df.drop(columns=col,inplace=True)
+        season1_df.drop(columns=coll,inplace=True)
+        
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season1_df,season_sharks)
     st.markdown("---")
