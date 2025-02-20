@@ -396,29 +396,6 @@ startup_names = filtered_df["Startup Name"].dropna().unique().tolist()
 
 col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
 
-st.markdown("""
-    <style>
-        /* Center the select box */
-        div[data-testid="stSelectbox"] {
-            width: 100% !important;
-        }
-
-        /* Apply the gradient background */
-        div[data-baseweb="select"] > div {
-            background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
-            color: white !important;
-            border-radius: 8px;
-            padding: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        /* Ensure selected text is visible */
-        div[data-testid="stSelectbox"] span {
-            color: white !important;
-            font-weight: bold;
-        }
-    </style>
-""", unsafe_allow_html=True)
 with col34:
     # Searchable Single-Select Dropdown
     selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
@@ -426,32 +403,46 @@ with col34:
 # Display selected startup
 if selected_startup:
     st.write(f"Selected Startup: {selected_startup}")
-    
+    selected_startup_data = filtered_df[filtered_df["Startup Name"] == selected_startup].iloc[0] # Use filtered_df here!!!
 
-data = {
-    "Shark": ["Shark A", "Shark B", "Shark C", "Shark A", "Shark B"],
-    "Startup Name": ["Startup 1", "Startup 2", "Startup 3", "Startup 4", "Startup 5"],
-    "Investment Amount": [10, 20, 15, 30, 25],
-    "Equity %": [5, 10, 7, 12, 8]
-}
-
-df = pd.DataFrame(data)
-
-# Select a Shark
-selected_shark = st.selectbox("Select a Shark", df["Shark"].unique(), index=None, placeholder="Choose a Shark")
-
-# Filter Data
-if selected_shark:
-    filtered_data = df[df["Shark"] == selected_shark]
+    # ... (rest of the code is the same as the previous corrected version) ...
 
     # Display KPI Cards
     col1, col2, col3 = st.columns(3)
-    
+
     with col1:
-        st.metric(label="Total Investments", value=len(filtered_data))
-    
+        st.metric(label="Air Date", value=selected_startup_data["Original Air Date"])
+        st.metric(label="Industry", value=selected_startup_data["Industry"])
+        st.metric(label="No. of Presenters", value=selected_startup_data["Number of Presenters"])
+        st.metric(label="Pitchers Avg. Age", value=selected_startup_data["Pitchers Average Age"])  # Or handle age ranges appropriately
+
     with col2:
-        st.metric(label="Total Amount Invested", value=f"${filtered_data['Investment Amount'].sum()}K")
-    
+        st.metric(label="Pitchers State", value=selected_startup_data["Pitchers State"])
+        st.metric(label="Original Ask Amount", value=f"${selected_startup_data['Original Ask Amount']:.2f}K")
+        st.metric(label="Original Offered Equity", value=f"{selected_startup_data['Original Offered Equity']:.2f}%")
+        st.metric(label="Valuation Requested", value=f"${selected_startup_data['Valuation Requested']:.2f}Cr") # Assuming Cr, adjust if needed
+
     with col3:
-        st.metric(label="Avg Equity %", value=f"{filtered_data['Equity %'].mean():.2f}%")
+        st.metric(label="Received Offer", value="Yes" if selected_startup_data["Received Offer"] == 1 else "No")
+        st.metric(label="Accepted Offer", value="Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
+        st.metric(label="Total Deal Amount", value=f"${selected_startup_data['Total Deal Amount']:.2f}K")
+        st.metric(label="Total Deal Equity", value=f"{selected_startup_data['Total Deal Equity']:.2f}%")
+
+    col4, col5, col6 = st.columns(3) # New set of columns for the remaining metrics
+
+    with col4:
+        st.metric(label="Deal Valuation", value=f"${selected_startup_data['Deal Valuation']:.2f}Cr") # Assuming Cr, adjust if needed
+        st.metric(label="No. of Sharks in Deal", value=selected_startup_data["Number of Sharks in Deal"])
+
+    with col5:
+        # Get sharks who invested (assuming 1 means invested, 0 means didn't)
+        sharks_in_deal = []
+        for shark in ["Aman", "Namita", "Vineeta", "Anupam", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"]: # Add all shark names here
+            if selected_startup_data.get(f"{shark.lower()}_deal", 0) == 1: # Use .get() for safety
+                sharks_in_deal.append(shark)
+
+        st.metric(label="Sharks in Deal", value=", ".join(sharks_in_deal) if sharks_in_deal else "None") # Handle the case where no sharks invested
+
+    with col6:
+        # Placeholder or additional metrics can be added here
+        pass # Or add another metric
