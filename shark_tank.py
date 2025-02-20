@@ -13,6 +13,54 @@ st.set_page_config(page_title="Shark Tank India EDA Dashboard", layout="wide")
 # Load the pre-processed data
 filtered_df = pd.read_csv("filtered_df.csv")
 
+
+
+
+st.markdown(
+    """
+    <style>
+    .metric-card {
+        background-color: #161616;
+        padding: 50px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+    }
+    .metric-title {
+        font-size: 18px;
+        color: #bbb;
+    }
+    .metric-value {
+        font-size: 32px;
+        font-weight: bold;
+        color: #FFD700; /* Gold color */
+    }
+    .metric-subtitle {
+        font-size: 16px;
+        color: #888;
+        margin-top: 5px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+    # Function to create metric cards
+def metric_card(title, value, subtitle=""):
+    st.markdown(
+    f"""
+        <div class="metric-card">
+            <div class="metric-title">{title}</div>
+            <div class="metric-value">{value}</div>
+            {f'<div class="metric-subtitle">{subtitle}</div>' if subtitle else ''}
+        </div>
+        """,
+    unsafe_allow_html=True
+    )
+        
+        
+        
 All_sharks=['Namita','Vineeta','Anupam',
                 'Aman','Peyush','Ritesh','Amit',
                 'Ashneer','Azhar','Ghazal','Deepinder',
@@ -45,48 +93,7 @@ def classes(argument, season_df):
     st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True) 
     total_pitches = season_df["Pitch Number"].nunique()
     total_episodes = season_df["Episode Number"].nunique()
-    st.markdown(
-    """
-    <style>
-    .metric-card {
-        background-color: #161616;
-        padding: 50px;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
-        margin-bottom: 20px;
-    }
-    .metric-title {
-        font-size: 18px;
-        color: #bbb;
-    }
-    .metric-value {
-        font-size: 32px;
-        font-weight: bold;
-        color: #FFD700; /* Gold color */
-    }
-    .metric-subtitle {
-        font-size: 16px;
-        color: #888;
-        margin-top: 5px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-    )
-
-    # Function to create metric cards
-    def metric_card(title, value, subtitle=""):
-        st.markdown(
-        f"""
-        <div class="metric-card">
-            <div class="metric-title">{title}</div>
-            <div class="metric-value">{value}</div>
-            {f'<div class="metric-subtitle">{subtitle}</div>' if subtitle else ''}
-        </div>
-        """,
-        unsafe_allow_html=True
-        )
+    
     
     # Creating a layout with columns
     col1, col2, col3, col4 = st.columns(4) 
