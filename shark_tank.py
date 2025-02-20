@@ -345,27 +345,27 @@ if st.session_state.selected_season == 1:
     season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh_deal', 'Amit_deal'], inplace=True)
     classes(argument, season_df)
     st.markdown("---")
-    pitches_metrics(season_df)
+    #pitches_metrics(season_df)
 elif st.session_state.selected_season == 2:
     argument = "  📊 Season 2 Analysis!"
     season_df = filtered_df[filtered_df['Season Number'] == 2]
     season_df.drop(columns=['Ritesh Present', 'Ritesh_deal'], inplace=True)
     classes(argument, season_df)
     st.markdown("---")
-    pitches_metrics(season_df)
+    #pitches_metrics(season_df)
 elif st.session_state.selected_season == 3:
     argument = "  📊 Season 3 Analysis!"
     season_df = filtered_df[filtered_df['Season Number'] == 3]
     classes(argument, season_df)
     st.markdown("---")
-    pitches_metrics(season_df)
+    #pitches_metrics(season_df)
 else:
     argument = "  📊 Season 1 Analysis!"
     season_df = filtered_df[filtered_df['Season Number'] == 1]
     season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh_deal', 'Amit_deal'], inplace=True)
     classes(argument, season_df)
     st.markdown("---")
-    pitches_metrics(season_df)
+    #pitches_metrics(season_df)
     
 st.markdown("---")
 #sharks det
@@ -454,3 +454,31 @@ if selected_shark:
     
 
  
+ 
+if st.session_state.selected_season == 1:
+    #argument = "  📊 Season 1 Analysis!"
+    #season_df = filtered_df[filtered_df['Season Number'] == 1]
+    #season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh_deal', 'Amit_deal'], inplace=True)
+    #classes(argument, season_df)
+    #st.markdown("---")
+    pitches_metrics(season_df)
+elif st.session_state.selected_season == 2:
+    #argument = "  📊 Season 2 Analysis!"
+    #season_df = filtered_df[filtered_df['Season Number'] == 2]
+    #season_df.drop(columns=['Ritesh Present', 'Ritesh_deal'], inplace=True)
+    #classes(argument, season_df)
+    #st.markdown("---")
+    pitches_metrics(season_df)
+elif st.session_state.selected_season == 3:
+    #argument = "  📊 Season 3 Analysis!"
+    #season_df = filtered_df[filtered_df['Season Number'] == 3]
+    #classes(argument, season_df)
+    #st.markdown("---")
+    pitches_metrics(season_df)
+else:
+    #argument = "  📊 Season 1 Analysis!"
+    #season_df = filtered_df[filtered_df['Season Number'] == 1]
+    #season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh_deal', 'Amit_deal'], inplace=True)
+    #classes(argument, season_df)
+    #st.markdown("---")
+    pitches_metrics(season_df)
