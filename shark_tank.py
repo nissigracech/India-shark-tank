@@ -222,11 +222,11 @@ def pitches_metrics(ses_df ):
         st.subheader("Pitch & Startup Info")
         col24,col1, col2, col3 ,col36= st.columns([1,3,3,3,1])
         with col1:
-            metric_card("Air Date", selected_startup_data["Original Air Date"])
+            metric_card("Air Date", selected_startup_data["Original Air Date"]," ")
         with col2:
-            metric_card("Industry", selected_startup_data["Industry"])
+            metric_card("Industry", selected_startup_data["Industry"]," ")
         with col3:
-            metric_card("No. of Presenters", str(selected_startup_data["Number of Presenters"]))
+            metric_card("No. of Presenters", str(selected_startup_data["Number of Presenters"])," ")
 
         # Section 2
         st.subheader("Pitcher Details")
