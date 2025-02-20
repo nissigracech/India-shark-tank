@@ -86,11 +86,7 @@ def count_shark_presence(data, shark_names):
     for shark_name in shark_names:
         present_column = f"{shark_name} Present"
         if present_column in data.columns:
-             presence_counts[shark_name]=data[present_column].sum()
-        else:
-            print(f"Warning: Column for {shark_name} not found in the data.")
-            
-
+             presence_counts[shark_name]=data[present_column].sum() 
     return presence_counts
 
 def count_shark_deal(data, shark_names):
@@ -98,18 +94,12 @@ def count_shark_deal(data, shark_names):
     for shark_name in shark_names:
         deal_column = f"{shark_name} Deal"
         if deal_column in data.columns:
-             deal_counts[shark_name]=data[deal_column].sum()
-        else:
-            print(f"Warning: Column for {shark_name} not found in the data.")
-            
-
+             deal_counts[shark_name]=data[deal_column].sum() 
     return deal_counts
         
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
-    st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True) 
-    total_pitches = season_df["Pitch Number"].nunique()
-    total_episodes = season_df["Episode Number"].nunique()
+    st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
     sharks_count=count_shark_presence(season_df,season_sharks)
     sharks_deal_count=count_shark_deal(season_df,season_sharks)
     
@@ -147,7 +137,7 @@ def seasons_data(argument, season_df,season_sharks):
             max(sharks_count, key=sharks_count.get))
     with col12:
         metric_card("Highest deals done", 
-            f"{sharks_deal_count[max(sharks_deal_count, key=sharks_deal_count.get)]}", 
+            sharks_deal_count[max(sharks_deal_count, key=sharks_deal_count.get)], 
             max(sharks_deal_count, key=sharks_deal_count.get))
 
     col20, col22 = st.columns(2)
