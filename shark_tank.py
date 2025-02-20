@@ -428,3 +428,30 @@ if selected_startup:
     st.write(f"Selected Startup: {selected_startup}")
     
 
+data = {
+    "Shark": ["Shark A", "Shark B", "Shark C", "Shark A", "Shark B"],
+    "Startup Name": ["Startup 1", "Startup 2", "Startup 3", "Startup 4", "Startup 5"],
+    "Investment Amount": [10, 20, 15, 30, 25],
+    "Equity %": [5, 10, 7, 12, 8]
+}
+
+df = pd.DataFrame(data)
+
+# Select a Shark
+selected_shark = st.selectbox("Select a Shark", df["Shark"].unique(), index=None, placeholder="Choose a Shark")
+
+# Filter Data
+if selected_shark:
+    filtered_data = df[df["Shark"] == selected_shark]
+
+    # Display KPI Cards
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric(label="Total Investments", value=len(filtered_data))
+    
+    with col2:
+        st.metric(label="Total Amount Invested", value=f"${filtered_data['Investment Amount'].sum()}K")
+    
+    with col3:
+        st.metric(label="Avg Equity %", value=f"{filtered_data['Equity %'].mean():.2f}%")
