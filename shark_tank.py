@@ -190,8 +190,8 @@ def seasons_data(argument, season_df,season_sharks):
         fig.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
         
-        deals_labels = list(count_shark_deal.keys())
-        deals_values = list(count_shark_deal.values())
+        deals_labels = list(sharks_deal_count.keys())
+        deals_values = list(sharks_deal_count.values())
 
          
 
