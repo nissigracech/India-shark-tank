@@ -415,3 +415,17 @@ else:
     
 val=count_shark_presence(season1_df,All_sharks)
 st.write(val)
+
+data = {
+    "Category": ["A", "A", "B", "B", "C", "C"],
+    "Subcategory": ["X", "Y", "X", "Y", "X", "Y"],
+    "Value": [10, 20, 15, 25, 30, 10]
+}
+
+df = pd.DataFrame(data)
+
+# Create Stacked Bar Chart
+fig = px.bar(df, x="Category", y="Value", color="Subcategory", barmode="stack")
+
+# Show Plot
+fig.show()
