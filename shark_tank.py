@@ -396,6 +396,29 @@ startup_names = filtered_df["Startup Name"].dropna().unique().tolist()
 
 col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
 
+st.markdown("""
+    <style>
+        /* Center the select box */
+        div[data-testid="stSelectbox"] {
+            width: 100% !important;
+        }
+
+        /* Apply the gradient background to the select box */
+        div[data-baseweb="select"] > div {
+            background: linear-gradient(135deg, #050A13, #0B132B, #1B263B, #415A77) !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Change text color inside the dropdown */
+        div[data-testid="stSelectbox"] * {
+            color: white !important;
+            font-weight: bold;
+        }
+    </style>
+""", unsafe_allow_html=True)
 with col34:
     # Searchable Single-Select Dropdown
     selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
