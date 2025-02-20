@@ -394,40 +394,14 @@ st.markdown("---")
 # Extract unique Startup Names
 startup_names = filtered_df["Startup Name"].dropna().unique().tolist()
 
-st.markdown(
-    """
-    <style>
-    .centered {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-    }
-    .stSelectbox {
-        width: 300px !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
 
-# Centering the select box
-st.markdown('<div class="centered">', unsafe_allow_html=True)
-selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
-st.markdown("</div>", unsafe_allow_html=True)
+with col34:
+    # Searchable Single-Select Dropdown
+    selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
 
 # Display selected startup
 if selected_startup:
     st.write(f"Selected Startup: {selected_startup}")
-    
-#col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
-
-#with col34:
-    # Searchable Single-Select Dropdown
- #   selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
-
-# Display selected startup
-#if selected_startup:
- #   st.write(f"Selected Startup: {selected_startup}")
     
 
