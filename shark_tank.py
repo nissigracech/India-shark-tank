@@ -349,7 +349,7 @@ elif season3:
 if st.session_state.selected_season == 1:
     argument = "  📊 Season 1 Analysis!"
     season_df = filtered_df[filtered_df['Season Number'] == 1]
-    season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh_deal', 'Amit_deal'], inplace=True)
+    season_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh Deal', 'Amit Deal'], inplace=True)
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season_df,season_sharks)
     st.markdown("---")
@@ -357,7 +357,7 @@ if st.session_state.selected_season == 1:
 elif st.session_state.selected_season == 2:
     argument = "  📊 Season 2 Analysis!"
     season_df = filtered_df[filtered_df['Season Number'] == 2]
-    season_df.drop(columns=['Ritesh Present', 'Ritesh_deal'], inplace=True)
+    season_df.drop(columns=['Ritesh Present', 'Ritesh Deal'], inplace=True)
     season_sharks=season2_sharks+season2_guests
     seasons_data(argument, season_df,season_sharks)
     st.markdown("---")
