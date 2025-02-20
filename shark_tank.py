@@ -16,6 +16,13 @@ season1_df=filtered_df[filtered_df['Season Number'] == 1]
 season2_df=filtered_df[filtered_df['Season Number'] == 2]
 season3_df=filtered_df[filtered_df['Season Number'] == 3]
 
+st.sidebar.header("Filter by Industry")
+if 'industry' in filtered_df.columns:
+    industries = filtered_df['industry'].dropna().unique()
+    selected_industry = st.sidebar.multiselect("Select Industry:", industries, default=industries[:3])
+    df = filtered_df[filtered_df['industry'].isin(selected_industry)]
+
+#metric box style
 st.markdown(
     """
     <style>
@@ -69,11 +76,6 @@ season3_sharks=['Namita','Vineeta','Anupam',
 season3_guests=['Azhar','Ghazal','Deepinder',
                 'Radhika','Ronnie','Varun']
 
-# Initialize session state variables
-if "selected_season" not in st.session_state:
-    st.session_state.selected_season = 1
-if "selected_filter" not in st.session_state:
-    st.session_state.selected_filter = "All Pitches"
 
 # Function to create metric cards
 def metric_card(title, value, subtitle=""):
@@ -292,9 +294,7 @@ st.markdown("""
 
 #-------------------------------------------------------------------------------
 # Creating logo and images
-
-   
-st.image("logo_image.png")  # Smaller Image
+st.image("logo_image.png")   
 st.markdown("---")
 
 # Season selection buttons
@@ -320,6 +320,13 @@ with col2:
         st.markdown("</div>", unsafe_allow_html=True)
 
 
+# Initialize session state variables
+if "selected_season" not in st.session_state:
+    st.session_state.selected_season = 1
+if "selected_filter" not in st.session_state:
+    st.session_state.selected_filter = "All Pitches"
+
+ 
 # Handling button clicks (using session state)
 if season1:
     st.session_state.selected_season = 1
