@@ -364,24 +364,35 @@ elif season3:
 # Displaying the correct season (using session state)
 if st.session_state.selected_season == 1:
     argument = "  📊 Season 1 Analysis!"
+    no_sharks=All_sharks-season1_sharks-season1_guests
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season1_df,season_sharks)
     st.markdown("---")
     #pitches_metrics(season_df)
 elif st.session_state.selected_season == 2:
     argument = "  📊 Season 2 Analysis!" 
+    no_sharks=All_sharks-season2_sharks-season2_guests
     season_sharks=season2_sharks+season2_guests
     seasons_data(argument, season2_df,season_sharks)
     st.markdown("---")
     #pitches_metrics(season_df)
 elif st.session_state.selected_season == 3:
     argument = "  📊 Season 3 Analysis!" 
+    no_sharks=All_sharks-season3_sharks-season3_guests
     season_sharks=season3_sharks+season3_guests
     seasons_data(argument, season3_df,season_sharks)
     st.markdown("---")
     #pitches_metrics(season_df)
 else:
     argument = "  📊 Season 1 Analysis!" 
+    no_sharks=All_sharks-season1_sharks-season1_guests
+    deal=" Deal"
+    presence=" Presence"
+    i=0,j=0
+    for i in no_sharks:
+        col=no_sharks[i]+presence
+        
+        season1_df.drop(columns=col,inplace=True)
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season1_df,season_sharks)
     st.markdown("---")
