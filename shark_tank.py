@@ -90,13 +90,13 @@ if "selected_filter" not in st.session_state:
 
 
  
-def pitches_metrics(filtered_df, selected_startup):
-    startup_names = filtered_df["Startup Name"].dropna().unique().tolist()
+def pitches_metrics(ses_df ):
+    startup_names = ses_df["Startup Name"].dropna().unique().tolist()
     col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
     with col34:
         selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
     if selected_startup:
-        selected_startup_data = filtered_df[filtered_df["Startup Name"] == selected_startup].iloc[0]
+        selected_startup_data = ses_df[ses_df["Startup Name"] == selected_startup].iloc[0]
 
         # Section 1
         st.subheader("Pitch & Startup Info")
