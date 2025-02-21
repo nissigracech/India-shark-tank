@@ -238,7 +238,7 @@ def sharks():
     pass
 
 #pitches details function part 3
-def pitches_metrics(ses_df ):
+def pitches_metrics(ses_df,season_sharks ):
     startup_names = ses_df["Startup Name"].dropna().unique().tolist()
     col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
     with col34:
@@ -456,12 +456,12 @@ shark_deal_counts = {}
  
  
 if st.session_state.selected_season == 1: 
-    pitches_metrics(season1_df)
+    pitches_metrics(season1_df,season1_sharks)
 elif st.session_state.selected_season == 2: 
-    pitches_metrics(season2_df)
+    pitches_metrics(season2_df,season2_sharks)
 elif st.session_state.selected_season == 3: 
-    pitches_metrics(season3_df)
+    pitches_metrics(season3_df,season3_sharks)
 else:
-    pitches_metrics(season1_df)
-    
+    pitches_metrics(season1_df,season1_sharks)
+st.markdown("---")  
  
