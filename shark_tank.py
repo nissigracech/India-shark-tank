@@ -124,7 +124,7 @@ def sharks_info(season_df,key):
     col400,col401,col402=st.columns(3)
     with col401:
         st.image(image_info)
-    pass
+    
 
    
 # seasons data function part1 of the dashboard 
