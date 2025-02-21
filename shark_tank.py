@@ -248,6 +248,7 @@ def pitches_metrics(ses_df ):
     if selected_startup:
         selected_startup_data = ses_df[ses_df["Startup Name"] == selected_startup].iloc[0]
         st.markdown(f"<h2 style='text-align: center;'>{selected_startup} Details</h2>", unsafe_allow_html=True) 
+        st.subheader("Pitch Overview")
         col1, col2, col3 = st.columns(3)
         with col1:
             metric_card("Received Offer", "Yes" if selected_startup_data["Received Offer"] == 1 else "No")
@@ -266,6 +267,7 @@ def pitches_metrics(ses_df ):
             metric_card("Average Pitcher Age", selected_startup_data["Pitchers Average Age"])
             
         # Section 3
+        st.subheader("Initial Funding Details")
         col7, col8, col9 = st.columns(3)
         with col7:
             metric_card("Original Ask Amount", f"₹{selected_startup_data['Original Ask Amount']/ 100:.2f} Cr")
@@ -278,6 +280,7 @@ def pitches_metrics(ses_df ):
             st.write("This startup has not recived any offer")
         elif selected_startup_data["Accepted Offer"] == 0 and selected_startup_data["Recieved Offer"] == 1:
             st.write("This pitch has recived the offer but not accepted")
+             
             col10, col11, col12 = st.columns(3)
             with col10:
                 metric_card("Total Deal Amount", f"{selected_startup_data['Total Deal Amount']/100:.2f}Cr")
