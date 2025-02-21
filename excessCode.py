@@ -162,3 +162,43 @@ st.dataframe(df)
 # Create a stacked bar chart with Plotly
 fig = px.bar(df, x='Category', y=['Value1', 'Value2', 'Value3'], title='Stacked Bar Chart', barmode='stack')
 st.plotly_chart(fig)
+
+
+
+
+
+
+st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
+col100,col101,col102,col103,col104,col105,col106=st.columns([1,2,2,2,2,2,1])
+with col101:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    Namita = st.button("Namita", key="S1")
+    st.markdown("</div>", unsafe_allow_html=True)
+with col102:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    Vineeta = st.button("Vineeta", key="S2")
+    st.markdown("</div>", unsafe_allow_html=True)
+with col103:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    Anupam = st.button("Anupam", key="S3")
+    st.markdown("</div>", unsafe_allow_html=True)
+with col104:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    Aman = st.button("Aman", key="S4")
+    st.markdown("</div>", unsafe_allow_html=True)
+with col105:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    Peyush = st.button("Peyush", key="S5")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+if Namita:
+    st.session_state.selected_shark = "Namita"
+elif Vineeta:
+    st.session_state.selected_shark = "Vineeta"
+elif Anupam:
+    st.session_state.selected_shark = "Anupam"
+elif Aman:
+    st.session_state.selected_shark = "Aman"
+elif Peyush:
+    st.session_state.selected_shark = "Peyush"
+    

@@ -107,7 +107,16 @@ def count_shark_deal(data, shark_names):
         if deal_column in data.columns:
              deal_counts[shark_name]=data[deal_column].sum() 
     return deal_counts
-        
+
+
+def sharks_info(key):
+    image_info=f"{key}.jpg"
+    col400,col401,col402=st.columns(3)
+    with col401:
+        st.image(image_info)
+    pass
+
+   
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
     st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
@@ -233,7 +242,7 @@ def seasons_data(argument, season_df,season_sharks):
     st.pyplot(fig)   
 
 #sharks data function part2 of the function
-def sharks():
+def sharks(season_df):
     col100,col101,col102,col103,col104,col105,col106=st.columns([1,2,2,2,2,2,1])
     with col101:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
@@ -266,7 +275,20 @@ def sharks():
         st.session_state.selected_shark = "Aman"
     elif Peyush:
         st.session_state.selected_shark = "Peyush"
-
+    
+    if st.session_state.selected_shark == "Namita":
+        sharks_info(season_df,"Namita")
+    elif st.session_state.selected_shark == "Vineeta":
+        sharks_info(season_df,"Vineeta")
+    elif st.session_state.selected_shark == "Anupam":
+        sharks_info(season_df,"Anupam")
+    elif st.session_state.selected_shark == "Aman":
+        sharks_info(season_df,"Aman")
+    elif st.session_state.selected_shark == "Peyush":
+        sharks_info(season_df,"Peyush")
+        
+        
+        
 #pitches details function part 3
 def pitches_metrics(ses_df,season_sharks ):
     startup_names = ses_df["Startup Name"].dropna().unique().tolist()
@@ -334,12 +356,8 @@ def pitches_metrics(ses_df,season_sharks ):
                     if selected_startup_data.get(f"{shark} Deal", 0) == 1:
                          sharks_in_deal.append(shark)
                 metric_card("Sharks in Deal", ", ".join(sharks_in_deal) if sharks_in_deal else "None")
-            
-             
-
-         
-            
-  
+        
+ 
 # Custom CSS for Gradient Background
 st.markdown("""
     <style>
@@ -436,27 +454,23 @@ if st.session_state.selected_season == 1:
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season1_df,season_sharks)
     st.markdown("---")
-    sharks()
-    st.write("HI")
+    sharks(season1_df) 
     st.markdown("---")
-    pitches_metrics(season1_df,season1_sharks)
-    st.write("HI")
-     
+    pitches_metrics(season1_df,season1_sharks)    
 elif st.session_state.selected_season == 2:
     argument = "  📊 Season 2 Analysis!" 
     season_sharks=season2_sharks+season2_guests
     seasons_data(argument, season2_df,season_sharks)
     st.markdown("---")
-    sharks()
+    sharks(season2_df)
     st.markdown("---")
-    pitches_metrics(season2_df,season2_sharks)
-     
+    pitches_metrics(season2_df,season2_sharks)     
 elif st.session_state.selected_season == 3:
     argument = "  📊 Season 3 Analysis!" 
     season_sharks=season3_sharks+season3_guests
     seasons_data(argument, season3_df,season_sharks)
     st.markdown("---")
-    sharks()
+    sharks(season3_df)
     st.markdown("---")
     pitches_metrics(season1_df,season3_sharks)
 else:
@@ -464,24 +478,9 @@ else:
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season1_df,season1_sharks)
     st.markdown("---")
-    sharks()
+    sharks(season1_df)
     st.markdown("---")
     pitches_metrics(season1_df,season1_sharks)
-    #pitches_metrics(season_df)
-    
- 
-#-----------------------------------------------------------------------------------------------
+      
 
-#-----------------------------------------------------------------------------------
-st.markdown("---")
- 
-if st.session_state.selected_season == 1: 
-    pitches_metrics(season1_df,season1_sharks)
-elif st.session_state.selected_season == 2: 
-    pitches_metrics(season2_df,season2_sharks)
-elif st.session_state.selected_season == 3: 
-    pitches_metrics(season3_df,season3_sharks)
-else:
-    pitches_metrics(season1_df,season1_sharks)
-st.markdown("---")  
  
