@@ -294,10 +294,8 @@ def pitches_metrics(ses_df ):
                 metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
             with col12:
                 metric_card("Deal Valuation", f"₹{selected_startup_data['Deal Valuation']/100:.2f}Cr")
-            col13, col14, col15 = st.columns(3)
+            col13, col14, col15 = st.columns(3) 
             with col13:
-                metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
-            with col14:
                 metric_card("No. of Sharks in Deal", str(selected_startup_data["Number of Sharks in Deal"]))
             with col15:
                 sharks_in_deal = []
