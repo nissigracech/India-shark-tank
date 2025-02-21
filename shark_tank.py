@@ -130,7 +130,7 @@ def sharks_info(season_df,key,shark_name, occupation, education, image_filename)
     image_info=key+".jpg"
     col400,col401,col402,col403=st.columns([1,2,2,1])
     with col401:
-        st.image(image_info,width=200)
+        st.image(image_info,width=300)
     with col402:
         metric_card(shark_name,occupation,education)
         pass
