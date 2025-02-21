@@ -249,6 +249,7 @@ def pitches_metrics(ses_df ):
         selected_startup_data = ses_df[ses_df["Startup Name"] == selected_startup].iloc[0]
         st.markdown(f"<h2 style='text-align: center;'>{selected_startup} Details</h2>", unsafe_allow_html=True) 
         st.subheader("Pitch Overview")
+        #section1
         col1, col2, col3 = st.columns(3)
         with col1:
             metric_card("Received Offer", "Yes" if selected_startup_data["Received Offer"] == 1 else "No")
@@ -279,7 +280,8 @@ def pitches_metrics(ses_df ):
         if selected_startup_data["Received Offer"] == 0:
             st.write("This startup has not recived any offer")
         elif selected_startup_data["Accepted Offer"] == 0 and selected_startup_data["Recieved Offer"] == 1:
-            st.write("This pitch has recived the offer but not accepted")
+            st.write(" ")
+            st.write(f"<div style='text-align: center; font-size: 20px;'>This pitch has received the offer but not accepted</div>", unsafe_allow_html=True)
              
             col10, col11, col12 = st.columns(3)
             with col10:
