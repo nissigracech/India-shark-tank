@@ -295,7 +295,19 @@ def sharks(season_df):
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         Peyush = st.button("Peyush", key="S5")
         st.markdown("</div>", unsafe_allow_html=True)
-
+        
+        
+    if Namita:
+        st.session_state.selected_shark = "Namita"
+    elif Vineeta:
+        st.session_state.selected_shark = "Vineeta"
+    elif Anupam:
+       st.session_state.selected_shark = "Anupam"
+    elif Aman:
+        st.session_state.selected_shark = "Aman"
+    elif Peyush:
+        st.session_state.selected_shark = "Peyush"
+    
     
     
     if st.session_state.selected_shark == "Namita":
