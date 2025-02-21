@@ -81,26 +81,17 @@ def metric_card(title, value, subtitle=""):
     )
 
 main_sharks=['']      
-All_sharks=['Namita','Vineeta','Anupam',
-                'Aman','Peyush','Ritesh','Amit',
-                'Ashneer','Azhar','Ghazal','Deepinder',
-                'Radhika','Vikas','Ronnie','Varun']
-All_guests=['Ashneer','Azhar','Ghazal','Deepinder',
-                'Radhika','Vikas','Ronnie','Varun']
-season1_sharks=['Namita','Vineeta','Anupam',
-                'Aman','Peyush','Ashneer',
-                'Ghazal']
+All_sharks=['Namita','Vineeta','Anupam','Aman','Peyush','Ritesh','Amit',
+                'Ashneer','Azhar','Ghazal','Deepinder','Radhika','Vikas','Ronnie','Varun']
+main_sharks=['Namita','Vineeta','Anupam','Aman','Peyush']
+All_guests=['Ritesh','Amit','Ashneer','Azhar','Ghazal','Deepinder','Radhika','Vikas','Ronnie','Varun']
+season1_sharks=['Namita','Vineeta','Anupam','Aman','Peyush','Ashneer','Ghazal']
 season1_guests=[ 'Ashneer','Ghazal' ]
-season2_sharks=['Namita','Vineeta','Anupam',
-                'Aman','Peyush','Amit','Vikas']
-season2_guests=['Ashneer','Azhar','Ghazal','Deepinder',
-                'Radhika','Vikas','Ronnie','Varun']
-season3_sharks=['Namita','Vineeta','Anupam',
-                'Aman','Peyush','Ritesh','Amit',
-                'Azhar','Deepinder','Radhika',
-                'Ronnie','Varun']
-season3_guests=['Azhar','Ghazal','Deepinder',
-                'Radhika','Ronnie','Varun']
+season2_sharks=['Namita','Vineeta','Anupam','Aman','Peyush','Amit','Vikas']
+season2_guests=[ 'Amit','Vikas' ]
+season3_sharks=['Namita','Vineeta','Anupam','Aman','Peyush','Ritesh','Amit',
+                'Azhar','Deepinder','Radhika','Ronnie','Varun']
+season3_guests=['Ritesh','Amit','Azhar','Deepinder', 'Radhika','Ronnie','Varun']
 
 def count_shark_presence(data, shark_names):
     presence_counts = {}
