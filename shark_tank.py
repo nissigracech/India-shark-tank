@@ -119,7 +119,7 @@ def count_shark_deal(data, shark_names):
     return deal_counts
 
 
-def sharks_info(key):
+def sharks_info(season_df,key):
     image_info=f"{key}.jpg"
     col400,col401,col402=st.columns(3)
     with col401:
@@ -253,7 +253,6 @@ def seasons_data(argument, season_df,season_sharks):
 
 #sharks data function part2 of the function
 def sharks(season_df):
-    ses_df=season_df
     col100,col101,col102,col103,col104,col105,col106=st.columns([1,2,2,2,2,2,1])
     with col101:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
@@ -288,7 +287,7 @@ def sharks(season_df):
         st.session_state.selected_shark = "Peyush"
     
     if st.session_state.selected_shark == "Namita":
-        sharks_info(ses_df,"Namita")
+        sharks_info(season_df,"Namita")
     elif st.session_state.selected_shark == "Vineeta":
         sharks_info(season_df,"Vineeta")
     elif st.session_state.selected_shark == "Anupam":
