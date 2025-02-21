@@ -437,6 +437,7 @@ if st.session_state.selected_season == 1:
     seasons_data(argument, season1_df,season_sharks)
     st.markdown("---")
     sharks()
+    st.write("HI")
     st.markdown("---")
     pitches_metrics(season1_df,season1_sharks)
      
