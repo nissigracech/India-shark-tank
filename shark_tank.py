@@ -273,15 +273,27 @@ def pitches_metrics(ses_df ):
             metric_card("Valuation Requested", f"${selected_startup_data['Valuation Requested']:.2f}Cr")
         with col9:
             metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']:.2f}K")
-
-        # Section 4 
-        col10, col11, col12 = st.columns(3)
-        with col10:
-            metric_card("Accepted Offer", "Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
-        with col11:
-            metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
-        with col12:
-            metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
+        if selected_startup_data["Recived Offer"] == 0:
+            st.write("This startup has not recived any offer")
+        elif selected_startup_data["Accepted Offer"] == 0 and selected_startup_data["Recieved Offer"] == 1:
+            st.write("This pitch has recived the offer but not accepted")
+            col10, col11, col12 = st.columns(3)
+            with col10:
+                metric_card("Accepted Offer", "Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
+            with col11:
+                metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
+            with col12:
+                metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
+        else:
+            col10, col11, col12 = st.columns(3)
+            with col10:
+                metric_card("Accepted Offer", "Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
+            with col11:
+                metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
+            with col12:
+                metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
+            
+             
 
         # Section 5 
         col13, col14, col15 = st.columns(3)
