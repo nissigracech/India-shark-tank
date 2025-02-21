@@ -416,7 +416,8 @@ st.markdown("""
 
 #-------------------------------------------------------------------------------
 # Creating logo and images
-st.image("logo_image.png")   
+logo="logo_image.png"
+st.image(logo)   
 st.markdown("---")
 
 # Season selection buttons
