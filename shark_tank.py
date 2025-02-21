@@ -427,7 +427,7 @@ else:
  
 #-----------------------------------------------------------------------------------------------
 st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
-col101,col102,col103,col104,col105=st.columns(5)
+col101,col102,col103,col104,col105=st.columns(1,2,2,2,2,1)
 with col101:
     st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
     Namita = st.button("Namita", key="S1")
@@ -451,53 +451,6 @@ with col105:
 
  
 #-----------------------------------------------------------------------------------
-st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
-
-col_list=['col1','col2','col3','col4','col5','col6','col7','col8','col9','col10']
-cols = st.columns(len(season1_sharks))  # Creates dynamic columns
-
-for i, col in enumerate(cols):
-    with col:
-        abc= st.button(season1_sharks[i])
-
- 
- 
- 
- 
-
-shark_columns = [
-    "Namita", "Vineeta", "Anupam", "Aman", "Peyush", "Ritesh", "Amit"  # ... other sharks
-]
-
-shark_deal_counts = {}
- 
-#-----------------------------------------------------------------
-if "selected_shark" not in st.session_state:
-    st.session_state.selected_shark = "All Sharks"  # Default selection
-
-# Shark Button Layout
-st.subheader("Filter by Shark")  # Section heading for clarity
-
-col1, col2, col3, col4, col5 = st.columns(5) # Arrange buttons in columns
-
-if col1.button("All Sharks"):
-    st.session_state.selected_shark = "All Sharks"
-if col2.button("Namita"):
-    st.session_state.selected_shark = "Namita"
-if col3.button("Vineeta"):
-    st.session_state.selected_shark = "Vineeta"
-if col4.button("Anupam"):
-    st.session_state.selected_shark = "Anupam"
-if col5.button("Aman"):
-    st.session_state.selected_shark = "Aman"
-if st.button("Peyush"): # Peyush button takes full width
-    st.session_state.selected_shark = "Peyush"
-
-
-
-  
-    
-#----------------------------------------------------------
 st.markdown("---")
  
 if st.session_state.selected_season == 1: 
