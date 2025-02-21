@@ -124,26 +124,13 @@ def shark_info_card(shark_name, occupation, education, image_filename):
 
      
 
-    st.markdown(f"""
-    <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-        <div style="display: flex; align-items: center;">  
-            <div style="width: 150px; margin-right: 20px;">  
-                <img src="{image_filename}" style="width: 100%; border-radius: 5px;">
-            </div>
-            <div>
-                <h3 style="margin-top: 0;">{shark_name}</h3>
-                <p><strong>Occupation:</strong> {occupation}</p>
-                <p><strong>Education:</strong> {education}</p>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+
 
 def sharks_info(season_df,key,shark_name, occupation, education, image_filename):
     image_info=key+".jpg"
     col400,col401,col402,col403=st.columns([1,2,2,1])
     with col401:
-        st.image(image_info)
+        st.image(image_info,width=500)
     with col402:
         metric_card(shark_name,occupation,education)
         pass
@@ -323,17 +310,7 @@ def sharks(season_df):
     elif st.session_state.selected_shark == "Peyush":
         sharks_info(season_df,"Peyush","Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore", "Peyush.jpg")
     
-    if st.session_state.selected_shark == "Namita":
-        shark_info_card("Namita", "CEO, Emcure Pharmaceuticals", "MBA, Wharton School of the University of Pennsylvania", "Namita.jpg")
-        
-    elif st.session_state.selected_shark == "Vineeta":
-        shark_info_card("Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad", "Vineeta.jpg")
-    elif st.session_state.selected_shark == "Anupam":
-        shark_info_card("Anupam Mittal", "Founder & CEO, Shaadi.com", "MBA, Boston College", "Anupam.jpg")
-    elif st.session_state.selected_shark == "Aman":
-        shark_info_card("Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad", "Aman.jpg")
-    elif st.session_state.selected_shark == "Peyush":
-        shark_info_card("Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore", "Peyush.jpg")
+    
         
         
 #pitches details function part 3
