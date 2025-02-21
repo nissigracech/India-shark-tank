@@ -399,32 +399,6 @@ st.markdown("""
         color: #FFD700; /* Gold Yellow */
         text-transform: uppercase;
     }
-
-    /* Button styling */
-    .stButton>button {
-        width: 180px;
-        font-weight: bold;
-        font-size: 32px;
-        padding: 18px;
-        border-radius: 8px;
-        border: 2px solid #0a91bd !important; /* Blue Border */
-        cursor: pointer;
-        text-align: center;
-        background-color: transparent !important;
-        color: white !important;
-    }
-
-    /* Hover effect */
-    .stButton>button:hover {
-        background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
-    }
-
-    /* Active effect (Clicked button remains yellow) */
-    .stButton>button:active {
-        background-color: #FFD700 !important; /* Yellow */
-        color: black !important;
-        border-color: #FFD700 !important;
-    }
     </style>
 """, unsafe_allow_html=True)
 

@@ -216,3 +216,31 @@ if st.session_state.selected_shark == "Namita":
         shark_info_card("Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad", "Aman.jpg")
     elif st.session_state.selected_shark == "Peyush":
         shark_info_card("Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore", "Peyush.jpg")
+        
+        
+      st.markdown(f"""
+    <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center;">  
+            <div style="width: 150px; margin-right: 20px;">  
+                <img src="{image_filename}" style="width: 100%; border-radius: 5px;">
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">{shark_name}</h3>
+                <p><strong>Occupation:</strong> {occupation}</p>
+                <p><strong>Education:</strong> {education}</p>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)      
+        
+if st.session_state.selected_shark == "Namita":
+        shark_info_card("Namita", "CEO, Emcure Pharmaceuticals", "MBA, Wharton School of the University of Pennsylvania", "Namita.jpg")
+        
+    elif st.session_state.selected_shark == "Vineeta":
+        shark_info_card("Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad", "Vineeta.jpg")
+    elif st.session_state.selected_shark == "Anupam":
+        shark_info_card("Anupam Mittal", "Founder & CEO, Shaadi.com", "MBA, Boston College", "Anupam.jpg")
+    elif st.session_state.selected_shark == "Aman":
+        shark_info_card("Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad", "Aman.jpg")
+    elif st.session_state.selected_shark == "Peyush":
+        shark_info_card("Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore", "Peyush.jpg")
