@@ -273,7 +273,7 @@ def pitches_metrics(ses_df ):
             metric_card("Valuation Requested", f"${selected_startup_data['Valuation Requested']:.2f}Cr")
         with col9:
             metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']:.2f}K")
-        if selected_startup_data["Recived Offer"] == 0:
+        if selected_startup_data["Received Offer"] == 0:
             st.write("This startup has not recived any offer")
         elif selected_startup_data["Accepted Offer"] == 0 and selected_startup_data["Recieved Offer"] == 1:
             st.write("This pitch has recived the offer but not accepted")
