@@ -234,7 +234,38 @@ def seasons_data(argument, season_df,season_sharks):
 
 #sharks data function part2 of the function
 def sharks():
-    pass
+    col100,col101,col102,col103,col104,col105,col106=st.columns([1,2,2,2,2,2,1])
+    with col101:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        Namita = st.button("Namita", key="S1")
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col102:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        Vineeta = st.button("Vineeta", key="S2")
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col103:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        Anupam = st.button("Anupam", key="S3")
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col104:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        Aman = st.button("Aman", key="S4")
+    st.markdown("</div>", unsafe_allow_html=True)
+    with col105:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        Peyush = st.button("Peyush", key="S5")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    if Namita:
+        st.session_state.selected_shark = "Namita"
+    elif Vineeta:
+        st.session_state.selected_shark = "Vineeta"
+    elif Anupam:
+        st.session_state.selected_shark = "Anupam"
+    elif Aman:
+        st.session_state.selected_shark = "Aman"
+    elif Peyush:
+        st.session_state.selected_shark = "Peyush"
 
 #pitches details function part 3
 def pitches_metrics(ses_df,season_sharks ):
@@ -388,7 +419,8 @@ if "selected_season" not in st.session_state:
     st.session_state.selected_season = 1
 if "selected_filter" not in st.session_state:
     st.session_state.selected_filter = "All Pitches"
-
+if "selected_shark" not in st.session_state:
+    st.session_stae.selected_shark="Namita"
  
 # Handling button clicks (using session state)
 if season1:
@@ -403,53 +435,34 @@ if st.session_state.selected_season == 1:
     argument = "  📊 Season 1 Analysis!"
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season1_df,season_sharks)
+    sharks()
     st.markdown("---")
     #pitches_metrics(season_df)
 elif st.session_state.selected_season == 2:
     argument = "  📊 Season 2 Analysis!" 
     season_sharks=season2_sharks+season2_guests
     seasons_data(argument, season2_df,season_sharks)
+    sharks()
     st.markdown("---")
     #pitches_metrics(season_df)
 elif st.session_state.selected_season == 3:
     argument = "  📊 Season 3 Analysis!" 
     season_sharks=season3_sharks+season3_guests
     seasons_data(argument, season3_df,season_sharks)
+    sharks()
     st.markdown("---")
     #pitches_metrics(season_df)
 else:
     argument = "  📊 Season 1 Analysis!" 
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season1_df,season_sharks)
+    sharks()
     st.markdown("---")
     #pitches_metrics(season_df)
     
  
 #-----------------------------------------------------------------------------------------------
-st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
-col100,col101,col102,col103,col104,col105,col106=st.columns([1,2,2,2,2,2,1])
-with col101:
-    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    Namita = st.button("Namita", key="S1")
-    st.markdown("</div>", unsafe_allow_html=True)
-with col102:
-    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    Vineeta = st.button("Vineeta", key="S2")
-    st.markdown("</div>", unsafe_allow_html=True)
-with col103:
-    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    Anupam = st.button("Anupam", key="S3")
-    st.markdown("</div>", unsafe_allow_html=True)
-with col104:
-    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    Aman = st.button("Aman", key="S4")
-    st.markdown("</div>", unsafe_allow_html=True)
-with col105:
-    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    peyush = st.button("Peyush", key="S5")
-    st.markdown("</div>", unsafe_allow_html=True)
 
- 
 #-----------------------------------------------------------------------------------
 st.markdown("---")
  
