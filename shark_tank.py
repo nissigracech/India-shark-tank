@@ -273,17 +273,18 @@ def pitches_metrics(ses_df ):
             metric_card("Original Offered Equity", f"{selected_startup_data['Original Offered Equity']:.2f}%")
         with col9:
              metric_card("Valuation Requested", f"₹{selected_startup_data['Valuation Requested']/100:.2f}Cr")
+             
         if selected_startup_data["Received Offer"] == 0:
             st.write("This startup has not recived any offer")
         elif selected_startup_data["Accepted Offer"] == 0 and selected_startup_data["Recieved Offer"] == 1:
             st.write("This pitch has recived the offer but not accepted")
             col10, col11, col12 = st.columns(3)
             with col10:
-                metric_card("Accepted Offer", "Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
+                metric_card("Total Deal Amount", f"{selected_startup_data['Total Deal Amount']/100:.2f}Cr")
             with col11:
-                metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
-            with col12:
                 metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
+            with col12:
+                metric_card("Deal Valuation", f"{selected_startup_data['Deal Valuation']/100:.2f}Cr")
             col13, col14, col15 = st.columns(3)
             with col13:
                 metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
@@ -298,11 +299,11 @@ def pitches_metrics(ses_df ):
         else:
             col10, col11, col12 = st.columns(3)
             with col10:
-                metric_card("Accepted Offer", "Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
+                metric_card("Total Deal Amount", f"₹{selected_startup_data['Total Deal Amount']/100:.2f}Cr")
             with col11:
-                metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
-            with col12:
                 metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
+            with col12:
+                metric_card("Deal Valuation", f"₹{selected_startup_data['Deal Valuation']/100:.2f}Cr")
             col13, col14, col15 = st.columns(3)
             with col13:
                 metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
