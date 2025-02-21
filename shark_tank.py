@@ -13,11 +13,27 @@ st.set_page_config(page_title="Shark Tank India", layout="wide")
 # Load the pre-processed data
 filtered_df = pd.read_csv("filtered_df.csv")
 season1_df=filtered_df[filtered_df['Season Number'] == 1]
-season1_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh Deal', 'Amit Deal'], inplace=True)
+season1_df.drop(columns=['Ritesh Present',  'Ritesh Deal', 
+                         'Amit Present','Amit Deal',
+                         'Azhar Present','Azhar Deal',
+                         'Deepinder Present','Deepinder Deal',
+                         'Radhika Present','Radhika Deal',
+                         'Vikas Present','Vikas Deal',
+                         'Ronnie Present','Ronnie Deal',
+                         'Varun Present','Varun Deal'], inplace=True)
 season2_df=filtered_df[filtered_df['Season Number'] == 2]
-season2_df.drop(columns=['Ritesh Present', 'Ritesh Deal'], inplace=True)
+season2_df.drop(columns=['Ritesh Present', 'Ritesh Deal',
+                         'Ashneer Present','Ashneer Deal',
+                         'Azhar Present','Azhar Deal',
+                         'Ghazal Present','Ghazal Deal',
+                         'Deepinder Present','Deepinder Deal',
+                         'Radhika Present','Radhika Deal',
+                         'Ronnie Present','Ronnie Deal',
+                         'Varun Present','Varun Deal'], inplace=True)
 season3_df=filtered_df[filtered_df['Season Number'] == 3]
-season3_df.drop(columns=['Ritesh Present', 'Amit Present', 'Ritesh Deal', 'Amit Deal'], inplace=True)
+season3_df.drop(columns=[ 'Ashneer Present','Ashneer Deal',
+                          'Ghazal Present','Ghazal Deal',
+                          'Vikas Present','Vikas Deal' ],inplace=True)
 
 #metric box style
 st.markdown(
