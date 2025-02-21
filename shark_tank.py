@@ -440,6 +440,7 @@ if st.session_state.selected_season == 1:
     st.write("HI")
     st.markdown("---")
     pitches_metrics(season1_df,season1_sharks)
+    st.write("HI")
      
 elif st.session_state.selected_season == 2:
     argument = "  📊 Season 2 Analysis!" 
