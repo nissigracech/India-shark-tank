@@ -43,7 +43,7 @@ if "selected_season" not in st.session_state:
 if "selected_filter" not in st.session_state:
     st.session_state.selected_filter = "All Pitches"
 if "selected_shark" not in st.session_state:
-    st.session_stae.selected_shark="Namita"
+    st.session_state.selected_shark="Namita"
     
     
 #metric box style
