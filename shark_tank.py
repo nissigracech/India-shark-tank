@@ -43,7 +43,7 @@ st.markdown(
     <style>
     .metric-card {
         background-color: #161616;
-        padding: 30px;
+        padding: 50px;
         border-radius: 10px;
         text-align: center;
         box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
