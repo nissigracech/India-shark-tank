@@ -456,11 +456,11 @@ elif st.session_state.selected_season == 3:
     st.markdown("---")
     sharks()
     st.markdown("---")
-    pitches_metrics(season1_df,season1_sharks)
+    pitches_metrics(season1_df,season3_sharks)
 else:
     argument = "  📊 Season 1 Analysis!" 
     season_sharks=season1_sharks+season1_guests
-    seasons_data(argument, season1_df,season_sharks)
+    seasons_data(argument, season1_df,season1_sharks)
     st.markdown("---")
     sharks()
     st.markdown("---")
