@@ -294,10 +294,11 @@ def pitches_metrics(ses_df,season_sharks ):
                 metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
             with col12:
                 metric_card("Deal Valuation", f"₹{selected_startup_data['Deal Valuation']/100:.2f}Cr")
+            #sectio 5
             col13, col14, col15 = st.columns(3) 
             with col13:
                 metric_card("No. of Sharks in Deal", str(selected_startup_data["Number of Sharks in Deal"]))
-            with col15:
+            with col14:
                 sharks_in_deal = []
                 for shark in season_sharks:
                     if selected_startup_data.get(f"{shark} Deal", 0) == 1:
@@ -306,7 +307,7 @@ def pitches_metrics(ses_df,season_sharks ):
             
              
 
-        # Section 5 
+         
             
   
 # Custom CSS for Gradient Background
