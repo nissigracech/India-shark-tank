@@ -313,7 +313,7 @@ def sharks(season_df):
     
     
     if st.session_state.selected_shark == "Namita":
-        sharks_info(season_df,"Namita","Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad", "Vineeta.jpg")
+        sharks_info(season_df,"Namita","Namita", "CEO, Emcure Pharmaceuticals", "MBA, Wharton School of the University of Pennsylvania", "Namita.jpg")
     elif st.session_state.selected_shark == "Vineeta":
         sharks_info(season_df,"Vineeta","Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad", "Vineeta.jpg")
     elif st.session_state.selected_shark == "Anupam":

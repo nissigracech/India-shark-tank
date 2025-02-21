@@ -202,3 +202,17 @@ elif Aman:
 elif Peyush:
     st.session_state.selected_shark = "Peyush"
     
+    
+    
+    
+if st.session_state.selected_shark == "Namita":
+        shark_info_card("Namita", "CEO, Emcure Pharmaceuticals", "MBA, Wharton School of the University of Pennsylvania", "Namita.jpg")
+        
+    elif st.session_state.selected_shark == "Vineeta":
+        shark_info_card("Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad", "Vineeta.jpg")
+    elif st.session_state.selected_shark == "Anupam":
+        shark_info_card("Anupam Mittal", "Founder & CEO, Shaadi.com", "MBA, Boston College", "Anupam.jpg")
+    elif st.session_state.selected_shark == "Aman":
+        shark_info_card("Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad", "Aman.jpg")
+    elif st.session_state.selected_shark == "Peyush":
+        shark_info_card("Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore", "Peyush.jpg")
