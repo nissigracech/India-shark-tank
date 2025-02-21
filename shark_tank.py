@@ -141,23 +141,9 @@ def shark_info_card(shark_name, occupation, education, image_filename):
 
 def sharks_info(season_df,key):
     image_info=key+".jpg"
-    st.markdown(f"""
-    <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-        <div style="display: flex; align-items: center;">  
-            <div style="width: 150px; margin-right: 20px;">  
-                <img src="{image_info}" style="width: 100%; border-radius: 5px;">
-            </div>
-            <div>
-                <h3 style="margin-top: 0;">{key}</h3>
-                <p><strong>Occupation:</strong> {occupation}</p>
-                <p><strong>Education:</strong> {education}</p>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
     col400,col401,col402=st.columns(3)
     with col401:
-        st.image(image_info)
+        #st.image(image_info)
         pass
     
 
@@ -310,16 +296,7 @@ def sharks(season_df):
         Peyush = st.button("Peyush", key="S5")
         st.markdown("</div>", unsafe_allow_html=True)
 
-    if Namita:
-        st.session_state.selected_shark = "Namita"
-    elif Vineeta:
-        st.session_state.selected_shark = "Vineeta"
-    elif Anupam:
-        st.session_state.selected_shark = "Anupam"
-    elif Aman:
-        st.session_state.selected_shark = "Aman"
-    elif Peyush:
-        st.session_state.selected_shark = "Peyush"
+    
     
     if st.session_state.selected_shark == "Namita":
         sharks_info(season_df,"Namita")
