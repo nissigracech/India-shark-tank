@@ -194,7 +194,26 @@ def seasons_data(argument, season_df,season_sharks):
             key="filter_selectbox" 
         )
         st.session_state.selected_filter = option
+    st.subheader("Ask Amount vs. Deal Amount")
 
+    # Handle potential missing values (important!)
+    ask_amount = season_df['Original Ask Amount'].fillna(0)  # Fill NaN with 0 or another suitable value
+    deal_amount = season_df['Total Deal Amount'].fillna(0) # Fill NaN with 0 or another suitable value
+
+
+    fig, ax = plt.subplots(figsize=(8, 6))  # Adjust figure size as needed
+    ax.scatter(ask_amount, deal_amount, alpha=0.7)  # alpha adds transparency for overlapping points
+    ax.set_xlabel("Original Ask Amount")
+    ax.set_ylabel("Total Deal Amount")
+    ax.set_title(f"Season : Ask Amount vs. Deal Amount")
+
+    # Add a trend line (optional, but often helpful)
+    import numpy as np
+    z = np.polyfit(ask_amount, deal_amount, 1) #1 for linear, change to 2 for quadratic etc
+    p = np.poly1d(z)
+    plt.plot(ask_amount,p(ask_amount),"r--") # r-- is red dashed line
+
+    st.pyplot(fig)
 
         def update_filter():
             st.session_state.selected_filter = st.session_state.filter_selectbox
@@ -245,8 +264,7 @@ def pitches_metrics(ses_df ):
         with col3:
             metric_card("No. of Presenters", str(selected_startup_data["Number of Presenters"]))
 
-        # Section 2
-        st.subheader("Pitcher Details")
+        #section2
         col4, col5, col6 = st.columns(3)
         with col4:
             metric_card("Pitchers Avg. Age", selected_startup_data["Pitchers Average Age"])
@@ -256,7 +274,6 @@ def pitches_metrics(ses_df ):
             metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']:.2f}K")
 
         # Section 3
-        st.subheader("Offer Details")
         col7, col8, col9 = st.columns(3)
         with col7:
             metric_card("Original Offered Equity", f"{selected_startup_data['Original Offered Equity']:.2f}%")
@@ -265,8 +282,7 @@ def pitches_metrics(ses_df ):
         with col9:
             metric_card("Received Offer", "Yes" if selected_startup_data["Received Offer"] == 1 else "No")
 
-        # Section 4
-        st.subheader("Deal Outcome")
+        # Section 4 
         col10, col11, col12 = st.columns(3)
         with col10:
             metric_card("Accepted Offer", "Yes" if selected_startup_data["Accepted Offer"] == 1 else "No")
@@ -275,8 +291,7 @@ def pitches_metrics(ses_df ):
         with col12:
             metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
 
-        # Section 5
-        st.subheader("Deal Valuation & Sharks")
+        # Section 5 
         col13, col14, col15 = st.columns(3)
         with col13:
             metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
