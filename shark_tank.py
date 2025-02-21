@@ -279,7 +279,7 @@ def pitches_metrics(ses_df ):
              
         if selected_startup_data["Received Offer"] == 0:
             st.write("This startup has not recived any offer")
-        elif selected_startup_data["Accepted Offer"] == 0 and selected_startup_data["Recieved Offer"] == 1:
+        elif selected_startup_data["Accepted Offer"] == 0 and selected_startup_data["Received Offer"] == 1:
             st.write(" ")
             st.write(f"<div style='text-align: center; font-size: 20px;'>This pitch has received the offer but not accepted</div>", unsafe_allow_html=True)
              
