@@ -426,7 +426,31 @@ else:
     
  
 #-----------------------------------------------------------------------------------------------
-  
+st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
+col101,col102,col103,col104,col105=st.columns(5)
+with col101:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    Namita = st.button("Namita", key="s2")
+    st.markdown("</div>", unsafe_allow_html=True)
+with col102:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    Vineeta = st.button("Vineeta", key="s2")
+    st.markdown("</div>", unsafe_allow_html=True)
+with col103:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    Anupam = st.button("Anupam", key="s2")
+    st.markdown("</div>", unsafe_allow_html=True)
+with col104:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    Aman = st.button("Aman", key="s2")
+    st.markdown("</div>", unsafe_allow_html=True)
+with col105:
+    st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    peyush = st.button("Peyush", key="s2")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+ 
+#-----------------------------------------------------------------------------------
 st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
 
 col_list=['col1','col2','col3','col4','col5','col6','col7','col8','col9','col10']
@@ -435,9 +459,6 @@ cols = st.columns(len(season1_sharks))  # Creates dynamic columns
 for i, col in enumerate(cols):
     with col:
         abc= st.button(season1_sharks[i])
-
-
-season1_df=filtered_df[filtered_df['Season Number'] == 1]
 
  
  
