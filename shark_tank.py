@@ -278,29 +278,13 @@ def pitches_metrics(ses_df ):
              metric_card("Valuation Requested", f"₹{selected_startup_data['Valuation Requested']/100:.2f}Cr")
              
         if selected_startup_data["Received Offer"] == 0:
-            st.write("This startup has not recived any offer")
+            st.write(" ")
+            st.write(f"<h2 style='text-align: center; color: #FFD700;'>This pitch has not received the offer</h2>", unsafe_allow_html=True)
+            st.write(" ")
         elif selected_startup_data["Accepted Offer"] == 0 and selected_startup_data["Received Offer"] == 1:
             st.write(" ")
             st.write(f"<h2 style='text-align: center; color: #FFD700;'>This pitch has received the offer but not accepted</h2>", unsafe_allow_html=True)
             st.write(" ")
-            col10, col11, col12 = st.columns(3)
-            with col10:
-                metric_card("Total Deal Amount", f"{selected_startup_data['Total Deal Amount']/100:.2f}Cr")
-            with col11:
-                metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
-            with col12:
-                metric_card("Deal Valuation", f"{selected_startup_data['Deal Valuation']/100:.2f}Cr")
-            col13, col14, col15 = st.columns(3)
-            with col13:
-                metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
-            with col14:
-                metric_card("No. of Sharks in Deal", str(selected_startup_data["Number of Sharks in Deal"]))
-            with col15:
-                sharks_in_deal = []
-                for shark in ["Aman", "Namita", "Vineeta", "Anupam", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"]:
-                    if selected_startup_data.get(f"{shark.lower()}_deal", 0) == 1:
-                         sharks_in_deal.append(shark)
-                metric_card("Sharks in Deal", ", ".join(sharks_in_deal) if sharks_in_deal else "None")
         else:
             col10, col11, col12 = st.columns(3)
             with col10:
