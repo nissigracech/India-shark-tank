@@ -300,7 +300,7 @@ def pitches_metrics(ses_df,season_sharks ):
             with col15:
                 sharks_in_deal = []
                 for shark in season_sharks:
-                    if selected_startup_data.get(f"{shark.lower()}_deal", 0) == 1:
+                    if selected_startup_data.get(f"{shark} Deal", 0) == 1:
                          sharks_in_deal.append(shark)
                 metric_card("Sharks in Deal", ", ".join(sharks_in_deal) if sharks_in_deal else "None")
             
