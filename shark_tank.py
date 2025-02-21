@@ -268,11 +268,11 @@ def pitches_metrics(ses_df ):
         # Section 3
         col7, col8, col9 = st.columns(3)
         with col7:
-            metric_card("Original Offered Equity", f"{selected_startup_data['Original Offered Equity']:.2f}%")
+            metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']/ 100:.2f} Cr")
         with col8:
-            metric_card("Valuation Requested", f"${selected_startup_data['Valuation Requested']:.2f}Cr")
+            metric_card("Original Offered Equity", f"{selected_startup_data['Original Offered Equity']:.2f}%")
         with col9:
-            metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']:.2f}K")
+             metric_card("Valuation Requested", f"${selected_startup_data['Valuation Requested']/100:.2f}Cr")
         if selected_startup_data["Received Offer"] == 0:
             st.write("This startup has not recived any offer")
         elif selected_startup_data["Accepted Offer"] == 0 and selected_startup_data["Recieved Offer"] == 1:
