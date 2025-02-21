@@ -12,6 +12,8 @@ st.set_page_config(page_title="Shark Tank India", layout="wide")
 
 # Load the pre-processed data
 filtered_df = pd.read_csv("filtered_df.csv")
+
+# categorise the data for each season
 season1_df=filtered_df[filtered_df['Season Number'] == 1]
 season1_df.drop(columns=['Ritesh Present',  'Ritesh Deal', 
                          'Amit Present','Amit Deal',
