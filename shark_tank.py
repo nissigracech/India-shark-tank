@@ -286,6 +286,7 @@ def pitches_metrics(ses_df ):
             st.write(f"<h2 style='text-align: center; color: #FFD700;'>This pitch has received the offer but not accepted</h2>", unsafe_allow_html=True)
             st.write(" ")
         else:
+            st.subheader("Final Funding Details")
             col10, col11, col12 = st.columns(3)
             with col10:
                 metric_card("Total Deal Amount", f"₹{selected_startup_data['Total Deal Amount']/100:.2f}Cr")
