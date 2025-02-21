@@ -123,7 +123,7 @@ def sharks_info(season_df,key):
     image_info=key+".jpg"
     col400,col401,col402=st.columns(3)
     with col401:
-        st.image(image_info)
+        pass
     
 
    
