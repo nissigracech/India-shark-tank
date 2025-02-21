@@ -284,6 +284,17 @@ def pitches_metrics(ses_df ):
                 metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
             with col12:
                 metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
+            col13, col14, col15 = st.columns(3)
+            with col13:
+                metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
+            with col14:
+                metric_card("No. of Sharks in Deal", str(selected_startup_data["Number of Sharks in Deal"]))
+            with col15:
+                sharks_in_deal = []
+                for shark in ["Aman", "Namita", "Vineeta", "Anupam", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"]:
+                    if selected_startup_data.get(f"{shark.lower()}_deal", 0) == 1:
+                         sharks_in_deal.append(shark)
+                metric_card("Sharks in Deal", ", ".join(sharks_in_deal) if sharks_in_deal else "None")
         else:
             col10, col11, col12 = st.columns(3)
             with col10:
@@ -292,21 +303,22 @@ def pitches_metrics(ses_df ):
                 metric_card("Total Deal Amount", f"${selected_startup_data['Total Deal Amount']:.2f}K")
             with col12:
                 metric_card("Total Deal Equity", f"{selected_startup_data['Total Deal Equity']:.2f}%")
+            col13, col14, col15 = st.columns(3)
+            with col13:
+                metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
+            with col14:
+                metric_card("No. of Sharks in Deal", str(selected_startup_data["Number of Sharks in Deal"]))
+            with col15:
+                sharks_in_deal = []
+                for shark in ["Aman", "Namita", "Vineeta", "Anupam", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"]:
+                    if selected_startup_data.get(f"{shark.lower()}_deal", 0) == 1:
+                         sharks_in_deal.append(shark)
+                metric_card("Sharks in Deal", ", ".join(sharks_in_deal) if sharks_in_deal else "None")
             
              
 
         # Section 5 
-        col13, col14, col15 = st.columns(3)
-        with col13:
-            metric_card("Deal Valuation", f"${selected_startup_data['Deal Valuation']:.2f}Cr")
-        with col14:
-            metric_card("No. of Sharks in Deal", str(selected_startup_data["Number of Sharks in Deal"]))
-        with col15:
-            sharks_in_deal = []
-            for shark in ["Aman", "Namita", "Vineeta", "Anupam", "Peyush", "Ritesh", "Amit", "Ashneer", "Azhar", "Ghazal", "Deepinder", "Radhika", "Vikas", "Ronnie", "Varun"]:
-                if selected_startup_data.get(f"{shark.lower()}_deal", 0) == 1:
-                    sharks_in_deal.append(shark)
-            metric_card("Sharks in Deal", ", ".join(sharks_in_deal) if sharks_in_deal else "None")
+            
   
 # Custom CSS for Gradient Background
 st.markdown("""
