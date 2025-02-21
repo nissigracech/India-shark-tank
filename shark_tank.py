@@ -236,9 +236,7 @@ def pitches_metrics(ses_df ):
         selected_startup = startup_names[0]   
     if selected_startup:
         selected_startup_data = ses_df[ses_df["Startup Name"] == selected_startup].iloc[0]
-
-        # Section 1
-        st.subheader("Pitch & Startup Info")
+        st.markdown(f"<h2 style='text-align: center;'>{selected_startup}</h2>", unsafe_allow_html=True) 
         col1, col2, col3 = st.columns(3)
         with col1:
             metric_card("Air Date", selected_startup_data["Original Air Date"])
