@@ -140,3 +140,25 @@ with col1:
 with col3:
     st.image("st.png", caption=" ", width=1000)  # Larger Image
 
+
+
+data = {
+    'Category': ['A', 'B', 'C', 'D'],
+    'Value1': [10, 20, 30, 40],
+    'Value2': [15, 25, 35, 45],
+    'Value3': [5, 10, 15, 20]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Set up the Streamlit app
+st.title("Stacked Bar Chart Example with Plotly")
+
+# Display the DataFrame
+st.write("Data:")
+st.dataframe(df)
+
+# Create a stacked bar chart with Plotly
+fig = px.bar(df, x='Category', y=['Value1', 'Value2', 'Value3'], title='Stacked Bar Chart', barmode='stack')
+st.plotly_chart(fig)

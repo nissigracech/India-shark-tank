@@ -247,24 +247,24 @@ def pitches_metrics(ses_df ):
         selected_startup = startup_names[0]   
     if selected_startup:
         selected_startup_data = ses_df[ses_df["Startup Name"] == selected_startup].iloc[0]
-        st.markdown(f"<h2 style='text-align: center;'>{selected_startup}</h2>", unsafe_allow_html=True) 
+        st.markdown(f"<h2 style='text-align: center;'>{selected_startup} Details</h2>", unsafe_allow_html=True) 
         col1, col2, col3 = st.columns(3)
         with col1:
-            metric_card("Air Date", selected_startup_data["Original Air Date"])
+            metric_card("Received Offer", "Yes" if selected_startup_data["Received Offer"] == 1 else "No")
         with col2:
-            metric_card("Industry", selected_startup_data["Industry"])
+            metric_card("Startup Industry", selected_startup_data["Industry"])
         with col3:
-            metric_card("No. of Presenters", str(selected_startup_data["Number of Presenters"]))
+            metric_card("Number of Presenters", str(selected_startup_data["Number of Presenters"]))
 
         #section2
         col4, col5, col6 = st.columns(3)
         with col4:
-            metric_card("Pitchers Avg. Age", selected_startup_data["Pitchers Average Age"])
+            metric_card("Original Air Date", selected_startup_data["Original Air Date"])
         with col5:
             metric_card("Pitchers State", selected_startup_data["Pitchers State"])
         with col6:
-            metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']:.2f}K")
-
+            metric_card("Average Pitcher Age", selected_startup_data["Pitchers Average Age"])
+            
         # Section 3
         col7, col8, col9 = st.columns(3)
         with col7:
@@ -272,7 +272,7 @@ def pitches_metrics(ses_df ):
         with col8:
             metric_card("Valuation Requested", f"${selected_startup_data['Valuation Requested']:.2f}Cr")
         with col9:
-            metric_card("Received Offer", "Yes" if selected_startup_data["Received Offer"] == 1 else "No")
+            metric_card("Original Ask Amount", f"${selected_startup_data['Original Ask Amount']:.2f}K")
 
         # Section 4 
         col10, col11, col12 = st.columns(3)
@@ -452,26 +452,3 @@ else:
     pitches_metrics(season1_df)
     
  
- 
- 
- 
-data = {
-    'Category': ['A', 'B', 'C', 'D'],
-    'Value1': [10, 20, 30, 40],
-    'Value2': [15, 25, 35, 45],
-    'Value3': [5, 10, 15, 20]
-}
-
-# Create a DataFrame
-df = pd.DataFrame(data)
-
-# Set up the Streamlit app
-st.title("Stacked Bar Chart Example with Plotly")
-
-# Display the DataFrame
-st.write("Data:")
-st.dataframe(df)
-
-# Create a stacked bar chart with Plotly
-fig = px.bar(df, x='Category', y=['Value1', 'Value2', 'Value3'], title='Stacked Bar Chart', barmode='stack')
-st.plotly_chart(fig)
