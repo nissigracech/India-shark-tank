@@ -315,13 +315,13 @@ def sharks(season_df):
     if st.session_state.selected_shark == "Namita":
         sharks_info(season_df,"Namita","Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad", "Vineeta.jpg")
     elif st.session_state.selected_shark == "Vineeta":
-        sharks_info(season_df,"Vineeta")
+        sharks_info(season_df,"Vineeta","Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad", "Vineeta.jpg")
     elif st.session_state.selected_shark == "Anupam":
-        sharks_info(season_df,"Anupam")
+        sharks_info(season_df,"Anupam","Anupam Mittal", "Founder & CEO, Shaadi.com", "MBA, Boston College", "Anupam.jpg")
     elif st.session_state.selected_shark == "Aman":
-        sharks_info(season_df,"Aman")
+        sharks_info(season_df,"Aman","Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad", "Aman.jpg")
     elif st.session_state.selected_shark == "Peyush":
-        sharks_info(season_df,"Peyush")
+        sharks_info(season_df,"Peyush","Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore", "Peyush.jpg")
     
     if st.session_state.selected_shark == "Namita":
         shark_info_card("Namita", "CEO, Emcure Pharmaceuticals", "MBA, Wharton School of the University of Pennsylvania", "Namita.jpg")
