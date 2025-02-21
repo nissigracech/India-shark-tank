@@ -5,7 +5,6 @@ import numpy as np
 import seaborn as sns
 import plotly.express as px
 from PIL import Image
-import streamlit.components.v1 as components 
 
 # Set page config
 st.set_page_config(page_title="Shark Tank India", layout="wide")
@@ -440,7 +439,7 @@ for i, col in enumerate(cols):
 
 season1_df=filtered_df[filtered_df['Season Number'] == 1]
 
-st.markdown("---")
+ 
  
  
  
@@ -451,10 +450,34 @@ shark_columns = [
 
 shark_deal_counts = {}
  
-    
-    
+#-----------------------------------------------------------------
+if "selected_shark" not in st.session_state:
+    st.session_state.selected_shark = "All Sharks"  # Default selection
 
- 
+# Shark Button Layout
+st.subheader("Filter by Shark")  # Section heading for clarity
+
+col1, col2, col3, col4, col5 = st.columns(5) # Arrange buttons in columns
+
+if col1.button("All Sharks"):
+    st.session_state.selected_shark = "All Sharks"
+if col2.button("Namita"):
+    st.session_state.selected_shark = "Namita"
+if col3.button("Vineeta"):
+    st.session_state.selected_shark = "Vineeta"
+if col4.button("Anupam"):
+    st.session_state.selected_shark = "Anupam"
+if col5.button("Aman"):
+    st.session_state.selected_shark = "Aman"
+if st.button("Peyush"): # Peyush button takes full width
+    st.session_state.selected_shark = "Peyush"
+
+
+
+  
+    
+#----------------------------------------------------------
+st.markdown("---")
  
 if st.session_state.selected_season == 1: 
     pitches_metrics(season1_df,season1_sharks)
