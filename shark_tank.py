@@ -139,11 +139,13 @@ def shark_info_card(shark_name, occupation, education, image_filename):
     </div>
     """, unsafe_allow_html=True)
 
-def sharks_info(season_df,key):
+def sharks_info(season_df,key,shark_name, occupation, education, image_filename):
     image_info=key+".jpg"
-    col400,col401,col402=st.columns(3)
+    col400,col401,col402,col403=st.columns([1,2,2,1])
     with col401:
         st.image(image_info)
+    with col402:
+        metric_card(shark_name,occupation,education)
         pass
     
 
@@ -311,7 +313,7 @@ def sharks(season_df):
     
     
     if st.session_state.selected_shark == "Namita":
-        sharks_info(season_df,"Namita")
+        sharks_info(season_df,"Namita","Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad", "Vineeta.jpg")
     elif st.session_state.selected_shark == "Vineeta":
         sharks_info(season_df,"Vineeta")
     elif st.session_state.selected_shark == "Anupam":
