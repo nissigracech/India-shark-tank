@@ -453,6 +453,8 @@ elif season2:
 elif season3:
     st.session_state.selected_season = 3
 
+st.image("Namita.jpg")
+
 # Displaying the correct season (using session state)
 if st.session_state.selected_season == 1:
     argument = "  📊 Season 1 Analysis!"
@@ -488,4 +490,5 @@ else:
     pitches_metrics(season1_df,season1_sharks)
       
 
+ 
  
