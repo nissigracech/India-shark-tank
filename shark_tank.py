@@ -454,7 +454,7 @@ elif season2:
 elif season3:
     st.session_state.selected_season = 3
 
-st.image("Namita.png")
+#st.image("Namita.png")
 
 # Displaying the correct season (using session state)
 if st.session_state.selected_season == 1:
