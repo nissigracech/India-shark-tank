@@ -220,24 +220,25 @@ def seasons_data(argument, season_df,season_sharks):
 
         fig.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
-    st.subheader("Ask Amount vs. Deal Amount")
+    st.subheader("Ask Amount vs. Deal Amount (in Lakhs)")  # Updated title
 
-    # Handle potential missing values (important!)
-    ask_amount = season_df['Original Ask Amount'].fillna(0)  # Fill NaN with 0 or another suitable value
-    deal_amount = season_df['Total Deal Amount'].fillna(0) # Fill NaN with 0 or another suitable value
+    # Handle missing values (important!)
+    ask_amount = season_df['Original Ask Amount'].fillna(0)
+    deal_amount = season_df['Total Deal Amount'].fillna(0)
 
+    # Convert Deal Amount to Lakhs (crucial step)
+    deal_amount_lakhs = deal_amount * 100000  # Or deal_amount * 1e5
 
-    fig, ax = plt.subplots(figsize=(8, 6))  # Adjust figure size as needed
-    ax.scatter(ask_amount, deal_amount, alpha=0.7)  # alpha adds transparency for overlapping points
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.scatter(ask_amount, deal_amount_lakhs, alpha=0.7)
     ax.set_xlabel("Original Ask Amount")
-    ax.set_ylabel("Total Deal Amount")
-    ax.set_title(f"Season : Ask Amount vs. Deal Amount")
+    ax.set_ylabel("Total Deal Amount (in Lakhs)")  # Updated y-axis label
+    ax.set_title(f"Season  : Ask Amount vs. Deal Amount")
 
-    # Add a trend line (optional, but often helpful)
-    import numpy as np
-    z = np.polyfit(ask_amount, deal_amount, 1) #1 for linear, change to 2 for quadratic etc
+    # Add a trend line (optional)
+    z = np.polyfit(ask_amount, deal_amount_lakhs, 1)
     p = np.poly1d(z)
-    plt.plot(ask_amount,p(ask_amount),"r--") # r-- is red dashed line
+    plt.plot(ask_amount, p(ask_amount), "r--")
 
     st.pyplot(fig)   
 
