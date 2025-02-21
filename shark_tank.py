@@ -427,7 +427,7 @@ else:
  
 #-----------------------------------------------------------------------------------------------
 st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allow_html=True)
-col101,col102,col103,col104,col105=st.columns(1,2,2,2,2,1)
+col100,col101,col102,col103,col104,col105,col106=st.columns(1,2,2,2,2,2,1)
 with col101:
     st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
     Namita = st.button("Namita", key="S1")
