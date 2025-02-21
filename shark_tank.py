@@ -430,23 +430,23 @@ st.markdown(f"<h1 style='text-align: center;'>sharks analysis</h1>", unsafe_allo
 col101,col102,col103,col104,col105=st.columns(5)
 with col101:
     st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    Namita = st.button("Namita", key="s2")
+    Namita = st.button("Namita", key="S1")
     st.markdown("</div>", unsafe_allow_html=True)
 with col102:
     st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    Vineeta = st.button("Vineeta", key="s2")
+    Vineeta = st.button("Vineeta", key="S2")
     st.markdown("</div>", unsafe_allow_html=True)
 with col103:
     st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    Anupam = st.button("Anupam", key="s2")
+    Anupam = st.button("Anupam", key="S3")
     st.markdown("</div>", unsafe_allow_html=True)
 with col104:
     st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    Aman = st.button("Aman", key="s2")
+    Aman = st.button("Aman", key="S4")
     st.markdown("</div>", unsafe_allow_html=True)
 with col105:
     st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
-    peyush = st.button("Peyush", key="s2")
+    peyush = st.button("Peyush", key="S5")
     st.markdown("</div>", unsafe_allow_html=True)
 
  
