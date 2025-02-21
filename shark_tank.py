@@ -194,26 +194,7 @@ def seasons_data(argument, season_df,season_sharks):
             key="filter_selectbox" 
         )
         st.session_state.selected_filter = option
-    st.subheader("Ask Amount vs. Deal Amount")
 
-    # Handle potential missing values (important!)
-    ask_amount = season_df['Original Ask Amount'].fillna(0)  # Fill NaN with 0 or another suitable value
-    deal_amount = season_df['Total Deal Amount'].fillna(0) # Fill NaN with 0 or another suitable value
-
-
-    fig, ax = plt.subplots(figsize=(8, 6))  # Adjust figure size as needed
-    ax.scatter(ask_amount, deal_amount, alpha=0.7)  # alpha adds transparency for overlapping points
-    ax.set_xlabel("Original Ask Amount")
-    ax.set_ylabel("Total Deal Amount")
-    ax.set_title(f"Season : Ask Amount vs. Deal Amount")
-
-    # Add a trend line (optional, but often helpful)
-    import numpy as np
-    z = np.polyfit(ask_amount, deal_amount, 1) #1 for linear, change to 2 for quadratic etc
-    p = np.poly1d(z)
-    plt.plot(ask_amount,p(ask_amount),"r--") # r-- is red dashed line
-
-    st.pyplot(fig)
 
         def update_filter():
             st.session_state.selected_filter = st.session_state.filter_selectbox
@@ -239,7 +220,26 @@ def seasons_data(argument, season_df,season_sharks):
 
         fig.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
-        
+    st.subheader("Ask Amount vs. Deal Amount")
+
+    # Handle potential missing values (important!)
+    ask_amount = season_df['Original Ask Amount'].fillna(0)  # Fill NaN with 0 or another suitable value
+    deal_amount = season_df['Total Deal Amount'].fillna(0) # Fill NaN with 0 or another suitable value
+
+
+    fig, ax = plt.subplots(figsize=(8, 6))  # Adjust figure size as needed
+    ax.scatter(ask_amount, deal_amount, alpha=0.7)  # alpha adds transparency for overlapping points
+    ax.set_xlabel("Original Ask Amount")
+    ax.set_ylabel("Total Deal Amount")
+    ax.set_title(f"Season : Ask Amount vs. Deal Amount")
+
+    # Add a trend line (optional, but often helpful)
+    import numpy as np
+    z = np.polyfit(ask_amount, deal_amount, 1) #1 for linear, change to 2 for quadratic etc
+    p = np.poly1d(z)
+    plt.plot(ask_amount,p(ask_amount),"r--") # r-- is red dashed line
+
+    st.pyplot(fig)   
 
 #sharks data function part2 of the function
 def sharks():
