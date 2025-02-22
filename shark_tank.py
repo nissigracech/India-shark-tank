@@ -638,12 +638,6 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 st.markdown("""
-    <style>
-    .gradient-bg { 
-        padding: 20px;
-        border-radius: 10px;
-        color: white;
-    }
     .sticky-bottom {
         position: fixed;
         bottom: 0;
