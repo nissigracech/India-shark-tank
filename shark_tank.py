@@ -211,7 +211,30 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     with col414:
         metric_card("Number of solo investments",len(season_df[(season_df[deal] == 1) & (season_df["Number of Sharks in Deal"] == 1)]))
     
-    
+         
+
+    # Select relevant columns
+    namita_equity_data = namita_deals[["Startup Name", "Original Offered Equity", "equity_per_shark", "Total Deal Equity"]]
+
+    # Melt for Plotly
+    namita_equity_melted = namita_equity_data.melt(id_vars=["Startup Name"], 
+                                                var_name="Equity Type", 
+                                                value_name="Equity (%)")
+
+# Create the plot
+    fig = px.line(namita_equity_melted, x="Startup Name", y="Equity (%)", color="Equity Type", markers=True,
+              title="Equity Comparison for Namita based on different Brands")
+
+# Customize
+    fig.update_layout(title_font=dict(size=20, color="green"),
+                  xaxis_title="Brand Name",
+                  yaxis_title="Equity (%)",
+                  xaxis_tickangle=-45,
+                  legend_title="Equity Type",
+                  template="plotly_dark")
+
+    fig.show()
+
     
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
