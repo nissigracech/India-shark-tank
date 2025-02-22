@@ -655,12 +655,11 @@ st.markdown("""
 col60,col61,col62=st.columns([1,1,1])
 with col62:
     st.markdown("""
-    <div class="sticky-bottom">
-         <div style='background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;'>
+    <div class="sticky-bottom"> 
         <p style='text-align: center; font-size: 8px;'>About This Dashboard</p>
         <h4 style='color: #FFD700; text-align: center; font-size: 20px; font-weight: bold; line-height: 1.6;'>
             [Your Name/Team Name]
         </h4>
-    </div>
+     
     </div>
     """, unsafe_allow_html=True)
