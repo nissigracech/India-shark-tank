@@ -46,41 +46,7 @@ if "selected_shark" not in st.session_state:
     st.session_state.selected_shark="Namita"
     
 
-st.markdown(
-    """
-    <style>
-    .shark_metric-card {
-        background-color: #161616;
-        padding: 20px; /* Reduced padding */
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
-        margin-bottom: 20px;
-        width: 100%; /* Make card fill column width */
-        box-sizing: border-box; /* Include padding and border in element's total width and height */
-    }
-    .shark_metric-title {
-        font-size: 24px; /* Increased name size */
-        font-weight: bold; /* Name more prominent */
-        color: #FFD700; /* Gold color for name */
-    }
-    .shark_metric-value {
-        font-size: 18px; /* Slightly smaller occupation */
-        color: #bbb; /* Less bright color for occupation */
-    }
-    .shark_metric-subtitle {
-        font-size: 16px; /* Education size */
-        color: #888; /* Education color */
-        margin-top: 5px;
-    }
-    .column-spacer {
-        width: 2%; /* Adjust spacing between columns */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
+ 
 
 # metric box style for metric cards of all sections 
 st.markdown(
@@ -111,10 +77,9 @@ st.markdown(
     
     #shark metric card
     .shark_metric-card {  
-        text-align: center; 
-        margin-bottom: 20px;
+        text-align: center;  
         width: 100%; /* Make card fill column width */
-        height: 300px 
+        height: 300px  /* Include padding and border in element's total width and height */
     }
     .shark_metric-title {
         font-size: 40px; /* Increased name size */
