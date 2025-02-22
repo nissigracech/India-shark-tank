@@ -403,7 +403,7 @@ def pitches_metrics(ses_df,season_sharks ):
         with col7:
             metric_card("Original Ask Amount", f"₹{selected_startup_data['Original Ask Amount']/ 100:.2f} Cr")
         with col8:
-            metric_card("Original Offered Equity", f"{selected_startup_data['Original Offered Equity']:.2f}%")
+            metric_card("Original Offered Equity", f"{selected_startup_data['Original Offered Equity']}%")
         with col9:
              metric_card("Valuation Requested", f"₹{selected_startup_data['Valuation Requested']/100:.2f}Cr")
              
