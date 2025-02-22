@@ -331,7 +331,7 @@ def seasons_data(argument, season_df,season_sharks):
  
     col30,col31 = st.columns(2)
     with col30:
-        state_counts = season_df["Pitchers Average Age"].value_counts()
+        state_counts = season_df["Pitchers State"].value_counts()
 
         # Create pie chart
         fig, ax = plt.subplots()
