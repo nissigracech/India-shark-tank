@@ -87,12 +87,12 @@ def shark_metric_card(name, occupation, education):
     st.markdown(
         f"""
         <div class="metric-card"> 
-            <div class="shark_metric-title">{space} </div>
+            <div class="shark_metric-title">&nbsp; </div>
             <div class="shark_metric-title">{name}</div> 
-            <div class="shark_metric-title">{space} </div>
             <div class="shark_metric-value">{occupation}</div>
             <div class="shark_metric-value">&nbsp;</div>
             {f'<div class="metric-subtitle">Education:{education}</div>' if education else ''}
+            <div class="shark_metric-value">&nbsp;</div>
        
         </div>
         """,
@@ -215,7 +215,7 @@ def sharks_info(season_df,key,shark_name, occupation, education, image_filename)
     
     col400,col401,col402,col403=st.columns([3,4,7,3])
     with col401:
-        st.image(image_info,width=300)
+        st.image(image_info,width=400)
     with col402:
         shark_metric_card(shark_name,occupation,education)
         pass
