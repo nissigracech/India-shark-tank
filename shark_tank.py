@@ -394,8 +394,8 @@ def sharks(season_df):
 #pitches details function part 3
 def pitches_metrics(ses_df,season_sharks ):
     startup_names = ses_df["Startup Name"].dropna().unique().tolist()
-    col31, col32, col33,col34, col35,col36,col37=st.columns([1,1,1,1,1,1,1])
-    with col34:
+    col31, col32, col33,col34, col35=st.columns([1,1,1,1,1])
+    with col33:
         selected_startup = st.selectbox("Select a Startup", options=startup_names, index=None, placeholder="Search and select")
     if not selected_startup and startup_names:  # Check if no startup is selected AND there are startups available
         selected_startup = startup_names[0]   
