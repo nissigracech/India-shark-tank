@@ -186,10 +186,13 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     #section 1
     deal=key+" Deal"
     present=key+" Present"
-    key_df=season_df[season_df[deal]==1]
+    key_df=season_df[deal==1]
     col411,col412, col413,col414,col415=st.columns([1,3,3,3,1])
     with col412:
-        metric_card("Present in no.of pitches",season_df[season_df[deal] == 1].assign(Valuation=lambda x: (x["deal_amount_per_shark"] / x["equity_per_shark"]) * 100).loc[lambda df: df["Valuation"].idxmax()],"")
+        namita_deals = season_df[season_df["Namita Deal"] == 1]
+        namita_deals["Valuation"] = (namita_deals["deal_amount_per_shark"] / namita_deals["equity_per_shark"]) * 100
+        highest_valuation_pitch = namita_deals.loc[namita_deals["Valuation"].idxmax()]
+        metric_card("xyz",highest_valuation_pitch)
     with col413:
         pass
     with col414:
