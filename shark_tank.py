@@ -335,7 +335,7 @@ def seasons_data(argument, season_df,season_sharks):
 
         # Create pie chart
         fig, ax = plt.subplots()
-        ax.bar(state_counts, labels=state_counts.index, autopct="%1.1f%%", startangle=140)
+        ax.pie(state_counts, labels=state_counts.index, autopct="%1.1f%%", startangle=140)
         ax.set_title("Distribution of Pitchers by State")
 
         # Show the plot
@@ -579,4 +579,4 @@ else:
       
 
  
- 
+
