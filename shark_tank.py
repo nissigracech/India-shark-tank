@@ -86,10 +86,8 @@ def shark_metric_card(name, occupation, education):
     space=" "
     st.markdown(
         f"""
-        <div class="metric-card">
-            <div class="shark_metric-subtitle"> </div>
-            <div class="shark_metric-title">{name}</div>
-            <div class="shark_metric-title">&nbsp;</div>
+        <div class="metric-card"> 
+            <div class="shark_metric-title">{name}</div> 
             <div class="shark_metric-value">{occupation}</div>
             <div class="shark_metric-value">&nbsp;</div>
             {f'<div class="metric-subtitle">Education:{education}</div>' if education else ''}
