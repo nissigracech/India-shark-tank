@@ -283,10 +283,13 @@ def seasons_data(argument, season_df,season_sharks):
 
     col20, col22 = st.columns(2)
     with col20:
+        color_scale = [(0, 'rgb(204, 231, 255)'),  # Lightest blue at 0
+               (1, 'rgb(0, 51, 102)')]   # Darkest blue at 1
         dictt=count_shark_deal_amount(season_df,season_sharks) 
         df = pd.DataFrame(list(dictt.items()), columns=['sharks', 'Amount in Cr'])
         fig = px.bar(df, x='sharks', y='Amount in Cr', title='Fruit Count', 
-             color='Amount in Cr' )
+             color='Amount in Cr',
+             color_continuous_scale=color_scale)
 
         # Show the plot
         st.plotly_chart(fig, use_container_width=True)
