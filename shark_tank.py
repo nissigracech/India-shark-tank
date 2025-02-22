@@ -637,3 +637,34 @@ st.markdown("""
         <p>Data Source: Shark Tank India</p>
     </div>
 """, unsafe_allow_html=True)
+st.markdown("""
+    <style>
+    .gradient-bg {
+        background: linear-gradient(to right, #000000, #000033, #000066, #000099, #0000cc, #0000ff);
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+    }
+    .sticky-bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, #000000, #000033, #000066, #000099, #0000cc, #0000ff);
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+    </style>
+""", unsafe_allow_html=True)
+st.markdown("""
+    <div class="sticky-bottom">
+         <div style='background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;'>
+        <h4 style='text-align: center; font-size: 20px;'>About This Dashboard</h4>
+        <h1 style='color: #FFD700; text-align: center; font-size: 32px; font-weight: bold; line-height: 1.6;'>
+            [Your Name/Team Name]
+        </h1>
+    </div>
+    </div>
+""", unsafe_allow_html=True)
