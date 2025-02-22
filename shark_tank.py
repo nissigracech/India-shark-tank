@@ -81,22 +81,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Function to create metric cards
-def shark_metric_card(name, occupation, education):
-    space=" "
-    st.markdown(
-        f"""
-        <div class="metric-card"> 
-            <div class="shark_metric-title">&nbsp;</div> 
-            <div class="shark_metric-title">{name}</div> 
-            <div class="shark_metric-value">{occupation}</div> 
-            {f'<div class="metric-subtitle">Education:{education}</div>' if education else ''} 
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
- 
-#metric box style
+
+# metric box style for metric cards of all sections 
 st.markdown(
     """
     <style>
@@ -158,7 +144,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-# Function to create metric cards
+# Function to create metric cards for season,sharks info and pitches 
 def metric_card(title, value, subtitle=""):
     st.markdown(
     f"""
@@ -170,8 +156,22 @@ def metric_card(title, value, subtitle=""):
         """,
     unsafe_allow_html=True
     )
-
-main_sharks=['']      
+# Function to create metric cards for sharks images
+def shark_info_metric_card(name, occupation, education):
+    space=" "
+    st.markdown(
+        f"""
+        <div class="metric-card"> 
+            <div class="shark_metric-title">&nbsp;</div> 
+            <div class="shark_metric-title">{name}</div> 
+            <div class="shark_metric-value">{occupation}</div> 
+            {f'<div class="metric-subtitle">Education:{education}</div>' if education else ''} 
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+ 
+main_sharks=['Namita','Vineeta','Anupam','Aman','Peyush']      
 All_sharks=['Namita','Vineeta','Anupam','Aman','Peyush','Ritesh','Amit',
                 'Ashneer','Azhar','Ghazal','Deepinder','Radhika','Vikas','Ronnie','Varun']
 main_sharks=['Namita','Vineeta','Anupam','Aman','Peyush']
@@ -201,24 +201,42 @@ def count_shark_deal(data, shark_names):
     return deal_counts
 
  
-def shark_info_card(shark_name, occupation, education, image_filename):
-    """Creates a styled card for shark information."""
+ 
 
      
 
 
 
-def sharks_info(season_df,key,shark_name, occupation, education, image_filename):
+def sharks_info(season_df,key,shark_name, occupation, education):
     image_info=key+".jpg"
-    
     col400,col401,col402,col403=st.columns([3,4,7,3])
     with col401:
         st.image(image_info,width=300)
     with col402:
-        shark_metric_card(shark_name,occupation,education)
+        shark_info_metric_card(shark_name,occupation,education)
         pass
     
-
+    # begin of shark metric cards
+    #section 1
+    deal=key+" Deal"
+    present=key+" Present"
+    col411,col412, col413,col414,col415=st.columns([1,3,3,3,1])
+    with col412:
+        pass
+    with col413:
+        pass
+    with col414:
+        pass
+    
+    # sections 2
+    col416,col417,col418,col419,col420=st.columns([1,3,3,3,1])
+    with col417:
+        metric_card("Present in no.of pitches",season_df[present].sum(),"")
+        pass
+    with col418:
+        pass
+    with col419:
+        pass
    
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
@@ -363,15 +381,15 @@ def sharks(season_df):
     
     
     if st.session_state.selected_shark == "Namita":
-        sharks_info(season_df,"Namita","Namita", "CEO, Emcure Pharmaceuticals", "MBA, Wharton School of the University of Pennsylvania", "Namita.jpg")
+        sharks_info(season_df,"Namita","Namita", "CEO, Emcure Pharmaceuticals", "MBA, Wharton School of the University of Pennsylvania")
     elif st.session_state.selected_shark == "Vineeta":
-        sharks_info(season_df,"Vineeta","Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad", "Vineeta.jpg")
+        sharks_info(season_df,"Vineeta","Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad")
     elif st.session_state.selected_shark == "Anupam":
-        sharks_info(season_df,"Anupam","Anupam Mittal", "Founder & CEO, Shaadi.com", "MBA, Boston College", "Anupam.jpg")
+        sharks_info(season_df,"Anupam","Anupam Mittal", "Founder & CEO, Shaadi.com", "MBA, Boston College")
     elif st.session_state.selected_shark == "Aman":
-        sharks_info(season_df,"Aman","Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad", "Aman.jpg")
+        sharks_info(season_df,"Aman","Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad")
     elif st.session_state.selected_shark == "Peyush":
-        sharks_info(season_df,"Peyush","Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore", "Peyush.jpg")
+        sharks_info(season_df,"Peyush","Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore")
    
 #pitches details function part 3
 def pitches_metrics(ses_df,season_sharks ):
