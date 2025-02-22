@@ -15,7 +15,7 @@ filtered_df = pd.read_csv("filtered_df.csv")
 
 # categorise the data for each season
 season1_df=filtered_df[filtered_df['Season Number'] == 1]
-season1_df.drop(columns=['Ritesh Present',  'Ritesh Deal', 
+season1_df.drop(columns=['Ritesh Present', 'Ritesh Deal', 
                          'Amit Present','Amit Deal',
                          'Azhar Present','Azhar Deal',
                          'Deepinder Present','Deepinder Deal',
@@ -398,7 +398,7 @@ def pitches_metrics(ses_df,season_sharks ):
     if selected_startup:
         selected_startup_data = ses_df[ses_df["Startup Name"] == selected_startup].iloc[0]
         st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>{selected_startup} Details</h2>", unsafe_allow_html=True)
-        st.markdown(f"<h5 style='text-align: center;font-size: 18px'>{selected_startup['Industry']} Details</h5>", unsafe_allow_html=True) 
+        st.markdown(f"<h5 style='text-align: center;font-size: 18px'>{selected_startup['Business Description']} Details</h5>", unsafe_allow_html=True) 
         st.subheader("Pitch Overview")
         #section1
         col1, col2, col3 = st.columns(3)
