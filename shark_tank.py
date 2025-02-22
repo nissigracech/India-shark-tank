@@ -620,7 +620,7 @@ with st.expander("**Key Terms Explained**", expanded=False):
         </div>
     """, unsafe_allow_html=True)
 
-simport streamlit as st
+ 
 
 st.markdown("""
 <div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
