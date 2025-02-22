@@ -189,10 +189,10 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     #key_df=season_df[deal==1]
     col411,col412, col413,col414,col415=st.columns([1,3,3,3,1])
     with col412:
-        namita_deals = season_df[season_df["Namita Deal"] == 1]
-        namita_deals["Valuation"] = (namita_deals["deal_amount_per_shark"] / namita_deals["equity_per_shark"]) * 100
-        highest_valuation_pitch = namita_deals['Valuation'].max()
-        metric_card("xyz",highest_valuation_pitch)
+        key_deals = season_df[season_df[deal] == 1]
+        key_deals["Valuation"] = (key_deals["deal_amount_per_shark"] / key_deals["equity_per_shark"]) * 100
+        highest_valuation_pitch = key_deals['Valuation'].max()/100
+        metric_card("Highest Deal amount",highest_valuation_pitch)
     with col413:
         pass
     with col414:
@@ -204,9 +204,9 @@ def sharks_info(season_df,key,shark_name, occupation, education):
         metric_card("Present in no.of pitches",season_df[present].sum(),"")
         pass
     with col418:
-        metric_card("Present in no.of pitches",season_df[deal].sum(),"")
+        metric_card("Number of deals done ",season_df[deal].sum(),"")
     with col419:
-        metric_card("Present in no.of pitches",f'₹{season_df[season_df[deal] == 1]["deal_amount_per_shark"].sum()/100:.2f} Cr',"")
+        metric_card("Total Invested Amount",f'₹{season_df[season_df[deal] == 1]["deal_amount_per_shark"].sum()/100:.2f} Cr',"")
    
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
