@@ -193,7 +193,7 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     with col412: 
         metric_card("Highest Deal valuation",key_deals['Valuation'].max()/100)
     with col413:
-        metric_card("Highest Deal amount",key_deals['deal_amount_per_shark'].max(),key_deals[key_deals['deal_amount_per_shark']==key_deals['deal_amount_per_shark'].max(),'Startup Name'].values[0])
+        metric_card("Highest Deal amount",key_deals['deal_amount_per_shark'].max(),key_deals.loc[key_deals['deal_amount_per_shark']==key_deals['deal_amount_per_shark'].max(),'Startup Name'].values[0])
     with col414:
         pass
     
