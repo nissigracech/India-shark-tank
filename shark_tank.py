@@ -144,11 +144,12 @@ st.markdown(
         color: #FFD700; /* Gold color for name */
     }
     .shark_metric-value {
-        font-size: 18px; /* Slightly smaller occupation */
+        font-size: 26px; /* Slightly smaller occupation */
+        font-weight: bold;
         color: #bbb; /* Less bright color for occupation */
     }
     .shark_metric-subtitle {
-        font-size: 16px; /* Education size */
+        font-size: 20px; /* Education size */
         color: #888; /* Education color */
         margin-top: 5px;
     }
