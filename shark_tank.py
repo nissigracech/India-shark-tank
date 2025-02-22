@@ -669,7 +669,7 @@ st.markdown(f"""
         <div>
             <p style='text-align: left; font-size: 12px; color: #bbb; margin: 0;'>Created by</p>
             <h4 style='color: #FFD700; text-align: left; font-size: 16px; font-weight: bold; margin: 0; line-height: 1.4;'>
-                Nissi Grace
+                Nissi Grace Chinamuttevi
             </h4>
         </div>
     </div>
