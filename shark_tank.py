@@ -139,7 +139,7 @@ st.markdown(
         box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
     .shark_metric-title {
-        font-size: 30px; /* Increased name size */
+        font-size: 24px; /* Increased name size */
         font-weight: bold; /* Name more prominent */
         color: #FFD700; /* Gold color for name */
     }
