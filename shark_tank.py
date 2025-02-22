@@ -290,6 +290,7 @@ def seasons_data(argument, season_df,season_sharks):
 
         # Show the plot
         fig.show()
+        st.plotly_chart(fig, use_container_width=True)
     with col22:
         # Scoped CSS for dropdown width
         st.markdown(
