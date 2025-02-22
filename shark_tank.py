@@ -629,7 +629,7 @@ st.markdown(
     ### 📬 Get in Touch  
     📧 **Email:** [nissigracech@gmail.com](mailto:nissigracech@gmail.com)  
     🔗 **GitHub:** [Project Repository](https://github.com/nissigracech)  
-    🌐 **LinkedIn:** [My Profile](https://www.linkedin.com/in/nissi-grace-chinamuttevi-47b693224/) 
+    🌐 **LinkedIn profile:** [Nissi Grace](https://www.linkedin.com/in/nissi-grace-chinamuttevi-47b693224/) 
  
     """, 
     unsafe_allow_html=True
