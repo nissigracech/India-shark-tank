@@ -234,7 +234,7 @@ def sharks_info(season_df,key,shark_name, occupation, education):
         metric_card("Present in no.of pitches",season_df[present].sum(),"")
         pass
     with col418:
-        pass
+        metric_card("Present in no.of pitches",season_df[deal].sum(),"")
     with col419:
         pass
    
