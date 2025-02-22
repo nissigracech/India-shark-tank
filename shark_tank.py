@@ -52,8 +52,7 @@ if "selected_shark" not in st.session_state:
 st.markdown(
     """
     <style>
-    .metric-card {
-        background-color: #161616;
+    .metric-card {  
         padding: 50px;
         border-radius: 10px;
         text-align: center;
