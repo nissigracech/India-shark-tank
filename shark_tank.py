@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 import plotly.express as px
+import plotly.graph_objects as go
 from PIL import Image
 
 # Set page config
@@ -11,17 +12,7 @@ st.set_page_config(page_title="Shark Tank India", layout="wide")
 
 # Load the pre-processed data
 filtered_df = pd.read_csv("filtered_df.csv")
-st.sidebar.title("Navigation")
 
-# Creating buttons
-if st.sidebar.button("Home"):
-    st.write("You clicked Home!")
-
-if st.sidebar.button("Analytics"):
-    st.write("You clicked Analytics!")
-
-if st.sidebar.button("About"):
-    st.write("You clicked About!")
 # categorise the data for each season
 season1_df=filtered_df[filtered_df['Season Number'] == 1]
 season1_df.drop(columns=['Ritesh Present',  'Ritesh Deal', 
@@ -278,7 +269,7 @@ def seasons_data(argument, season_df,season_sharks):
             f"{sharks_deal_count[max(sharks_deal_count, key=sharks_deal_count.get)]}", 
             max(sharks_deal_count, key=sharks_deal_count.get))
     
-    st.markdown("***")
+    st.markdown("----")
     col20, col22 = st.columns(2)
     with col20:
         st.markdown("<h1 style='text-align: center;'>Total Investment by Sharks</h1>", unsafe_allow_html=True)
@@ -339,6 +330,7 @@ def seasons_data(argument, season_df,season_sharks):
         st.plotly_chart(fig, use_container_width=True)
  
     col30,col31 = st.columns(2)
+    
         
 
 #sharks data function part2 of the function
