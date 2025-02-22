@@ -639,8 +639,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.markdown("""
     <style>
-    .gradient-bg {
-        background: linear-gradient(to right, #000000, #000033, #000066, #000099, #0000cc, #0000ff);
+    .gradient-bg { 
         padding: 20px;
         border-radius: 10px;
         color: white;
@@ -658,13 +657,15 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-st.markdown("""
+col60,col61,col62=st.columns([2,2,1])
+with col62:
+    st.markdown("""
     <div class="sticky-bottom">
          <div style='background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;'>
-        <h4 style='text-align: center; font-size: 20px;'>About This Dashboard</h4>
+        <h4 style='text-align: center; font-size: 10px;'>About This Dashboard</h4>
         <h1 style='color: #FFD700; text-align: center; font-size: 32px; font-weight: bold; line-height: 1.6;'>
             [Your Name/Team Name]
         </h1>
     </div>
     </div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
