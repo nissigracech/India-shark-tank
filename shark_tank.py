@@ -620,52 +620,31 @@ with st.expander("**Key Terms Explained**", expanded=False):
         </div>
     """, unsafe_allow_html=True)
 
-# CSS for Styling
 st.markdown("""
-    <style>
-    .solo-project-section {
-        background-color: #161616;
-        padding: 20px;
-        border-radius: 10px;
-        border: 2px solid #FFD700;
-        margin-bottom: 20px;
-    }
-    .solo-project-section h2 {
-        color: #FFD700;
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-    .solo-project-section p {
-        color: #bbb;
-        text-align: center;
-        font-size: 16px;
-        margin: 5px 0;
-    }
-    .solo-project-section a {
-        color: #FFD700;
-        text-decoration: none;
-    }
-    .solo-project-section a:hover {
-        text-decoration: underline;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# Solo Project Section
-st.markdown("""
-    <div class="solo-project-section">
-        <h2>Nissi Grace Chinamuttevi</h2>
-        <p><strong>Email:</strong> <a href="mailto:nissigracech@gmail.com">nissigracech@gmail.com</a></p>
-        <p><strong>Professional Description:</strong></p>
-        <p>
-            Hi, I'm Nissi Grace Chinamuttevi, a passionate and detail-oriented data enthusiast with a strong foundation in 
-            data analysis, machine learning, and predictive modeling. I specialize in transforming raw data into actionable 
-            insights and building intuitive dashboards to make data-driven decisions accessible to everyone. With a keen eye 
-            for detail and a love for problem-solving, I strive to create impactful solutions that drive innovation and 
-            efficiency. Let's connect and explore how data can shape the future!
-        </p>
+<div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-size: 2em; margin-right: 10px;">✨</span>  <h2 style="color: #FFD700; font-weight: bold; margin: 0;">Nissi Grace Chinamuttevi</h2>
     </div>
+
+    <p style="color: #eee; line-height: 1.6; margin-bottom: 10px;">
+        A passionate and results-oriented developer with expertise in [mention your areas of expertise - e.g., Python, Streamlit, data visualization, machine learning, etc.].  Dedicated to creating innovative and user-friendly applications.
+    </p>
+
+    <div style="margin-bottom: 10px;">
+        <span style="font-size: 1.5em; margin-right: 5px;">📧</span> Email: <a href="mailto:nissigracech@gmail.com" style="color: #FFD700; text-decoration: none;">nissigracech@gmail.com</a>
+    </div>
+
+    <div>
+        <span style="font-size: 1.5em; margin-right: 5px;">⚙️</span> GitHub: <a href="[Your GitHub Link]" style="color: #FFD700; text-decoration: none;">Project Repository</a>  
+        <span style="font-size: 1.5em; margin-left: 20px; margin-right: 5px;">🌐</span> Web App: <a href="[Your Web App Link]" style="color: #FFD700; text-decoration: none;">Live Demo</a>
+    </div>
+</div>
+
+<div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+    <p style="color: #eee; line-height: 1.6; font-style: italic; margin: 0;">
+        Thank you for exploring my projects! Your feedback is highly appreciated.
+    </p>
+</div>
 """, unsafe_allow_html=True)
  
 # CSS for Sticky Bottom-Right Box
