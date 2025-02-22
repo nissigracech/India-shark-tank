@@ -214,15 +214,15 @@ def sharks_info(season_df,key,shark_name, occupation, education):
          
 
     # Select relevant columns
-    namita_equity_data = namita_deals[["Startup Name", "Original Offered Equity", "equity_per_shark", "Total Deal Equity"]]
+    namita_equity_data = key_deals[["Startup Name", "Original Offered Equity", "equity_per_shark", "Total Deal Equity"]]
 
     # Melt for Plotly
-    namita_equity_melted = namita_equity_data.melt(id_vars=["Startup Name"], 
+    key_equity_melted = namita_equity_data.melt(id_vars=["Startup Name"], 
                                                 var_name="Equity Type", 
                                                 value_name="Equity (%)")
 
 # Create the plot
-    fig = px.line(namita_equity_melted, x="Startup Name", y="Equity (%)", color="Equity Type", markers=True,
+    fig = px.line(key_equity_melted, x="Startup Name", y="Equity (%)", color="Equity Type", markers=True,
               title="Equity Comparison for Namita based on different Brands")
 
 # Customize
