@@ -285,8 +285,8 @@ def seasons_data(argument, season_df,season_sharks):
     with col20:
         dictt=count_shark_deal_amount(season1_df,season_sharks) 
         df = pd.DataFrame(list(dictt.items()), columns=['sharks', 'Amount in Cr'])
-        fig = px.bar(df, x='Fruit', y='Quantity', title='Fruit Count', 
-             color='Quantity', text='Quantity')
+        fig = px.bar(df, x='sharks', y='Amount in Cr', title='Fruit Count', 
+             color='Amount in Cr', text='Amount in Cr')
 
         # Show the plot
         fig.show()
