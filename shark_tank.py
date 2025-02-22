@@ -224,6 +224,7 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     plt.grid(True)  # Add a grid for better readability (optional)
     plt.xticks(rotation=90, ha='right')  # Rotate x-axis labels if they are long
     plt.tight_layout() # Adjust layout to prevent labels from overlapping
+    st.write("Hi")
     plt.show()
 
     
