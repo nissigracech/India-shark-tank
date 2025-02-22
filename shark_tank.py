@@ -206,7 +206,7 @@ def sharks_info(season_df,key,shark_name, occupation, education):
                     key_deals.loc[key_deals['deal_amount_per_shark']==key_deals['deal_amount_per_shark'].max(),'Startup Name'].values[0])
     with col413:
         metric_card("Highest Deal valuation",
-                    f'₹{key_deals['Valuation'].max()/100}Cr',
+                    f'₹{key_deals['Valuation'].max()/100:.2f}Cr',
                     key_deals.loc[key_deals['Valuation']==key_deals['Valuation'].max(),'Startup Name'].values[0])
     with col414:
         metric_card("Number of solo investments",len(season_df[(season_df[deal] == 1) & (season_df["Number of Sharks in Deal"] == 1)]))
