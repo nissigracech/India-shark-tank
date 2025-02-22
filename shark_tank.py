@@ -283,7 +283,7 @@ def seasons_data(argument, season_df,season_sharks):
 
     col20, col22 = st.columns(2)
     with col20:
-        st.markdown("<h1 style='text-align: center;>Total Investment by Sharks</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center;'>Total Investment by Sharks</h1>", unsafe_allow_html=True)
         color_scale = [(0, 'rgb(204, 231, 255)'),  # Lightest blue at 0
                (1, 'rgb(0, 51, 102)')]   # Darkest blue at 1
         dictt=count_shark_deal_amount(season_df,season_sharks) 
