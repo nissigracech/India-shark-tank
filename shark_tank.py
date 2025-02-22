@@ -187,17 +187,6 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     deal=key+" Deal"
     present=key+" Present"
     #key_df=season_df[deal==1]
-    col411,col412, col413,col414,col415=st.columns([1,3,3,3,1])
-    key_deals = season_df[season_df[deal] == 1]
-    key_deals["Valuation"] = (key_deals["deal_amount_per_shark"] / key_deals["equity_per_shark"]) * 100
-    with col412: 
-        metric_card("Highest Deal valuation",key_deals['Valuation'].max()/100)
-    with col413:
-        metric_card("Highest Deal amount",key_deals['deal_amount_per_shark'].max(),key_deals.loc[key_deals['deal_amount_per_shark']==key_deals['deal_amount_per_shark'].max(),'Startup Name'].values[0])
-    with col414:
-        pass
-    
-    # sections 2
     col416,col417,col418,col419,col420=st.columns([1,3,3,3,1])
     with col417:
         metric_card("Present in no.of pitches",season_df[present].sum(),"")
@@ -206,7 +195,22 @@ def sharks_info(season_df,key,shark_name, occupation, education):
         metric_card("Number of deals done ",season_df[deal].sum(),"")
     with col419:
         metric_card("Total Invested Amount",f'₹{season_df[season_df[deal] == 1]["deal_amount_per_shark"].sum()/100:.2f} Cr',"")
-   
+        
+    # sections 2
+    col411,col412, col413,col414,col415=st.columns([1,3,3,3,1])
+    key_deals = season_df[season_df[deal] == 1]
+    key_deals["Valuation"] = (key_deals["deal_amount_per_shark"] / key_deals["equity_per_shark"]) * 100
+    with col412: 
+        metric_card("Highest Deal amount",
+                    f'₹{key_deals['deal_amount_per_shark'].max()/100:.2f}Cr',
+                    key_deals.loc[key_deals['deal_amount_per_shark']==key_deals['deal_amount_per_shark'].max(),'Startup Name'].values[0])
+    with col413:
+        metric_card("Highest Deal valuation",f'₹{key_deals['Valuation'].max()/100}Cr')
+    with col414:
+        pass
+    
+    
+    
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
     st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
