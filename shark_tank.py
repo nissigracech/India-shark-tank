@@ -628,7 +628,7 @@ st.markdown("---")
 st.markdown("""
     <style>
     .gradient-bg {
-        background: linear-gradient(to right, #000000, #000033, #000066, #000099, #0000cc, #0000ff);
+        background: #161616;
         padding: 20px;
         border-radius: 10px;
         color: white;
