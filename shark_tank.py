@@ -110,15 +110,11 @@ st.markdown(
     }
     
     #shark metric card
-    .shark_metric-card { 
-        padding: 20px; /* Reduced padding */
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
+    .shark_metric-card {  
+        text-align: center; 
         margin-bottom: 20px;
         width: 100%; /* Make card fill column width */
-        height: 300px
-        box-sizing: border-box; /* Include padding and border in element's total width and height */
+        height: 300px 
     }
     .shark_metric-title {
         font-size: 40px; /* Increased name size */
