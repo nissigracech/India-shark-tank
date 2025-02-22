@@ -286,11 +286,11 @@ def seasons_data(argument, season_df,season_sharks):
         dictt=count_shark_deal_amount(season1_df,season_sharks) 
         df = pd.DataFrame(list(dictt.items()), columns=['sharks', 'Amount in Cr'])
         fig = px.bar(df, x='sharks', y='Amount in Cr', title='Fruit Count', 
-             color='Amount in Cr', text='Amount in Cr')
+             color='Amount in Cr' )
 
         # Show the plot
-        fig.show()
         st.plotly_chart(fig, use_container_width=True)
+        
     with col22:
         # Scoped CSS for dropdown width
         st.markdown(
