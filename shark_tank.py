@@ -620,7 +620,15 @@ with st.expander("**Key Terms Explained**", expanded=False):
         </div>
     """, unsafe_allow_html=True)
 
-
+# "Dashboard Created By" Section (Customized)
+st.markdown("""
+    <div style='background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;'>
+        <h3 style='text-align: center; color: #FFD700; font-size: 20px;'>About This Dashboard</h3>
+        <h1 style='color: #FFD700; text-align: center; font-size: 32px; font-weight: bold; line-height: 1.6;'>
+            [Your Name/Team Name]
+        </h1>
+    </div>
+""", unsafe_allow_html=True)
 
 # Footer (unchanged)
 st.markdown("""
