@@ -330,6 +330,16 @@ def seasons_data(argument, season_df,season_sharks):
         st.plotly_chart(fig, use_container_width=True)
  
     col30,col31 = st.columns(2)
+    with col30:
+        state_counts = df["Pitchers State"].value_counts()
+
+        # Create pie chart
+        fig, ax = plt.subplots()
+        ax.pie(state_counts, labels=state_counts.index, autopct="%1.1f%%", startangle=140)
+        ax.set_title("Distribution of Pitchers by State")
+
+        # Show the plot
+        st.pyplot(fig)
     
         
 
