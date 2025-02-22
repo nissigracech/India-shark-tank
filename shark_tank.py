@@ -637,28 +637,28 @@ st.markdown("""
         <p>Data Source: Shark Tank India</p>
     </div>
 """, unsafe_allow_html=True)
+# CSS for Sticky Bottom-Right Box
 st.markdown("""
     <style>
-    .sticky-bottom {
+    .sticky-bottom-right {
         position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;  
-        padding: 20px;
-        border-radius: 10px 10px 0 0;
+        bottom: 20px;
+        right: 20px;
+        background-color: #161616;
+        padding: 15px;
+        border-radius: 10px;
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
     </style>
 """, unsafe_allow_html=True)
-col60,col61,col62=st.columns([1,1,1])
-with col62:
-    st.markdown("""
-    <div class="sticky-bottom">
-         <div style='background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;'>
-        <p style='text-align: center; font-size: 8px;'>About This Dashboard</p>
-        <h4 style='color: #FFD700; text-align: center; font-size: 20px; font-weight: bold; line-height: 1.6;'>
+
+# Small Box in Bottom-Right Corner
+st.markdown("""
+    <div class="sticky-bottom-right">
+        <p style='text-align: center; font-size: 12px; color: #bbb; margin: 0;'>About This Dashboard</p>
+        <h4 style='color: #FFD700; text-align: center; font-size: 16px; font-weight: bold; margin: 0; line-height: 1.4;'>
             [Your Name/Team Name]
         </h4>
     </div>
-    </div>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
