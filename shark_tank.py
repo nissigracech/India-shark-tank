@@ -236,7 +236,7 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     with col418:
         metric_card("Present in no.of pitches",season_df[deal].sum(),"")
     with col419:
-        metric_card("Present in no.of pitches",season_df[season_df[deal] == 1]["deal_amount_per_shark"].sum(),"")
+        metric_card("Present in no.of pitches",f'{season_df[season_df[deal] == 1]["deal_amount_per_shark"].sum()/100:.2f}',"")
    
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
