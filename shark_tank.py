@@ -401,7 +401,8 @@ def pitches_metrics(ses_df,season_sharks ):
         selected_startup = startup_names[0]   
     if selected_startup:
         selected_startup_data = ses_df[ses_df["Startup Name"] == selected_startup].iloc[0]
-        st.markdown(f"<h2 style='text-align: center;'>{selected_startup} Details</h2>", unsafe_allow_html=True) 
+        st.markdown(f"<h2 style='text-align: center; color: yellow;'>{selected_startup} Details</h2>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='text-align: center;'>{selected_startup} Details</h3>", unsafe_allow_html=True) 
         st.subheader("Pitch Overview")
         #section1
         col1, col2, col3 = st.columns(3)
