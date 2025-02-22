@@ -212,20 +212,11 @@ def sharks_info(season_df,key,shark_name, occupation, education):
         metric_card("Number of solo investments",len(season_df[(season_df[deal] == 1) & (season_df["Number of Sharks in Deal"] == 1)]))
     
     # bar graph
-    plt.figure(figsize=(10, 6))
-    plt.plot(key_deals['Startup Name'], key_deals['deal_amount_per_shark'], marker='o', label='Column b')
-    plt.plot(key_deals['Startup Name'], key_deals['equity_per_shark'], marker='o', label='Column c')
-    plt.plot(key_deals['Startup Name'], key_deals['Original Ask Amount'], marker='*', label='Column d')
-
-    plt.xlabel('Column a (Categories)')
-    plt.ylabel('Values')
-    plt.title('Multiline Chart of b, c, and d vs. a')
-    plt.legend()
-    plt.grid(True)  # Add a grid for better readability (optional)
-    plt.xticks(rotation=90, ha='right')  # Rotate x-axis labels if they are long
-    plt.tight_layout() # Adjust layout to prevent labels from overlapping
-    st.write("Hi")
-    plt.show()
+    fig = px.line(key_deals, x='Startup Name', y=['equity_per_shark', 'deal_amount_per_shark', 'Original Ask Amount'], 
+                  title='Multiline Chart of b, c, and d vs. a',
+                  labels={'value': 'Values', 'variable': 'Column'})
+    fig.update_layout(xaxis_title="Column a (Categories)", yaxis_title="Values")
+    st.plotly_chart(fig)
 
     
 # seasons data function part1 of the dashboard 
