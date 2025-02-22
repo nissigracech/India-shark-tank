@@ -191,9 +191,9 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     key_deals = season_df[season_df[deal] == 1]
     key_deals["Valuation"] = (key_deals["deal_amount_per_shark"] / key_deals["equity_per_shark"]) * 100
     with col412: 
-        metric_card("Highest Deal amount",key_deals['Valuation'].max()/100)
+        metric_card("Highest Deal valuation",key_deals['Valuation'].max()/100)
     with col413:
-        metric_card("Highest Deal valuation",key_deals['Valuation'].min()/100)
+        metric_card("Highest Deal amount",key_deals['deal_amount_per_shark'].max()/100)
     with col414:
         pass
     
