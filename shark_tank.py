@@ -603,6 +603,14 @@ st.markdown("""
         featuring some of the country's most prominent business leaders as sharks.
     </p>
 """, unsafe_allow_html=True)
+st.markdown("""
+<div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+    <h3 style="color: #FFD700; font-weight: bold;">Dashboard Created By</h3>
+    <p style="color: #eee; line-height: 1.6;">
+        [Your Name/Team Name]
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 # Footer
 st.markdown("""
