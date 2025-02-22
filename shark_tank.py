@@ -624,16 +624,13 @@ with st.expander("**Key Terms Explained**", expanded=False):
 st.markdown(
     """
     ### ✨ Nissi Grace Chinamuttevi  
-    **👩‍💻 Developer & Data Enthusiast**  
-    💡 *Passionate about Python, Streamlit, Data Visualization, and Machine Learning!*  
+    **👩‍💻 Developer & Data Enthusiast**   
 
     ### 📬 Get in Touch  
     📧 **Email:** [nissigracech@gmail.com](mailto:nissigracech@gmail.com)  
     🔗 **GitHub:** [Project Repository](https://github.com/nissigracech)  
     🌐 **Web App:** [Live Demo](https://shark-tank-india.streamlit.app/#nissi-grace-chinamuttevi)  
-
-    ---  
-    *🚀 Thank you for exploring my projects! Your feedback is highly appreciated.*  
+ 
     """, 
     unsafe_allow_html=True
 )
