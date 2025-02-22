@@ -214,10 +214,10 @@ def sharks_info(season_df,key,shark_name, occupation, education):
          
 
     # Select relevant columns
-    namita_equity_data = key_deals[["Startup Name", "Original Offered Equity", "equity_per_shark", "Total Deal Equity"]]
+    key_equity_data = key_deals[["Startup Name", "Original Offered Equity", "equity_per_shark", "Total Deal Equity"]]
 
     # Melt for Plotly
-    key_equity_melted = namita_equity_data.melt(id_vars=["Startup Name"], 
+    key_equity_melted = key_equity_data.melt(id_vars=["Startup Name"], 
                                                 var_name="Equity Type", 
                                                 value_name="Equity (%)")
 
