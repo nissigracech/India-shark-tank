@@ -623,7 +623,7 @@ with st.expander("**Key Terms Explained**", expanded=False):
 # "Dashboard Created By" Section (unchanged)
 st.markdown("""
     <div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-        <h5 style="color: #FFD700; text-align: center; font-weight: bold;">Dashboard Created By</h5>
+        <h5">Dashboard Created By</h5>
         <h2 style="color: #FFD700; text-align: center;font-weight: bold; line-height: 1.6;">
             [Your Name/Team Name]
         </h2>
