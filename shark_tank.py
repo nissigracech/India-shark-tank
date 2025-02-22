@@ -92,7 +92,7 @@ def shark_metric_card(name, occupation, education):
             <div class="shark_metric-title">&nbsp;</div>
             <div class="shark_metric-value">{occupation}</div>
             <div class="shark_metric-value">&nbsp;</div>
-            f{'<div class="shark_metric-subtitle">Education:{education}</div>'}
+            {f'<div class="metric-subtitle">Education:{education}</div>' if education else ''}
             <div class="shark_metric-value">&nbsp;</div>
         </div>
         """,
