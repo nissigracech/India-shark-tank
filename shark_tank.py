@@ -606,19 +606,37 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-    <div style="background-color: black; padding: 20px; border-radius: 10px;">
-        <h2 style='text-align: center; color: #FFD700;'>✨ Nissi Grace Chinamuttevi</h2>
-        <p style='text-align: center; font-size: 16px; color: #bbb;'>👩‍💻 Developer & Data Enthusiast</p>
-        
-        <h3 style='text-align: center; color: #FFD700;'>📬 Get in Touch</h3>
-        <p style='text-align: center; font-size: 16px; color: #bbb;'>
-            📧 <strong>Email:</strong> <a href="mailto:nissigracech@gmail.com" style="color: #FFD700; text-decoration: none;">nissigracech@gmail.com</a>  
-            <br>🔗 <strong>GitHub:</strong> <a href="https://github.com/nissigracech" style="color: #FFD700; text-decoration: none;">Project Repository</a>  
-            <br>🌐 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nissi-grace-chinamuttevi-47b693224/" style="color: #FFD700; text-decoration: none;">Nissi Grace</a>
-        </p>
-    </div>
-""", unsafe_allow_html=True)
+# Key Terms Explanation (Expandable Section)
+with st.expander("**Key Terms Explained**", expanded=False):
+    st.markdown("""
+        <div style="background-color: black; padding: 20px; border-radius: 10px;">
+            <p style="color: #fff; font-size: 16px;">
+                <strong>1. Sharks:</strong> The investors on the show who provide funding to entrepreneurs in exchange for equity in their business.<br>
+                <strong>2. Equity:</strong> The percentage of ownership in a company that is given to the sharks in exchange for their investment.<br>
+                <strong>3. Deal Valuation:</strong> The total value of the company as agreed upon during the deal negotiation.<br>
+                <strong>4. Pitch:</strong> The presentation made by entrepreneurs to convince the sharks to invest in their business.<br>
+                <strong>5. Original Ask Amount:</strong> The amount of money the entrepreneur initially requests from the sharks.<br>
+                <strong>6. Total Deal Amount:</strong> The final amount of money invested by the sharks in the business.<br>
+                <strong>7. Received Offer:</strong> Indicates whether the entrepreneur received an investment offer from any shark.<br>
+                <strong>8. Accepted Offer:</strong> Indicates whether the entrepreneur accepted the investment offer from the sharks.<br>
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+
+# Personal Info Section (NO CHANGES HERE)
+st.markdown(
+    """
+    ### ✨ Nissi Grace Chinamuttevi  
+    **👩‍💻 Developer & Data Enthusiast**   
+
+    ### 📬 Get in Touch  
+    📧 **Email:** [nissigracech@gmail.com](mailto:nissigracech@gmail.com)  
+    🔗 **GitHub:** [Project Repository](https://github.com/nissigracech)  
+    🌐 **LinkedIn profile:** [Nissi Grace](https://www.linkedin.com/in/nissi-grace-chinamuttevi-47b693224/) 
+    """, 
+    unsafe_allow_html=True
+)
+
 
  
 # CSS for Sticky Bottom-Right Box
