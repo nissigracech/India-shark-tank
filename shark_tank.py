@@ -603,79 +603,8 @@ st.markdown("""
         featuring some of the country's most prominent business leaders as sharks.
     </p>
 """, unsafe_allow_html=True)
-st.markdown("""
-<div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-    <h3 style="color: #FFD700; font-weight: bold;">Dashboard Created By</h3>
-    <p style="color: #eee; line-height: 1.6;">
-        [Your Name/Team Name]
-    </p>
-</div>
-""", unsafe_allow_html=True)
-
-# Footer
-st.markdown("""
-    <div style='text-align: center; margin-top: 30px; font-size: 14px; color: #888;'>
-        <p>Created with ❤️ using Streamlit</p>
-        <p>Data Source: Shark Tank India</p>
-    </div>
-""", unsafe_allow_html=True)
-
 
  
- 
-# Add a horizontal line for separation
-st.markdown("---")
-
-# Gradient Background for the Info Section
-st.markdown("""
-    <style>
-    .gradient-bg {
-        background: linear-gradient(to right, #000000, #000033, #000066, #000099, #0000cc, #0000ff);
-        padding: 20px;
-        border-radius: 10px;
-        color: white;
-        margin-bottom: 20px; /* Add margin below the gradient section */
-    }
-    .center-button {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# Section for Basic Info with Gradient Background
-st.markdown("""
-    <div class="gradient-bg">
-        <h2 style='text-align: center; color: #FFD700;'>About This Dashboard</h2>
-        <p style='text-align: center; font-size: 16px; color: #fff;'>
-            This dashboard provides an interactive analysis of <strong>Shark Tank India</strong> data. 
-            It allows users to explore season-wise statistics, shark-specific metrics, and detailed insights 
-            into individual pitches. The goal is to make the data accessible and engaging for fans, 
-            entrepreneurs, and data enthusiasts alike.
-        </p>
-    </div>
-""", unsafe_allow_html=True)
-
-# Section for What Shark Tank Is with Gradient Background
-st.markdown("""
-    <div class="gradient-bg">
-        <h2 style='text-align: center; color: #FFD700;'>What is Shark Tank?</h2>
-        <p style='text-align: center; font-size: 16px; color: #fff;'>
-            <strong>Shark Tank</strong> is a popular reality TV show where entrepreneurs pitch their business ideas 
-            to a panel of investors (called "sharks") in hopes of securing funding. In exchange, the sharks 
-            receive equity in the business. The show is known for its intense negotiations, innovative ideas, 
-            and inspiring success stories. <strong>Shark Tank India</strong> brings this concept to the Indian audience, 
-            featuring some of the country's most prominent business leaders as sharks.
-        </p>
-        <div class="center-button">
-            <button style="background-color: #FFD700; color: black; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
-                Click to Understand Key Terms
-            </button>
-        </div>
-    </div>
-""", unsafe_allow_html=True)
-
 # Key Terms Explanation (Expandable Section)
 with st.expander("**Key Terms Explained**", expanded=False):
     st.markdown("""
