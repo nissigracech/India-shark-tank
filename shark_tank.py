@@ -88,10 +88,10 @@ def shark_metric_card(name, occupation, education):
         f"""
         <div class="metric-card">
             <div class="shark_metric-title">{name}</div>
-            <div class="shark_metric-title">{space}</div>
+            <div class="shark_metric-title">&nbsp;</div>
             <div class="shark_metric-value">{occupation}</div>
             <div class="shark_metric-value">{space}</div>
-            <div class="shark_metric-subtitle">{education}</div>'
+            <div class="shark_metric-subtitle">{education}</div>
         </div>
         """,
         unsafe_allow_html=True
