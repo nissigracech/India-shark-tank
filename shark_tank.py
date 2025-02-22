@@ -76,10 +76,14 @@ st.markdown(
     }
     
     #shark metric card
-    .shark-metric-card {  
-        text-align: center;  
+    .shark-metric-card {background-color: #161616;
+        padding: 20px; /* Reduced padding */
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
         width: 100%; /* Make card fill column width */
-        height: 300px  /* Include padding and border in element's total width and height */
+        box-sizing: border-box;
     }
     .shark-metric-title {
         font-size: 40px; /* Increased name size */
