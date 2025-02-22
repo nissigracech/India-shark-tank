@@ -127,7 +127,7 @@ def shark_info_metric_card(name, occupation, education):
     space=" "
     st.markdown(
         f"""
-        <div class="metric-card"> 
+        <div class="shark_metric-card"> 
             <div class="shark_metric-title">&nbsp;</div> 
             <div class="shark_metric-title">{name}</div> 
             <div class="shark_metric-value">{occupation}</div> 
