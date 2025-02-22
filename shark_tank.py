@@ -640,7 +640,11 @@ st.markdown("""
 st.markdown("""
     <style>
     .sticky-bottom {
-        position: fixed; 
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000; 
         padding: 20px;
         border-radius: 10px 10px 0 0;
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
@@ -650,11 +654,12 @@ st.markdown("""
 col60,col61,col62=st.columns([1,1,1])
 with col62:
     st.markdown("""
-    <div class="sticky-bottom"> 
+    <div class="sticky-bottom">
+         <div style='background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;'>
         <p style='text-align: center; font-size: 8px;'>About This Dashboard</p>
         <h4 style='color: #FFD700; text-align: center; font-size: 20px; font-weight: bold; line-height: 1.6;'>
             [Your Name/Team Name]
         </h4>
-     
+    </div>
     </div>
     """, unsafe_allow_html=True)
