@@ -635,8 +635,7 @@ st.markdown(
             Dedicated to creating innovative and user-friendly applications.
         </p>
 
-        <div style="margin-bottom: 10px;">
-            <span style="font-size: 1.5em; margin-right: 5px;">📧</span> 
+        <div style="margin-bottom: 10px;"> 
             Email: <a href="mailto:nissigracech@gmail.com" style="color: #FFD700; text-decoration: none;">nissigracech@gmail.com</a>
         </div>
 
