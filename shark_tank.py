@@ -186,7 +186,7 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     #section 1
     deal=key+" Deal"
     present=key+" Present"
-    key_df=season_df[deal==1]
+    #key_df=season_df[deal==1]
     col411,col412, col413,col414,col415=st.columns([1,3,3,3,1])
     with col412:
         namita_deals = season_df[season_df["Namita Deal"] == 1]
