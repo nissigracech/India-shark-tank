@@ -134,3 +134,29 @@ if season3:
     argument = "### 📊 Season 3 Analysis!"
     classes(argument)
 #----------------------------------------------------------------------------------------
+
+# CSS for Sticky Bottom-Right Box
+st.markdown("""
+    <style>
+    .sticky-bottom-right {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #161616;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Small Box in Bottom-Right Corner
+st.markdown("""
+    <div class="sticky-bottom-right">
+        <p style='text-align: center; font-size: 12px; color: #bbb; margin: 0;'>About This Dashboard</p>
+        <h4 style='color: #FFD700; text-align: center; font-size: 16px; font-weight: bold; margin: 0; line-height: 1.4;'>
+            [Your Name/Team Name]
+        </h4>
+    </div>
+""", unsafe_allow_html=True)

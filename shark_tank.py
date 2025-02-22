@@ -637,7 +637,7 @@ st.markdown("""
         <p>Data Source: Shark Tank India</p>
     </div>
 """, unsafe_allow_html=True)
-# CSS for Sticky Bottom-Right Box
+ # CSS for Sticky Bottom-Right Box
 st.markdown("""
     <style>
     .sticky-bottom-right {
@@ -645,20 +645,40 @@ st.markdown("""
         bottom: 20px;
         right: 20px;
         background-color: #161616;
-        padding: 10px;
+        padding: 15px;
         border-radius: 10px;
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Space between image and text */
+    }
+    .sticky-bottom-right img {
+        border-radius: 50%; /* Makes the image circular */
+        width: 50px; /* Adjust the size of the image */
+        height: 50px;
+        object-fit: cover; /* Ensures the image fits well */
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Small Box in Bottom-Right Corner
-st.markdown("""
+# Small Box in Bottom-Right Corner with Local Image
+st.markdown(f"""
     <div class="sticky-bottom-right">
-        <p style='text-align: center; font-size: 12px; color: #bbb; margin: 0;'>About This Dashboard</p>
-        <h4 style='color: #FFD700; text-align: center; font-size: 16px; font-weight: bold; margin: 0; line-height: 1.4;'>
-            [Your Name/Team Name]
-        </h4>
+        <img src="st.png" alt="Your Image">
+        <div>
+            <p style='text-align: left; font-size: 12px; color: #bbb; margin: 0;'>About This Dashboard</p>
+            <h4 style='color: #FFD700; text-align: left; font-size: 16px; font-weight: bold; margin: 0; line-height: 1.4;'>
+                [Your Name/Team Name]
+            </h4>
+        </div>
+    </div>
+""", unsafe_allow_html=True)
+
+# Footer (unchanged)
+st.markdown("""
+    <div style='text-align: center; margin-top: 30px; font-size: 14px; color: #888;'>
+        <p>Created with ❤️ using Streamlit</p>
+        <p>Data Source: Shark Tank India</p>
     </div>
 """, unsafe_allow_html=True)
