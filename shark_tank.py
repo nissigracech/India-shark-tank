@@ -82,13 +82,15 @@ st.markdown(
 )
 
 # Function to create metric cards
-def shark_metric_card(name, occupation, education=""):
+def shark_metric_card(name, occupation, education):
     st.markdown(
         f"""
         <div class="metric-card">
-            <div class="shark_metric-title" style="margin-bottom: 10px>{name}</div>
-            <div class="shark_metric-value" style="margin-bottom: 10px>{occupation}</div>
-            {f'<div class="shark_metric-subtitle" style="margin-bottom: 10px>{education}</div>' if education else ''}
+            <div class="shark_metric-title">{name}</div>
+            <div class="shark_metric-title">{name}</div>
+            <div class="shark_metric-value">{occupation}</div>
+            <div class="shark_metric-title">"   "</div>
+            <div class="shark_metric-subtitle">{education}</div>'
         </div>
         """,
         unsafe_allow_html=True
