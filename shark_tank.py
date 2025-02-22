@@ -45,7 +45,55 @@ if "selected_filter" not in st.session_state:
 if "selected_shark" not in st.session_state:
     st.session_state.selected_shark="Namita"
     
-    
+
+st.markdown(
+    """
+    <style>
+    .shark_metric-card {
+        background-color: #161616;
+        padding: 20px; /* Reduced padding */
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+        width: 100%; /* Make card fill column width */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+    .shark_metric-title {
+        font-size: 24px; /* Increased name size */
+        font-weight: bold; /* Name more prominent */
+        color: #FFD700; /* Gold color for name */
+    }
+    .shark_metric-value {
+        font-size: 18px; /* Slightly smaller occupation */
+        color: #bbb; /* Less bright color for occupation */
+    }
+    .shark_metric-subtitle {
+        font-size: 16px; /* Education size */
+        color: #888; /* Education color */
+        margin-top: 5px;
+    }
+    .column-spacer {
+        width: 2%; /* Adjust spacing between columns */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Function to create metric cards
+def shark_metric_card(name, occupation, education=""):
+    st.markdown(
+        f"""
+        <div class="metric-card">
+            <div class="shark_metric-title">{name}</div>
+            <div class="shark_metric-value">{occupation}</div>
+            {f'<div class="shark_metric-subtitle">{education}</div>' if education else ''}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+ 
 #metric box style
 st.markdown(
     """
@@ -71,6 +119,35 @@ st.markdown(
         font-size: 16px;
         color: #888;
         margin-top: 5px;
+    }
+    
+    #shark metric card
+    .shark_metric-card {
+        background-color: #161616;
+        padding: 20px; /* Reduced padding */
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+        width: 100%; /* Make card fill column width */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+    .shark_metric-title {
+        font-size: 24px; /* Increased name size */
+        font-weight: bold; /* Name more prominent */
+        color: #FFD700; /* Gold color for name */
+    }
+    .shark_metric-value {
+        font-size: 18px; /* Slightly smaller occupation */
+        color: #bbb; /* Less bright color for occupation */
+    }
+    .shark_metric-subtitle {
+        font-size: 16px; /* Education size */
+        color: #888; /* Education color */
+        margin-top: 5px;
+    }
+    .column-spacer {
+        width: 2%; /* Adjust spacing between columns */
     }
     </style>
     """,
@@ -128,11 +205,12 @@ def shark_info_card(shark_name, occupation, education, image_filename):
 
 def sharks_info(season_df,key,shark_name, occupation, education, image_filename):
     image_info=key+".jpg"
+    
     col400,col401,col402,col403=st.columns([1,2,2,1])
     with col401:
         st.image(image_info,width=400)
     with col402:
-        metric_card(shark_name,occupation,education)
+        shark_metric_card(shark_name,occupation,education)
         pass
     
 
@@ -289,10 +367,7 @@ def sharks(season_df):
         sharks_info(season_df,"Aman","Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad", "Aman.jpg")
     elif st.session_state.selected_shark == "Peyush":
         sharks_info(season_df,"Peyush","Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore", "Peyush.jpg")
-    
-    
-        
-        
+   
 #pitches details function part 3
 def pitches_metrics(ses_df,season_sharks ):
     startup_names = ses_df["Startup Name"].dropna().unique().tolist()
