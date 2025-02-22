@@ -629,7 +629,7 @@ st.markdown(
     ### 📬 Get in Touch  
     📧 **Email:** [nissigracech@gmail.com](mailto:nissigracech@gmail.com)  
     🔗 **GitHub:** [Project Repository](https://github.com/nissigracech)  
-    🌐 **Web App:** [Live Demo](https://shark-tank-india.streamlit.app/#nissi-grace-chinamuttevi)  
+    🌐 **LinkedIn:** [My Profile](https://www.linkedin.com/in/nissi-grace-chinamuttevi-47b693224/) 
  
     """, 
     unsafe_allow_html=True
