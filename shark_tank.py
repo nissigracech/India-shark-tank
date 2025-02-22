@@ -267,7 +267,8 @@ def seasons_data(argument, season_df,season_sharks):
         metric_card("Highest deals done", 
             f"{sharks_deal_count[max(sharks_deal_count, key=sharks_deal_count.get)]}", 
             max(sharks_deal_count, key=sharks_deal_count.get))
-
+    
+    st.markdown("***")
     col20, col22 = st.columns(2)
     with col20:
         st.markdown("<h1 style='text-align: center;'>Total Investment by Sharks</h1>", unsafe_allow_html=True)
