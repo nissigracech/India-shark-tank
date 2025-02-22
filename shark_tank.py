@@ -191,7 +191,7 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     with col412:
         namita_deals = season_df[season_df["Namita Deal"] == 1]
         namita_deals["Valuation"] = (namita_deals["deal_amount_per_shark"] / namita_deals["equity_per_shark"]) * 100
-        highest_valuation_pitch = namita_deals.loc[namita_deals["Valuation"].idxmax()]
+        highest_valuation_pitch = namita_deals['Valuation'].max()
         metric_card("xyz",highest_valuation_pitch)
     with col413:
         pass
