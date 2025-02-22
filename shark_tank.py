@@ -267,19 +267,6 @@ def seasons_data(argument, season_df,season_sharks):
         metric_card("Highest deals done", 
             f"{sharks_deal_count[max(sharks_deal_count, key=sharks_deal_count.get)]}", 
             max(sharks_deal_count, key=sharks_deal_count.get))
-    col31,col32=st.columns(2)
-    with col31:
-        deals_labels = list(sharks_deal_count.keys())
-        deals_values = list(sharks_deal_count.values())
-        fig = px.bar(x=deals_labels, y=deals_values, title="hi", labels={"x": "Labels", "y": "Values"}) # Correct px usage
-
-        st.plotly_chart(fig)
-    with col32:
-        deals_labels = list(sharks_presence_count.keys())
-        deals_values = list(sharks_presence_count.values())
-        fig = px.bar(x=deals_labels, y=deals_values, title="hi", labels={"x": "Labels", "y": "Values"}) # Correct px usage
-
-        st.plotly_chart(fig)
 
     col20, col22 = st.columns(2)
     with col20:
@@ -339,7 +326,9 @@ def seasons_data(argument, season_df,season_sharks):
 
         fig.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
-     
+ 
+    col30,col31 = st.columns(2)
+        
 
 #sharks data function part2 of the function
 def sharks(season_df):
