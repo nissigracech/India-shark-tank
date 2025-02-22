@@ -244,3 +244,19 @@ if st.session_state.selected_shark == "Namita":
         shark_info_card("Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad", "Aman.jpg")
     elif st.session_state.selected_shark == "Peyush":
         shark_info_card("Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore", "Peyush.jpg")
+        
+        
+        plt.figure(figsize=(10, 6))
+    plt.plot(key_deals['Startup Name'], key_deals['deal_amount_per_shark'], marker='o', label='Column b')
+    plt.plot(key_deals['Startup Name'], key_deals['equity_per_shark'], marker='o', label='Column c')
+    plt.plot(key_deals['Startup Name'], key_deals['Original Ask Amount'], marker='*', label='Column d')
+
+    plt.xlabel('Column a (Categories)')
+    plt.ylabel('Values')
+    plt.title('Multiline Chart of b, c, and d vs. a')
+    plt.legend()
+    plt.grid(True)  # Add a grid for better readability (optional)
+    plt.xticks(rotation=90, ha='right')  # Rotate x-axis labels if they are long
+    plt.tight_layout() # Adjust layout to prevent labels from overlapping
+    st.write("Hi")
+    plt.show()

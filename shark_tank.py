@@ -166,13 +166,13 @@ def count_shark_deal(data, shark_names):
              deal_counts[shark_name]=data[deal_column].sum() 
     return deal_counts
 
- 
- 
-
-     
-
-
-
+def count_shark_deal_amount(data,shark_names):
+    shark_deal_amount={}
+    for shark_name in shark_names:
+        deal=shark_name+" Deal" 
+        shark_deal_amount[shark_name]=data[data[deal] == 1]["deal_amount_per_shark"].sum()/100
+    return shark_deal_amount
+    
 def sharks_info(season_df,key,shark_name, occupation, education):
     image_info=key+".jpg"
     col400,col401,col402,col403=st.columns([3,4,7,3])
@@ -282,6 +282,14 @@ def seasons_data(argument, season_df,season_sharks):
         st.plotly_chart(fig)
 
     col20, col22 = st.columns(2)
+    with col20:
+        dictt=count_shark_deal_amount(season1_df,season_sharks) 
+        df = pd.DataFrame(list(dictt.items()), columns=['sharks', 'Amount in Cr'])
+        fig = px.bar(df, x='Fruit', y='Quantity', title='Fruit Count', 
+             color='Quantity', text='Quantity')
+
+        # Show the plot
+        fig.show()
     with col22:
         # Scoped CSS for dropdown width
         st.markdown(
