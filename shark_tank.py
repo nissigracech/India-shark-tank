@@ -581,7 +581,6 @@ else:
  
 st.markdown("---")
 
-# About This Dashboard (Black Background)
 st.markdown("""
     <div style="background-color: black; padding: 20px; border-radius: 10px;">
         <h2 style='text-align: center; color: #FFD700;'>About This Dashboard</h2>
@@ -594,7 +593,6 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# What is Shark Tank? (Black Background)
 st.markdown("""
     <div style="background-color: black; padding: 20px; border-radius: 10px;">
         <h2 style='text-align: center; color: #FFD700;'>What is Shark Tank?</h2>
@@ -608,11 +606,11 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Key Terms Explanation (Black Background)
+# Key Terms Explanation (Expandable Section)
 with st.expander("**Key Terms Explained**", expanded=False):
     st.markdown("""
         <div style="background-color: black; padding: 20px; border-radius: 10px;">
-            <p style="color: #bbb; font-size: 16px;">
+            <p style="color: #fff; font-size: 16px;">
                 <strong>1. Sharks:</strong> The investors on the show who provide funding to entrepreneurs in exchange for equity in their business.<br>
                 <strong>2. Equity:</strong> The percentage of ownership in a company that is given to the sharks in exchange for their investment.<br>
                 <strong>3. Deal Valuation:</strong> The total value of the company as agreed upon during the deal negotiation.<br>
@@ -624,21 +622,6 @@ with st.expander("**Key Terms Explained**", expanded=False):
             </p>
         </div>
     """, unsafe_allow_html=True)
-
-# Personal Info Section (Black Background)
-st.markdown("""
-    <div style="background-color: black; padding: 20px; border-radius: 10px;">
-        <h3 style="color: #FFD700;">✨ Nissi Grace Chinamuttevi</h3>
-        <p style="color: #bbb;"><strong>👩‍💻 Developer & Data Enthusiast</strong></p>
-
-        <h3 style="color: #FFD700;">📬 Get in Touch</h3>
-        <p style="color: #bbb;">
-            📧 <strong>Email:</strong> <a href="mailto:nissigracech@gmail.com" style="color: #1E90FF;">nissigracech@gmail.com</a><br>
-            🔗 <strong>GitHub:</strong> <a href="https://github.com/nissigracech" style="color: #1E90FF;">Project Repository</a><br>
-            🌐 <strong>LinkedIn profile:</strong> <a href="https://www.linkedin.com/in/nissi-grace-chinamuttevi-47b693224/" style="color: #1E90FF;">Nissi Grace</a> 
-        </p>
-    </div>
-""", unsafe_allow_html=True)
 
 # Personal Info Section (NO CHANGES HERE)
 st.markdown(
