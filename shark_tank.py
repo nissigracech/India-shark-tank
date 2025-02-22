@@ -11,7 +11,17 @@ st.set_page_config(page_title="Shark Tank India", layout="wide")
 
 # Load the pre-processed data
 filtered_df = pd.read_csv("filtered_df.csv")
+st.sidebar.title("Navigation")
 
+# Creating buttons
+if st.sidebar.button("Home"):
+    st.write("You clicked Home!")
+
+if st.sidebar.button("Analytics"):
+    st.write("You clicked Analytics!")
+
+if st.sidebar.button("About"):
+    st.write("You clicked About!")
 # categorise the data for each season
 season1_df=filtered_df[filtered_df['Season Number'] == 1]
 season1_df.drop(columns=['Ritesh Present',  'Ritesh Deal', 
