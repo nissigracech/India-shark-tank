@@ -92,6 +92,7 @@ def shark_metric_card(name, occupation, education):
             <div class="shark_metric-value">{occupation}</div>
             <div class="shark_metric-value">&nbsp;</div>
             <div class="shark_metric-subtitle">{education}</div>
+            <div class="shark_metric-subtitle">  </div>
         </div>
         """,
         unsafe_allow_html=True
