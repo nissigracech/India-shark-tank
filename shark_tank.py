@@ -620,15 +620,16 @@ with st.expander("**Key Terms Explained**", expanded=False):
         </div>
     """, unsafe_allow_html=True)
 
+simport streamlit as st
+
 st.markdown("""
 <div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
     <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <span style="font-size: 2em; margin-right: 10px;">✨</span>  
-        <h2 style="color: #FFD700; font-weight: bold; margin: 0;">Nissi Grace Chinamuttevi</h2>
+        <span style="font-size: 2em; margin-right: 10px;">✨</span>  <h2 style="color: #FFD700; font-weight: bold; margin: 0;">Nissi Grace Chinamuttevi</h2>
     </div>
 
     <p style="color: #eee; line-height: 1.6; margin-bottom: 10px;">
-        A passionate and results-oriented developer with expertise in <strong>Python, Streamlit, data visualization, and machine learning</strong>. Dedicated to creating innovative and user-friendly applications that solve real-world problems.
+        A passionate and results-oriented developer with expertise in <strong>Python, Streamlit, data visualization, and machine learning</strong>.  Dedicated to creating innovative and user-friendly applications.
     </p>
 
     <div style="margin-bottom: 10px;">
@@ -636,8 +637,8 @@ st.markdown("""
     </div>
 
     <div>
-        <span style="font-size: 1.5em; margin-right: 5px;">⚙️</span> GitHub: <a href="https://github.com/your-username" style="color: #FFD700; text-decoration: none;" target="_blank">Project Repository</a>  
-        <span style="font-size: 1.5em; margin-left: 20px; margin-right: 5px;">🌐</span> Web App: <a href="https://your-web-app-link" style="color: #FFD700; text-decoration: none;" target="_blank">Live Demo</a>
+        <span style="font-size: 1.5em; margin-right: 5px;">⚙️</span> GitHub: <a href="https://github.com/your-username" style="color: #FFD700; text-decoration: none;">Project Repository</a>  
+        <span style="font-size: 1.5em; margin-left: 20px; margin-right: 5px;">🌐</span> Web App: <a href="https://your-web-app-link" style="color: #FFD700; text-decoration: none;">Live Demo</a>
     </div>
 </div>
 
@@ -647,6 +648,8 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
+
+# ... rest of your Streamlit app code
  
 # CSS for Sticky Bottom-Right Box
 st.markdown("""
