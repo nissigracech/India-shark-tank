@@ -86,13 +86,14 @@ def shark_metric_card(name, occupation, education):
     space=" "
     st.markdown(
         f"""
-        <div class="metric-card">  
-            <div class="shark_metric-title">{name}</div> 
+        <div class="metric-card">
+            <div class="shark_metric-subtitle"> </div>
+            <div class="shark_metric-title">{name}</div>
+            <div class="shark_metric-title">&nbsp;</div>
             <div class="shark_metric-value">{occupation}</div>
             <div class="shark_metric-value">&nbsp;</div>
             {f'<div class="metric-subtitle">Education:{education}</div>' if education else ''}
             <div class="shark_metric-value">&nbsp;</div>
-       
         </div>
         """,
         unsafe_allow_html=True
@@ -128,7 +129,7 @@ st.markdown(
     #shark metric card
     .shark_metric-card {
         background-color: #161616;
-        padding: 10px; /* Reduced padding */
+        padding: 20px; /* Reduced padding */
         border-radius: 10px;
         text-align: center;
         box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
@@ -138,17 +139,16 @@ st.markdown(
         box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
     .shark_metric-title {
-        font-size: 40px; /* Increased name size */
+        font-size: 30px; /* Increased name size */
         font-weight: bold; /* Name more prominent */
         color: #FFD700; /* Gold color for name */
     }
     .shark_metric-value {
-        font-size: 26px; /* Slightly smaller occupation */
-        font-weight: bold;
+        font-size: 18px; /* Slightly smaller occupation */
         color: #bbb; /* Less bright color for occupation */
     }
     .shark_metric-subtitle {
-        font-size: 20px; /* Education size */
+        font-size: 16px; /* Education size */
         color: #888; /* Education color */
         margin-top: 5px;
     }
@@ -212,9 +212,9 @@ def shark_info_card(shark_name, occupation, education, image_filename):
 def sharks_info(season_df,key,shark_name, occupation, education, image_filename):
     image_info=key+".jpg"
     
-    col400,col401,col402,col403=st.columns([2,2,3,2])
+    col400,col401,col402,col403=st.columns([3,4,7,3])
     with col401:
-        st.image(image_info,width=400)
+        st.image(image_info,width=300)
     with col402:
         shark_metric_card(shark_name,occupation,education)
         pass
