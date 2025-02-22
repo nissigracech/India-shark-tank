@@ -130,6 +130,7 @@ st.markdown(
         box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
         margin-bottom: 20px;
         width: 100%; /* Make card fill column width */
+        height: 100%
         box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
     .shark_metric-title {
