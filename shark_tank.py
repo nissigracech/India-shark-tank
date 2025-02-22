@@ -676,7 +676,7 @@ st.markdown("""
 # Add a horizontal line for separation
 st.markdown("---")
 
-# Gradient Background for the Info Section with Sticky Bottom
+# Gradient Background for the Info Section
 st.markdown("""
     <style>
     .gradient-bg {
@@ -684,24 +684,14 @@ st.markdown("""
         padding: 20px;
         border-radius: 10px;
         color: white;
-    }
-    .sticky-bottom {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: linear-gradient(to right, #000000, #000033, #000066, #000099, #0000cc, #0000ff);
-        padding: 20px;
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 0; /* Remove margin at the bottom */
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Section for Basic Info with Gradient Background and Sticky Bottom
+# Section for Basic Info with Gradient Background
 st.markdown("""
-    <div class="sticky-bottom">
+    <div class="gradient-bg">
         <h2 style='text-align: center; color: #FFD700;'>About This Dashboard</h2>
         <p style='text-align: center; font-size: 16px; color: #fff;'>
             This dashboard provides an interactive analysis of <strong>Shark Tank India</strong> data. 
