@@ -623,42 +623,21 @@ with st.expander("**Key Terms Explained**", expanded=False):
  
 st.markdown(
     """
-    <div>
-    <div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-            <span style="font-size: 2em; margin-right: 10px;">✨</span>  
-            <h2 style="color: #FFD700; font-weight: bold; margin: 0; display: inline;">Nissi Grace Chinamuttevi</h2>
-        </div>
+    ### ✨ Nissi Grace Chinamuttevi  
+    **👩‍💻 Developer & Data Enthusiast**  
+    💡 *Passionate about Python, Streamlit, Data Visualization, and Machine Learning!*  
 
-        <p style="color: #eee; line-height: 1.6; margin-bottom: 10px;">
-            A passionate and results-oriented developer with expertise in <strong>Python, Streamlit, data visualization, and machine learning</strong>.  
-            Dedicated to creating innovative and user-friendly applications.
-        </p>
+    ### 📬 Get in Touch  
+    📧 **Email:** [nissigracech@gmail.com](mailto:nissigracech@gmail.com)  
+    🔗 **GitHub:** [Project Repository](https://github.com/nissigracech)  
+    🌐 **Web App:** [Live Demo](https://shark-tank-india.streamlit.app/#nissi-grace-chinamuttevi)  
 
-        <div style="margin-bottom: 10px;"> 
-            Email: <a href="mailto:nissigracech@gmail.com" style="color: #FFD700; text-decoration: none;">nissigracech@gmail.com</a>
-        </div>
-
-        <div>
-            <span style="font-size: 1.5em; margin-right: 5px;">⚙️</span> 
-            GitHub: <a href="https://github.com/your-username" style="color: #FFD700; text-decoration: none;">Project Repository</a>  
-            <span style="font-size: 1.5em; margin-left: 20px; margin-right: 5px;">🌐</span> 
-            Web App: <a href="https://your-web-app-link" style="color: #FFD700; text-decoration: none;">Live Demo</a>
-        </div>
-    </div>
-
-    <div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
-        <p style="color: #eee; line-height: 1.6; font-style: italic; margin: 0;">
-            Thank you for exploring my projects! Your feedback is highly appreciated.
-        </p>
-    </div>
-    </div>
-    """,
-    unsafe_allow_html=True,
+    ---  
+    *🚀 Thank you for exploring my projects! Your feedback is highly appreciated.*  
+    """, 
+    unsafe_allow_html=True
 )
 
-
-# ... rest of your Streamlit app code
  
 # CSS for Sticky Bottom-Right Box
 st.markdown("""
