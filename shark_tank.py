@@ -211,29 +211,20 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     with col414:
         metric_card("Number of solo investments",len(season_df[(season_df[deal] == 1) & (season_df["Number of Sharks in Deal"] == 1)]))
     
-         
+    # bar graph
+    plt.figure(figsize=(10, 6))
+    plt.plot(key_deals['Startup Name'], key_deals['deal_amount_per_shark'], marker='o', label='Column b')
+    plt.plot(key_deals['Startup Name'], key_deals['equity_per_shark'], marker='o', label='Column c')
+    plt.plot(key_deals['Startup Name'], key_deals['Original Ask Amount'], marker='*', label='Column d')
 
-    # Select relevant columns
-    key_equity_data = key_deals[["Startup Name", "Original Offered Equity", "equity_per_shark", "Total Deal Equity"]]
-
-    # Melt for Plotly
-    key_equity_melted = key_equity_data.melt(id_vars=["Startup Name"], 
-                                                var_name="Equity Type", 
-                                                value_name="Equity (%)")
-
-# Create the plot
-    fig = px.line(key_equity_melted, x="Startup Name", y="Equity (%)", color="Equity Type", markers=True,
-              title="Equity Comparison for Namita based on different Brands")
-
-# Customize
-    fig.update_layout(title_font=dict(size=20, color="green"),
-                  xaxis_title="Brand Name",
-                  yaxis_title="Equity (%)",
-                  xaxis_tickangle=-45,
-                  legend_title="Equity Type",
-                  template="plotly_dark")
-
-    fig.show()
+    plt.xlabel('Column a (Categories)')
+    plt.ylabel('Values')
+    plt.title('Multiline Chart of b, c, and d vs. a')
+    plt.legend()
+    plt.grid(True)  # Add a grid for better readability (optional)
+    plt.xticks(rotation=90, ha='right')  # Rotate x-axis labels if they are long
+    plt.tight_layout() # Adjust layout to prevent labels from overlapping
+    plt.show()
 
     
 # seasons data function part1 of the dashboard 
