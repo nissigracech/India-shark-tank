@@ -52,7 +52,8 @@ if "selected_shark" not in st.session_state:
 st.markdown(
     """
     <style>
-    .metric-card {  
+    .metric-card {
+        background-color: #161616;
         padding: 50px;
         border-radius: 10px;
         text-align: center;
@@ -75,22 +76,22 @@ st.markdown(
     }
     
     #shark metric card
-    .shark_metric-card {  
+    .shark-metric-card {  
         text-align: center;  
         width: 100%; /* Make card fill column width */
         height: 300px  /* Include padding and border in element's total width and height */
     }
-    .shark_metric-title {
+    .shark-metric-title {
         font-size: 40px; /* Increased name size */
         font-weight: bold; /* Name more prominent */
         color: #FFD700; /* Gold color for name */
     }
-    .shark_metric-value {
+    .shark-metric-value {
         font-size: 26px; /* Slightly smaller occupation */
         color: #bbb; /* Less bright color for occupation */
         font-weight: bold;
     }
-    .shark_metric-subtitle {
+    .shark-metric-subtitle {
         font-size: 20px; /* Education size */
         color: #888; /* Education color */
         margin-top: 5px;
@@ -120,10 +121,10 @@ def shark_info_metric_card(name, occupation, education):
     space=" "
     st.markdown(
         f"""
-        <div class="metric-card"> 
-            <div class="shark_metric-title">&nbsp;</div> 
-            <div class="shark_metric-title">{name}</div> 
-            <div class="shark_metric-value">{occupation}</div> 
+        <div class="shark-metric-card"> 
+            <div class="shark-metric-title">&nbsp;</div> 
+            <div class="shark-metric-title">{name}</div> 
+            <div class="shark-metric-value">{occupation}</div> 
             {f'<div class="metric-subtitle">Education:{education}</div>' if education else ''} 
         </div>
         """,
