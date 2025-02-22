@@ -212,9 +212,15 @@ def sharks_info(season_df,key,shark_name, occupation, education):
         metric_card("Number of solo investments",len(season_df[(season_df[deal] == 1) & (season_df["Number of Sharks in Deal"] == 1)]))
     
     # bar graph
-    fig = px.line(key_deals, x='Startup Name', y=['equity_per_shark', 'deal_amount_per_shark', 'Original Ask Amount'], 
+    fig = px.line(key_deals, x='Startup Name', y=['Total Deal Amount', 'deal_amount_per_shark', 'Original Ask Amount'], 
                   title='Multiline Chart of b, c, and d vs. a',
-                  labels={'value': 'Values', 'variable': 'Column'})
+                  labels={'value': 'Values', 'variable': 'Column'},
+                  markers=True,  # Add markers for each point
+                color_discrete_map={
+            "Total Deal Amount": "red",
+            "deal_amount_per_shark": "blue",
+            "Original Ask Amount": "green"
+        })
     fig.update_layout(xaxis_title="Column a (Categories)", yaxis_title="Values")
     st.plotly_chart(fig)
 
