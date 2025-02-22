@@ -665,11 +665,11 @@ st.markdown("""
 # Small Box in Bottom-Right Corner with Local Image
 st.markdown(f"""
     <div class="sticky-bottom-right">
-        <img src="st.png" alt="Your Image">
+        <img src="Peyush.jpg" alt="Your Image">
         <div>
-            <p style='text-align: left; font-size: 12px; color: #bbb; margin: 0;'>About This Dashboard</p>
+            <p style='text-align: left; font-size: 12px; color: #bbb; margin: 0;'>Created by</p>
             <h4 style='color: #FFD700; text-align: left; font-size: 16px; font-weight: bold; margin: 0; line-height: 1.4;'>
-                [Your Name/Team Name]
+                Nissi Grace
             </h4>
         </div>
     </div>
