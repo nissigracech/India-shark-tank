@@ -212,7 +212,7 @@ def shark_info_card(shark_name, occupation, education, image_filename):
 def sharks_info(season_df,key,shark_name, occupation, education, image_filename):
     image_info=key+".jpg"
     
-    col400,col401,col402,col403=st.columns([3,3,5,3])
+    col400,col401,col402,col403=st.columns([3,4,7,3])
     with col401:
         st.image(image_info,width=300)
     with col402:
