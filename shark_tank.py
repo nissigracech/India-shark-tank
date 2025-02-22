@@ -110,8 +110,7 @@ st.markdown(
     }
     
     #shark metric card
-    .shark_metric-card {
-        background-color: #161616;
+    .shark_metric-card { 
         padding: 20px; /* Reduced padding */
         border-radius: 10px;
         text-align: center;
