@@ -86,14 +86,10 @@ def shark_metric_card(name, occupation, education):
     space=" "
     st.markdown(
         f"""
-        <div class="metric-card">
-            <div class="shark_metric-subtitle"> </div>
-            <div class="shark_metric-title">{name}</div>
-            <div class="shark_metric-title">&nbsp;</div>
-            <div class="shark_metric-value">{occupation}</div>
-            <div class="shark_metric-value">&nbsp;</div>
-            {f'<div class="metric-subtitle">Education:{education}</div>' if education else ''}
-            <div class="shark_metric-value">&nbsp;</div>
+        <div class="metric-card"> 
+            <div class="shark_metric-title">{name}</div> 
+            <div class="shark_metric-value">{occupation}</div> 
+            {f'<div class="metric-subtitle">Education:{education}</div>' if education else ''} 
         </div>
         """,
         unsafe_allow_html=True
@@ -139,18 +135,20 @@ st.markdown(
         box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
     .shark_metric-title {
-        font-size: 24px; /* Increased name size */
+        font-size: 40px; /* Increased name size */
         font-weight: bold; /* Name more prominent */
         color: #FFD700; /* Gold color for name */
     }
     .shark_metric-value {
-        font-size: 18px; /* Slightly smaller occupation */
+        font-size: 26px; /* Slightly smaller occupation */
         color: #bbb; /* Less bright color for occupation */
+        font-weight: bold;
     }
     .shark_metric-subtitle {
-        font-size: 16px; /* Education size */
+        font-size: 20px; /* Education size */
         color: #888; /* Education color */
         margin-top: 5px;
+        font-weight: bold;
     }
     .column-spacer {
         width: 2%; /* Adjust spacing between columns */
