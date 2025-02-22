@@ -623,6 +623,7 @@ with st.expander("**Key Terms Explained**", expanded=False):
  
 st.markdown(
     """
+    <div>
     <div style="background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
             <span style="font-size: 2em; margin-right: 10px;">✨</span>  
@@ -651,6 +652,7 @@ st.markdown(
         <p style="color: #eee; line-height: 1.6; font-style: italic; margin: 0;">
             Thank you for exploring my projects! Your feedback is highly appreciated.
         </p>
+    </div>
     </div>
     """,
     unsafe_allow_html=True,
