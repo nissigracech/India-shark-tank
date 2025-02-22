@@ -620,21 +620,51 @@ with st.expander("**Key Terms Explained**", expanded=False):
         </div>
     """, unsafe_allow_html=True)
 
-# "Dashboard Created By" Section (Customized)
+# CSS for Styling
 st.markdown("""
-    <div style='background-color: #161616; padding: 20px; border-radius: 10px; margin-bottom: 20px;'>
-        <h4 style='text-align: center; font-size: 20px;'>About This Dashboard</h4>
-        <h1 style='color: #FFD700; text-align: center; font-size: 32px; font-weight: bold; line-height: 1.6;'>
-            [Your Name/Team Name]
-        </h1>
-    </div>
+    <style>
+    .solo-project-section {
+        background-color: #161616;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #FFD700;
+        margin-bottom: 20px;
+    }
+    .solo-project-section h2 {
+        color: #FFD700;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .solo-project-section p {
+        color: #bbb;
+        text-align: center;
+        font-size: 16px;
+        margin: 5px 0;
+    }
+    .solo-project-section a {
+        color: #FFD700;
+        text-decoration: none;
+    }
+    .solo-project-section a:hover {
+        text-decoration: underline;
+    }
+    </style>
 """, unsafe_allow_html=True)
 
-# Footer (unchanged)
+# Solo Project Section
 st.markdown("""
-    <div style='text-align: center; margin-top: 30px; font-size: 14px; color: #888;'>
-        <p>Created with ❤️ using Streamlit</p>
-        <p>Data Source: Shark Tank India</p>
+    <div class="solo-project-section">
+        <h2>Nissi Grace Chinamuttevi</h2>
+        <p><strong>Email:</strong> <a href="mailto:nissigracech@gmail.com">nissigracech@gmail.com</a></p>
+        <p><strong>Professional Description:</strong></p>
+        <p>
+            Hi, I'm Nissi Grace Chinamuttevi, a passionate and detail-oriented data enthusiast with a strong foundation in 
+            data analysis, machine learning, and predictive modeling. I specialize in transforming raw data into actionable 
+            insights and building intuitive dashboards to make data-driven decisions accessible to everyone. With a keen eye 
+            for detail and a love for problem-solving, I strive to create impactful solutions that drive innovation and 
+            efficiency. Let's connect and explore how data can shape the future!
+        </p>
     </div>
 """, unsafe_allow_html=True)
  
@@ -645,7 +675,7 @@ st.markdown("""
         position: fixed;
         bottom: 20px;
         right: 20px;
-        background-color: #456d99;
+        background-color: #161616;
         padding: 10px;
         padding-bottom: 20px;
         border-radius: 10px;
