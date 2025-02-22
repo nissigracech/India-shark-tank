@@ -581,59 +581,44 @@ else:
  
 st.markdown("---")
 
-# Section for Basic Info
 st.markdown("""
-    <h2 style='text-align: center; color: #FFD700;'>About This Dashboard</h2>
-    <p style='text-align: center; font-size: 16px; color: #bbb;'>
-        This dashboard provides an interactive analysis of <strong>Shark Tank India</strong> data. 
-        It allows users to explore season-wise statistics, shark-specific metrics, and detailed insights 
-        into individual pitches. The goal is to make the data accessible and engaging for fans, 
-        entrepreneurs, and data enthusiasts alike.
-    </p>
+    <div style="background-color: black; padding: 20px; border-radius: 10px;">
+        <h2 style='text-align: center; color: #FFD700;'>About This Dashboard</h2>
+        <p style='text-align: center; font-size: 16px; color: #bbb;'>
+            This dashboard provides an interactive analysis of <strong>Shark Tank India</strong> data. 
+            It allows users to explore season-wise statistics, shark-specific metrics, and detailed insights 
+            into individual pitches. The goal is to make the data accessible and engaging for fans, 
+            entrepreneurs, and data enthusiasts alike.
+        </p>
+    </div>
 """, unsafe_allow_html=True)
 
-# Section for What Shark Tank Is
 st.markdown("""
-    <h2 style='text-align: center; color: #FFD700;'>What is Shark Tank?</h2>
-    <p style='text-align: center; font-size: 16px; color: #bbb;'>
-        <strong>Shark Tank</strong> is a popular reality TV show where entrepreneurs pitch their business ideas 
-        to a panel of investors (called "sharks") in hopes of securing funding. In exchange, the sharks 
-        receive equity in the business. The show is known for its intense negotiations, innovative ideas, 
-        and inspiring success stories. <strong>Shark Tank India</strong> brings this concept to the Indian audience, 
-        featuring some of the country's most prominent business leaders as sharks.
-    </p>
+    <div style="background-color: black; padding: 20px; border-radius: 10px;">
+        <h2 style='text-align: center; color: #FFD700;'>What is Shark Tank?</h2>
+        <p style='text-align: center; font-size: 16px; color: #bbb;'>
+            <strong>Shark Tank</strong> is a popular reality TV show where entrepreneurs pitch their business ideas 
+            to a panel of investors (called "sharks") in hopes of securing funding. In exchange, the sharks 
+            receive equity in the business. The show is known for its intense negotiations, innovative ideas, 
+            and inspiring success stories. <strong>Shark Tank India</strong> brings this concept to the Indian audience, 
+            featuring some of the country's most prominent business leaders as sharks.
+        </p>
+    </div>
 """, unsafe_allow_html=True)
 
- 
-# Key Terms Explanation (Expandable Section)
-with st.expander("**Key Terms Explained**", expanded=False):
-    st.markdown("""
-        <div style="color: #fff; font-size: 16px;">
-            <p><strong>1. Sharks:</strong> The investors on the show who provide funding to entrepreneurs in exchange for equity in their business.</p>
-            <p><strong>2. Equity:</strong> The percentage of ownership in a company that is given to the sharks in exchange for their investment.</p>
-            <p><strong>3. Deal Valuation:</strong> The total value of the company as agreed upon during the deal negotiation.</p>
-            <p><strong>4. Pitch:</strong> The presentation made by entrepreneurs to convince the sharks to invest in their business.</p>
-            <p><strong>5. Original Ask Amount:</strong> The amount of money the entrepreneur initially requests from the sharks.</p>
-            <p><strong>6. Total Deal Amount:</strong> The final amount of money invested by the sharks in the business.</p>
-            <p><strong>7. Received Offer:</strong> Indicates whether the entrepreneur received an investment offer from any shark.</p>
-            <p><strong>8. Accepted Offer:</strong> Indicates whether the entrepreneur accepted the investment offer from the sharks.</p>
-        </div>
-    """, unsafe_allow_html=True)
-
- 
-st.markdown(
-    """
-    ### ✨ Nissi Grace Chinamuttevi  
-    **👩‍💻 Developer & Data Enthusiast**   
-
-    ### 📬 Get in Touch  
-    📧 **Email:** [nissigracech@gmail.com](mailto:nissigracech@gmail.com)  
-    🔗 **GitHub:** [Project Repository](https://github.com/nissigracech)  
-    🌐 **LinkedIn profile:** [Nissi Grace](https://www.linkedin.com/in/nissi-grace-chinamuttevi-47b693224/) 
- 
-    """, 
-    unsafe_allow_html=True
-)
+st.markdown("""
+    <div style="background-color: black; padding: 20px; border-radius: 10px;">
+        <h2 style='text-align: center; color: #FFD700;'>✨ Nissi Grace Chinamuttevi</h2>
+        <p style='text-align: center; font-size: 16px; color: #bbb;'>👩‍💻 Developer & Data Enthusiast</p>
+        
+        <h3 style='text-align: center; color: #FFD700;'>📬 Get in Touch</h3>
+        <p style='text-align: center; font-size: 16px; color: #bbb;'>
+            📧 <strong>Email:</strong> <a href="mailto:nissigracech@gmail.com" style="color: #FFD700; text-decoration: none;">nissigracech@gmail.com</a>  
+            <br>🔗 <strong>GitHub:</strong> <a href="https://github.com/nissigracech" style="color: #FFD700; text-decoration: none;">Project Repository</a>  
+            <br>🌐 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nissi-grace-chinamuttevi-47b693224/" style="color: #FFD700; text-decoration: none;">Nissi Grace</a>
+        </p>
+    </div>
+""", unsafe_allow_html=True)
 
  
 # CSS for Sticky Bottom-Right Box
