@@ -579,4 +579,35 @@ else:
       
 
  
+st.markdown("---")
 
+# Section for Basic Info
+st.markdown("""
+    <h2 style='text-align: center; color: #FFD700;'>About This Dashboard</h2>
+    <p style='text-align: center; font-size: 16px; color: #bbb;'>
+        This dashboard provides an interactive analysis of <strong>Shark Tank India</strong> data. 
+        It allows users to explore season-wise statistics, shark-specific metrics, and detailed insights 
+        into individual pitches. The goal is to make the data accessible and engaging for fans, 
+        entrepreneurs, and data enthusiasts alike.
+    </p>
+""", unsafe_allow_html=True)
+
+# Section for What Shark Tank Is
+st.markdown("""
+    <h2 style='text-align: center; color: #FFD700;'>What is Shark Tank?</h2>
+    <p style='text-align: center; font-size: 16px; color: #bbb;'>
+        <strong>Shark Tank</strong> is a popular reality TV show where entrepreneurs pitch their business ideas 
+        to a panel of investors (called "sharks") in hopes of securing funding. In exchange, the sharks 
+        receive equity in the business. The show is known for its intense negotiations, innovative ideas, 
+        and inspiring success stories. <strong>Shark Tank India</strong> brings this concept to the Indian audience, 
+        featuring some of the country's most prominent business leaders as sharks.
+    </p>
+""", unsafe_allow_html=True)
+
+# Footer
+st.markdown("""
+    <div style='text-align: center; margin-top: 30px; font-size: 14px; color: #888;'>
+        <p>Created with ❤️ using Streamlit</p>
+        <p>Data Source: Shark Tank India</p>
+    </div>
+""", unsafe_allow_html=True)
