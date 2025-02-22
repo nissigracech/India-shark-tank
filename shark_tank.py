@@ -188,13 +188,12 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     present=key+" Present"
     #key_df=season_df[deal==1]
     col411,col412, col413,col414,col415=st.columns([1,3,3,3,1])
-    with col412:
-        key_deals = season_df[season_df[deal] == 1]
-        key_deals["Valuation"] = (key_deals["deal_amount_per_shark"] / key_deals["equity_per_shark"]) * 100
-        highest_valuation_pitch = key_deals['Valuation'].max()/100
-        metric_card("Highest Deal amount",highest_valuation_pitch)
+    key_deals = season_df[season_df[deal] == 1]
+    key_deals["Valuation"] = (key_deals["deal_amount_per_shark"] / key_deals["equity_per_shark"]) * 100
+    with col412: 
+        metric_card("Highest Deal amount",key_deals['Valuation'].max()/100)
     with col413:
-        pass
+        metric_card("Highest Deal valuation",key_deals['Valuation'].min()/100)
     with col414:
         pass
     
