@@ -200,12 +200,9 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
             unsafe_allow_html=True,
         )
 
-        option = st.selectbox(
-            "Select Pitch Perspective",guest_list,
-            key="filter_selectbox" 
-        )
+        option =st.selectbox("Choose an option:", guest_list)
         
-        
+        return
     else:
         image_info="Images/"+keys+".jpg"
         col400,col401,col402,col403=st.columns([3,4,7,3])
