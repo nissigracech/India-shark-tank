@@ -75,7 +75,7 @@ st.markdown(
     .metric-value {
         font-size: 32px;
         font-weight: bold;
-        color: #FFD700; /* Gold color */
+        color: #fbdf71; /* Gold color */
     }
     .metric-subtitle {
         font-size: 16px;
