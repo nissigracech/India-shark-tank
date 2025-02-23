@@ -375,7 +375,7 @@ def seasons_data(argument, season_df,season_sharks):
 #sharks data function part2 of the function
 def sharks(season_df,guests_list):
     st.markdown("""
-                <h1 style='text-align: center; font-family: 'Poppins', sans-serif;'>Shark Analysis</h1>
+                <h1 style='text-align: center; '>Shark Analysis</h1>
                 """, unsafe_allow_html=True)
     col100,col101,col102,col103,col104,col105,col106,col107=st.columns([1,2,2,2,2,2,2,1])
     with col101:
