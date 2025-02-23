@@ -339,7 +339,7 @@ def sharks(season_df):
     st.markdown("""
                 <h1 style='text-align: center; font-family: 'Poppins', sans-serif;'>Shark Analysis</h1>
                 """, unsafe_allow_html=True)
-    col100,col101,col102,col103,col104,col105,col106=st.columns([1,2,2,2,2,2,1])
+    col100,col101,col102,col103,col104,col105,col106,col107=st.columns([1,2,2,2,2,2,2,1])
     with col101:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         Namita = st.button("Namita", key="S1")
@@ -360,6 +360,10 @@ def sharks(season_df):
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         Peyush = st.button("Peyush", key="S5")
         st.markdown("</div>", unsafe_allow_html=True)
+    with col106:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        Guests = st.button("Guests", key="S5")
+        st.markdown("</div>", unsafe_allow_html=True)
         
         
     if Namita:
@@ -372,6 +376,9 @@ def sharks(season_df):
         st.session_state.selected_shark = "Aman"
     elif Peyush:
         st.session_state.selected_shark = "Peyush"
+    elif Guests:
+        st.session_state.selected_shark = "Peyush"
+        
     
     
     
@@ -385,6 +392,8 @@ def sharks(season_df):
         sharks_info(season_df,"Aman","Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad")
     elif st.session_state.selected_shark == "Peyush":
         sharks_info(season_df,"Peyush","Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore")
+    elif st.session_state.selected_shark == "Guests":
+        pass
    
 #pitches details function part 3
 def pitches_metrics(ses_df,season_sharks ):

@@ -1071,3 +1071,32 @@ elif st.session_state.active_button == "Season 3":
     st.write("📢 **Displaying data for Season 3...**")
 else:
     st.write("📢 **Displaying overall data...**")
+if "active_button" not in st.session_state:
+    st.session_state.active_button = "Overall"
+
+# Define button styles
+def get_button_style(button_name):
+    if st.session_state.active_button == button_name:
+        return "background-color: #ff4b4b; color: white; font-weight: bold; border-radius: 10px; padding: 10px;"
+    else:
+        return "background-color: #f0f0f0; color: black; border-radius: 10px; padding: 10px;"
+
+# Button click handler
+def set_active(button_name):
+    st.session_state.active_button = button_name
+
+# Sidebar
+with st.sidebar:
+    st.markdown("### Select Season")
+
+    if st.button("Season 1", on_click=set_active, args=("Season 1",)):
+        pass
+    if st.button("Season 2", on_click=set_active, args=("Season 2",)):
+        pass
+    if st.button("Season 3", on_click=set_active, args=("Season 3",)):
+        pass
+    if st.button("Overall", on_click=set_active, args=("Overall",)):
+        pass
+
+# Display the active selection
+st.write(f"### Currently selected: {st.session_state.active_button}")
