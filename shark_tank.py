@@ -189,16 +189,21 @@ def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
         else:
             season = "season" + str(st.session_state.selected_season)  # Important: Convert to string!
         st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>Guest present in {season}</h2>", unsafe_allow_html=True)
-        if "filter_selectbox" not in st.session_state and guest_list:
-            st.session_state.filter_selectbox = guest_list[0]  # Initialize
+        if guest_list is None: # Check if it is None
+            guest_list = [] # Initialize as empty list
 
-        if guest_list:
+        guest_selection(guest_list)  # Call guest_selection (if needed)
+
+        if "filter_selectbox" not in st.session_state and guest_list:
+            st.session_state.filter_selectbox = guest_list[0]
+
+        if guest_list:  # Now this check will work correctly
             option = st.selectbox("Select Guest", guest_list, key="filter_selectbox")
-            st.session_state.filter_selectbox = option # Update the value in session state
-            key=st.session_state.filter_selectbox
+            st.session_state.filter_selectbox = option
         else:
             st.write("No guests are available for this season.")
-            return
+
+        return
         
         
     else:
