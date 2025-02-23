@@ -617,7 +617,7 @@ elif st.session_state.selected_season == 3:
     st.markdown("---")
     sharks(season3_df,season3_guests)
     st.markdown("---")
-    pitches_metrics(season1_df,season3_sharks)
+    pitches_metrics(season3_df,season3_sharks)
 
 elif st.session_state.selected_season == 0:
     argument = " Overall Seasons Analysis!" 
