@@ -474,25 +474,7 @@ st.markdown("""
         text-transform: uppercase;
     }
 
-    /* Button styling */
-    .stButton>button {
-        width: 180px;
-        font-weight: bold;
-        font-size: 32px;
-        padding: 18px;
-        border-radius: 8px;
-        border: 2px solid #0a91bd !important; /* Blue Border */
-        cursor: pointer;
-        text-align: center;
-        background-color: transparent !important;
-        color: white !important;
-    }
-
-    /* Hover effect */
-    .stButton>button:hover {
-        background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
-    }
-
+     
      
     </style>
 """, unsafe_allow_html=True)
