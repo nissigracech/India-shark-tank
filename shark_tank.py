@@ -37,12 +37,17 @@ season3_df.drop(columns=[ 'Ashneer Present','Ashneer Deal',
                           'Ghazal Present','Ghazal Deal',
                           'Vikas Present','Vikas Deal' ],inplace=True)
 
+st.session_state.selected_guest_shark
+def guest_selection(guest_list):
+    if "selected_guest_shark" not in st.session_state:
+        st.session_state.selected_guest_shark=guest_list[0]
 
 # Initialize session state variables
 if "selected_season" not in st.session_state:
     st.session_state.selected_season = 1
 if "selected_filter" not in st.session_state:
     st.session_state.selected_filter = "All Pitches"
+
 if "selected_shark" not in st.session_state:
     st.session_state.selected_shark="Namita"
     
@@ -175,9 +180,13 @@ def count_shark_deal_amount(data,shark_names):
     return shark_deal_amount
     
 def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
-    if st.session_state.selected_shark == "Guests":
-        st.write("hii this is about sharks ")
-        st.markdown("""<h2 style='text-align: center; color: #FFD700;'>About This Dashboard</h2>""", unsafe_allow_html=True)
+    if st.session_state.selected_shark == "Guests": 
+        guest_selection(guest_list)
+        if st.session_state.selected_season == 0:
+            season = "overall"
+        else:
+            season = "season" + str(st.session_state.selected_season)  # Important: Convert to string!
+        st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>Guest present in {season}</h2>", unsafe_allow_html=True)
         key="hi"
         return
     else:
