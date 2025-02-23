@@ -195,7 +195,7 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
         """
         <style>
         div[data-baseweb="select"] > div {  /* Target the selectbox container */
-            width: 300px !important;  /* Set desired width */
+            width: 200px !important;  /* Set desired width */
         }
         div[data-baseweb="select"] > div > div { /* Target the inner container */
             font-size: 20px !important; /* Set desired font size */
