@@ -231,17 +231,19 @@ def seasons_data(argument, season_df,season_sharks):
     sharks_presence_count=count_shark_presence(season_df,season_sharks)
     sharks_deal_count=count_shark_deal(season_df,season_sharks)
     
-    
-    # Creating a layout with columns
-    col1, col2, col3, col4 = st.columns(4) 
-    with col1:
-        metric_card("Show Host", season_df['Anchor'].mode()[0],"             ")
-    with col2:
-        metric_card("Season start Date", season_df['Season Start'].min(),"         ")
-    with col3:
-        metric_card("Season Last date", season_df['Season End'].max(),"          ")
-    with col4:
-        metric_card("Number of Episodes",season_df['Episode Number'].nunique(),"      ")
+    if st.session_state.selected_season == 0:
+        pass
+    else:
+        # Creating a layout with columns
+        col1, col2, col3, col4 = st.columns(4) 
+        with col1:
+            metric_card("Show Host", season_df['Anchor'].mode()[0],"             ")
+        with col2:
+            metric_card("Season start Date", season_df['Season Start'].min(),"         ")
+        with col3:
+            metric_card("Season Last date", season_df['Season End'].max(),"          ")
+        with col4:
+            metric_card("Number of Episodes",season_df['Episode Number'].nunique(),"      ")
         
             
     col5, col6, col7, col8 = st.columns(4)
