@@ -189,17 +189,10 @@ def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
         else:
             season = "season" + str(st.session_state.selected_season)  # Important: Convert to string!
         st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>Guest present in {season}</h2>", unsafe_allow_html=True)
-        option = st.selectbox(
-        "Select Pitch Perspective",
+        option = st.selectbox("Select Pitch Perspective",
         guest_list,  # Use the provided list here
         key="filter_selectbox")
         key=option
-        st.session_state.selected_filter = option
-
-
-        def update_filter():
-            st.session_state.selected_filter = st.session_state.filter_selectbox
-            st.experimental_rerun()
         return
         
     else:
