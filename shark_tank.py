@@ -503,7 +503,7 @@ st.image("logo_image.png")
 st.markdown("---")
 
 # Season selection buttons
-col1, col2, col3 = st.columns([1, 2, 1])
+col1, col2, col3 = st.columns([1, 4, 1])
 with col2:
     sub_col1, sub_col2, sub_col3, sub_col4, sub_col5, sub_col6, sub_col7,sub_col8,sub_col9 = st.columns(
         [1, 10, 2, 10, 2, 10, 2, 10, 1]
