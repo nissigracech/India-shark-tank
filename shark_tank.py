@@ -177,6 +177,8 @@ def count_shark_deal_amount(data,shark_names):
 def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
     if st.session_state.selected_shark == "Guests":
         st.write("hii this is about sharks ")
+        st.markdown("""<h2 style='text-align: center; color: #FFD700;'>About This Dashboard</h2>""", unsafe_allow_html=True)
+        key="hi"
         return
     else:
         image_info="Images/"+key+".jpg"
