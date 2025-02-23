@@ -517,7 +517,7 @@ st.markdown("""
     .title {
         text-align: center;
         font-weight: 900;
-        font-size: 5em;
+        font-size: 10em;
         color: #FFD700; /* Gold Yellow */
         text-transform: uppercase;
     }
