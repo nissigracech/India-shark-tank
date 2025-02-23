@@ -37,7 +37,7 @@ season3_df.drop(columns=[ 'Ashneer Present','Ashneer Deal',
                           'Ghazal Present','Ghazal Deal',
                           'Vikas Present','Vikas Deal' ],inplace=True)
 
-st.session_state.selected_guest_shark
+st.session_state.selected_guest_shark=""
 def guest_selection(guest_list):
     if "selected_guest_shark" not in st.session_state:
         st.session_state.selected_guest_shark=guest_list[0]
