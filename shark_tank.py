@@ -209,7 +209,7 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
         unsafe_allow_html=True,
     )
         with col703: 
-            option = st.selectbox("", guest_list, index=0)  
+            option = st.selectbox("Select Shark(guest) Name:", guest_list, index=0)  
         keys=option
         
     else:
