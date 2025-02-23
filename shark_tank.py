@@ -174,14 +174,17 @@ def count_shark_deal_amount(data,shark_names):
         shark_deal_amount[shark_name]=data[data[deal] == 1]["deal_amount_per_shark"].sum()/100
     return shark_deal_amount
     
-def sharks_info(season_df,key,shark_name, occupation, education):
-    image_info="Images/"+key+".jpg"
-    col400,col401,col402,col403=st.columns([3,4,7,3])
-    with col401:
-        st.image(image_info,width=300)
-    with col402:
-        shark_info_metric_card(shark_name,occupation,education)
+def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
+    if st.st.session_state.selected_shark == "Guests":
         pass
+    else:
+        image_info="Images/"+key+".jpg"
+        col400,col401,col402,col403=st.columns([3,4,7,3])
+        with col401:
+            st.image(image_info,width=300)
+        with col402:
+            shark_info_metric_card(shark_name,occupation,education)
+        
     
     # begin of shark metric cards
     #section 1
@@ -393,7 +396,8 @@ def sharks(season_df):
     elif st.session_state.selected_shark == "Peyush":
         sharks_info(season_df,"Peyush","Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore")
     elif st.session_state.selected_shark == "Guests":
-        pass
+        sharks_info(season_df,"NA","NA","NA","NA")
+        
    
 #pitches details function part 3
 def pitches_metrics(ses_df,season_sharks ):
@@ -558,31 +562,34 @@ if st.session_state.selected_season == 1:
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season1_df,season_sharks)
     st.markdown("---")
-    sharks(season1_df) 
+    sharks(season1_df,season1_guests) 
     st.markdown("---")
-    pitches_metrics(season1_df,season1_sharks)    
+    pitches_metrics(season1_df,season1_sharks) 
+   
 elif st.session_state.selected_season == 2:
     argument = "  📊 Season 2 Analysis!" 
     season_sharks=season2_sharks+season2_guests
     seasons_data(argument, season2_df,season_sharks)
     st.markdown("---")
-    sharks(season2_df)
+    sharks(season2_df,season2_guests)
     st.markdown("---")
-    pitches_metrics(season2_df,season2_sharks)     
+    pitches_metrics(season2_df,season2_sharks)   
+  
 elif st.session_state.selected_season == 3:
     argument = "  📊 Season 3 Analysis!" 
     season_sharks=season3_sharks+season3_guests
     seasons_data(argument, season3_df,season_sharks)
     st.markdown("---")
-    sharks(season3_df)
+    sharks(season3_df,season3_guests)
     st.markdown("---")
     pitches_metrics(season1_df,season3_sharks)
+
 elif st.session_state.selected_season == 0:
     argument = " Overall Seasons Analysis!" 
     season_sharks=season3_sharks+season3_guests
     seasons_data(argument, filtered_df,All_sharks)
     st.markdown("---")
-    sharks(filtered_df)
+    sharks(filtered_df,All_guests)
     st.markdown("---")
      
 else:
@@ -590,7 +597,7 @@ else:
     season_sharks=season1_sharks+season1_guests
     seasons_data(argument, season1_df,season1_sharks)
     st.markdown("---")
-    sharks(season1_df)
+    sharks(season1_df,season1_guests)
     st.markdown("---")
     pitches_metrics(season1_df,season1_sharks)
       
