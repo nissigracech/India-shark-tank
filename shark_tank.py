@@ -175,7 +175,7 @@ def count_shark_deal_amount(data,shark_names):
     return shark_deal_amount
     
 def sharks_info(season_df,key,shark_name, occupation, education):
-    image_info=key+".jpg"
+    image_info="Images/"+key+".jpg"
     col400,col401,col402,col403=st.columns([3,4,7,3])
     with col401:
         st.image(image_info,width=300)
@@ -398,7 +398,7 @@ def pitches_metrics(ses_df,season_sharks ):
     if selected_startup:
         selected_startup_data = ses_df[ses_df["Startup Name"] == selected_startup].iloc[0]
         st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>{selected_startup} Details</h2>", unsafe_allow_html=True)
-        st.markdown(f"<h5 style='text-align: center;font-size: 18px'>{selected_startup_data['Business Description']} Details</h5>", unsafe_allow_html=True) 
+        st.markdown(f"<h5 style='text-align: center;font-size: 18px'>{selected_startup_data['Business Description']}</h5>", unsafe_allow_html=True) 
         st.subheader("Pitch Overview")
         #section1
         col1, col2, col3 = st.columns(3)
