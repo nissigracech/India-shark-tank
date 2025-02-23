@@ -8,7 +8,17 @@ import plotly.express as px
 st.set_page_config(page_title="Shark Tank India", layout="wide")
 
 # Load the pre-processed data
-filtered_df = pd.read_csv("filtered_df.csv")
+try:
+    filtered_df = pd.read_csv("filtered_df.csv")
+except FileNotFoundError:
+    st.error("Error: filtered_df.csv not found. Please upload the file.")
+    st.stop()  # Stop execution if file is missing
+except pd.errors.ParserError:  # Catch CSV parsing errors
+    st.error("Error: Could not parse filtered_df.csv. Check the file format.")
+    st.stop()
+except Exception as e: # Catch other potential errors
+    st.error(f"An unexpected error occurred: {e}")
+    st.stop()
 
 # categorise the data for each season
 season1_df=filtered_df[filtered_df['Season Number'] == 1]
