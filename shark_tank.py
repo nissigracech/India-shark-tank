@@ -677,39 +677,31 @@ st.markdown("""
 
 
 if "active_button" not in st.session_state:
-    st.session_state.active_button = "season1"
+    st.session_state.active_button = "Overall"
 
-# Sidebar buttons
+# Define button styles
+def get_button_style(button_name):
+    if st.session_state.active_button == button_name:
+        return "background-color: #ff4b4b; color: white; font-weight: bold; border-radius: 10px; padding: 10px;"
+    else:
+        return "background-color: #f0f0f0; color: black; border-radius: 10px; padding: 10px;"
+
+# Button click handler
+def set_active(button_name):
+    st.session_state.active_button = button_name
+
+# Sidebar
 with st.sidebar:
-    if st.button("Season 1", key="season1_button", use_container_width=True):
-        st.session_state.active_button = "season1"
-    if st.button("Season 2", key="season2_button", use_container_width=True):
-        st.session_state.active_button = "season2"
-    if st.button("Season 3", key="season3_button", use_container_width=True):
-        st.session_state.active_button = "season3"
-    if st.button("Overall", key="overall_button", use_container_width=True):
-        st.session_state.active_button = "overall"
+    st.markdown("### Select Season")
 
-# Content area
-st.title("Season Data")
+    if st.button("Season 1", on_click=set_active, args=("Season 1",)):
+        pass
+    if st.button("Season 2", on_click=set_active, args=("Season 2",)):
+        pass
+    if st.button("Season 3", on_click=set_active, args=("Season 3",)):
+        pass
+    if st.button("Overall", on_click=set_active, args=("Overall",)):
+        pass
 
-if st.session_state.active_button == "season1":
-    st.header("Season 1 Content")
-    st.write("Data for Season 1 goes here.")
-    # Add charts, tables, or other Streamlit elements for Season 1
-    st.line_chart({"x": [1, 2, 3], "y": [4, 5, 6]})  # Example chart
-elif st.session_state.active_button == "season2":
-    st.header("Season 2 Content")
-    st.write("Data for Season 2 goes here.")
-    # Add Streamlit elements for Season 2
-    st.bar_chart({"x": [1, 2, 3], "y": [10, 8, 5]}) # Example chart
-elif st.session_state.active_button == "season3":
-    st.header("Season 3 Content")
-    st.write("Data for Season 3 goes here.")
-    # Add Streamlit elements for Season 3
-    st.area_chart({"x": [1, 2, 3], "y": [1, 3, 2]}) # Example chart
-elif st.session_state.active_button == "overall":
-    st.header("Overall Data")
-    st.write("Overall data and analysis.")
-    # Add Streamlit elements for Overall data
-    st.table({"col1": [1, 2, 3], "col2": [4, 5, 6]})
+# Display the active selection
+st.write(f"### Currently selected: {st.session_state.active_button}")
