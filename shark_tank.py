@@ -635,7 +635,6 @@ elif st.session_state.selected_season == 0:
     st.markdown("---")
     pitches_metrics(filtered_df,All_guests)
     
-     
 else:
     argument = "  📊 Season 1 Analysis!" 
     season_sharks=season1_sharks+season1_guests
