@@ -1001,3 +1001,73 @@ st.markdown("""
         </div>
     </div>
 """, unsafe_allow_html=True)
+
+
+
+
+import streamlit as st
+
+# Initialize session state
+if "active_button" not in st.session_state:
+    st.session_state.active_button = "Overall"
+
+# Function to change active button
+def set_active(button_name):
+    st.session_state.active_button = button_name
+
+# Define button styles using HTML & CSS
+button_styles = """
+    <style>
+        .sidebar-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+        .active {
+            background-color: #ff4b4b; /* Red */
+            color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .inactive {
+            background-color: #f0f0f0;
+            color: black;
+        }
+        .sidebar-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+"""
+
+st.markdown(button_styles, unsafe_allow_html=True)
+
+# Sidebar buttons with custom styling
+with st.sidebar:
+    st.markdown("## 🎬 Select Season")
+
+    buttons = ["Season 1", "Season 2", "Season 3", "Overall"]
+    for button in buttons:
+        btn_class = "active" if st.session_state.active_button == button else "inactive"
+        
+        if st.button(button, key=button):
+            set_active(button)
+
+# Display the selected option
+st.write(f"### 📌 Currently Selected: {st.session_state.active_button}")
+
+# Display different content based on selection
+if st.session_state.active_button == "Season 1":
+    st.write("📢 **Displaying data for Season 1...**")
+elif st.session_state.active_button == "Season 2":
+    st.write("📢 **Displaying data for Season 2...**")
+elif st.session_state.active_button == "Season 3":
+    st.write("📢 **Displaying data for Season 3...**")
+else:
+    st.write("📢 **Displaying overall data...**")

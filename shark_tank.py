@@ -474,7 +474,25 @@ st.markdown("""
         text-transform: uppercase;
     }
 
-     
+    /* Button styling */
+    .stButton>button {
+        width: 180px;
+        font-weight: bold;
+        font-size: 32px;
+        padding: 18px;
+        border-radius: 8px;
+        border: 3px solid #0a91bd !important; /* Blue Border */
+        cursor: pointer;
+        text-align: center;
+        background-color: transparent !important;
+        color: white !important;
+    }
+
+    /* Hover effect */
+    .stButton>button:hover {
+        background-color: rgba(10, 145, 189, 0.2) !important; /* Light Blue on Hover */
+    }
+
      
     </style>
 """, unsafe_allow_html=True)
@@ -657,69 +675,33 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-import streamlit as st
 
-# Initialize session state
 if "active_button" not in st.session_state:
     st.session_state.active_button = "Overall"
 
-# Function to change active button
+# Define button styles
+def get_button_style(button_name):
+    if st.session_state.active_button == button_name:
+        return "background-color: #ff4b4b; color: white; font-weight: bold; border-radius: 10px; padding: 10px;"
+    else:
+        return "background-color: #f0f0f0; color: black; border-radius: 10px; padding: 10px;"
+
+# Button click handler
 def set_active(button_name):
     st.session_state.active_button = button_name
 
-# Define button styles using HTML & CSS
-button_styles = """
-    <style>
-        .sidebar-button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            text-align: center;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s;
-        }
-        .active {
-            background-color: #ff4b4b; /* Red */
-            color: white;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .inactive {
-            background-color: #f0f0f0;
-            color: black;
-        }
-        .sidebar-button:hover {
-            background-color: #ddd;
-        }
-    </style>
-"""
-
-st.markdown(button_styles, unsafe_allow_html=True)
-
-# Sidebar buttons with custom styling
+# Sidebar
 with st.sidebar:
-    st.markdown("## 🎬 Select Season")
+    st.markdown("### Select Season")
 
-    buttons = ["Season 1", "Season 2", "Season 3", "Overall"]
-    for button in buttons:
-        btn_class = "active" if st.session_state.active_button == button else "inactive"
-        
-        if st.button(button, key=button):
-            set_active(button)
+    if st.button("Season 1", on_click=set_active, args=("Season 1",)):
+        pass
+    if st.button("Season 2", on_click=set_active, args=("Season 2",)):
+        pass
+    if st.button("Season 3", on_click=set_active, args=("Season 3",)):
+        pass
+    if st.button("Overall", on_click=set_active, args=("Overall",)):
+        pass
 
-# Display the selected option
-st.write(f"### 📌 Currently Selected: {st.session_state.active_button}")
-
-# Display different content based on selection
-if st.session_state.active_button == "Season 1":
-    st.write("📢 **Displaying data for Season 1...**")
-elif st.session_state.active_button == "Season 2":
-    st.write("📢 **Displaying data for Season 2...**")
-elif st.session_state.active_button == "Season 3":
-    st.write("📢 **Displaying data for Season 3...**")
-else:
-    st.write("📢 **Displaying overall data...**")
+# Display the active selection
+st.write(f"### Currently selected: {st.session_state.active_button}")
