@@ -225,7 +225,6 @@ def sharks_info(season_df,key,shark_name, occupation, education):
     fig.update_layout(xaxis_title="Column a (Categories)", yaxis_title="Values")
     st.plotly_chart(fig)
 
-    
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
     st.markdown(f"<h1 style='text-align: center;'>{argument}</h1>", unsafe_allow_html=True)
@@ -333,8 +332,6 @@ def seasons_data(argument, season_df,season_sharks):
     with col30:
         pass
     
-        
-
 #sharks data function part2 of the function
 def sharks(season_df):
     st.markdown("""
@@ -524,6 +521,11 @@ with col2:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         season3 = st.button("Season 3", key="s3")
         st.markdown("</div>", unsafe_allow_html=True)
+    with sub_col7:
+        st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
+        overall = st.button("Overall", key="ov")
+        st.markdown("</div>", unsafe_allow_html=True)
+            
 
 
 
@@ -535,6 +537,9 @@ elif season2:
     st.session_state.selected_season = 2
 elif season3:
     st.session_state.selected_season = 3
+elif overall:
+    st.session_state.selected_season = 0
+    
 
 #st.image("Namita.png")
 
@@ -563,6 +568,14 @@ elif st.session_state.selected_season == 3:
     sharks(season3_df)
     st.markdown("---")
     pitches_metrics(season1_df,season3_sharks)
+elif st.session_state.selected_season == 3:
+    argument = " Overall Seasons Analysis!" 
+    season_sharks=season3_sharks+season3_guests
+    seasons_data(argument, filtered_df,All_sharks)
+    st.markdown("---")
+    sharks(filtered_df)
+    st.markdown("---")
+     
 else:
     argument = "  📊 Season 1 Analysis!" 
     season_sharks=season1_sharks+season1_guests
