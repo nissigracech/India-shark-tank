@@ -201,10 +201,11 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
         }
          </style>
          """,unsafe_allow_html=True)
-        
-        st.markdown('<div class="centered">', unsafe_allow_html=True)
-        option = st.selectbox("", guest_list, index=0)  # index=0 sets "Option 1" as default
-        st.markdown("</div>", unsafe_allow_html=True) 
+        col700,col701,col703,col704,col705=st.columns([2,2,1,2,2])
+        with col703:
+            st.markdown('<div class="centered">', unsafe_allow_html=True)
+            option = st.selectbox("", guest_list, index=0)  # index=0 sets "Option 1" as default
+            st.markdown("</div>", unsafe_allow_html=True) 
         keys=option
         
     else:
