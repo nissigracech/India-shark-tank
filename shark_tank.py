@@ -506,7 +506,7 @@ st.markdown("---")
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     sub_col1, sub_col2, sub_col3, sub_col4, sub_col5, sub_col6, sub_col7 = st.columns(
-        [4, 10, 3, 10, 3, 10, 2]
+        [4, 10, 3, 10, 3, 10, 3, 10, 2]
     )
 
     with sub_col2:
