@@ -198,7 +198,9 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
             st.session_state.filter_selectbox = guest_list[0]
 
         if guest_list:  # Now this check will work correctly
-            option = st.selectbox("Select Guest", guest_list, key="filter_selectbox")
+            option = st.selectbox("Select Pitch Perspective",
+    ["All Pitches", "Pitches that Received an Offer", "Pitches that not Recieved an offer", "Pitches that Accepted an Offer"],
+    key=f"filter_selectbox_season{st.session_state.selected_season}")  # Dynamic key
             st.session_state.filter_selectbox = option
             keys=option
         else:
