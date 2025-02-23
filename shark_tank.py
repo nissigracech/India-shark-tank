@@ -633,6 +633,8 @@ elif st.session_state.selected_season == 0:
     st.markdown("---")
     sharks(filtered_df,All_guests)
     st.markdown("---")
+    pitches_metrics(filtered_df,All_guests)
+    
      
 else:
     argument = "  📊 Season 1 Analysis!" 
