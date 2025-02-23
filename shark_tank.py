@@ -507,6 +507,7 @@ st.markdown("""
     /* Full page gradient background */
     body, .stApp {
         background: #292b32 !important;
+        font-family: Arial;
         color: white !important;
     }
 
