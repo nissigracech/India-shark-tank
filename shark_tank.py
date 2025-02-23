@@ -193,7 +193,7 @@ def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
         guest_list,  # Use the provided list here
         key="filter_selectbox")
         key=option
-        return
+        
         
     else:
         image_info="Images/"+key+".jpg"
