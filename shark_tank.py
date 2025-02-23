@@ -190,6 +190,23 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
             season = "season" + str(st.session_state.selected_season)  # Important: Convert to string!
         st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>Guest present in {season} are {",".join(guest_list)}</h2>", unsafe_allow_html=True)
         col700,col701,col703,col704,col705=st.columns([2,2,1,2,2])
+        st.markdown(
+        """
+        <style>
+        div[data-baseweb="select"] > div {  /* Target the selectbox container */
+            width: 300px !important;  /* Set desired width */
+        }
+        div[data-baseweb="select"] > div > div { /* Target the inner container */
+            font-size: 20px !important; /* Set desired font size */
+            height: 50px !important; /* Set a larger height */
+        }
+        div[data-baseweb="select"] > div > div > div { /* Target the dropdown list */
+            font-size: 20px !important; /* Set desired font size */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
         with col703: 
             option = st.selectbox("", guest_list, index=0)  
         keys=option
