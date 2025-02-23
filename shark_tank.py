@@ -38,16 +38,18 @@ season3_df.drop(columns=[ 'Ashneer Present','Ashneer Deal',
                           'Vikas Present','Vikas Deal' ],inplace=True)
 
 st.session_state.selected_guest_shark=""
+st.session_state.selected_guest_shark_filter=""
 def guest_selection(guest_list):
     if "selected_guest_shark" not in st.session_state:
         st.session_state.selected_guest_shark=guest_list[0]
+        st.session_state.selected_guest_shark_filter=guest_list[0]
+        
 
 # Initialize session state variables
 if "selected_season" not in st.session_state:
     st.session_state.selected_season = 1
 if "selected_filter" not in st.session_state:
     st.session_state.selected_filter = "All Pitches"
-
 if "selected_shark" not in st.session_state:
     st.session_state.selected_shark="Namita"
     
@@ -187,8 +189,18 @@ def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
         else:
             season = "season" + str(st.session_state.selected_season)  # Important: Convert to string!
         st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>Guest present in {season}</h2>", unsafe_allow_html=True)
-        key="hi"
-        return
+        option = st.selectbox(
+        "Select Pitch Perspective",
+        guest_list,  # Use the provided list here
+        key="filter_selectbox")
+        key=option
+        st.session_state.selected_filter = option
+
+
+        def update_filter():
+            st.session_state.selected_filter = st.session_state.filter_selectbox
+            st.experimental_rerun()
+        
     else:
         image_info="Images/"+key+".jpg"
         col400,col401,col402,col403=st.columns([3,4,7,3])
