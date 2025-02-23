@@ -387,17 +387,17 @@ def sharks(season_df,guests_list):
     
     
     if st.session_state.selected_shark == "Namita":
-        sharks_info(season_df,"Namita","Namita", "CEO, Emcure Pharmaceuticals", "MBA, Wharton School of the University of Pennsylvania")
+        sharks_info(season_df,"Namita","Namita", "CEO, Emcure Pharmaceuticals", "MBA, Wharton School of the University of Pennsylvania",guests_list)
     elif st.session_state.selected_shark == "Vineeta":
-        sharks_info(season_df,"Vineeta","Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad")
+        sharks_info(season_df,"Vineeta","Vineeta Singh", "CEO, SUGAR Cosmetics", "IIM Ahmedabad",guests_list)
     elif st.session_state.selected_shark == "Anupam":
-        sharks_info(season_df,"Anupam","Anupam Mittal", "Founder & CEO, Shaadi.com", "MBA, Boston College")
+        sharks_info(season_df,"Anupam","Anupam Mittal", "Founder & CEO, Shaadi.com", "MBA, Boston College",guests_list)
     elif st.session_state.selected_shark == "Aman":
-        sharks_info(season_df,"Aman","Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad")
+        sharks_info(season_df,"Aman","Aman Gupta", "Co-Founder and CMO, boAt", "MBA, ISB Hyderabad",guests_list)
     elif st.session_state.selected_shark == "Peyush":
-        sharks_info(season_df,"Peyush","Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore")
+        sharks_info(season_df,"Peyush","Peyush Bansal", "Founder & CEO, Lenskart", "IIM Bangalore",guests_list)
     elif st.session_state.selected_shark == "Guests":
-        sharks_info(season_df,"NA","NA","NA","NA")
+        sharks_info(season_df,"NA","NA","NA","NA",guests_list)
         
    
 #pitches details function part 3
