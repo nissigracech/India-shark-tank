@@ -189,23 +189,9 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
         else:
             season = "season" + str(st.session_state.selected_season)  # Important: Convert to string!
         st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>Guest present in {season} are {",".join(guest_list)}</h2>", unsafe_allow_html=True)
-         
-        st.markdown(
-         """
-        <style>
-        .centered {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 10vh;
-        }
-         </style>
-         """,unsafe_allow_html=True)
         col700,col701,col703,col704,col705=st.columns([2,2,1,2,2])
-        with col703:
-            st.markdown('<div class="centered">', unsafe_allow_html=True)
-            option = st.selectbox("", guest_list, index=0)  # index=0 sets "Option 1" as default
-            st.markdown("</div>", unsafe_allow_html=True) 
+        with col703: 
+            option = st.selectbox("", guest_list, index=0)  
         keys=option
         
     else:
