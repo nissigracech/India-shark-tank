@@ -381,7 +381,7 @@ def sharks(season_df,guests_list):
     elif Peyush:
         st.session_state.selected_shark = "Peyush"
     elif Guests:
-        st.session_state.selected_shark = "Peyush"
+        st.session_state.selected_shark = "Guests"
         
     
     
