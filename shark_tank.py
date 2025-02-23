@@ -176,7 +176,8 @@ def count_shark_deal_amount(data,shark_names):
     
 def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
     if st.st.session_state.selected_shark == "Guests":
-        pass
+        st.write("hii this is about sharks ")
+        return
     else:
         image_info="Images/"+key+".jpg"
         col400,col401,col402,col403=st.columns([3,4,7,3])
