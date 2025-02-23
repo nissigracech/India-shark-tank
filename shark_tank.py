@@ -265,7 +265,7 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
 # seasons data function part1 of the dashboard 
 def seasons_data(argument, season_df,season_sharks):
     st.markdown(f"<h1 style='text-align: center;font-family: \"Times New Roman\", serif; color: #FFD700;'>{argument}</h1>", unsafe_allow_html=True)
-    st.markdown("""<div">&nbsp;</div> """,unsafe_allow_html=True)
+    st.markdown("""<div>&nbsp;</div> """,unsafe_allow_html=True)
     sharks_presence_count=count_shark_presence(season_df,season_sharks)
     sharks_deal_count=count_shark_deal(season_df,season_sharks)
     
