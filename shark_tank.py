@@ -476,7 +476,7 @@ st.markdown("""
 
     /* Button styling */
     .stButton>button {
-        width: 100px;
+        width: 150px;
         font-weight: bold;
         font-size: 32px;
         padding: 18px;
