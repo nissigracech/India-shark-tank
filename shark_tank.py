@@ -200,6 +200,7 @@ def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
         def update_filter():
             st.session_state.selected_filter = st.session_state.filter_selectbox
             st.experimental_rerun()
+        return
         
     else:
         image_info="Images/"+key+".jpg"
