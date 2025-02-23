@@ -175,7 +175,7 @@ def count_shark_deal_amount(data,shark_names):
     return shark_deal_amount
     
 def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
-    if st.st.session_state.selected_shark == "Guests":
+    if st.session_state.selected_shark == "Guests":
         st.write("hii this is about sharks ")
         return
     else:
