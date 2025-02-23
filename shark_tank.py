@@ -189,7 +189,7 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
         else:
             season = "season" + str(st.session_state.selected_season)  # Important: Convert to string!
         st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>Guest present in {season} are {",".join(guest_list)}</h2>", unsafe_allow_html=True)
-        col700,col701,col703,col704,col705=st.columns([2,2,1,2,2])
+        col700,col701,col703,col704,col705=st.columns([4,4,3,4,4])
         st.markdown(
         """
         <style>
