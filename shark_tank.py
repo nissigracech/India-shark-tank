@@ -181,7 +181,7 @@ def count_shark_deal_amount(data,shark_names):
         shark_deal_amount[shark_name]=data[data[deal] == 1]["deal_amount_per_shark"].sum()/100
     return shark_deal_amount
     
-def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
+def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
     if st.session_state.selected_shark == "Guests": 
         guest_selection(guest_list)
         if st.session_state.selected_season == 0:
@@ -200,6 +200,7 @@ def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
         if guest_list:  # Now this check will work correctly
             option = st.selectbox("Select Guest", guest_list, key="filter_selectbox")
             st.session_state.filter_selectbox = option
+            keys=option
         else:
             st.write("No guests are available for this season.")
 
@@ -207,7 +208,7 @@ def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
         
         
     else:
-        image_info="Images/"+key+".jpg"
+        image_info="Images/"+keys+".jpg"
         col400,col401,col402,col403=st.columns([3,4,7,3])
         with col401:
             st.image(image_info,width=300)
@@ -217,8 +218,8 @@ def sharks_info(season_df,key,shark_name, occupation, education,guest_list):
     
     # begin of shark metric cards
     #section 1
-    deal=key+" Deal"
-    present=key+" Present"
+    deal=keys+" Deal"
+    present=keys+" Present"
     #key_df=season_df[deal==1]
     col416,col417,col418,col419,col420=st.columns([1,3,3,3,1])
     with col417:
