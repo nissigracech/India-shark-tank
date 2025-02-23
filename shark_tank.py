@@ -539,9 +539,7 @@ elif season3:
     st.session_state.selected_season = 3
 elif overall:
     st.session_state.selected_season = 0
-    
 
-#st.image("Namita.png")
 
 # Displaying the correct season (using session state)
 if st.session_state.selected_season == 1:
@@ -568,7 +566,7 @@ elif st.session_state.selected_season == 3:
     sharks(season3_df)
     st.markdown("---")
     pitches_metrics(season1_df,season3_sharks)
-elif st.session_state.selected_season == 3:
+elif st.session_state.selected_season == 0:
     argument = " Overall Seasons Analysis!" 
     season_sharks=season3_sharks+season3_guests
     seasons_data(argument, filtered_df,All_sharks)
