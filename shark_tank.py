@@ -237,9 +237,9 @@ def seasons_data(argument, season_df,season_sharks):
     with col1:
         metric_card("Show Host", season_df['Anchor'].mode()[0],"             ")
     with col2:
-        metric_card("Season start Date", season_df['Season Start'].max(),"         ")
+        metric_card("Season start Date", season_df['Season Start'].min(),"         ")
     with col3:
-        metric_card("Season Last date", season_df['Season End'].min(),"          ")
+        metric_card("Season Last date", season_df['Season End'].max(),"          ")
     with col4:
         metric_card("Number of Episodes",season_df['Episode Number'].nunique(),"      ")
         
