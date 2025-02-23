@@ -190,19 +190,22 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
             season = "season" + str(st.session_state.selected_season)  # Important: Convert to string!
         st.markdown(f"<h2 style='text-align: center; color: #FFD700;'>Guest present in {season}</h2>", unsafe_allow_html=True)
         st.markdown(
-            """
-            <style>
-            div[data-baseweb="select"] > div {
-            width: 200px !important;
-            }
-            </style>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        option =st.selectbox("Choose an option:", guest_list)
+         """
+        <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+         </style>
+         """,unsafe_allow_html=True)
         
-        return
+        st.markdown('<div class="centered">', unsafe_allow_html=True)
+        option = st.selectbox("", guest_list, index=0)  # index=0 sets "Option 1" as default
+        st.markdown("</div>", unsafe_allow_html=True) 
+        
+        
     else:
         image_info="Images/"+keys+".jpg"
         col400,col401,col402,col403=st.columns([3,4,7,3])
