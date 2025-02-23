@@ -339,7 +339,7 @@ def seasons_data(argument, season_df,season_sharks):
         pass
     
 #sharks data function part2 of the function
-def sharks(season_df):
+def sharks(season_df,guests_list):
     st.markdown("""
                 <h1 style='text-align: center; font-family: 'Poppins', sans-serif;'>Shark Analysis</h1>
                 """, unsafe_allow_html=True)
