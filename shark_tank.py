@@ -505,7 +505,7 @@ st.markdown("---")
 # Season selection buttons
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    sub_col1, sub_col2, sub_col3, sub_col4, sub_col5, sub_col6, sub_col7 = st.columns(
+    sub_col1, sub_col2, sub_col3, sub_col4, sub_col5, sub_col6, sub_col7,sub_col8,sub_col9 = st.columns(
         [4, 10, 3, 10, 3, 10, 3, 10, 2]
     )
 
@@ -523,7 +523,7 @@ with col2:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         season3 = st.button("Season 3", key="s3")
         st.markdown("</div>", unsafe_allow_html=True)
-    with sub_col7:
+    with sub_col8:
         st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
         overall = st.button("Overall", key="ov")
         st.markdown("</div>", unsafe_allow_html=True)
