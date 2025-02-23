@@ -204,7 +204,7 @@ def sharks_info(season_df,keys,shark_name, occupation, education,guest_list):
         st.markdown('<div class="centered">', unsafe_allow_html=True)
         option = st.selectbox("", guest_list, index=0)  # index=0 sets "Option 1" as default
         st.markdown("</div>", unsafe_allow_html=True) 
-        
+        key=option
         
     else:
         image_info="Images/"+keys+".jpg"
