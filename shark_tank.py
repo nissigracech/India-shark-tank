@@ -696,7 +696,7 @@ fig_shark = px.pie(
     names="Shark",
     values="Deals",
     title="Which Shark Invested the Most?",
-    color_discrete_sequence=px.colors.sequential.Blue
+    color_discrete_sequence=px.colors.sequential.Blues
 )
 
 # Update layout to show names & percentages, and hide legend
