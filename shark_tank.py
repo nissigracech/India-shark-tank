@@ -645,6 +645,39 @@ else:
     pitches_metrics(season1_df,season1_sharks)
       
 
+
+df = pd.read_csv("filtered_df.csv")  # Ensure the correct file path
+
+# Aggregate data: Count of pitches and accepted offers per number of presenters
+presenter_counts = df.groupby("Number of Presenters").agg(
+    Total_Pitches=("Number of Presenters", "count"),
+    Accepted_Offers=("Accepted Offer", "sum")
+).reset_index()
+
+# Creating a grouped bar chart using Plotly Express
+fig = px.bar(
+    presenter_counts,
+    x="Number of Presenters",
+    y=["Total_Pitches", "Accepted_Offers"],
+    barmode="group",  # Side-by-side bars
+    color_discrete_map={
+        "Total_Pitches": "rgb(204, 231, 255)",  # Lightest blue
+        "Accepted_Offers": "rgb(0, 51, 102)"  # Dark blue
+    },
+    labels={"value": "Count", "variable": "Category"},
+    title="Number of Presenters vs. Pitches & Accepted Offers"
+)
+
+# Update layout for better readability
+fig.update_layout(
+    xaxis_title="Number of Presenters",
+    yaxis_title="Count",
+    legend_title="Category",
+    bargap=0.2
+)
+
+# Show figure
+fig.show()
  
 st.markdown("---")
 
