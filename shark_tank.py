@@ -690,7 +690,7 @@ st.title("🦈 Shark Participation in Deals")
 shark_deals = df[["Aman Deal", "Namita Deal", "Peyush Deal", "Vineeta Deal", "Anupam Deal", "Ashneer Deal"]].sum()
 shark_deals_df = pd.DataFrame({"Shark": shark_deals.index, "Deals": shark_deals.values})
 
-# Creating the pie chart
+# Creating the pie chart (Label outside, percentage inside)
 fig_shark = px.pie(
     shark_deals_df,
     names="Shark",
@@ -699,42 +699,19 @@ fig_shark = px.pie(
     color_discrete_sequence=px.colors.sequential.Mint
 )
 
-# Update layout for labels outside (with pointers) and percentages inside
+# Update layout to show labels outside and percentages inside
 fig_shark.update_traces(
-    textinfo="percent",        # Show percentage inside
-    textposition="inside",     # Keep percentage inside
-    insidetextorientation="horizontal",  # Align percentage text
-    hoverinfo="label+percent",  # Show both on hover
-    pull=[0.05] * len(shark_deals_df)   # Slight separation for clarity
+    textinfo="percent",  # Show only percentages inside
+    textposition="outside",  # Move Shark names outside
+    pull=[0.05] * len(shark_deals_df)  # Slight separation for clarity
 )
 
-# Add labels outside with pointers
-fig_shark.update_traces(
-    texttemplate="%{percent}",    # Show percent inside
-    textfont_size=14,
-    marker=dict(line=dict(color="black", width=1)),  # Add border for better visibility
-)
-
-# Ensure Shark names are displayed outside with pointers
-fig_shark.update_layout(
-    annotations=[
-        dict(
-            x=xi, y=yi,
-            text=shark,
-            showarrow=True,
-            arrowhead=2,
-            ax=40, ay=0  # Adjust label placement
-        ) for xi, yi, shark in zip(
-            fig_shark.data[0]['x'],
-            fig_shark.data[0]['y'],
-            shark_deals_df["Shark"]
-        )
-    ],
-    showlegend=False  # Remove legend
-)
+# Hide legend for cleaner visualization
+fig_shark.update_layout(showlegend=False)
 
 # Show figure
 st.plotly_chart(fig_shark, use_container_width=True)
+
 
 st.markdown("---")
 
