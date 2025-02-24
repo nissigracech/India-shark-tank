@@ -690,7 +690,7 @@ st.title("🦈 Shark Participation in Deals")
 shark_deals = df[["Aman Deal", "Namita Deal", "Peyush Deal", "Vineeta Deal", "Anupam Deal", "Ashneer Deal"]].sum()
 shark_deals_df = pd.DataFrame({"Shark": shark_deals.index, "Deals": shark_deals.values})
 
-# Creating the pie chart
+# Creating the pie chart (Only displaying Shark names)
 fig_shark = px.pie(
     shark_deals_df,
     names="Shark",
@@ -699,8 +699,12 @@ fig_shark = px.pie(
     color_discrete_sequence=px.colors.sequential.Mint
 )
 
+# Update layout to show only names
+fig_shark.update_traces(textinfo="label")  # Only display Shark names
+
 # Show figure
 st.plotly_chart(fig_shark, use_container_width=True)
+
 
 st.markdown("---")
 
