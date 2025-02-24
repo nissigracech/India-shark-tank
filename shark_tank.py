@@ -645,10 +645,9 @@ else:
     pitches_metrics(season1_df,season1_sharks)
       
 
-
-df = pd.read_csv("filtered_df.csv")  # Ensure the correct file path
-
-# Aggregate data: Count of pitches and accepted offers per number of presenters
+st.title("📊 Number of Presenters vs. Pitches & Accepted Offers")
+df=pd.read_csv("filtered_df.csv")
+# Aggregating data: Count of pitches and accepted offers per number of presenters
 presenter_counts = df.groupby("Number of Presenters").agg(
     Total_Pitches=("Number of Presenters", "count"),
     Accepted_Offers=("Accepted Offer", "sum")
@@ -676,8 +675,12 @@ fig.update_layout(
     bargap=0.2
 )
 
-# Show figure
-fig.show()
+# Display the chart
+st.plotly_chart(fig, use_container_width=True)
+
+# Insight
+max_presenters = presenter_counts.loc[presenter_counts["Accepted_Offers"].idxmax(), "Number of Presenters"]
+st.write(f"💡 **Insight:** Startups with **{max_presenters} presenters** received the most offers! Maybe it's time to launch your business with friends! 🚀")
  
 st.markdown("---")
 
