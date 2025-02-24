@@ -682,6 +682,26 @@ st.plotly_chart(fig, use_container_width=True)
 max_presenters = presenter_counts.loc[presenter_counts["Accepted_Offers"].idxmax(), "Number of Presenters"]
 st.write(f"💡 **Insight:** Startups with **{max_presenters} presenters** received the most offers! Maybe it's time to launch your business with friends! 🚀")
  
+ 
+ 
+st.title("🦈 Shark Participation in Deals")
+
+# Aggregating shark participation in deals
+shark_deals = df[["Aman Deal", "Namita Deal", "Peyush Deal", "Vineeta Deal", "Anupam Deal", "Ashneer Deal"]].sum()
+shark_deals_df = pd.DataFrame({"Shark": shark_deals.index, "Deals": shark_deals.values})
+
+# Creating the pie chart
+fig_shark = px.pie(
+    shark_deals_df,
+    names="Shark",
+    values="Deals",
+    title="Which Shark Invested the Most?",
+    color_discrete_sequence=px.colors.sequential.Mint
+)
+
+# Show figure
+st.plotly_chart(fig_shark, use_container_width=True)
+
 st.markdown("---")
 
 st.markdown("""
